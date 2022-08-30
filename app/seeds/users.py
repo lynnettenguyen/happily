@@ -4,13 +4,15 @@ from app.models import db, User
 def seed_users():
     demo_users = [
     User(
-        shop_name='KnotDemoShop', first_name='Demo', email='demo@aa.io', password='password'),
+        shop_name='KnotDecorsDemo', first_name='Demo', email='demo@aa.io', password='password'),
     User(
         shop_name='KnotDesigns', first_name='Lynnette', email='lynnetteDemo@aa.io', password='password'),
     User(
         shop_name='KnotReady', first_name='Kristine', email='kristineDemo@aa.io', password='password'),
     User(
         shop_name='KnotBridalWeddings', first_name='Nathan', email='nathanDemo@aa.io', password='password'),
+    User(
+        shop_name='KnotStudios', first_name='Sabrina', email='sabrinaDemo@aa.io', password='password'),
     ]
 
     for user in demo_users:

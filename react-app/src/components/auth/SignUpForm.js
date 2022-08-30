@@ -50,7 +50,7 @@ const SignUpForm = () => {
         ))}
       </div>
       <div>
-        <label>User Name</label>
+        <label>First Name</label>
         <input
           type='text'
           name='firstName'

@@ -11,7 +11,6 @@ class Product(db.Model):
     name = db.Column(db.String(50), nullable=False)
     price = db.Column(db.Float(10, 2), nullable=False)
     description = db.Column(db.String(2000), nullable=False)
-    discount = db.Column(db.Integer)
     created_at = db.Column(db.DateTime(timezone=True),
                            nullable=False, server_default=db.func.now())
     updated_at = db.Column(db.DateTime(timezone=True))
@@ -32,7 +31,6 @@ class Product(db.Model):
             'category': self.category,
             'name': self.name,
             'price': self.price,
-            'discount': self.discount,
             'description': self.description
         }
 
