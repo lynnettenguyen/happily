@@ -9,7 +9,7 @@ def user_exists(form, field):
     email = field.data
     user = User.query.filter(User.email == email).first()
     if user:
-        raise ValidationError('Email address already in use')
+        raise ValidationError('Email address is already in use')
 
 
 def username_exists(form, field):
@@ -22,7 +22,8 @@ def username_exists(form, field):
 
 class SignUpForm(FlaskForm):
     username = StringField(
-        'username', validators=[DataRequired(), username_exists, Length=(min=4, message='Please provide a username at least 4 characters long')])
-    email = StringField('email', validators=[DataRequired(), user_exists, Email('Please provide a valid email address')])
+        'username', validators=[DataRequired(), username_exists, Length(min=4, message='Username must be at least 4 characters long')])
+    email = StringField('email', validators=[DataRequired(
+    ), user_exists, Email('Email address is invalid')])
     password = StringField('password', validators=[DataRequired(), Regexp(
-        '^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$', message='Passwords must contain at least 8 characters, 1 uppercase letter, 1 lowercase letter, and 1 number.')])
+        '^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$', message='Passwords must contain at least 8 characters, 1 uppercase letter, 1 lowercase letter, and 1 number')])
