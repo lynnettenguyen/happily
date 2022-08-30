@@ -10,7 +10,7 @@ class Purchase(db.Model):
         db.Integer, db.ForeignKey('users.id'), nullable=False)
     product_id = db.Column(
         db.Integer, db.ForeignKey('products.id'), nullable=False)
-    product_total = db.Column(db.Decimal(10, 2), nullable=False)
+    product_total = db.Column(db.Float(10, 2), nullable=False)
     created_at = db.Column(db.DateTime(timezone=True),
                            nullable=False, server_default=db.func.now())
 
