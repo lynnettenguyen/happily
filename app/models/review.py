@@ -28,3 +28,8 @@ class Review(db.Model):
             'content': self.content,
             'stars': self.stars
         }
+
+    def to_dict_stars(self):
+        return {
+            'stars' : int(self.stars)
+        }

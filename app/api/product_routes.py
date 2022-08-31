@@ -1,7 +1,8 @@
+from math import prod
 from flask import Blueprint, jsonify, request
 from flask_login import current_user, login_required
 from .auth_routes import validation_errors_to_error_messages
-from app.models import db, Product
+from app.models import db, Product, Review
 from app.forms import ProductForm
 import json
 
@@ -18,11 +19,28 @@ def all_products():
 @product.route("/<int:product_id>")
 # get product by id, include reviews
 def product_by_id(product_id):
-  # product = Product.query.get(product_id)
-  product = db.session.query(Product).options(db.joinedload(Product.reviews)).get(product_id)
+  product = db.session.query(Product).get(product_id)
+  reviews = db.session.query(Review).filter(Review.product_id == product_id).all()
+
+  if reviews is not None:
+    num_reviews = len(reviews)
+    stars = []
+    sum_stars = 0
+
+    for review in reviews:
+      sum_stars += review.to_dict_stars()['stars']
+
+    avg = sum_stars // num_reviews
 
   if product is not None:
-    return jsonify(product.to_dict())
+    product_details = []
+    product = product.to_dict()
+    reviews = [review.to_dict() for review in reviews]
+    product['reviews'] = reviews
+    product['avg_stars'] = avg
+    product_details.append(product)
+
+    return jsonify(product_details)
   else:
     return {'errors': ['Product not found']}, 404
 
