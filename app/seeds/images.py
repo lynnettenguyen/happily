@@ -240,39 +240,87 @@ def seed_images():
     Image(
         user_id=5, product_id=51, url='https://knotsy.s3.us-west-1.amazonaws.com/p51.2.webp'),
     Image(
-        user_id=1, product_id=1, url=''),
+        user_id=5, product_id=52, url='https://knotsy.s3.us-west-1.amazonaws.com/p52.1.webp'),
     Image(
-        user_id=1, product_id=1, url=''),
+        user_id=5, product_id=52, url='https://knotsy.s3.us-west-1.amazonaws.com/p52.2.webp'),
     Image(
-        user_id=1, product_id=1, url=''),
+        user_id=5, product_id=52, url='https://knotsy.s3.us-west-1.amazonaws.com/p52.3.webp'),
     Image(
-        user_id=1, product_id=1, url=''),
+        user_id=5, product_id=52, url='https://knotsy.s3.us-west-1.amazonaws.com/p52.4.webp'),
     Image(
-        user_id=1, product_id=1, url=''),
+        user_id=5, product_id=53, url='https://knotsy.s3.us-west-1.amazonaws.com/p53.1.webp'),
     Image(
-        user_id=1, product_id=1, url=''),
+        user_id=5, product_id=53, url='https://knotsy.s3.us-west-1.amazonaws.com/p53.2.webp'),
     Image(
-        user_id=1, product_id=1, url=''),
+        user_id=5, product_id=53, url='https://knotsy.s3.us-west-1.amazonaws.com/p53.3.webp'),
     Image(
-        user_id=1, product_id=1, url=''),
+        user_id=5, product_id=53, url='https://knotsy.s3.us-west-1.amazonaws.com/p53.4.webp'),
     Image(
-        user_id=1, product_id=1, url=''),
+        user_id=1, product_id=54, url='https://knotsy.s3.us-west-1.amazonaws.com/p54.1.webp'),
     Image(
-        user_id=1, product_id=1, url=''),
+        user_id=1, product_id=54, url='https://knotsy.s3.us-west-1.amazonaws.com/p54.2.webp'),
     Image(
-        user_id=1, product_id=1, url=''),
+        user_id=1, product_id=54, url='https://knotsy.s3.us-west-1.amazonaws.com/p54.3.webp'),
     Image(
-        user_id=1, product_id=1, url=''),
+        user_id=2, product_id=55, url='https://knotsy.s3.us-west-1.amazonaws.com/p55.1.webp'),
     Image(
-        user_id=1, product_id=1, url=''),
+        user_id=2, product_id=55, url='https://knotsy.s3.us-west-1.amazonaws.com/p55.2.webp'),
     Image(
-        user_id=1, product_id=1, url=''),
+        user_id=3, product_id=56, url='https://knotsy.s3.us-west-1.amazonaws.com/p56.1.webp'),
     Image(
-        user_id=1, product_id=1, url=''),
+        user_id=3, product_id=56, url='https://knotsy.s3.us-west-1.amazonaws.com/p56.2.webp'),
     Image(
-        user_id=1, product_id=1, url=''),
+        user_id=3, product_id=57, url='https://knotsy.s3.us-west-1.amazonaws.com/p57.1.webp'),
     Image(
-        user_id=1, product_id=1, url=''),
+        user_id=3, product_id=57, url='https://knotsy.s3.us-west-1.amazonaws.com/p57.2.webp'),
+    Image(
+        user_id=3, product_id=57, url='https://knotsy.s3.us-west-1.amazonaws.com/p57.3.webp'),
+    Image(
+        user_id=6, product_id=58, url='https://knotsy.s3.us-west-1.amazonaws.com/p58.1.webp'),
+    Image(
+        user_id=6, product_id=58, url='https://knotsy.s3.us-west-1.amazonaws.com/p58.2.webp'),
+    Image(
+        user_id=6, product_id=58, url='https://knotsy.s3.us-west-1.amazonaws.com/p58.3.webp'),
+    Image(
+        user_id=6, product_id=59, url='https://knotsy.s3.us-west-1.amazonaws.com/p59.1.webp'),
+    Image(
+        user_id=6, product_id=59, url='https://knotsy.s3.us-west-1.amazonaws.com/p59.2.webp'),
+    Image(
+        user_id=6, product_id=60, url='https://knotsy.s3.us-west-1.amazonaws.com/p60.1.webp'),
+    Image(
+        user_id=6, product_id=60, url='https://knotsy.s3.us-west-1.amazonaws.com/p60.2.webp'),
+    Image(
+        user_id=6, product_id=60, url='https://knotsy.s3.us-west-1.amazonaws.com/p60.3.webp'),
+    Image(
+        user_id=6, product_id=61, url='https://knotsy.s3.us-west-1.amazonaws.com/p61.1.webp'),
+    Image(
+        user_id=6, product_id=61, url='https://knotsy.s3.us-west-1.amazonaws.com/p61.2.webp'),
+    Image(
+        user_id=6, product_id=61, url='https://knotsy.s3.us-west-1.amazonaws.com/p61.3.webp'),
+    Image(
+        user_id=6, product_id=62, url='https://knotsy.s3.us-west-1.amazonaws.com/p62.1.webp'),
+    Image(
+        user_id=3, product_id=63, url='https://knotsy.s3.us-west-1.amazonaws.com/p63.1.webp'),
+    Image(
+        user_id=3, product_id=63, url='https://knotsy.s3.us-west-1.amazonaws.com/p63.2.webp'),
+    Image(
+        user_id=3, product_id=63, url='https://knotsy.s3.us-west-1.amazonaws.com/p63.3.webp'),
+    Image(
+        user_id=2, product_id=64, url='https://knotsy.s3.us-west-1.amazonaws.com/p64.1.webp'),
+    Image(
+        user_id=2, product_id=64, url='https://knotsy.s3.us-west-1.amazonaws.com/p64.2.webp'),
+    Image(
+        user_id=2, product_id=64, url='https://knotsy.s3.us-west-1.amazonaws.com/p64.3.webp'),
+    Image(
+        user_id=2, product_id=65, url='https://knotsy.s3.us-west-1.amazonaws.com/p65.1.webp'),
+    Image(
+        user_id=2, product_id=65, url='https://knotsy.s3.us-west-1.amazonaws.com/p65.2.webp'),
+    Image(
+        user_id=2, product_id=65, url='https://knotsy.s3.us-west-1.amazonaws.com/p65.3.webp'),
+    Image(
+        user_id=3, product_id=66, url='https://knotsy.s3.us-west-1.amazonaws.com/p66.1.webp'),
+    Image(
+        user_id=3, product_id=66, url='https://knotsy.s3.us-west-1.amazonaws.com/p66.2.webp'),
     ]
 
     for image in images:
