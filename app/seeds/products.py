@@ -98,9 +98,9 @@ def seed_products():
     Product(
         seller_id=3, category='Guestbook', name='Classic Guestbook • Modern Wedding Guest Book • Personalized Photo Book • Gold Foil Custom Hardcover Wedding Book', price=44.62, description='These wedding guestbooks are the perfect way to remember your classic wedding. Each hardcover book is complete with a white grosgrain ribbon attached at the top of the spine. Each book is casebound and includes your choice of 50 or 100 sheets on 70 lb. opaque text-weight paper stock.'),
     Product(
-        seller_id=3, category='Guestbook', name='3D Square Guest Book Wedding Alternative, Custom Guest Book, Wooden Guest Book, Wedding Decor, Laser Wedding Guestbook Square', price=95.00, description='This custom 3D guest book sign makes a beautiful personalized addition to your wedding and later to your home. Raised lettering creates a rather unique 3D effect that adds depth and character to the piece.'),
-    Product(
         seller_id=2, category='Guestbook', name='Wedding Guest Book Wedding Guestbook Photo Booth Album Alternative Custom Wedding Guestbook Rustic Guest Book Unique Wedding Guest Book', price=40.50, description='Our wedding guest books are laser engraved with YOUR unique details, every book is one-of-a-kind! Display your custom guest book at your wedding, bridal shower, or other event for all of your friends and family to sign. These make excellent wedding and engagement party gifts- a keepsake that the couple can cherish for years to come!'),
+    Product(
+        seller_id=3, category='Guestbook', name='3D Square Guest Book Wedding Alternative, Custom Guest Book, Wooden Guest Book, Wedding Decor, Laser Wedding Guestbook Square', price=95.00, description='This custom 3D guest book sign makes a beautiful personalized addition to your wedding and later to your home. Raised lettering creates a rather unique 3D effect that adds depth and character to the piece.'),
     Product(
         seller_id=4, category='Guestbook', name='Personalized Wedding Guest Book With Wood / Rustic Wedding Guest Book / Unique Wedding Guest Book Polaroid / Guest Book Alternative -by TOA', price=56.24, description='Design your one-of-a-kind guest book'),
     Product(
@@ -126,7 +126,15 @@ def seed_products():
     Product(
         seller_id=6, category='Groomsmen', name='Metal Cufflinks - Engraved Square Gift Box Optional, Custom Wedding Day Cuff links Gift Groom Dad Groomsmen Father of Bride Groom', price=36.99, description='Listing is for a pair of engraved metal cuff links & optional square walnut gift box (1.5 x 1.5 x 1 in.)'),
     Product(
-        seller_id=6, category='Groomsmen', name='Funny Groomsman Card, Groomsman Calendar Proposal Card - Best Man, Groomsman, Ring Bearer, Bridesman, Man of Honor, Cards for Groomsmen', price=2.45, description='Your choice of Groomsman, Best Man, Ring Bearer, and more! Or custom wording (just leave a note). Includes an optional envelope in your choice of color.')
+        seller_id=6, category='Groomsmen', name='Funny Groomsman Card, Groomsman Calendar Proposal Card - Best Man, Groomsman, Ring Bearer, Bridesman, Man of Honor, Cards for Groomsmen', price=2.45, description='Your choice of Groomsman, Best Man, Ring Bearer, and more! Or custom wording (just leave a note). Includes an optional envelope in your choice of color.'),
+    Product(
+        seller_id=4, category='Guestbook', name='Wedding Guest Book Alternative - Acrylic Wedding Sign - Bridal Shower Guest Book Alternative - Personalized Guestbook - Wedding Gift', price=39.24, description='Say "No" to boring guest book ideas, say "yes" to this beautiful wedding guest book alternative. This one in a kind piece will surely impress everyone at your wedding party. You will treasure it as a beautiful keepsake to cherish the happy memories of your wedding day. Ask your guests to sign a heart and drop into the glass frame.'),
+    Product(
+        seller_id=2, category='Guestbook', name='Acrylic Wedding Guestbook, Guest Book Alternative, Modern Acrylic Guestbook, Rustic Wedding Decor', price=60.00, description='Our guest books are made of acrylic + plywood frame and personalization (your surnames and date), it is done with paint.'),
+    Product(
+        seller_id=2, category='Guestbook', name='Guestbook Heart, Circle, Rectangle / Guest Book Sign/ Acrylic sign/ Acrylic Guestbook By Eli', price=55.00, description='Our guest books are made of acrylic + plywood frame and personalization (your surnames and date), it is done with paint.'),
+    Product(
+        seller_id=3, category='Seating', name='Find Your Seat Escort Card Wedding Sign, Hexagon or Circle Party & Event Seating Chart Sign Modern Boho Wedding Decor (Item - FYC220)', price=35.72, description='This find your seat escort card sign is a beautiful piece for the wedding or event decor that can be used as a sign at the wedding reception escort card display area! Choose your shape! With this beautiful sign, the special day will be unique and memorable! Choose your color from our selection of gorgeous metallic, glitter, and on-trend colors.'),
     ]
 
     for product in products:
