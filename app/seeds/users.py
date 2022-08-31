@@ -12,7 +12,7 @@ def seed_users():
     User(
         shop_name='KnotBridalWeddings', first_name='Chopper', email='chopper@aa.io', password='password'),
     User(
-        shop_name='KnotStudios', first_name='Luffy', email='sanji@aa.io', password='password'),
+        shop_name='KnotStudios', first_name='Luffy', email='luffy@aa.io', password='password'),
     User(
         shop_name='KnotPersonalized', first_name='Sanji', email='sanji@aa.io', password='password'),
     ]
