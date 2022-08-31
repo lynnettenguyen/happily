@@ -26,5 +26,5 @@ class Purchase(db.Model):
             'user_id': self.user_id,
             'product_id': self.product_id,
             'product_total': self.product_total,
-            'created_at': self.created_at,
+            'created_at': self.created_at
         }

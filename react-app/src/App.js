@@ -9,6 +9,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import HomePage from './components/Home/HomePage';
+import ImageUpload from './components/Product/ImageUIpload';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -43,6 +44,9 @@ function App() {
         </ProtectedRoute>
         <Route path='/'>
           <HomePage />
+        </Route>
+        <Route path='/images'>
+          <ImageUpload />
         </Route>
       </Switch>
     </BrowserRouter>
