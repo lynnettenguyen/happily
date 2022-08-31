@@ -26,4 +26,4 @@ RUN pip install psycopg2
 
 # CHANGED FOR WEBSOCKET
 # CMD gunicorn app:app - ORGINAL COMMAND HERE
-CMD gunicorn --worker-class eventlet -w 1 app:app
+CMD gunicorn app:app
