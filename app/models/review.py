@@ -9,7 +9,7 @@ class Review(db.Model):
         db.Integer, db.ForeignKey('users.id'), nullable=False)
     product_id = db.Column(
         db.Integer, db.ForeignKey('products.id'), nullable=False)
-    content = db.Column(db.String(2000), nullable=False)
+    content = db.Column(db.String(1000), nullable=False)
     stars = db.Column(db.Integer, nullable=False)
     created_at = db.Column(db.DateTime(timezone=True),
                            nullable=False, server_default=db.func.now())
