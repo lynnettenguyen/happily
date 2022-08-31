@@ -6,13 +6,15 @@ def seed_users():
     User(
         shop_name='KnotDecorsDemo', first_name='Demo', email='demo@aa.io', password='password'),
     User(
-        shop_name='KnotDesigns', first_name='Lynnette', email='lynnetteDemo@aa.io', password='password'),
+        shop_name='KnotDesigns', first_name='Robin', email='robin@aa.io', password='password'),
     User(
-        shop_name='KnotReady', first_name='Kristine', email='kristineDemo@aa.io', password='password'),
+        shop_name='KnotReady', first_name='Nami', email='nami@aa.io', password='password'),
     User(
-        shop_name='KnotBridalWeddings', first_name='Nathan', email='nathanDemo@aa.io', password='password'),
+        shop_name='KnotBridalWeddings', first_name='Chopper', email='chopper@aa.io', password='password'),
     User(
-        shop_name='KnotStudios', first_name='Sabrina', email='sabrinaDemo@aa.io', password='password'),
+        shop_name='KnotStudios', first_name='Luffy', email='sanji@aa.io', password='password'),
+    User(
+        shop_name='KnotPersonalized', first_name='Sanji', email='sanji@aa.io', password='password'),
     ]
 
     for user in demo_users:

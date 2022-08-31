@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 
-const ImageUpload = ({productId}) => {
+const ImageUpload = ({ productId }) => {
   const history = useHistory();
   const [image, setImage] = useState(null);
   const [imageLoading, setImageLoading] = useState(false);
@@ -39,7 +39,8 @@ const ImageUpload = ({productId}) => {
     setImage(file);
   }
 
-  return (
+  return (<>
+    <h1>IMAGE UPLOAD FORM</h1>
     <form onSubmit={handleSubmit}>
       <input
         type="file"
@@ -49,6 +50,7 @@ const ImageUpload = ({productId}) => {
       <button type="submit">Submit</button>
       {(imageLoading) && <p>Loading...</p>}
     </form>
+  </>
   )
 }
 
