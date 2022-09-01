@@ -10,3 +10,11 @@ NavLink {
 .navBar-link {
   margin: 0 10px;
 }
+
+.navBar-featured-outer {
+  display: flex;
+}
+
+.navBar-feature {
+  margin: 8px;
+}
