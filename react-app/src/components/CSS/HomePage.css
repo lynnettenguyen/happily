@@ -1,0 +1,33 @@
+.home-header {
+  display: flex;
+  justify-content: center;
+  font-family: GuardianEgypThin;
+  font-size: 28px;
+  margin: 20px 0 15px;
+}
+
+.home-featured-circles-outer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.feature-circle-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 20px;
+}
+
+.featured-img {
+  height: 100px;
+  width: 100px;
+  background-color: rgba(128, 128, 128, 0.219);
+  border-radius: 50%;
+}
+
+.featured-name {
+  text-align: center;
+  margin: 10px;
+}

@@ -4,9 +4,9 @@ const ADD_PRODUCT = 'products/ADD_PRODUCT'
 const EDIT_PRODUCT = 'products/EDIT_PRODUCT'
 const DELETE_PRODUCT = 'products/DELETE_PRODUCT'
 
-const getProducts = (product) => ({
+const getProducts = (products) => ({
   type: GET_PRODUCTS,
-  product
+  products
 })
 
 const findProduct = (product) => ({

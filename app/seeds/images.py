@@ -80,13 +80,13 @@ def seed_images():
     Image(
         user_id=1, product_id=19, url='https://knotsy.s3.us-west-1.amazonaws.com/p19.2.webp'),
     Image(
-        user_id=3, product_id=20, url='https://knotsy.s3.us-west-1.amazonaws.com/p20.1.webp'),
+        user_id=3, product_id=20, url='https://knotsy.s3.us-west-1.amazonaws.com/p20.1.jpg'),
     Image(
-        user_id=3, product_id=20, url='https://knotsy.s3.us-west-1.amazonaws.com/p20.2.webp'),
+        user_id=3, product_id=20, url='https://knotsy.s3.us-west-1.amazonaws.com/p20.2.jpg'),
     Image(
-        user_id=3, product_id=20, url='https://knotsy.s3.us-west-1.amazonaws.com/p20.3.webp'),
+        user_id=3, product_id=20, url='https://knotsy.s3.us-west-1.amazonaws.com/p20.3.jpg'),
     Image(
-        user_id=1, product_id=21, url='https://knotsy.s3.us-west-1.amazonaws.com/p21.1.webp'),
+        user_id=1, product_id=21, url='https://knotsy.s3.us-west-1.amazonaws.com/p21.1.jpg'),
     Image(
         user_id=4, product_id=22, url='https://knotsy.s3.us-west-1.amazonaws.com/p22.1.webp'),
     Image(
