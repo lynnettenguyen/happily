@@ -1,14 +1,19 @@
 
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
+import { allCategories, getAllCategories } from '../store/categories';
 import cart from './CSS/Images/cart.svg'
 import './CSS/NavBar.css'
 import shop from './CSS/Images/shop.svg'
 
 const NavBar = () => {
   const user = useSelector(state => state.session.user)
+  const categories = useSelector(allCategories)
+  const dispatch = useDispatch()
+
+  useEffect(() => { dispatch(getAllCategories()) }, [])
 
   return (
     <nav>
@@ -46,11 +51,15 @@ const NavBar = () => {
         </div>
       </div>
       <div className='navBar-featured-outer'>
-        {<div className='navBar-feature'>
-          <NavLink to='/featured/arches'>
-            Loop through categories here
-          </NavLink>
-        </div>}
+        {categories.map((category) => {
+          return (
+              <div className='navBar-feature'>
+                <NavLink to={`/featured/${category.name.toLowerCase()}`}>
+                  {category.display_name}
+                </NavLink>
+              </div>
+          )
+        })}
       </div>
     </nav>
   );
