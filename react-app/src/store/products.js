@@ -9,6 +9,24 @@ const getProducts = (product) => ({
   product
 })
 
+const findProduct = (productId) => ({
+  type: FIND_PRODUCT,
+  productId
+})
+
+const addProduct = (newProduct) => ({
+  type: ADD_PRODUCT,
+  newProduct
+})
+const editProduct = (product) => ({
+  type: EDIT_PRODUCT,
+  product
+})
+const deleteProduct = (productId) => ({
+  type: DELETE_PRODUCT,
+  productId
+})
+
 
 export const getAllProducts = () => async (dispatch) => {
   const response = await fetch(`/api/products`);
