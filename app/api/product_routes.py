@@ -13,12 +13,12 @@ product = Blueprint('products', __name__)
 # list all products on homepage
 def all_products():
   products = [product.to_dict() for product in Product.query.all()]
-  return jsonify(products) # returns an array [{},{}]
+  return jsonify(products)
 
 @product.route("/category/<category_name>")
 # list filtered products by category
 def filter_products_by_category(category_name):
-  products = db.session.query(Product).filter(Product.category == category_name).all()
+  products = db.session.query(Product).filter(Product.category == category_name.title()).all()
 
   product_details = []
 
@@ -30,8 +30,16 @@ def filter_products_by_category(category_name):
       reviews_for_product = db.session.query(Review).filter(Review.product_id == product_id).all()
       reviews = [review.to_dict() for review in reviews_for_product]
 
+      sum_stars = 0
+      if len(reviews_for_product) > 0 :
+        for review in reviews_for_product:
+          sum_stars += review.to_dict_stars()['stars']
+
+        avg = sum_stars // len(reviews_for_product)
+        product['avg_stars'] = avg
+
       product['reviews'] = reviews
-      print("!!!!!!!!", product, "!!!!!!!!")
+      product['num_reviews'] = len(reviews_for_product)
 
       product_details.append(product)
 
