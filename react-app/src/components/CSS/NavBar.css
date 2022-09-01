@@ -5,31 +5,56 @@ NavLink {
 .navBar-outer {
   display: flex;
   flex-direction: row;
-  margin: 30px 0 10px;
+  margin: 20px 0 10px;
   justify-content: center;
+  position: relative
+    /* border: solid 1px red; */
 }
 
 .navBar-link {
-  margin: 0 10px;
+  margin: 0 5px;
+  display: flex;
+  align-items: center;
+}
+
+.navBar-link-icon {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 50%;
+}
+
+.navBar-link-icon:hover,
+.navBar-link-profile:hover {
+  background-color: rgba(128, 128, 128, 0.095);
+}
+
+.navBar-link-profile {
+  padding: 0 5px;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 30%;
 }
 
 .navBar-home {
   color: #F1641E;
-  font-family: GraphikProduktRegular;
-  ;
+  font-family: GuardianEgypRegular;
   font-size: 39px;
   line-height: 19.6px;
+  padding-right: 5px;
 }
 
 .navBar-searchBar-outer {
-  border: black 3px solid;
+  border: black 2.5px solid;
   border-radius: 30px;
   background-color: #F3F3F3;
   width: 75%;
-  height: 45px;
+  height: 43px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0 10px 0 2px;
 }
 
 .searchBar-input {
@@ -42,11 +67,13 @@ NavLink {
     "Droid Sans",
     Arial,
     sans-serif;
+  padding-left: 20px;
+  width: 100%;
 }
 
 .searchBar-glass {
-  height: 30px;
-  padding-right: 20px;
+  height: 28px;
+  padding: 0 20px;
 }
 
 .navBar-featured-outer {

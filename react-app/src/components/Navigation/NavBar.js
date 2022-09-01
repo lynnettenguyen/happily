@@ -32,12 +32,12 @@ const NavBar = () => {
           <img src={magnifyingGlass} className='searchBar-glass' alt='search'></img>
         </div>
         {user ? <>
-          <div className='navBar-link'>
+          <div className='navBar-link-icon'>
             <NavLink to='/shop' exact={true} activeClassName='active'>
               <img src={shop}></img>
             </NavLink>
           </div>
-          <div className='navBar-link'>
+          <div className='navBar-link-profile'>
             <Profile user={user} />
           </div>
         </> : <>
@@ -47,7 +47,7 @@ const NavBar = () => {
             </NavLink>
           </div>
         </>}
-        <div className='navBar-link'>
+        <div className='navBar-link-icon'>
           <NavLink to='/cart' exact={true} activeClassName='active'>
             <img src={cart}></img>
           </NavLink>
