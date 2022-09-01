@@ -21,3 +21,6 @@ class Image(db.Model):
             'product_id': self.product_id,
             'url': self.url,
         }
+
+    def to_url(self):
+        return self.url

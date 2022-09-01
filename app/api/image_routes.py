@@ -1,8 +1,11 @@
 from flask import Blueprint, request
 from app.models import db, Image
+from app.forms import ImageForm
+from .auth_routes import validation_errors_to_error_messages
 from flask_login import current_user, login_required
 from app.awsS3 import (
     upload_file_to_s3, allowed_file, get_unique_filename)
+
 
 image_routes = Blueprint("images", __name__)
 
@@ -12,6 +15,8 @@ image_routes = Blueprint("images", __name__)
 def upload_image():
     if "image" not in request.files:
         return {"errors": "image required"}, 400
+
+    # print(request.files) # ImmutableMultiDict([('image', <FileStorage: 'chopper.png' ('image/png')>)])
 
     image = request.files["image"]
 
@@ -23,14 +28,23 @@ def upload_image():
     upload = upload_file_to_s3(image)
 
     if "url" not in upload:
-        # if the dictionary doesn't have a url key
-        # it means that there was an error when we tried to upload
-        # so we send back that error message
+        # if the dictionary doesn't have a url key, there was an error when we tried to upload
         return upload, 400
 
     url = upload["url"]
-    # flask_login allows us to get the current user from the request
-    new_image = Image(user_id=current_user.id, product_id=request.files['product_id'], url=url)
-    db.session.add(new_image)
-    db.session.commit()
-    return {"url": url}
+
+    form=ImageForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        new_image = Image(
+            user_id=current_user.id,
+            product_id=form.data['product_id'],
+            url=url)
+
+        db.session.add(new_image)
+        db.session.commit()
+        return {"url": url}
+
+    else:
+        return {'errors': validation_errors_to_error_messages(form.errors)}, 400

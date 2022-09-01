@@ -11,4 +11,11 @@ class Category(db.Model):
         return {
             'id': self.id,
             'name': self.name,
+            'display_name': ' & '.join(self.name.split('&'))
         }
+
+    def to_name(self):
+        return self.name
+
+    def to_display_name(self):
+        return self.name

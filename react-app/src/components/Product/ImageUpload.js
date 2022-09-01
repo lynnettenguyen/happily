@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { useSelector } from 'react-redux'
 
-
-const ImageUpload = ({ productId }) => {
+const ImageUpload = () => {
   const history = useHistory();
   const [image, setImage] = useState(null);
   const [imageLoading, setImageLoading] = useState(false);
+  const [productId, setProductId] = useState();
+  const user = useSelector(state => state.session.user)
 
 
   const handleSubmit = async (e) => {
@@ -13,8 +15,10 @@ const ImageUpload = ({ productId }) => {
     const formData = new FormData();
     formData.append("image", image);
     formData.append("product_id", productId);
+    formData.append("user_id", user.id)
     // aws uploads can be a bit slow—displaying
     // some sort of loading message is a good idea
+
     setImageLoading(true);
 
     const res = await fetch('/api/images', {
@@ -28,8 +32,6 @@ const ImageUpload = ({ productId }) => {
     }
     else {
       setImageLoading(false);
-      // a real app would probably use more advanced
-      // error handling
       console.log("error");
     }
   }
@@ -46,6 +48,11 @@ const ImageUpload = ({ productId }) => {
         type="file"
         accept="image/*"
         onChange={updateImage}
+      />
+      <label>Product Id</label>
+      <input
+        type="text"
+        onChange={e => setProductId(e.target.value)}
       />
       <button type="submit">Submit</button>
       {(imageLoading) && <p>Loading...</p>}

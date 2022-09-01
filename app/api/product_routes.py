@@ -2,18 +2,33 @@ from math import prod
 from flask import Blueprint, jsonify, request
 from flask_login import current_user, login_required
 from .auth_routes import validation_errors_to_error_messages
-from app.models import db, Product, Review
+from app.models import db, Product, Review, Image, Category
 from app.forms import ProductForm
-import json
+from datetime import date
 
 product = Blueprint('products', __name__)
 
 
 @product.route("")
-# list all products on homepage
+# list all products on homepage, include first image
 def all_products():
-  products = [product.to_dict() for product in Product.query.all()]
-  return jsonify(products)
+  products = Product.query.all()
+
+  product_details = []
+
+  if products is not None:
+    for product in products:
+      product_id = product.to_dict_product_id()['id']
+      product = product.to_dict()
+
+      main_image = db.session.query(Image).filter(Image.product_id == product_id).first()
+
+      product['image'] = main_image.to_url()
+
+      product_details.append(product)
+
+    return jsonify(product_details)
+
 
 @product.route("/category/<category_name>")
 # list filtered products by category
@@ -27,6 +42,8 @@ def filter_products_by_category(category_name):
       product_id = product.to_dict_product_id()['id']
       product = product.to_dict()
 
+      main_image = db.session.query(Image).filter(Image.product_id == product_id).first()
+
       reviews_for_product = db.session.query(Review).filter(Review.product_id == product_id).all()
       reviews = [review.to_dict() for review in reviews_for_product]
 
@@ -38,6 +55,7 @@ def filter_products_by_category(category_name):
         avg = sum_stars // len(reviews_for_product)
         product['avg_stars'] = avg
 
+      product['image'] = main_image.to_url()
       product['reviews'] = reviews
       product['num_reviews'] = len(reviews_for_product)
 
@@ -46,27 +64,31 @@ def filter_products_by_category(category_name):
     return jsonify(product_details)
 
 
+
 @product.route("/<int:product_id>")
-# get product by id, include reviews
+# get product by id, include reviews, images
 def product_by_id(product_id):
   product = db.session.query(Product).get(product_id)
   reviews = db.session.query(Review).filter(Review.product_id == product_id).all()
+  images = db.session.query(Image).filter(Image.product_id == product_id).all()
 
+  avg = None
   if reviews is not None:
     num_reviews = len(reviews)
-    stars = []
-    sum_stars = 0
 
-    for review in reviews:
-      sum_stars += review.to_dict_stars()['stars']
+    if num_reviews > 0:
+      sum_stars = 0
 
-    avg = sum_stars // num_reviews
+      for review in reviews:
+        sum_stars += review.to_dict_stars()['stars']
+
+      avg = sum_stars // num_reviews
 
   if product is not None:
     product_details = []
     product = product.to_dict()
-    reviews = [review.to_dict() for review in reviews]
-    product['reviews'] = reviews
+    product['reviews'] = [review.to_dict() for review in reviews]
+    product['images'] = [image.to_url() for image in images]
     product['avg_stars'] = avg
     product_details.append(product)
 
@@ -82,7 +104,9 @@ def add_product():
   form = ProductForm()
   form['csrf_token'].data = request.cookies['csrf_token']
 
-  form.category.choices=[]
+  categories = Category.query.all()
+
+  form.category.choices=[(category.to_name(), category.to_display_name() )for category in categories]
 
   if form.validate_on_submit():
 
@@ -103,94 +127,48 @@ def add_product():
     return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
 
-# @product.route("/<int:server_id>", methods=['PUT'])
-# @login_required
-# # edit server's name or picture by server id
-# def edit_server(server_id):
-#   server = Server.query.get(server_id)
-#   update = request.json
+@product.route("/<int:product_id>", methods=['PUT'])
+@login_required
+# edit product by id
+def edit_product(product_id):
+  product = Product.query.get(product_id).to_dict()
 
-#   if 'name' in update.keys():
-#     server.name = update['name']
-#   if 'server_pic' in update.keys():
-#     server.server_pic = update['server_pic']
+  if product['seller_id'] == current_user.id:
 
-#   db.session.commit()
-#   return jsonify(server.to_dict()), 200
+    update = request.json
 
+    if 'category' in update.keys():
+      product['category'] = update['category']
+    if 'name' in update.keys():
+      product['name'] = update['name']
+    if 'price' in update.keys():
+      product['price'] = update['price']
+    if 'description' in update.keys():
+      product['description'] = update['description']
 
-# @product.route("/<int:server_id>", methods=['DELETE'])
-# @login_required
-# # delete server by id
-# def delete_server(server_id):
-#   server = Server.query.get(server_id)
-#   db.session.delete(server)
-#   db.session.commit()
+    product['updated_at'] = date.today()
 
-#   return jsonify({
-#     'message': 'Server successfully deleted',
-#     'status_code': 200
-#   }), 200
+    db.session.commit()
+    return jsonify(product), 201
+
+  else:
+    return {'errors': ['Unauthorized']}, 403
 
 
-# @product.route("/<int:server_id>/channels")
-# @login_required
-# # get all server's channels
-# def get_channels(server_id):
-#   server = Server.query.get(server_id)
-#   channels = [channel.to_dict() for channel in server.channels]
-#   return jsonify(channels)
+@product.route("/<int:product_id>", methods=['DELETE'])
+@login_required
+# delete product by id
+def delete_product(product_id):
+  product = Product.query.get(product_id).to_dict()
 
+  if product['seller_id'] == current_user.id:
+    db.session.delete(product)
+    db.session.commit()
 
-# @product.route("/<int:server_id>/channels", methods=['POST'])
-# @login_required
-# # create new channels within servers
-# def create_channel(server_id):
-#   form = ChannelForm()
-#   form['csrf_token'].data = request.cookies['csrf_token']
+    return jsonify({
+      'message': 'Product successfully deleted',
+      'status_code': 200
+    }), 200
 
-#   if form.validate_on_submit():
-#     # create channel
-#     channel = Channel(
-#       server_id = server_id,
-#       name=form.data['name'],
-#       topic=form.data['topic']
-#     )
-
-#     db.session.add(channel)
-#     db.session.commit()
-
-#     return jsonify(channel.to_dict()), 201
-
-#   else:
-#     return {'errors': validation_errors_to_error_messages(form.errors)}, 400
-
-
-# @product.route("/<int:server_id>/channels/<int:channel_id>", methods=['PUT'])
-# @login_required
-# # edit channel's name or topic by channel id
-# def edit_channel(server_id, channel_id):
-#   channel = Channel.query.filter(Channel.id == channel_id, Channel.server_id == server_id).first()
-#   update = request.json
-
-#   if 'name' in update.keys():
-#     channel.name = update['name']
-#   if 'topic' in update.keys():
-#     channel.topic = update['topic']
-
-#   db.session.commit()
-#   return jsonify(channel.to_dict()), 200
-
-
-# @product.route("/<int:server_id>/channels/<int:channel_id>", methods=['DELETE'])
-# @login_required
-# # delete channel by id
-# def delete_channel(server_id, channel_id):
-#   channel = Channel.query.filter(Channel.id == channel_id, Channel.server_id == server_id).first()
-#   db.session.delete(channel)
-#   db.session.commit()
-
-#   return jsonify({
-#     'message': 'Server successfully deleted',
-#     'status_code': 200
-#   }), 200
+  else:
+    return {'errors': ['Unauthorized']}, 403
