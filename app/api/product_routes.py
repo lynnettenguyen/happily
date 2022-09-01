@@ -2,7 +2,7 @@ from math import prod
 from flask import Blueprint, jsonify, request
 from flask_login import current_user, login_required
 from .auth_routes import validation_errors_to_error_messages
-from app.models import db, Product, Review
+from app.models import db, Product, Review, Image
 from app.forms import ProductForm
 import json
 
@@ -10,10 +10,24 @@ product = Blueprint('products', __name__)
 
 
 @product.route("")
-# list all products on homepage
+# list all products on homepage, include first image
 def all_products():
-  products = [product.to_dict() for product in Product.query.all()]
-  return jsonify(products)
+  products = Product.query.all()
+
+  product_details = []
+
+  if products is not None:
+    for product in products:
+      product_id = product.to_dict_product_id()['id']
+      product = product.to_dict()
+
+      main_image = db.session.query(Image).filter(Image.product_id == product_id).first()
+
+      product['image'] = main_image.to_url()
+
+      product_details.append(product)
+
+    return jsonify(product_details)
 
 @product.route("/category/<category_name>")
 # list filtered products by category
@@ -27,6 +41,8 @@ def filter_products_by_category(category_name):
       product_id = product.to_dict_product_id()['id']
       product = product.to_dict()
 
+      main_image = db.session.query(Image).filter(Image.product_id == product_id).first()
+
       reviews_for_product = db.session.query(Review).filter(Review.product_id == product_id).all()
       reviews = [review.to_dict() for review in reviews_for_product]
 
@@ -38,6 +54,7 @@ def filter_products_by_category(category_name):
         avg = sum_stars // len(reviews_for_product)
         product['avg_stars'] = avg
 
+      product['image'] = main_image.to_url()
       product['reviews'] = reviews
       product['num_reviews'] = len(reviews_for_product)
 
@@ -47,10 +64,11 @@ def filter_products_by_category(category_name):
 
 
 @product.route("/<int:product_id>")
-# get product by id, include reviews
+# get product by id, include reviews, images
 def product_by_id(product_id):
   product = db.session.query(Product).get(product_id)
   reviews = db.session.query(Review).filter(Review.product_id == product_id).all()
+  images = db.session.query(Image).filter(Image.product_id == product_id).all()
 
   if reviews is not None:
     num_reviews = len(reviews)
@@ -65,8 +83,8 @@ def product_by_id(product_id):
   if product is not None:
     product_details = []
     product = product.to_dict()
-    reviews = [review.to_dict() for review in reviews]
-    product['reviews'] = reviews
+    product['reviews'] = [review.to_dict() for review in reviews]
+    product['images'] = [image.to_url() for image in images]
     product['avg_stars'] = avg
     product_details.append(product)
 
