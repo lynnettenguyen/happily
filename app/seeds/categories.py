@@ -3,17 +3,15 @@ from app.models import db, Category
 
 def seed_categories():
     categories = [
-    Category(name='Arch'),
-    Category(name='Attire'),
-    Category(name='Bar'),
-    Category(name='Decor'),
-    Category(name='Gift'),
-    Category(name='Glassware'),
-    Category(name='Groomsmen'),
+    Category(name='Arches'),
+    Category(name='Attire & Accessories'),
+    Category(name='Bar & Menu'),
+    Category(name='Favors & Gifts'),
+    Category(name='Groom & Groomsmen'),
     Category(name='Guestbook'),
-    Category(name='Jewelry'),
     Category(name='Seating'),
-    Category(name='Signage')
+    Category(name='Signage'),
+    Category(name='Table Decor & Centerpieces')
     ]
 
     for category in categories:
