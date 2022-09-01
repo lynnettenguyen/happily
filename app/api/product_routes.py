@@ -2,7 +2,7 @@ from math import prod
 from flask import Blueprint, jsonify, request
 from flask_login import current_user, login_required
 from .auth_routes import validation_errors_to_error_messages
-from app.models import db, Product, Review, Image
+from app.models import db, Product, Review, Image, Category
 from app.forms import ProductForm
 import json
 
@@ -100,7 +100,9 @@ def add_product():
   form = ProductForm()
   form['csrf_token'].data = request.cookies['csrf_token']
 
-  form.category.choices=[]
+  categories = Category.query.all()
+
+  form.category.choices=[(category.to_dict_name(), category.to_dict_name() )for category in categories]
 
   if form.validate_on_submit():
 
