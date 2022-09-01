@@ -7,8 +7,8 @@ NavLink {
   flex-direction: row;
   margin: 20px 0 10px;
   justify-content: center;
-  position: relative
-    /* border: solid 1px red; */
+  position: relative;
+  padding: 0 4rem;
 }
 
 .navBar-link {
@@ -30,11 +30,11 @@ NavLink {
 }
 
 .navBar-link-profile {
-  padding: 0 5px;
+  padding: 0 8px 5px;
   margin-left: 10px;
   display: flex;
   align-items: center;
-  border-radius: 30%;
+  border-radius: 35%;
 }
 
 .navBar-home {
@@ -82,4 +82,13 @@ NavLink {
 
 .navBar-feature {
   margin: 8px;
+}
+
+.navBar-featured-outer {
+  display: flex;
+  justify-content: space-around;
+  font-family: GraphikLight;
+  font-size: 0.85rem;
+  padding: 0 3rem;
+  box-sizing: border-box;
 }

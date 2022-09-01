@@ -18,51 +18,53 @@ const NavBar = () => {
 
   return (
     <nav>
-      <div className='navBar-outer'>
-        <div className='navBar-link'>
-          <NavLink to='/' exact={true} activeClassName='active'>
-            <div className='navBar-home'>Knotsy</div>
-          </NavLink>
-        </div>
-        <div className='navBar-searchBar-outer'>
-          <input
-            placeholder='Search for anything'
-            className='searchBar-input'
-          />
-          <img src={magnifyingGlass} className='searchBar-glass' alt='search'></img>
-        </div>
-        {user ? <>
-          <div className='navBar-link-icon'>
-            <NavLink to='/shop' exact={true} activeClassName='active'>
-              <img src={shop}></img>
-            </NavLink>
-          </div>
-          <div className='navBar-link-profile'>
-            <Profile user={user} />
-          </div>
-        </> : <>
+      <div className='navBar-main'>
+        <div className='navBar-outer'>
           <div className='navBar-link'>
-            <NavLink to='/sign-in' exact={true} activeClassName='active'>
-              Sign In
+            <NavLink to='/' exact={true} activeClassName='active'>
+              <div className='navBar-home'>Knotsy</div>
             </NavLink>
           </div>
-        </>}
-        <div className='navBar-link-icon'>
-          <NavLink to='/cart' exact={true} activeClassName='active'>
-            <img src={cart}></img>
-          </NavLink>
-        </div>
-      </div>
-      <div className='navBar-featured-outer'>
-        {categories.map((category, i) => {
-          return (
-            <div className='navBar-feature' key={i}>
-              <NavLink to={`/featured/${category.name.toLowerCase()}`}>
-                {category.display_name}
+          <div className='navBar-searchBar-outer'>
+            <input
+              placeholder='Search for anything'
+              className='searchBar-input'
+            />
+            <img src={magnifyingGlass} className='searchBar-glass' alt='search'></img>
+          </div>
+          {user ? <>
+            <div className='navBar-link-icon'>
+              <NavLink to='/shop' exact={true} activeClassName='active'>
+                <img src={shop}></img>
               </NavLink>
             </div>
-          )
-        })}
+            <div className='navBar-link-profile'>
+              <Profile user={user} />
+            </div>
+          </> : <>
+            <div className='navBar-link'>
+              <NavLink to='/sign-in' exact={true} activeClassName='active'>
+                Sign In
+              </NavLink>
+            </div>
+          </>}
+          <div className='navBar-link-icon'>
+            <NavLink to='/cart' exact={true} activeClassName='active'>
+              <img src={cart}></img>
+            </NavLink>
+          </div>
+        </div>
+        <div className='navBar-featured-outer'>
+          {categories.map((category, i) => {
+            return (
+              <div className='navBar-feature' key={i}>
+                <NavLink to={`/featured/${category.name.toLowerCase()}`}>
+                  {category.display_name}
+                </NavLink>
+              </div>
+            )
+          })}
+        </div>
       </div>
     </nav>
   );
