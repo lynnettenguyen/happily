@@ -29,6 +29,7 @@ def all_products():
 
     return jsonify(product_details)
 
+
 @product.route("/category/<category_name>")
 # list filtered products by category
 def filter_products_by_category(category_name):
@@ -63,6 +64,7 @@ def filter_products_by_category(category_name):
     return jsonify(product_details)
 
 
+
 @product.route("/<int:product_id>")
 # get product by id, include reviews, images
 def product_by_id(product_id):
@@ -70,15 +72,17 @@ def product_by_id(product_id):
   reviews = db.session.query(Review).filter(Review.product_id == product_id).all()
   images = db.session.query(Image).filter(Image.product_id == product_id).all()
 
+  avg = None
   if reviews is not None:
     num_reviews = len(reviews)
-    stars = []
-    sum_stars = 0
 
-    for review in reviews:
-      sum_stars += review.to_dict_stars()['stars']
+    if num_reviews > 0:
+      sum_stars = 0
 
-    avg = sum_stars // num_reviews
+      for review in reviews:
+        sum_stars += review.to_dict_stars()['stars']
+
+      avg = sum_stars // num_reviews
 
   if product is not None:
     product_details = []
@@ -127,8 +131,7 @@ def add_product():
 @login_required
 # edit product by id
 def edit_product(product_id):
-  product = Product.query.get(product_id)
-  product = product.to_dict()
+  product = Product.query.get(product_id).to_dict()
 
   if product['seller_id'] == current_user.id:
 
@@ -143,85 +146,29 @@ def edit_product(product_id):
     if 'description' in update.keys():
       product['description'] = update['description']
 
+    product['updated_at'] = date.today()
+
     db.session.commit()
     return jsonify(product), 201
 
   else:
-    return  {'errors': ['Unauthorized']}, 403
+    return {'errors': ['Unauthorized']}, 403
 
 
-@product.route("/<int:server_id>", methods=['DELETE'])
+@product.route("/<int:product_id>", methods=['DELETE'])
 @login_required
-# delete server by id
-def delete_server(server_id):
-  server = Server.query.get(server_id)
-  db.session.delete(server)
-  db.session.commit()
+# delete product by id
+def delete_product(product_id):
+  product = Product.query.get(product_id).to_dict()
 
-  return jsonify({
-    'message': 'Server successfully deleted',
-    'status_code': 200
-  }), 200
+  if product['seller_id'] == current_user.id:
+    db.session.delete(product)
+    db.session.commit()
 
+    return jsonify({
+      'message': 'Product successfully deleted',
+      'status_code': 200
+    }), 200
 
-# @product.route("/<int:server_id>/channels")
-# @login_required
-# # get all server's channels
-# def get_channels(server_id):
-#   server = Server.query.get(server_id)
-#   channels = [channel.to_dict() for channel in server.channels]
-#   return jsonify(channels)
-
-
-# @product.route("/<int:server_id>/channels", methods=['POST'])
-# @login_required
-# # create new channels within servers
-# def create_channel(server_id):
-#   form = ChannelForm()
-#   form['csrf_token'].data = request.cookies['csrf_token']
-
-#   if form.validate_on_submit():
-#     # create channel
-#     channel = Channel(
-#       server_id = server_id,
-#       name=form.data['name'],
-#       topic=form.data['topic']
-#     )
-
-#     db.session.add(channel)
-#     db.session.commit()
-
-#     return jsonify(channel.to_dict()), 201
-
-#   else:
-#     return {'errors': validation_errors_to_error_messages(form.errors)}, 400
-
-
-# @product.route("/<int:server_id>/channels/<int:channel_id>", methods=['PUT'])
-# @login_required
-# # edit channel's name or topic by channel id
-# def edit_channel(server_id, channel_id):
-#   channel = Channel.query.filter(Channel.id == channel_id, Channel.server_id == server_id).first()
-#   update = request.json
-
-#   if 'name' in update.keys():
-#     channel.name = update['name']
-#   if 'topic' in update.keys():
-#     channel.topic = update['topic']
-
-#   db.session.commit()
-#   return jsonify(channel.to_dict()), 200
-
-
-# @product.route("/<int:server_id>/channels/<int:channel_id>", methods=['DELETE'])
-# @login_required
-# # delete channel by id
-# def delete_channel(server_id, channel_id):
-#   channel = Channel.query.filter(Channel.id == channel_id, Channel.server_id == server_id).first()
-#   db.session.delete(channel)
-#   db.session.commit()
-
-#   return jsonify({
-#     'message': 'Server successfully deleted',
-#     'status_code': 200
-#   }), 200
+  else:
+    return {'errors': ['Unauthorized']}, 403
