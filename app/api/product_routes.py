@@ -106,7 +106,7 @@ def add_product():
 
   categories = Category.query.all()
 
-  form.category.choices=[(category.to_dict_name(), category.to_dict_name() )for category in categories]
+  form.category.choices=[(category.to_name(), category.to_display_name() )for category in categories]
 
   if form.validate_on_submit():
 

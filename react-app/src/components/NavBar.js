@@ -45,6 +45,13 @@ const NavBar = () => {
           </NavLink>
         </div>
       </div>
+      <div className='navBar-featured-outer'>
+        {<div className='navBar-feature'>
+          <NavLink to='/featured/arches'>
+            Loop through categories here
+          </NavLink>
+        </div>}
+      </div>
     </nav>
   );
 }

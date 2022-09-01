@@ -4,10 +4,10 @@ from app.models import db, Category
 def seed_categories():
     categories = [
     Category(name='Arches'),
-    Category(name='Attire & Accessories'),
-    Category(name='Bar & Menu'),
-    Category(name='Favors & Gifts'),
-    Category(name='Groom & Groomsmen'),
+    Category(name='Attire&Accessories'),
+    Category(name='Bar&Menu'),
+    Category(name='Favors&Gifts'),
+    Category(name='Groom&Groomsmen'),
     Category(name='Guestbook'),
     Category(name='Seating'),
     Category(name='Signage'),

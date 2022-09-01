@@ -10,8 +10,12 @@ class Category(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'name': self.name
+            'name': self.name,
+            'display_name': ' & '.join(self.name.split('&'))
         }
 
-    def to_dict_name(self):
+    def to_name(self):
+        return self.name
+
+    def to_display_name(self):
         return self.name
