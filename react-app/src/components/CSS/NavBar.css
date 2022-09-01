@@ -1,0 +1,12 @@
+NavLink {
+  text-decoration: none;
+}
+
+.navBar-outer {
+  display: flex;
+  flex-direction: row;
+}
+
+.navBar-link {
+  margin: 0 10px;
+}

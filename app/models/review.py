@@ -9,7 +9,7 @@ class Review(db.Model):
         db.Integer, db.ForeignKey('users.id'), nullable=False)
     product_id = db.Column(
         db.Integer, db.ForeignKey('products.id'), nullable=False)
-    content = db.Column(db.String(2000), nullable=False)
+    content = db.Column(db.String(1000), nullable=False)
     stars = db.Column(db.Integer, nullable=False)
     created_at = db.Column(db.DateTime(timezone=True),
                            nullable=False, server_default=db.func.now())
@@ -26,5 +26,11 @@ class Review(db.Model):
             'user_id': self.user_id,
             'product_id': self.product_id,
             'content': self.content,
-            'stars': self.stars
+            'stars': self.stars,
+            'created_at': self.created_at
+        }
+
+    def to_dict_stars(self):
+        return {
+            'stars' : int(self.stars)
         }

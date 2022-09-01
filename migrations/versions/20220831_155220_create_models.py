@@ -1,8 +1,8 @@
 """create models
 
-Revision ID: 755dbf58979b
+Revision ID: 542910ce9dd4
 Revises: 
-Create Date: 2022-08-30 20:16:57.946530
+Create Date: 2022-08-31 15:52:20.272124
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '755dbf58979b'
+revision = '542910ce9dd4'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -32,10 +32,10 @@ def upgrade():
     op.create_table('products',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('seller_id', sa.Integer(), nullable=False),
-    sa.Column('category', sa.String(length=255), nullable=False),
-    sa.Column('name', sa.String(length=50), nullable=False),
-    sa.Column('price', sa.Float(precision=10, asdecimal=2), nullable=False),
-    sa.Column('description', sa.String(length=2000), nullable=False),
+    sa.Column('category', sa.String(length=50), nullable=False),
+    sa.Column('name', sa.String(length=255), nullable=False),
+    sa.Column('price', sa.Float(precision=2), nullable=False),
+    sa.Column('description', sa.String(length=1000), nullable=False),
     sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
     sa.Column('updated_at', sa.DateTime(timezone=True), nullable=True),
     sa.ForeignKeyConstraint(['seller_id'], ['users.id'], ),
@@ -65,7 +65,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('product_id', sa.Integer(), nullable=False),
-    sa.Column('content', sa.String(length=2000), nullable=False),
+    sa.Column('content', sa.String(length=1000), nullable=False),
     sa.Column('stars', sa.Integer(), nullable=False),
     sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
     sa.Column('updated_at', sa.DateTime(timezone=True), nullable=True),
