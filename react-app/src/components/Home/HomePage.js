@@ -59,7 +59,7 @@ const HomePage = () => {
               <div className='display-img-outer' >
                 <img src={product.image} className={`display-product-img img${i}`} alt='product'></img>
               </div>
-              <div className='display-product-price'>${product.price}</div>
+              <div className='display-product-price'>${product.price.toFixed(2)}</div>
             </div>
           )
         })}
