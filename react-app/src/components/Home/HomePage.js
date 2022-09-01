@@ -52,15 +52,15 @@ const HomePage = () => {
         </div>
       </div>
 
-      <div>
+      <div className='display-product-main'>
         {displayedProducts?.map((product, i) => {
           return (
-            <>
-              <div>
-                <img src={product.image}></img>
-                <div>${product.price}</div>
+            <div className={`display-product-outer img${i}`} >
+              <div className='display-img-outer' >
+                <img src={product.image} className={`display-product-img img${i}`} alt='product'></img>
               </div>
-            </>
+              <div className='display-product-price'>${product.price}</div>
+            </div>
           )
         })}
       </div>
