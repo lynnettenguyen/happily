@@ -10,10 +10,32 @@ product = Blueprint('products', __name__)
 
 
 @product.route("")
-# list all products
+# list all products on homepage
 def all_products():
   products = [product.to_dict() for product in Product.query.all()]
   return jsonify(products) # returns an array [{},{}]
+
+@product.route("/category/<category_name>")
+# list filtered products by category
+def filter_products_by_category(category_name):
+  products = db.session.query(Product).filter(Product.category == category_name).all()
+
+  product_details = []
+
+  if products is not None:
+    for product in products:
+      product_id = product.to_dict_product_id()['id']
+      product = product.to_dict()
+
+      reviews_for_product = db.session.query(Review).filter(Review.product_id == product_id).all()
+      reviews = [review.to_dict() for review in reviews_for_product]
+
+      product['reviews'] = reviews
+      print("!!!!!!!!", product, "!!!!!!!!")
+
+      product_details.append(product)
+
+    return jsonify(product_details)
 
 
 @product.route("/<int:product_id>")

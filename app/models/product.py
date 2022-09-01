@@ -44,3 +44,8 @@ class Product(db.Model):
             'description': self.description,
             'created_at': self.created_at,
         }
+
+    def to_dict_product_id(self):
+        return {
+            'id': self.id,
+        }
