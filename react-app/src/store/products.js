@@ -9,6 +9,25 @@ const getProducts = (product) => ({
   product
 })
 
+const findProduct = (product) => ({
+  type: FIND_PRODUCT,
+  product
+})
+
+const addProduct = (newProduct) => ({
+  type: ADD_PRODUCT,
+  newProduct
+})
+
+const editProduct = (product) => ({
+  type: EDIT_PRODUCT,
+  product
+})
+
+const deleteProduct = (productId) => ({
+  type: DELETE_PRODUCT,
+  productId
+})
 
 export const getAllProducts = () => async (dispatch) => {
   const response = await fetch(`/api/products`);
@@ -20,13 +39,100 @@ export const getAllProducts = () => async (dispatch) => {
   }
 }
 
+export const findProductById = (productId) => async (dispatch) => {
+  const response = await fetch(`/api/products/${productId}`)
+
+  if (response.ok) {
+    const product = await response.json()
+    dispatch(findProduct(product))
+    return product;
+  }
+}
+
+export const findProductsByCategory = (category) => async (dispatch) => {
+  const response = await fetch(`/api/categories/${category}`)
+
+  if (response.ok) {
+    const product = await response.json()
+    dispatch(findProduct(product))
+    return product;
+  }
+}
+
+export const addNewProduct = (productData) => async (dispatch) => {
+  const { sellerId, category, name, price, description } = productData;
+  const response = await fetch(`/api/products`, {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      sellerId, category, name, price, description
+    })
+  })
+
+  if (response.ok) {
+    const newProduct = await response.json()
+    dispatch(addProduct(newProduct));
+    return newProduct;
+  }
+}
+
+export const updateProduct = (productData) => async (dispatch) => {
+  const { id, sellerId, category, name, price, description, updatedAt } = productData;
+  const response = await fetch(`/api/products/${id}`, {
+    method: "PUT",
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      sellerId, category, name, price, description, updatedAt
+    })
+  })
+
+  if (response.ok) {
+    const product = await response.json()
+    dispatch(editProduct(product));
+    return product;
+  }
+}
+
+export const removeProduct = (productId) => async (dispatch) => {
+  const response = await fetch(`/api/products/${productId}`, {
+    method: "DELETE"
+  })
+
+  if (response.ok) {
+    const product = await response.json();
+    dispatch(deleteProduct(productId))
+    return product;
+  }
+}
+
 
 const productsReducer = (state = {}, action) => {
   let newState = {}
   switch (action.type) {
     case GET_PRODUCTS: {
+      newState = { ...state }
       for (let product of action.products) newState[product.id] = product
       return newState
+    }
+    case FIND_PRODUCT: {
+      newState[action.product.id] = action.product
+      return newState
+    }
+    case ADD_PRODUCT: {
+      newState[action.newProduct.id] = action.newProduct
+      return { ...state, ...newState }
+    }
+    case EDIT_PRODUCT: {
+      newState[action.product.id] = action.product
+      return { ...state, ...newState }
+    }
+    case DELETE_PRODUCT: {
+      delete newState[action.productId]
+      return { ...state, ...newState }
     }
     default:
       return state;
