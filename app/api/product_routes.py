@@ -4,7 +4,7 @@ from flask_login import current_user, login_required
 from .auth_routes import validation_errors_to_error_messages
 from app.models import db, Product, Review, Image, Category
 from app.forms import ProductForm
-import json
+from datetime import date
 
 product = Blueprint('products', __name__)
 
@@ -123,34 +123,45 @@ def add_product():
     return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
 
-# @product.route("/<int:server_id>", methods=['PUT'])
-# @login_required
-# # edit server's name or picture by server id
-# def edit_server(server_id):
-#   server = Server.query.get(server_id)
-#   update = request.json
+@product.route("/<int:product_id>", methods=['PUT'])
+@login_required
+# edit product by id
+def edit_product(product_id):
+  product = Product.query.get(product_id)
+  product = product.to_dict()
 
-#   if 'name' in update.keys():
-#     server.name = update['name']
-#   if 'server_pic' in update.keys():
-#     server.server_pic = update['server_pic']
+  if product['seller_id'] == current_user.id:
 
-#   db.session.commit()
-#   return jsonify(server.to_dict()), 200
+    update = request.json
+
+    if 'category' in update.keys():
+      product['category'] = update['category']
+    if 'name' in update.keys():
+      product['name'] = update['name']
+    if 'price' in update.keys():
+      product['price'] = update['price']
+    if 'description' in update.keys():
+      product['description'] = update['description']
+
+    db.session.commit()
+    return jsonify(product), 201
+
+  else:
+    return  {'errors': ['Unauthorized']}, 403
 
 
-# @product.route("/<int:server_id>", methods=['DELETE'])
-# @login_required
-# # delete server by id
-# def delete_server(server_id):
-#   server = Server.query.get(server_id)
-#   db.session.delete(server)
-#   db.session.commit()
+@product.route("/<int:server_id>", methods=['DELETE'])
+@login_required
+# delete server by id
+def delete_server(server_id):
+  server = Server.query.get(server_id)
+  db.session.delete(server)
+  db.session.commit()
 
-#   return jsonify({
-#     'message': 'Server successfully deleted',
-#     'status_code': 200
-#   }), 200
+  return jsonify({
+    'message': 'Server successfully deleted',
+    'status_code': 200
+  }), 200
 
 
 # @product.route("/<int:server_id>/channels")
