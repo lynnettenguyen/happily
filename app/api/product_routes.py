@@ -75,30 +75,32 @@ def product_by_id(product_id):
     return {'errors': ['Product not found']}, 404
 
 
-# @product.route("", methods=['POST'])
-# @login_required
-# # add new product
-# def add_product():
-#   form = ProductForm()
-#   form['csrf_token'].data = request.cookies['csrf_token']
+@product.route("", methods=['POST'])
+@login_required
+# add new product
+def add_product():
+  form = ProductForm()
+  form['csrf_token'].data = request.cookies['csrf_token']
 
-#   if form.validate_on_submit():
+  form.category.choices=[]
 
-#     product = Product(
-#       seller_id = current_user.id,
-#       category = form.data['category'],
-#       name = form.data['name'],
-#       price = form.data['price'],
-#       description = form.data['description']
-#     )
+  if form.validate_on_submit():
 
-#     db.session.add(product)
-#     db.session.commit()
+    product = Product(
+      seller_id = current_user.id,
+      category = form.data['category'],
+      name = form.data['name'],
+      price = form.data['price'],
+      description = form.data['description']
+    )
 
-#     return jsonify(product.to_dict()), 201
+    db.session.add(product)
+    db.session.commit()
 
-#   else:
-#     return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+    return jsonify(product.to_dict()), 201
+
+  else:
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
 
 # @product.route("/<int:server_id>", methods=['PUT'])
