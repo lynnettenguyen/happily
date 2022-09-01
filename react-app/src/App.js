@@ -10,6 +10,7 @@ import User from './components/Navigation/User';
 import { authenticate } from './store/session';
 import HomePage from './components/Home/HomePage';
 import ImageUpload from './components/Product/ImageUpload';
+import '../src/components/CSS/Fonts.css'
 
 function App() {
   const [loaded, setLoaded] = useState(false);

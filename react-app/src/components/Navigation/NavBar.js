@@ -7,6 +7,7 @@ import cart from '../CSS/Images/cart.svg'
 import '../CSS/NavBar.css'
 import shop from '../CSS/Images/shop.svg'
 import Profile from './Profile'
+import magnifyingGlass from '../CSS/Images/magnifying_glass.svg'
 
 const NavBar = () => {
   const user = useSelector(state => state.session.user)
@@ -22,6 +23,13 @@ const NavBar = () => {
           <NavLink to='/' exact={true} activeClassName='active'>
             <div className='navBar-home'>Knotsy</div>
           </NavLink>
+        </div>
+        <div className='navBar-searchBar-outer'>
+          <input
+            placeholder='Search for anything'
+            className='searchBar-input'
+          />
+          <img src={magnifyingGlass} className='searchBar-glass' alt='search'></img>
         </div>
         {user ? <>
           <div className='navBar-link'>

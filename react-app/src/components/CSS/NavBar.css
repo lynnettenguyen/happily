@@ -5,10 +5,48 @@ NavLink {
 .navBar-outer {
   display: flex;
   flex-direction: row;
+  margin: 30px 0 10px;
+  justify-content: center;
 }
 
 .navBar-link {
   margin: 0 10px;
+}
+
+.navBar-home {
+  color: #F1641E;
+  font-family: GraphikProduktRegular;
+  ;
+  font-size: 39px;
+  line-height: 19.6px;
+}
+
+.navBar-searchBar-outer {
+  border: black 3px solid;
+  border-radius: 30px;
+  background-color: #F3F3F3;
+  width: 75%;
+  height: 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.searchBar-input {
+  border: none;
+  background: none;
+  outline: none;
+  font-size: 16px;
+  font-family: GraphikLight, -apple-system,
+    "Helvetica Neue",
+    "Droid Sans",
+    Arial,
+    sans-serif;
+}
+
+.searchBar-glass {
+  height: 30px;
+  padding-right: 20px;
 }
 
 .navBar-featured-outer {

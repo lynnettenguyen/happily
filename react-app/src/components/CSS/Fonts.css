@@ -1,0 +1,24 @@
+font-face {
+  font-family: GraphikRegular;
+  src: url('./fonts/Graphik/Graphik-Regular-Trial.otf');
+}
+
+font-face {
+  font-family: GraphikMedium;
+  src: url('./fonts/Graphik/Graphik-Medium-Trial.otf');
+}
+
+font-face {
+  font-family: GraphikProduktRegular;
+  src: url('./fonts/Graphik/Produkt-Regular-Trial.otf');
+}
+
+font-face {
+  font-family: GraphikLight;
+  src: url('./fonts/Graphik/Graphik-Light-Trial.otf');
+}
+
+font-face {
+  font-family: GraphikWideLight;
+  src: url('./fonts/Graphik/GraphikWide-Light-Trial.otf');
+}
