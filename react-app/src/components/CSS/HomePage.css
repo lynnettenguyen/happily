@@ -1,7 +1,7 @@
 .home-header {
   display: flex;
   justify-content: center;
-  font-family: GuardianEgypThin;
+  font-family: GuardianEgypThin, Arial, Helvetica, sans-serif;
   font-size: 28px;
   margin: 20px 0 15px;
 }
@@ -56,7 +56,7 @@
   padding: 4px;
   border-radius: 10px;
   border: 1px solid rgba(128, 128, 128, 0.116);
-  font-family: GraphikMedium;
+  font-family: GraphikMedium, Arial, Helvetica, sans-serif;
   font-size: 0.8rem;
   font-weight: 700;
 }

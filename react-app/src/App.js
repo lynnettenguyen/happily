@@ -9,7 +9,7 @@ import UsersList from './components/UsersList';
 import User from './components/Navigation/User';
 import { authenticate } from './store/session';
 import HomePage from './components/Home/HomePage';
-import ImageUpload from './components/Product/ImageUpload';
+import ImageUpload from './components/Shop/ImageUpload';
 import Product from './components/Product';
 import '../src/components/CSS/Fonts.css'
 import Shop from './components/Shop';

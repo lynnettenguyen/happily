@@ -23,7 +23,7 @@ NavLink {
 }
 
 .sign-in {
-  font-family: GraphikRegular;
+  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
   font-size: 0.85rem;
   border-radius: 35%;
   padding: 0 10px;
@@ -40,6 +40,7 @@ NavLink {
 .navBar-link-profile:hover,
 .sign-in:hover {
   background-color: rgba(128, 128, 128, 0.095);
+  cursor: pointer;
 }
 
 .navBar-link-profile {
@@ -52,7 +53,7 @@ NavLink {
 
 .navBar-home {
   color: #F1641E;
-  font-family: GuardianEgypRegular;
+  font-family: GuardianEgypRegular, Arial, Helvetica, sans-serif;
   font-size: 39px;
   line-height: 19.6px;
   padding-right: 5px;
@@ -68,6 +69,11 @@ NavLink {
   justify-content: space-between;
   align-items: center;
   margin: 0 10px 0 2px;
+}
+
+.navBar-searchBar-outer:hover,
+.searchBar-input:hover {
+  cursor: pointer;
 }
 
 .searchBar-input {
@@ -92,7 +98,7 @@ NavLink {
 .navBar-featured-outer {
   display: flex;
   justify-content: center;
-  font-family: GraphikLight;
+  font-family: GraphikLight, Arial, Helvetica, sans-serif;
   font-size: 0.85rem;
   padding: 0 8rem;
   box-sizing: border-box;

@@ -22,26 +22,26 @@
 }
 
 .product-shop-name {
-  font-family: GraphikRegular;
+  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
   font-size: 1.1rem;
   padding-bottom: 1rem;
 }
 
 .product-sales {
-  font-family: GraphikLight;
+  font-family: GraphikLight, Arial, Helvetica, sans-serif;
   font-size: 0.9rem;
   padding: 0 0.3rem 1rem 0;
 }
 
 .product-name {
-  font-family: GuardianEgypThin;
+  font-family: GuardianEgypThin, Arial, Helvetica, sans-serif;
   font-size: 26px;
   word-wrap: break-word;
 }
 
 .product-price {
   font-size: 26px;
-  font-family: GraphikProduktRegular;
+  font-family: GraphikProduktRegular, Arial, Helvetica, sans-serif;
 }
 
 .product-cart-outer {
@@ -57,7 +57,7 @@
   color: white;
   border-radius: 20px;
   border: none;
-  font-family: GraphikRegular;
+  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
   font-size: 15px;
 }
 
@@ -126,19 +126,19 @@
 
 .product-description-header {
   padding-bottom: 1rem;
-  font-family: GraphikMedium;
+  font-family: GraphikMedium, Arial, Helvetica, sans-serif;
   font-size: 14px;
 }
 
 .product-description {
-  font-family: GraphikLight;
+  font-family: GraphikLight, Arial, Helvetica, sans-serif;
   word-wrap: break-word;
   font-size: 14px;
 }
 
 .product-reviews-header {
   margin: 1rem 0;
-  font-family: GuardianEgypThin;
+  font-family: GuardianEgypThin, Arial, Helvetica, sans-serif;
   font-size: 26px;
 }
 
