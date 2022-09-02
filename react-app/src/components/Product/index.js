@@ -5,7 +5,7 @@ import { findProductById } from '../../store/products';
 import '../CSS/Products.css'
 import filledStar from '../CSS/Images/filled-star.svg'
 import halfStar from '../CSS/Images/half-star.svg'
-import emptyStar from '../CSS/Images/star.svg'
+import emptyStar from '../CSS/Images/empty-star.svg'
 
 const Product = () => {
   let { productId } = useParams()
@@ -27,6 +27,9 @@ const Product = () => {
     }
 
     if (difference >= 0.5) ratingArr.push(halfStar)
+
+    const remainder = 5 - ratingArr.length
+    if (remainder > 0) ratingArr.push(emptyStar)
 
     setRating(ratingArr)
   }
