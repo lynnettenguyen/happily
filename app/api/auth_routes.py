@@ -54,7 +54,8 @@ def sign_up():
         user = User(
             first_name=form.data['first_name'],
             email=form.data['email'],
-            password=form.data['password']
+            password=form.data['password'],
+            profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/default-user.png'
         )
         db.session.add(user)
         db.session.commit()

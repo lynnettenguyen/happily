@@ -46,9 +46,9 @@ function App() {
         <ProtectedRoute path='/shop' exact={true} >
           <Shop />
         </ProtectedRoute>
-        {/* <Route path='/images'>
+        <Route path='/images'>
           <ImageUpload />
-        </Route> */}
+        </Route>
         <Route path='/cart'>
           <Cart />
         </Route>

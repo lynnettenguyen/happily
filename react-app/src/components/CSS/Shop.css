@@ -33,7 +33,10 @@
 }
 
 .get-started-button:hover,
-.save-button:hover {
+.save-button:hover,
+.product-form-input:hover,
+.product-form-select:hover,
+.product-form-text-area:hover {
   cursor: pointer;
 }
 
@@ -59,14 +62,65 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 1rem;
 }
 
-.sell-product-name-shop-label {
+.sell-product-name-shop-label,
+.product-form-header {
   color: white;
   font-family: GuardianEgypThin, Arial, Helvetica, sans-serif;
   font-size: 26px;
   margin-bottom: 1rem;
+}
+
+.product-form-header {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.product-form-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 500px;
+}
+
+.product-form-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.sell-product-label {
+  font-family: GraphikLight;
+  color: white;
+}
+
+.sell-product-instructions {
+  color: white;
+  font-family: GraphikLight;
+  font-size: 12px;
+  padding-left: 15px;
+}
+
+.product-form-input,
+.product-form-select,
+.product-form-text-area {
+  border: none;
+  border-radius: 10px;
+  height: 36px;
+  width: 500px;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  outline: none;
+  margin-top: 0.2rem;
+  font-family: GraphikRegular;
+  font-size: 12px;
+}
+
+.product-form-text-area {
+  height: 120px;
+  max-height: 120px;
+  max-width: 500px;
 }
 
 .sell-product-caption {
@@ -109,6 +163,18 @@
   font-family: GraphikRegular, Arial, Helvetica, sans-serif;
   font-size: 12px;
   width: 100px;
+}
+
+.product-save-button {
+  border: none;
+  background-color: black;
+  color: white;
+  border-radius: 20px;
+  padding: 8px 10px;
+  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  width: 200px;
+  height: 36px;
 }
 
 .product-bottom-icons {

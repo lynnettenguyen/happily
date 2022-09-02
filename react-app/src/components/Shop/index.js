@@ -94,7 +94,7 @@ const Shop = () => {
                 />
               </div>
               <div className='save-button-outer'>
-              <button type="submit" className='save-button'>Submit</button>
+                <button type="submit" className='save-button'>Submit</button>
               </div>
             </div>
           </div>
@@ -102,60 +102,81 @@ const Shop = () => {
         }
       </form>
       <form onSubmit={handleProductSubmit}>
-        {page == 2 &&
+        {page === 2 &&
           <>
             <div className='new-shop-name-outer'>
-              <div className='product-form-header'>Create a Listing</div>
-              <div className='product-form-field'>
-                <label className='sell-product-label'>Title</label>
-                <input
-                  type='text'
-                  className='user-form-input'
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                />
+              <div className='product-form-main'>
+                <div className='product-form-header'>Create a Listing</div>
+                <div className='product-form-field'>
+                  <div>
+                    <label className='sell-product-label'>Title *</label>
+                    <span className='sell-product-instructions'>Include keywords that buys would use to search for your item.</span>
+                  </div>
+                  <div>
+                    <input
+                      type='text'
+                      className='product-form-input'
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                    />
+                  </div>
+                </div>
+                <div className='product-form-field'>
+                  <div>
+                    <label className='sell-product-label'>Category *</label>
+                    <span className='sell-product-instructions'>Select a category to help shoppers find your product.</span>
+                  </div>
+                  <div className='select-outer'>
+                    <select
+                      htmlFor='category'
+                      name='category'
+                      className='product-form-select'
+                      onChange={(e) => setCategory(e.target.value)}
+                    >
+                      {categories?.map((category) => {
+                        return (
+                          <option value={category.name} className='product-form-options'>{category.display_name}</option>
+                        )
+                      })}
+                    </select>
+                  </div>
+                </div>
+                <div className='product-form-field'>
+                  <div>
+                    <label className='sell-product-label'>Price *</label>
+                    <span className='sell-product-instructions'>Remember to factor in the cost of materials, labor, and other business expenses.</span>
+                  </div>
+                  <input
+                    type='number'
+                    className='product-form-input'
+                    value={price}
+                    onChange={(e) => setPrice(e.target.value)}
+                    min="0"
+                  />
+                </div>
+                <div className='product-form-field'>
+                  <div>
+                    <label className='sell-product-label'>Description *</label>
+                    <span className='sell-product-instructions'>Start with a brief overview that describes your item's finest features.</span>
+                  </div>
+                  <textarea
+                    type='text'
+                    className='product-form-text-area'
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                  />
+                </div>
+                <div className='save-button-outer'>
+                  <button type="submit" className='product-save-button'>Save and Continue</button>
+                </div>
               </div>
-              <div className='product-form-field'>
-                <label className='sell-product-label'>Category</label>
-                <select
-                  htmlFor='category'
-                  name='category'
-                  onChange={(e) => setCategory(e.target.value)}
-                >
-                  {categories?.map((category) => {
-                    return (
-                      <option value={category.name}>{category.display_name}</option>
-                    )
-                  })}
-                </select>
-              </div>
-              <div className='product-form-field'>
-                <label className='sell-product-label'>Price</label>
-                <input
-                  type='text'
-                  className='user-form-input'
-                  value={price}
-                  onChange={(e) => setPrice(e.target.value)}
-                />
-              </div>
-              <div className='product-form-field'>
-                <label className='sell-product-label'>Description</label>
-                <input
-                  type='text'
-                  className='user-form-input'
-                  value={description}
-                  onChange={(e) => setDescription(e.target.value)}
-                />
-              </div>
-              <button type="submit" className='continue-button-outer'>Save and Continue</button>
             </div>
           </>}
       </form>
-      {page == 3 &&
+      {page === 3 &&
         <>
           <div className='add-images-outer'>
             <ImageUpload productId={productId} />
-            <div className='continue-button-outer'>Upload Images</div>
           </div>
         </>}
     </div >

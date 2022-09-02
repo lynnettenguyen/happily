@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
 import { findProductById, getAllProducts } from "../../store/products";
+import '../CSS/ImageUpload.css'
 
 const ImageUpload = ({ productId }) => {
   const history = useHistory();
@@ -10,7 +11,7 @@ const ImageUpload = ({ productId }) => {
   const [imageLoading, setImageLoading] = useState(false);
   const user = useSelector(state => state.session.user)
 
-  console.log(productId)
+  // console.log(productId)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -47,12 +48,13 @@ const ImageUpload = ({ productId }) => {
   }
 
   return (<>
-    <h1>IMAGE UPLOAD FORM</h1>
+    <div>Photos</div>
     <form onSubmit={handleSubmit}>
       <input
         type="file"
-        accept="image/*"
+        accept=".png, .jpeg, .jpg, .gif, .webp"
         onChange={updateImage}
+        // style={{display: 'none'}}
       />
       <button type="submit">Submit</button>
       {(imageLoading) && <p>Loading...</p>}
