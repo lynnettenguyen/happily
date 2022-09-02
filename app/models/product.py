@@ -10,6 +10,7 @@ class Product(db.Model):
     category = db.Column(db.String(50), nullable=False)
     name = db.Column(db.String(255), nullable=False)
     price = db.Column(db.Float(precision=2, asdecimal=False), nullable=False)
+    # price = db.Column(db.Numeric(10,2), nullable=False)
     description = db.Column(db.String(1000), nullable=False)
     created_at = db.Column(db.DateTime(timezone=True),
                            nullable=False, server_default=db.func.now())

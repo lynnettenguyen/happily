@@ -95,37 +95,41 @@ def add_product():
 @login_required
 # edit product by id
 def edit_product(product_id):
-  product = Product.query.get(product_id).to_dict()
+  form = ProductForm()
+  form['csrf_token'].data = request.cookies['csrf_token']
 
-  if product['seller_id'] == current_user.id:
+  categories = Category.query.all()
 
-    update = request.json
+  form.category.choices=[(category.to_name(), category.to_display_name() )for category in categories]
 
-    if 'category' in update.keys():
-      product['category'] = update['category']
-    if 'name' in update.keys():
-      product['name'] = update['name']
-    if 'price' in update.keys():
-      product['price'] = update['price']
-    if 'description' in update.keys():
-      product['description'] = update['description']
+  product = Product.query.get(product_id)
 
-    product['updated_at'] = date.today()
+  if product.seller_id == current_user.id:
 
-    db.session.commit()
-    return jsonify(product), 201
+    if form.validate_on_submit():
+
+        product.category = form.data['category']
+        product.name = form.data['name']
+        product.price = form.data['price']
+        product.description = form.data['description']
+
+        db.session.commit()
+
+        return jsonify(product.to_dict()), 201
+    else:
+      return {'errors': ['Unauthorized']}, 403
 
   else:
-    return {'errors': ['Unauthorized']}, 403
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
 
 @product.route("/<int:product_id>", methods=['DELETE'])
 @login_required
 # delete product by id
 def delete_product(product_id):
-  product = Product.query.get(product_id).to_dict()
+  product = Product.query.get(product_id)
 
-  if product['seller_id'] == current_user.id:
+  if product.seller_id == current_user.id:
     db.session.delete(product)
     db.session.commit()
 

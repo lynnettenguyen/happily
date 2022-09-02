@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify, request
-from flask_login import login_required
+from flask_login import current_user, login_required
 from app.models import db, User
+from app.forms import ShopForm
 from .auth_routes import validation_errors_to_error_messages
 
 user_routes = Blueprint('users', __name__)
@@ -22,14 +23,18 @@ def user(id):
 @user_routes.route('/<int:id>', methods=['PUT'])
 @login_required
 def edit_shop_name(id):
-    user = User.query.get(id).to_dict()
+    user = db.session.query(User).get(id)
 
-    update = request.json
+    form = ShopForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
 
-    if 'first_name' in update.keys():
-        user['first_name'] = update['first_name']
-    if 'shop_name' in update.keys():
-        user['shop_name'] = update['shop_name']
+    if form.validate_on_submit():
 
-    db.session.commit()
-    return jsonify(user)
+        user.shop_name = form.data['shop_name']
+
+        db.session.commit()
+
+        return user.to_dict(), 200
+
+    else:
+        return {'errors': validation_errors_to_error_messages(form.errors)}, 400

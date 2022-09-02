@@ -115,6 +115,8 @@ export const editUser = (userData) => async (dispatch) => {
     })
   })
 
+  console.log("shop_name", shop_name)
+
   if (response.ok) {
     const user = await response.json()
     dispatch(updateUser(user));
@@ -129,9 +131,6 @@ export default function reducer(state = initialState, action) {
     case REMOVE_USER:
       return { user: null }
     case UPDATE_USER: {
-      // const newState = { ...state }
-      // newState[action.user.id] = action.user
-      // return { ...newState }
       return { user: action.user }
     }
     default:

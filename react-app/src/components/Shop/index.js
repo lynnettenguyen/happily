@@ -17,29 +17,25 @@ const Shop = () => {
   const [description, setDescription] = useState()
   const [category, setCategory] = useState()
 
-  console.log(shopName)
-
   const handleUserSubmit = async (e) => {
-    e.preventdefault()
+    e.preventDefault()
 
     const userData = {
       id: user.id,
       shop_name: shopName
     }
 
-    const response = dispatch(editUser(userData))
+    const response = await dispatch(editUser(userData))
     if (response) {
-      console.log(user)
     }
-
   }
 
   const handleProductSubmit = async (e) => {
-    e.preventdefault()
+    e.preventDefault()
   }
 
   const handleImageSubmit = async (e) => {
-    e.preventdefault()
+    e.preventDefault()
   }
 
   const formButton = (
@@ -75,8 +71,8 @@ const Shop = () => {
         </div>
       </>
       }
-      <form onSubmit={handleUserSubmit} className={page < 2 ? "sell-product-form" : "hidden"}>
         {page === 1 && <>
+      <form onSubmit={handleUserSubmit} className={page < 2 ? "sell-product-form" : "hidden"}>
           <div className='new-shop-name-outer'>
             <label className='sell-product-name-shop-label'>Name your shop</label>
             <input
@@ -85,11 +81,12 @@ const Shop = () => {
               value={shopName}
               onChange={(e) => setShopName(e.target.value)}
             />
-            <button type='submit'>Submit</button>
+            <button type="submit">Submit</button>
             {/* <div className='continue-button-outer'>{formButton}</div> */}
           </div>
-        </>}
       </form>
+        </>
+        }
       <form onSubmit={handleProductSubmit} className={page < 3 ? "sell-product-form" : "hidden"}>
         {page == 2 &&
           <>
