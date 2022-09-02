@@ -46,7 +46,7 @@ def product_by_id(product_id):
       for review in reviews:
         sum_stars += review.to_dict_stars()['stars']
 
-      avg = sum_stars // num_reviews
+      avg = sum_stars / num_reviews
 
   if product is not None:
     product_details = []
