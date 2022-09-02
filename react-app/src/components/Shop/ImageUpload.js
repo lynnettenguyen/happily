@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { findProductById, getAllProducts } from "../../store/products";
+import '../CSS/ImageUpload.css'
 
-const ImageUpload = () => {
+const ImageUpload = ({ productId }) => {
   const history = useHistory();
+  const dispatch = useDispatch();
   const [image, setImage] = useState(null);
   const [imageLoading, setImageLoading] = useState(false);
-  const [productId, setProductId] = useState();
   const user = useSelector(state => state.session.user)
 
+  // console.log(productId)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,7 +31,10 @@ const ImageUpload = () => {
     if (res.ok) {
       await res.json();
       setImageLoading(false);
-      history.push("/images");
+      await dispatch(getAllProducts())
+      const response = await dispatch(findProductById(productId))
+
+      if (response) history.push(`/products/${productId}`);
     }
     else {
       setImageLoading(false);
@@ -42,17 +48,13 @@ const ImageUpload = () => {
   }
 
   return (<>
-    <h1>IMAGE UPLOAD FORM</h1>
+    <div>Photos</div>
     <form onSubmit={handleSubmit}>
       <input
         type="file"
-        accept="image/*"
+        accept=".png, .jpeg, .jpg, .gif, .webp"
         onChange={updateImage}
-      />
-      <label>Product Id</label>
-      <input
-        type="text"
-        onChange={e => setProductId(e.target.value)}
+        // style={{display: 'none'}}
       />
       <button type="submit">Submit</button>
       {(imageLoading) && <p>Loading...</p>}

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { allCategories, getAllCategories } from '../../store/categories';
@@ -7,11 +7,15 @@ import '../CSS/NavBar.css'
 import shop from '../CSS/Images/shop.svg'
 import Profile from './Profile'
 import magnifyingGlass from '../CSS/Images/magnifying_glass.svg'
+import { Modal } from '../Context/modal';
+import SignUpForm from '../auth/SignUpForm';
 
 const NavBar = () => {
   const user = useSelector(state => state.session.user)
   const categories = useSelector(allCategories)
   const dispatch = useDispatch()
+
+  const [showSignIn, setShowSignIn] = useState(false)
 
   useEffect(() => { dispatch(getAllCategories()) }, [])
 
@@ -42,9 +46,14 @@ const NavBar = () => {
             </div>
           </> : <>
             <div className='navBar-link sign-in'>
-              <NavLink to='/sign-in' exact={true} activeClassName='active'>
+              <div onClick={() => setShowSignIn(true)}>
                 Sign In
-              </NavLink>
+              </div>
+              {showSignIn && (
+                <Modal onClose={() => setShowSignIn(false)}>
+                  <SignUpForm setShowSignIn={setShowSignIn} />
+                </Modal>
+              )}
             </div>
           </>}
           <div className='navBar-link-icon'>

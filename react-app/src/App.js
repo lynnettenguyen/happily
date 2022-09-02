@@ -14,6 +14,7 @@ import Product from './components/Product';
 import '../src/components/CSS/Fonts.css'
 import Shop from './components/Shop';
 import Cart from './components/Cart';
+import { ModalProvider } from './components/Context/modal'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -31,38 +32,40 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
-      <NavBar />
-      <Switch>
-        <Route path='/sign-in' exact={true}>
-          <LoginForm />
-        </Route>
-        <Route path='/sign-up' exact={true}>
-          <SignUpForm />
-        </Route>
-        <Route path='/products/:productId'>
-          <Product />
-        </Route>
-        <ProtectedRoute path='/shop' exact={true} >
-          <Shop />
-        </ProtectedRoute>
-        <Route path='/images'>
-          <ImageUpload />
-        </Route>
-        <Route path='/cart'>
-          <Cart />
-        </Route>
-        <ProtectedRoute path='/users' exact={true} >
-          <UsersList />
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute>
-        <Route path='/'>
-          <HomePage />
-        </Route>
-      </Switch>
-    </BrowserRouter>
+    <ModalProvider>
+      <BrowserRouter>
+        <NavBar />
+        <Switch>
+          <Route path='/sign-in' exact={true}>
+            <LoginForm />
+          </Route>
+          <Route path='/sign-up' exact={true}>
+            <SignUpForm />
+          </Route>
+          <Route path='/products/:productId'>
+            <Product />
+          </Route>
+          <ProtectedRoute path='/shop' exact={true} >
+            <Shop />
+          </ProtectedRoute>
+          <Route path='/images'>
+            <ImageUpload />
+          </Route>
+          <Route path='/cart'>
+            <Cart />
+          </Route>
+          <ProtectedRoute path='/users' exact={true} >
+            <UsersList />
+          </ProtectedRoute>
+          <ProtectedRoute path='/users/:userId' exact={true} >
+            <User />
+          </ProtectedRoute>
+          <Route path='/'>
+            <HomePage />
+          </Route>
+        </Switch>
+      </BrowserRouter>
+    </ModalProvider>
   );
 }
 
