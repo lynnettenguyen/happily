@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import productsReducer, { getAllProducts } from '../../store/products'
+import { Link } from 'react-router-dom'
+import { findProductById, getAllProducts } from '../../store/products'
 import '../CSS/HomePage.css'
 
 const HomePage = () => {
+  const dispatch = useDispatch()
   const user = useSelector(state => state.session.user)
   const products = useSelector(state => Object.values(state.products))
-  const dispatch = useDispatch()
-
 
   const unSortProducts = products.sort(() => 0.5 - Math.random())
   const displayedProducts = unSortProducts.slice(0, 8)
-
-  console.log(displayedProducts)
 
   useEffect(() => {
     dispatch(getAllProducts())
@@ -55,11 +53,13 @@ const HomePage = () => {
       <div className='display-product-main'>
         {displayedProducts?.map((product, i) => {
           return (
-            <div className={`display-product-outer img${i}`} >
-              <div className='display-img-outer' >
-                <img src={product.image} className={`display-product-img img${i}`} alt='product'></img>
-              </div>
-              <div className='display-product-price'>${product.price.toFixed(2)}</div>
+            <div className={`display-product-outer img${i}`}>
+              <Link to={`/products/${product.id}`} onClick={() => dispatch(findProductById(product.id))}>
+                <div className='display-img-outer' >
+                  <img src={product?.images[0]} className={`display-product-img img${i}`} alt='product'></img>
+                </div>
+                <div className='display-product-price'>${product?.price.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
+              </Link>
             </div>
           )
         })}

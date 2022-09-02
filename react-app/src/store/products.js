@@ -119,7 +119,8 @@ const productsReducer = (state = {}, action) => {
       return newState
     }
     case FIND_PRODUCT: {
-      newState[action.product.id] = action.product
+      newState = { ...state }
+      newState[action.product[0].id] = action.product[0]
       return newState
     }
     case ADD_PRODUCT: {

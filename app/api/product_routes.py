@@ -22,7 +22,7 @@ def all_products():
 
       main_image = db.session.query(Image).filter(Image.product_id == product_id).first()
 
-      product['image'] = main_image.to_url()
+      product['images'] = [main_image.to_url()]
 
       product_details.append(product)
 

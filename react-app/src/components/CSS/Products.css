@@ -1,0 +1,39 @@
+.product-main {
+  display: flex;
+  flex-direction: row;
+  margin: 2rem 15rem;
+}
+
+.product-left-main,
+.product-right-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-image-main {
+  display: flex;
+  flex-direction: row;
+}
+
+.product-preview-image-outer {
+  width: 4rem;
+  height: 4rem;
+}
+
+.product-preview-image {
+  border-radius: 10px;
+  width: 100%;
+}
+
+.product-main-image-outer {
+  width: 30rem;
+  height: 30rem;
+}
+
+.product-main-image {
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-height: fit-content;
+}

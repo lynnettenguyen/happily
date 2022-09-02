@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
@@ -42,7 +41,7 @@ const NavBar = () => {
               <Profile user={user} />
             </div>
           </> : <>
-            <div className='navBar-link'>
+            <div className='navBar-link sign-in'>
               <NavLink to='/sign-in' exact={true} activeClassName='active'>
                 Sign In
               </NavLink>
@@ -58,8 +57,8 @@ const NavBar = () => {
           {categories.map((category, i) => {
             return (
               <div className='navBar-feature' key={i}>
-                <NavLink to={`/featured/${category.name.toLowerCase()}`}>
-                  {category.display_name}
+                <NavLink to={`/featured/${category?.name.toLowerCase()}`}>
+                  {category?.display_name}
                 </NavLink>
               </div>
             )

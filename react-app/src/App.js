@@ -10,6 +10,7 @@ import User from './components/Navigation/User';
 import { authenticate } from './store/session';
 import HomePage from './components/Home/HomePage';
 import ImageUpload from './components/Product/ImageUpload';
+import Product from './components/Product';
 import '../src/components/CSS/Fonts.css'
 
 function App() {
@@ -42,6 +43,9 @@ function App() {
         </ProtectedRoute>
         <Route path='/images'>
           <ImageUpload />
+        </Route>
+        <Route path='/products/:productId'>
+          <Product />
         </Route>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
