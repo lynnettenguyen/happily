@@ -27,4 +27,4 @@ class SignUpForm(FlaskForm):
     password = StringField('password', validators=[DataRequired(), Regexp(
         '^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$', message='Passwords must contain at least 8 characters, 1 uppercase letter, 1 lowercase letter, and 1 number')])
     shop_name = StringField(
-        'shop_name', validators=[DataRequired(), shop_name_exists, Length(min=4, message='Your shop\'s name must be at least 4 characters long')])
+        'shop_name', validators=[DataRequired(), shop_name_exists, Length(min=4, max=20, message='Your shop\'s name must be between 4 and 20 characters'), Regexp('^[a-zA-Z]+$', message='Your shop\'s name must only include alphabetical characters')])
