@@ -1,7 +1,7 @@
 .product-main {
   display: flex;
   flex-direction: row;
-  margin: 2rem 16rem;
+  margin: 1.5rem 16rem;
 }
 
 .product-left-main,
@@ -13,12 +13,12 @@
 .product-image-main {
   display: flex;
   flex-direction: row;
+  padding-top: 2rem;
 }
 
 .product-preview-image-outer {
   width: 60px;
   height: 55px;
-  margin-bottom: 4px;
 }
 
 .product-preview-image {
@@ -26,6 +26,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  margin-bottom: 4px;
 }
 
 .product-preview-image:hover {
