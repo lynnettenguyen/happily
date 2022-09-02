@@ -141,4 +141,17 @@
 
 .product-reviews-num-ratings {
   margin-right: 1rem;
+  display: flex;
+}
+
+.empty-stars-outer {
+  margin-top: 2px;
+}
+
+.first-star {
+  margin-left: 10px;
+}
+
+.empty-star {
+  height: 20px;
 }

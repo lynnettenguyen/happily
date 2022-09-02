@@ -5,6 +5,7 @@ import { findProductById } from '../../store/products';
 import '../CSS/Products.css'
 import filledStar from '../CSS/Images/filled-star.svg'
 import halfStar from '../CSS/Images/half-star.svg'
+import emptyStar from '../CSS/Images/star.svg'
 
 const Product = () => {
   let { productId } = useParams()
@@ -57,6 +58,13 @@ const Product = () => {
               <div className='product-reviews-header'>
                 <div className='product-reviews-num-ratings'>
                   {product[productId]?.reviews?.length} shop reviews
+                  {product[productId]?.reviews?.length === 0 && <div className='empty-stars-outer'>
+                    <img src={emptyStar} className='empty-star first-star' alt='star'></img>
+                    <img src={emptyStar} className='empty-star' alt='star'></img>
+                    <img src={emptyStar} className='empty-star' alt='star'></img>
+                    <img src={emptyStar} className='empty-star' alt='star'></img>
+                    <img src={emptyStar} className='empty-star' alt='star'></img>
+                  </div>}
                 </div>
                 <div className='product-review-stars'>
                   {rating?.map((star) => {
