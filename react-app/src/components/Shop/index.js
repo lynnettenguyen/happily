@@ -13,18 +13,26 @@ const Shop = () => {
   return (
     <div className='sell-product-main'>
       <div className='new-shop-name-outer'>
-      <img src={shopBackground} className='shop-background-img'></img>
         <div className='sell-product-main-header'>Millions of shopper can't wait to see what you have in store</div>
       </div>
       <div className='sell-product-bottom'>
-        <div>
-          <img src="https://img0.etsystatic.com/site-assets/sell-page/Sell_Page_Icon_Great_Value.svg" width="150" alt=""></img>
+        <div className='product-bottom-icons'>
+          <div>
+            <img src="https://img0.etsystatic.com/site-assets/sell-page/Sell_Page_Icon_Great_Value.svg" className='bottom-icon-images' alt=""></img>
+            <div className='product-bottom-header'>Great value</div>
+          </div>
         </div>
-        <div>
-          <img src="https://img0.etsystatic.com/site-assets/sell-page/Sell_Page_Icon_Tools.svg" width="150" alt=""></img>
+        <div className='product-bottom-icons'>
+          <div>
+            <img src="https://img0.etsystatic.com/site-assets/sell-page/Sell_Page_Icon_Tools.svg" className='bottom-icon-images' alt=""></img>
+            <div className='product-bottom-header'>Powerful tools</div>
+          </div>
         </div>
-        <div>
-          <img src="https://img0.etsystatic.com/site-assets/sell-page/Sell_Page_Icon_Education.svg" width="150" alt=""></img>
+        <div className='product-bottom-icons'>
+          <div className='product-bottom-inner'>
+            <div><img src="https://img0.etsystatic.com/site-assets/sell-page/Sell_Page_Icon_Education.svg" className='bottom-icon-images' alt=""></img></div>
+            <div className='product-bottom-header'>Support and education</div>
+          </div>
         </div>
       </div>
     </div>
