@@ -31,7 +31,7 @@ const Product = () => {
                 })}
               </div>
               <div className='product-main-image-outer'>
-                <img src={selectedImage ? selectedImage : product[0]?.images[0]} className='product-main-image'></img>
+                <img src={selectedImage ? selectedImage : product[productId]?.images[0]} className='product-main-image'></img>
               </div>
             </div>
             <div className='product-reviews-main'>

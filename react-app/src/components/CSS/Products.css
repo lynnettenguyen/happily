@@ -1,7 +1,7 @@
 .product-main {
   display: flex;
   flex-direction: row;
-  margin: 2rem 15rem;
+  margin: 2rem 16rem;
 }
 
 .product-left-main,
@@ -16,18 +16,26 @@
 }
 
 .product-preview-image-outer {
-  width: 4rem;
-  height: 4rem;
+  width: 60px;
+  height: 55px;
+  margin-bottom: 4px;
 }
 
 .product-preview-image {
   border-radius: 10px;
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-preview-image:hover {
+  cursor: pointer;
 }
 
 .product-main-image-outer {
   width: 30rem;
   height: 30rem;
+  margin: 0 8px;
 }
 
 .product-main-image {
@@ -35,5 +43,4 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  max-height: fit-content;
 }
