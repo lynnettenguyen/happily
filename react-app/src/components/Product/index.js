@@ -29,7 +29,7 @@ const Product = () => {
     if (difference >= 0.5) ratingArr.push(halfStar)
 
     const remainder = 5 - ratingArr.length
-    if (remainder > 0) ratingArr.push(emptyStar)
+    if (ratingArr.length > 0 && remainder > 0) ratingArr.push(emptyStar)
 
     setRating(ratingArr)
   }
@@ -99,14 +99,16 @@ const Product = () => {
             <div className='product-right-upper'>
               <div className='product-shop-name'>{user?.shop_name}</div>
               <div className='product-rating'>
-                {product[productId]?.reviews?.length > 0 ? <> <div className='product-sales'>{`${(Math.floor(Math.random() * (2000 - 200 + 1) + 200)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} sales`} <span className='divider'>&nbsp; | &nbsp;</span></div>
+                {product[productId]?.reviews?.length > 0 ? <>
+                  <div className='product-sales'>{`${(Math.floor(Math.random() * (2000 - 200 + 1) + 200)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} sales`} <span className='divider'>&nbsp; | &nbsp;</span></div>
                   <div className='product-rating-outer'>
                     {rating?.map((star) => {
                       return (
                         <img src={star} className='product-rating-stars'></img>
                       )
                     })}
-                  </div> </> : <></>}
+                  </div>
+                </> : <></>}
               </div>
               <div className='product-name'>{product[productId]?.name}</div>
               <div className='product-price'>${product[productId]?.price.toFixed(2)}</div>
