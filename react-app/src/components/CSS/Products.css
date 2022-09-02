@@ -121,17 +121,19 @@
 }
 
 .product-right-lower {
-  padding: 1rem 0;
+  padding: 1.2rem 0;
 }
 
 .product-description-header {
   padding-bottom: 1rem;
   font-family: GraphikMedium;
+  font-size: 14px;
 }
 
 .product-description {
-  font-family: GraphikRegular;
+  font-family: GraphikLight;
   word-wrap: break-word;
+  font-size: 14px;
 }
 
 .product-reviews-header {

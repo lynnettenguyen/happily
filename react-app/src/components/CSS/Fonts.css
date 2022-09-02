@@ -37,3 +37,8 @@
   font-family: GuardianEgypThin;
   src: url('./fonts/Guardian/GuardianEgyp-Thin-Trial.otf');
 }
+
+@font-face {
+  font-family: GuardianSansNarrow;
+  src: url('./fonts/Guardian/GuardianSansNarrow-Light-Trial.otf');
+}
