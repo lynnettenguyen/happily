@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams, useHistory } from "react-router-dom";
+import { addNewProduct } from '../../store/products';
 import { authenticate, editUser } from '../../store/session';
 import shopBackground from '../CSS/Images/new_shop.jpg'
 import '../CSS/Shop.css'
@@ -10,12 +11,13 @@ const Shop = () => {
   const dispatch = useDispatch()
   const user = useSelector(state => state.session.user)
   const categories = useSelector(state => Object.values(state.categories))
+  const [productId, setProductId] = useState()
   const [page, setPage] = useState(0)
   const [shopName, setShopName] = useState(user.shop_name ? user.shop_name : "")
   const [name, setName] = useState()
   const [price, setPrice] = useState()
   const [description, setDescription] = useState()
-  const [category, setCategory] = useState()
+  const [category, setCategory] = useState('Arches')
 
   const handleUserSubmit = async (e) => {
     e.preventDefault()
@@ -27,20 +29,33 @@ const Shop = () => {
 
     const response = await dispatch(editUser(userData))
     if (response) {
+      setPage(2)
     }
   }
 
+
   const handleProductSubmit = async (e) => {
     e.preventDefault()
+
+    const productData = {
+      name,
+      price,
+      category,
+      description
+    }
+
+    console.log(productData)
+
+    const response = await dispatch(addNewProduct(productData))
+    if (response) {
+      setProductId(response.id)
+      setPage(3)
+    }
   }
 
   const handleImageSubmit = async (e) => {
     e.preventDefault()
   }
-
-  const formButton = (
-    <button type='submit' className='continue-button' onClick={() => setPage(page + 1)}>Save and Continue</button>
-  )
 
   return (
     <div className='sell-product-main'>
@@ -71,8 +86,8 @@ const Shop = () => {
         </div>
       </>
       }
+      <form onSubmit={handleUserSubmit}>
         {page === 1 && <>
-      <form onSubmit={handleUserSubmit} className={page < 2 ? "sell-product-form" : "hidden"}>
           <div className='new-shop-name-outer'>
             <label className='sell-product-name-shop-label'>Name your shop</label>
             <input
@@ -82,12 +97,11 @@ const Shop = () => {
               onChange={(e) => setShopName(e.target.value)}
             />
             <button type="submit">Submit</button>
-            {/* <div className='continue-button-outer'>{formButton}</div> */}
           </div>
-      </form>
         </>
         }
-      <form onSubmit={handleProductSubmit} className={page < 3 ? "sell-product-form" : "hidden"}>
+      </form>
+      <form onSubmit={handleProductSubmit}>
         {page == 2 &&
           <>
             <div className='new-shop-name-outer'>
@@ -103,7 +117,11 @@ const Shop = () => {
               </div>
               <div className='product-form-field'>
                 <label className='sell-product-label'>Category</label>
-                <select htmlFor='category' name='category'>
+                <select
+                  htmlFor='category'
+                  name='category'
+                  onChange={(e) => setCategory(e.target.value)}
+                >
                   {categories?.map((category) => {
                     return (
                       <option value={category.name}>{category.display_name}</option>
@@ -129,19 +147,19 @@ const Shop = () => {
                   onChange={(e) => setDescription(e.target.value)}
                 />
               </div>
-              <div className='continue-button-outer'>{formButton}</div>
+              <button type="submit" className='continue-button-outer'>Save and Continue</button>
             </div>
           </>}
       </form>
-      <form onSubmit={handleImageSubmit} className={page < 4 ? "sell-product-form" : "hidden"}>
+      {/* <form onSubmit={handleImageSubmit}> */}
         {page == 3 &&
           <>
             <div className='add-images-outer'>
-              <ImageUpload />
-              <div className='continue-button-outer'>{formButton}</div>
+            <ImageUpload productId={productId} />
+              <div className='continue-button-outer'>Upload Images</div>
             </div>
           </>}
-      </form>
+      {/* </form> */}
     </div >
   )
 }
