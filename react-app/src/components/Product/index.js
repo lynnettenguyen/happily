@@ -16,12 +16,6 @@ const Product = () => {
   const [selectedImage, setSelectedImage] = useState(product[productId]?.images[0])
   const [rating, setRating] = useState([])
 
-  useEffect(() => {
-    const response = dispatch(findProductById(productId))
-    if (response) setSelectedImage(product[productId]?.images[0])
-    displayRating()
-  }, [])
-
   const roundedStars = Math.floor(product[productId]?.avg_stars)
   const difference = product[productId]?.avg_stars - roundedStars
 
@@ -36,8 +30,11 @@ const Product = () => {
     setRating(ratingArr)
   }
 
-
-  console.log(rating)
+  useEffect(() => {
+    const response = dispatch(findProductById(productId))
+    if (response) setSelectedImage(product[productId]?.images[0])
+    displayRating()
+  }, [productId])
 
   return (
     <>
@@ -57,12 +54,33 @@ const Product = () => {
               </div>
             </div>
             <div className='product-reviews-main'>
-              <div className='product-review-stars'></div>
-              <div className='product-review-content'></div>
-              <div className='product-review-user'>
-                <div className='product-review-user-outer'></div>
-                <div className='product-review-user-name'></div>
-                <div className='product-review-date'></div>
+              <div className='product-reviews-header'>
+                <div className='product-reviews-num-ratings'>
+                  {product[productId]?.reviews?.length} shop reviews |
+                </div>
+                <div className='product-review-stars'>
+                  {rating?.map((star) => {
+                    return (
+                      <img src={star} className='product-review-stars'></img>
+                    )
+                  })}
+                </div>
+              </div>
+              <div className='product-review-content'>
+                {product[productId]?.reviews?.map((review) => {
+                  return (
+                    <>
+                      <div className='product-review-user-rating'>
+                      </div>
+                      <div className='product-review-content'></div>
+                      <div className='product-review-user'>
+                        <div className='product-review-user-outer'></div>
+                        <div className='product-review-user-name'></div>
+                        <div className='product-review-date'></div>
+                      </div>
+                    </>
+                  )
+                })}
               </div>
             </div>
           </div>
@@ -71,16 +89,16 @@ const Product = () => {
             <div className='product-rating'>
               <div className='product-sales'>{`${(Math.floor(Math.random() * (2000 - 200 + 1) + 200)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} sales`}</div>
               <div className='product-rating-outer'>
-                {rating.map((star) => {
+                {rating?.map((star) => {
                   return (
-                    <img src={star}></img>
+                    <img src={star} className='product-rating-stars'></img>
                   )
                 })}
               </div>
             </div>
-            <div className='product-name'></div>
-            <div className='product-price'></div>
-            <div className='product-cart-button'></div>
+            <div className='product-name'>{product[productId]?.name}</div>
+            <div className='product-price'>${product[productId]?.price.toFixed(2)}</div>
+            <div className='product-cart-button'><button>Add to cart</button></div>
             <div className='product-description'></div>
           </div>
         </div>
