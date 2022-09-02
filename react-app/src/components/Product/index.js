@@ -34,7 +34,7 @@ const Product = () => {
     const response = dispatch(findProductById(productId))
     if (response) setSelectedImage(product[productId]?.images[0])
     displayRating()
-  }, [productId])
+  }, [roundedStars])
 
   return (
     <>
@@ -56,7 +56,7 @@ const Product = () => {
             <div className='product-reviews-main'>
               <div className='product-reviews-header'>
                 <div className='product-reviews-num-ratings'>
-                  {product[productId]?.reviews?.length} shop reviews |
+                  {product[productId]?.reviews?.length} shop reviews
                 </div>
                 <div className='product-review-stars'>
                   {rating?.map((star) => {
@@ -85,21 +85,28 @@ const Product = () => {
             </div>
           </div>
           <div className='product-right-main'>
-            <div className='product-shop-name'>{user?.shop_name}</div>
-            <div className='product-rating'>
-              <div className='product-sales'>{`${(Math.floor(Math.random() * (2000 - 200 + 1) + 200)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} sales`}</div>
-              <div className='product-rating-outer'>
-                {rating?.map((star) => {
-                  return (
-                    <img src={star} className='product-rating-stars'></img>
-                  )
-                })}
+            <div className='product-right-upper'>
+              <div className='product-shop-name'>{user?.shop_name}</div>
+              <div className='product-rating'>
+                {product[productId]?.reviews?.length > 0 ? <> <div className='product-sales'>{`${(Math.floor(Math.random() * (2000 - 200 + 1) + 200)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} sales`} <span className='divider'>&nbsp; | &nbsp;</span></div>
+                  <div className='product-rating-outer'>
+                    {rating?.map((star) => {
+                      return (
+                        <img src={star} className='product-rating-stars'></img>
+                      )
+                    })}
+                  </div> </> : <></>}
+              </div>
+              <div className='product-name'>{product[productId]?.name}</div>
+              <div className='product-price'>${product[productId]?.price.toFixed(2)}</div>
+              <div className='product-cart-outer'>
+                <button className='product-cart-button'>Add to cart</button>
               </div>
             </div>
-            <div className='product-name'>{product[productId]?.name}</div>
-            <div className='product-price'>${product[productId]?.price.toFixed(2)}</div>
-            <div className='product-cart-button'><button>Add to cart</button></div>
-            <div className='product-description'></div>
+            <div className='product-right-lower'>
+              <div className='product-description-header'>Description</div>
+              <div className='product-description'>{product[productId]?.description}</div>
+            </div>
           </div>
         </div>
       }
