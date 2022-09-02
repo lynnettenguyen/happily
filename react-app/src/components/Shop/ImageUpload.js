@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { findProductById, getAllProducts } from "../../store/products";
 
 const ImageUpload = ({ productId }) => {
   const history = useHistory();
+  const dispatch = useDispatch();
   const [image, setImage] = useState(null);
   const [imageLoading, setImageLoading] = useState(false);
   const user = useSelector(state => state.session.user)
@@ -28,7 +30,10 @@ const ImageUpload = ({ productId }) => {
     if (res.ok) {
       await res.json();
       setImageLoading(false);
-      history.push("/images");
+      await dispatch(getAllProducts())
+      const response = await dispatch(findProductById(productId))
+
+      if (response) history.push(`/products/${productId}`);
     }
     else {
       setImageLoading(false);

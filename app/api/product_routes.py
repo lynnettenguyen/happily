@@ -22,7 +22,8 @@ def all_products():
 
       main_image = db.session.query(Image).filter(Image.product_id == product_id).first()
 
-      product['images'] = [main_image.to_url()]
+      if main_image is not None:
+        product['images'] = [main_image.to_url()]
 
       product_details.append(product)
 

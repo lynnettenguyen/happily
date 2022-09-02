@@ -27,6 +27,8 @@ def products_by_category(category_name):
 
       main_image = db.session.query(Image).filter(Image.product_id == product_id).first()
 
+      # print(main_images)
+
       reviews_for_product = db.session.query(Review).filter(Review.product_id == product_id).all()
       reviews = [review.to_dict() for review in reviews_for_product]
 
@@ -38,7 +40,7 @@ def products_by_category(category_name):
         avg = sum_stars // len(reviews_for_product)
         product['avg_stars'] = avg
 
-      product['image'] = main_image.to_url()
+      product['images'] = main_image.to_url()
       product['reviews'] = reviews
       product['num_reviews'] = len(reviews_for_product)
 
