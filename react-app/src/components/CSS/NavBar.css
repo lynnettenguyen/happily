@@ -96,6 +96,7 @@ NavLink {
   font-size: 0.85rem;
   padding: 0 8rem;
   box-sizing: border-box;
+  min-width: 100%
 }
 
 .navBar-feature {

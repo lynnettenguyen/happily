@@ -1,7 +1,8 @@
 .product-main {
   display: flex;
   flex-direction: row;
-  margin: 1.5rem 11rem;
+  margin: 1.5rem auto;
+  max-width: 70%
 }
 
 .product-left-main,
