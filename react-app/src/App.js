@@ -12,6 +12,8 @@ import HomePage from './components/Home/HomePage';
 import ImageUpload from './components/Product/ImageUpload';
 import Product from './components/Product';
 import '../src/components/CSS/Fonts.css'
+import Shop from './components/Shop';
+import Cart from './components/Cart';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -38,15 +40,21 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-        <ProtectedRoute path='/users' exact={true} >
-          <UsersList />
+        <Route path='/products/:productId'>
+          <Product />
+        </Route>
+        <ProtectedRoute path='/shop' exact={true} >
+          <Shop />
         </ProtectedRoute>
         <Route path='/images'>
           <ImageUpload />
         </Route>
-        <Route path='/products/:productId'>
-          <Product />
+        <Route path='/cart'>
+          <Cart />
         </Route>
+        <ProtectedRoute path='/users' exact={true} >
+          <UsersList />
+        </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
