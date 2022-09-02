@@ -105,7 +105,7 @@ export const signUp = (first_name, email, password) => async (dispatch) => {
 
 export const editUser = (userData) => async (dispatch) => {
   const { id, shop_name } = userData;
-  const response = await fetch(`/api/auth/users/${id}`, {
+  const response = await fetch(`/api/users/${id}`, {
     method: "PUT",
     headers: {
       'Content-Type': 'application/json'
@@ -129,9 +129,10 @@ export default function reducer(state = initialState, action) {
     case REMOVE_USER:
       return { user: null }
     case UPDATE_USER: {
-      const newState = { ...state }
-      newState[action.user.id] = action.user
-      return { ...newState }
+      // const newState = { ...state }
+      // newState[action.user.id] = action.user
+      // return { ...newState }
+      return { user: action.user }
     }
     default:
       return state;

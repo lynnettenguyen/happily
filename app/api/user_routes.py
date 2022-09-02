@@ -19,7 +19,7 @@ def user(id):
     user = User.query.get(id)
     return user.to_dict()
 
-@user_routes.route('/<int:id>')
+@user_routes.route('/<int:id>', methods=['PUT'])
 @login_required
 def edit_shop_name(id):
     user = User.query.get(id).to_dict()

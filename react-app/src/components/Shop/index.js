@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams, useHistory } from "react-router-dom";
+import { authenticate, editUser } from '../../store/session';
 import shopBackground from '../CSS/Images/new_shop.jpg'
 import '../CSS/Shop.css'
 import ImageUpload from './ImageUpload';
@@ -16,10 +17,20 @@ const Shop = () => {
   const [description, setDescription] = useState()
   const [category, setCategory] = useState()
 
+  console.log(shopName)
+
   const handleUserSubmit = async (e) => {
     e.preventdefault()
 
-    
+    const userData = {
+      id: user.id,
+      shop_name: shopName
+    }
+
+    const response = dispatch(editUser(userData))
+    if (response) {
+      console.log(user)
+    }
 
   }
 
@@ -74,7 +85,8 @@ const Shop = () => {
               value={shopName}
               onChange={(e) => setShopName(e.target.value)}
             />
-            <div className='continue-button-outer'>{formButton}</div>
+            <button type='submit'>Submit</button>
+            {/* <div className='continue-button-outer'>{formButton}</div> */}
           </div>
         </>}
       </form>
@@ -94,7 +106,7 @@ const Shop = () => {
               </div>
               <div className='product-form-field'>
                 <label className='sell-product-label'>Category</label>
-                <select for='category' name='category'>
+                <select htmlFor='category' name='category'>
                   {categories?.map((category) => {
                     return (
                       <option value={category.name}>{category.display_name}</option>
