@@ -7,6 +7,7 @@ import purchases from '../CSS/Images/purchases.svg'
 import { logout } from '../../store/session';
 import signOut from '../CSS/Images/sign-out.svg'
 import star from '../CSS/Images/star.svg'
+import shop from '../CSS/Images/shop.svg'
 
 const Profile = ({ user }) => {
   const dispatch = useDispatch();
@@ -38,6 +39,10 @@ const Profile = ({ user }) => {
             <div className='dropdown-item'>
               <img src={star} className='review-star-img' alt='reviews'></img>
               <div className='profile-reviews'>Review your purchases</div>
+            </div>
+            <div className='dropdown-item'>
+              <img src={shop} className='profile-shop-img' alt='shop'></img>
+              <div className='profile-shop'>Sell on Knotsy</div>
             </div>
             <div className='dropdown-item'>
               <div onClick={onLogout} className='sign-out-outer'>

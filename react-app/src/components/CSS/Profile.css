@@ -51,7 +51,8 @@
   font-size: 17px;
 }
 
-.profile-purchase {
+.profile-purchase,
+.profile-shop {
   font-family: GraphikRegular;
   font-size: 14px;
   margin-left: 10px;
@@ -64,6 +65,7 @@
 }
 
 .profile-purchases-img,
+.profile-shop-img,
 .sign-out-img {
   height: 26px;
 }
