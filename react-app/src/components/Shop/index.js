@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, useParams, useHistory } from "react-router-dom";
 import { addNewProduct } from '../../store/products';
-import { authenticate, editUser } from '../../store/session';
-import shopBackground from '../CSS/Images/new_shop.jpg'
+import { editUser } from '../../store/session';
 import '../CSS/Shop.css'
 import ImageUpload from './ImageUpload';
 
@@ -33,7 +31,6 @@ const Shop = () => {
     }
   }
 
-
   const handleProductSubmit = async (e) => {
     e.preventDefault()
 
@@ -51,10 +48,6 @@ const Shop = () => {
       setProductId(response.id)
       setPage(3)
     }
-  }
-
-  const handleImageSubmit = async (e) => {
-    e.preventDefault()
   }
 
   return (
@@ -89,14 +82,21 @@ const Shop = () => {
       <form onSubmit={handleUserSubmit}>
         {page === 1 && <>
           <div className='new-shop-name-outer'>
-            <label className='sell-product-name-shop-label'>Name your shop</label>
-            <input
-              type='text'
-              className='user-form-input'
-              value={shopName}
-              onChange={(e) => setShopName(e.target.value)}
-            />
-            <button type="submit">Submit</button>
+            <div className='first-page-main'>
+              <div className='first-page-main-upper'>
+                <label className='sell-product-name-shop-label'>Name your shop</label>
+                <div className='sell-product-caption'>We find sellers often draw inspiration from what they sell, their style, pretty much anything goes.</div>
+                <input
+                  type='text'
+                  className='user-form-input'
+                  value={shopName}
+                  onChange={(e) => setShopName(e.target.value)}
+                />
+              </div>
+              <div className='save-button-outer'>
+              <button type="submit" className='save-button'>Submit</button>
+              </div>
+            </div>
           </div>
         </>
         }
@@ -151,15 +151,13 @@ const Shop = () => {
             </div>
           </>}
       </form>
-      {/* <form onSubmit={handleImageSubmit}> */}
-        {page == 3 &&
-          <>
-            <div className='add-images-outer'>
+      {page == 3 &&
+        <>
+          <div className='add-images-outer'>
             <ImageUpload productId={productId} />
-              <div className='continue-button-outer'>Upload Images</div>
-            </div>
-          </>}
-      {/* </form> */}
+            <div className='continue-button-outer'>Upload Images</div>
+          </div>
+        </>}
     </div >
   )
 }

@@ -32,7 +32,8 @@
   font-size: 12px;
 }
 
-.get-started-button:hover {
+.get-started-button:hover,
+.save-button:hover {
   cursor: pointer;
 }
 
@@ -48,10 +49,66 @@
   width: 330px;
 }
 
+.first-page-main {
+  display: flex;
+  max-width: 400px;
+  flex-direction: column;
+}
+
+.first-page-main-upper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.sell-product-name-shop-label {
+  color: white;
+  font-family: GuardianEgypThin, Arial, Helvetica, sans-serif;
+  font-size: 26px;
+  margin-bottom: 1rem;
+}
+
+.sell-product-caption {
+  color: white;
+  font-family: GraphikLight, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  margin-bottom: 1rem;
+  width: 400px;
+  text-align: center;
+}
+
+.user-form-input {
+  width: 400px;
+  height: 36px;
+  border-radius: 20px;
+  border: none;
+  padding: 5px 15px;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+}
+
 .sell-product-bottom {
   display: flex;
   position: absolute;
   bottom: 30px;
+}
+
+.save-button-outer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.save-button {
+  border: none;
+  background-color: black;
+  color: white;
+  border-radius: 20px;
+  padding: 8px 10px;
+  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  width: 100px;
 }
 
 .product-bottom-icons {
