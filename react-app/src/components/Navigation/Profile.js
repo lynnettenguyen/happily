@@ -18,7 +18,7 @@ const Profile = ({ user }) => {
   }
 
   return (
-    <>
+    <div className='navBar-profile-outer'>
       <div onClick={() => { setShowDropdown(!showDropdown) }} className='navBar-profile'>
         <img src={user.profile_pic} className='profile-user-img' alt='profile'></img>
         <img src={downArrow} className='profile-down-arrow-img' alt='profile'></img>
@@ -49,7 +49,7 @@ const Profile = ({ user }) => {
         </>
         : <></>
       }
-    </>
+    </div>
   )
 
 }

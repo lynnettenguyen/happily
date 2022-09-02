@@ -1,3 +1,7 @@
+.navBar-profile-outer {
+  position: relative;
+}
+
 .navBar-profile,
 .sign-out-outer {
   display: flex;
@@ -14,13 +18,14 @@
 .profile-dropdown {
   position: absolute;
   top: 50px;
-  right: 50px;
+  right: -5px;
   border-radius: 10px;
   border: 1px solid rgba(105, 105, 105, 0.223);
   background-color: white;
   box-shadow: 0 4px 20px rgb(34 34 34 / 15%);
   width: 232px;
   padding-bottom: 10px;
+  z-index: 2;
 }
 
 .dropdown-item-top {
@@ -72,10 +77,10 @@
   width: 10px;
   height: 10px;
   top: 45px;
-  right: 75px;
+  right: 26px;
   transform: rotate(135deg);
   border-left: 1px solid rgba(105, 105, 105, 0.223);
   border-bottom: 1px solid rgba(105, 105, 105, 0.223);
   background-color: white;
-  z-index: 1;
+  z-index: 3;
 }
