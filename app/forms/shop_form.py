@@ -1,4 +1,5 @@
 from flask_wtf import FlaskForm
+from flask_login import current_user
 from wtforms import StringField
 from wtforms.validators import DataRequired, ValidationError, Regexp, Length
 from app.models import User
@@ -7,7 +8,7 @@ def shop_name_exists(form, field):
     # checking if shop_name is already in use
     shop_name = field.data
     user = User.query.filter(User.shop_name == shop_name).first()
-    if user:
+    if user and current_user.id != user.id:
         raise ValidationError('Your shop\'s name is already in use')
 
 class ShopForm(FlaskForm):
