@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { findProductById, getAllProducts } from '../../store/products'
 import '../CSS/HomePage.css'
+import star from '../CSS/Images/star.svg'
 
 const HomePage = () => {
   const dispatch = useDispatch()
