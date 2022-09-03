@@ -18,21 +18,27 @@ const ManageProducts = () => {
     <>
       <div className="my-products-main">
         <div className="my-products-upper">
-        <div className="my-products-header">Shop Manager</div>
+          <div className="my-products-header">Shop Manager</div>
         </div>
         <div className="my-products-outer">
-          {products?.map((product, i) => {
-            return (
-              <div className="my-products-inner">
-                <div className="my-products-img-main"><img src={product?.images[0]} className='my-products-img'></img></div>
-                <div className="my-products-info">
-                  <div>{product.category.split("&").join(' & ')}</div>
-                  <div>{product?.name}</div>
-                  <div>{product?.price}</div>
-                </div>
-              </div>
-            )
-          })}
+          <div className="my-products-inner">
+            {products?.map((product, i) => {
+              return (
+                <>
+                  <div className="my-products-img-main"><img src={product?.images[0]} className='my-products-img'></img></div>
+                  <div className="my-products-info">
+                    <div className="my-product-category">{product.category.split("&").join(' & ')}</div>
+                    <div className="my-product-name">{product?.name}</div>
+                    <div className="my-product-price">${product?.price.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
+                    <div className="my-product-buttons">
+                      <button className="my-product-edit-button">Edit</button>
+                      <button className="my-product-delete-button">Delete</button>
+                    </div>
+                  </div>
+                </>
+              )
+            })}
+          </div>
         </div>
       </div>
     </>
