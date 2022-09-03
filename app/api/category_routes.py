@@ -40,7 +40,7 @@ def products_by_category(category_name):
         avg = sum_stars // len(reviews_for_product)
         product['avg_stars'] = avg
 
-      product['images'] = main_image.to_url()
+      product['images'] = [main_image.to_url()]
       # product['reviews'] = reviews
       product['num_reviews'] = len(reviews_for_product)
       product['shop_name'] = seller.shop_name
