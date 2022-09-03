@@ -46,7 +46,7 @@ def seed_products():
     Product(
         seller_id=1, category='Seating', name='Mother of The Bride In Loving Memory Wedding Sign', price=24.00, description='Looking for an in loving memory wedding sign for the father of the bride? Our in loving memory wedding reserved signs for dad are sure to add the perfect touch to your special day! These reserved signs are the perfect size making them versatile from propping on table tops to chairs. Add a tie for easy hanging to reserve a special seat for your loved one!p2'),
     Product(
-        seller_id=4, category='Seating', name='Personalized Reserved In Loving Memory Of Custom Name Seat Sign for Wedding Events | Ceremony Chair Memorial Banner 1065', price=28.00, description='This banner is a truly lovely way to honor an important person you\'ve lost too soon. Hold space for them on your big day by reserving a chair in their name. Your sign will be printed in your color with the name of your loved one and your relationship.'),
+        seller_id=4, category='Seating', name='Wedding Seating Chart Sign, Escort Sign, Escort Board, Seating Board, Wood Wedding Signs, Wooden Wedding Signs, Wedding, Wood -cp', price=87.05, description='Seating chart to be sent in the exact order you would like them to appear. Signs are painted, not vinyl stickers, and made out of birch veneered plywood; signs are ½ inch in thickness'),
     Product(
         seller_id=3, category='Seating', name='Wedding Chair Signs, Bride and Groom Chair Signs, wedding table decoration, wedding chair decoration, bride groom signs for wedding chair', price=18.00, description='Wedding chair signs Bride and Groom for wedding table decoration - SET of Bride and Groom laser cut names from golden mirror acrylic, silver mirror acrylic, white acrylic or wood.'),
     Product(
@@ -56,11 +56,11 @@ def seed_products():
     Product(
         seller_id=1, category='Arches', name='Double Square Wedding Arch Bridal Shower Ceremony Flower Arch Balloons Arch Background Party Stage Rustic Wedding Decoration', price=385.00, description='Double Pole Square Wedding Arch Wrought Iron Frame Background Party Stage Flower Arch Decoration'),
     Product(
-        seller_id=2, category='Arches', name='Handmade Macrame Wedding Backdrop, Macrame Wedding Arch Arbor, Macrame Wall Hanging,Macrame Door Hanging,Room Divider,Macrame Curtains', price=44.99, description='Create your dream boho living space with our cotton macrame wallhangings.'),
+        seller_id=2, category='Guestbook', name='Wedding guest book, guestbook, floral foliage, rustic guest book, guestbook, custom guest book, wedding, alternative, wood wooden PG1', price=36.30, description='Your best wishes from guests can be kept forever in this stunning wooden guest book. Made as a counterpart to our engraved wedding signs, this beautiful floral guestbook has been hand designed in our New Forest studio by our in house artist.'),
     Product(
         seller_id=1, category='Arches', name='Wedding Backdrop | Wedding Arch Alternative | Floral Stands | Ceremony Floral Accents | Decor | Custom Sizes Available', price=270.00, description='These handmade COPPER STANDS are perfect for shaping your alter with your custom wedding color florals. These pieces come polished and cleaned thoroughly however copper naturally holds onto oils so I highly recommend using TarnX to polish the copper a day or two before your event to make it the most beautiful rose gold color.'),
     Product(
-        seller_id=4, category='Arches', name='Wedding Arch, Wedding Decor, Ceremony Arch, Wedding Arbor, Rustic Wedding Arch, Wedding Arch Hexagon, Beach Wedding, Boho Decor', price=188.09, description='Our Personalized Wedding Arch is the best choice for your special day, which will decorate your holiday and make your ceremony look perfect.'),
+        seller_id=4, category='Favors&Gifts', name='Ultimate Gift Bundle, Charcuterie Board, Wine Glasses, Gift for Newlyweds, House Warming, Personalized Cutting Board', price=60.09, description='Our Ultimate Gift Bundle!'),
     Product(
         seller_id=3, category='Arches', name='Customized Arch Extra Stable 7.87ft Metal Double Ring Round Hoop Circle Wedding Floral Wheel Bridal Door Backdrop Stand For Boho Wedding', price=215.00, description='This Handmade Customized 7 ft Metal Double Ring Round Circle Wedding Wreath Floral Arch Wheel Backdrop is stunning for your wedding vows, wedding photos, social media photo booster, and so many possibilities!'),
     Product(
@@ -102,7 +102,7 @@ def seed_products():
     Product(
         seller_id=3, category='Guestbook', name='3D Square Guest Book Wedding Alternative, Custom Guest Book, Wooden Guest Book, Wedding Decor, Laser Wedding Guestbook Square', price=95.00, description='This custom 3D guest book sign makes a beautiful personalized addition to your wedding and later to your home. Raised lettering creates a rather unique 3D effect that adds depth and character to the piece.'),
     Product(
-        seller_id=4, category='Guestbook', name='Personalized Wedding Guest Book With Wood / Rustic Wedding Guest Book / Unique Wedding Guest Book Polaroid / Guest Book Alternative -by TOA', price=56.24, description='Design your one-of-a-kind guest book'),
+        seller_id=4, category='Guestbook', name='Wedding Guest Book Alternative - alternative guestbook ideas wedding venue art, wedding venue illustration digital painting watercolor art', price=43.86, description='A beautiful and timeless keepsake to preserve that special memory of yours.'),
     Product(
         seller_id=5, category='Guestbook', name='Rose Gold Globe - Guest Book Alternative, Wedding Guest Travel Globe Guest Book, Hen Party Bridal Guestbook, Baby Shower Wishing Jar', price=43.99, description='This wedding guest book alternative is sure to put a smile on your guests faces, have them sign a message as you set off on this new adventure. The globe can be placed on a table for guests to sign then used as a fab keepsake decoration for years to come.'),
     Product(
@@ -135,6 +135,94 @@ def seed_products():
         seller_id=2, category='Guestbook', name='Guestbook Heart, Circle, Rectangle / Guest Book Sign/ Acrylic sign/ Acrylic Guestbook By Eli', price=55.00, description='Our guest books are made of acrylic + plywood frame and personalization (your surnames and date), it is done with paint.'),
     Product(
         seller_id=3, category='Seating', name='Find Your Seat Escort Card Wedding Sign, Hexagon or Circle Party & Event Seating Chart Sign Modern Boho Wedding Decor (Item - FYC220)', price=35.72, description='This find your seat escort card sign is a beautiful piece for the wedding or event decor that can be used as a sign at the wedding reception escort card display area! Choose your shape! With this beautiful sign, the special day will be unique and memorable! Choose your color from our selection of gorgeous metallic, glitter, and on-trend colors.'),
+    Product(
+        seller_id=7, category='Favors&Gifts', name='Painting from Photo, Wedding Portrait, Wedding Illustration, Custom Wedding Print, Watercolor Couple Portrait, Anniversary Gift Wife Husband', price=25.45, description='WATERCOLOR PORTRAIT - personalized wedding portrait'),
+    Product(
+        seller_id=7, category='Favors&Gifts', name='Newlywed Christmas Ornament, Mr and Mrs Ornament, Newlywed Gift, Couples Gift, First Married Christmas Ornament, Wedding Gift, Gift for Bride', price=16.99, description='This adorable personalized Christmas ornament is the perfect personalized gift for newly married couples. Be it a Christmas gift, or a gift to give them for their wedding day, this cute ornament will be cherished by the couple.'),
+    Product(
+        seller_id=7, category='Favors&Gifts', name='Charcuterie Board, Personalized Serving Board With Handle, Monogrammed, Personalized Cheese Board, Engagement Gift, Bridal Shower Gift', price=31.50, description='Handcrafted special cutting boards of our TmolosCo store, which offers the best gift options for special occasions'),
+    Product(
+        seller_id=7, category='Favors&Gifts', name='Engraved Home Coordinates Custom Cutting Board | Bread Board | Personalized Charcuterie | Housewarming Gift | Closing Gift | Wedding Gift', price=50.03, description='Say hello to this USA made, premium solid walnut engraved cutting board- The perfect way to celebrate a housewarming, closing, wedding, or birthday! This timeless keepsake is not only functional, but serves as a unique gift that will be cherished forever.'),
+    Product(
+        seller_id=2, category='Favors&Gifts', name='Mr & Mrs Tequila Board,Personalized Gift,Housewarming Gift,Wedding Gift,Wedding Favors,Engagement Gift,Gift for Couple,Tequila Board', price=59.99, description='This 2 IN 1 DUAL PURPOSE board can be used as a cutting board or a serving tray. This makes the perfect gift for any occasion!'),
+    Product(
+        seller_id=3, category='Favors&Gifts', name='Engagement Gift For Couple, Personalized Unique Wedding Present, Personalized Wedding Gift, Engraved Chopping Board, Hochzeitsgeschenk Holz', price=114.18, description='A stunning collaboration of art and usability. Gift your loved one this thoughtfully unique gift. Highlight the momentous occasions in their life by personalizing a gift that will last a lifetime! This stunning resin art chopping board has been handcrafted by artisans on the Sunshine Coast in Australia. Every piece we make is 100% unique and of the finest quality.'),
+    Product(
+        seller_id=4, category='Favors&Gifts', name='Custom Engraved Marble Wood Coasters | Round Marble Wooden Coaster Personalized | Wedding Gifts | Bridal Shower Gifts', price=13.39, description='These high quality personalized marble acrylic /mango wood coasters will make unique and one of a kind gifts for a wedding , anniversary , housewarming, bridal shower, wedding favors , gift for mom , grandma or grandpa or any occasion that needs personal touch.'),
+    Product(
+        seller_id=5, category='Favors&Gifts', name='Custom Engraved Marble Wood Coasters | Anniversary Gifts Round Coaster for Men Personalized | Groomsmen Gifts', price=13.89, description='These laser engraved high quality wood and marble coasters will make unique and one of a kind gifts for birthday, anniversary, or any occasion that needs personal touch.'),
+    Product(
+        seller_id=7, category='Attire&Accessories', name='Lace Boho Wedding Dress _ AVA', price=642.67, description='AVA has elegantly captured the essence of femininity with her illusion lace detailing bodice which drapes around her body, oh so effortlessly. She dares to captivate her guests with her deep plunging V back and flowing 1 metre lace train.p75.1'),
+    Product(
+        seller_id=6, category='Attire&Accessories', name='Traditional Chinese Dress, White Cheongsam Dress, Modern Qipao Dress, Women\'s Vintage Dresses, Floral Lace Dress, 2022 New Design Wedding Dress', price=112.82, description='White cheongsam dress is very suitable for Chinese wedding ceremony. The dress is a very elegant white wedding qipao dress with traditional Chinese style and fresh modern lace pattern. If you are looking for a dress that makes you stunning at the wedding or other events, then this dress is very suitable for you.p75.1'),
+    Product(
+        seller_id=5, category='Attire&Accessories', name='Modern Cheongsam Dress, Qipao Dress, Traditional Chinese Dress, White Qipao Dress, Cheongsam, Embroidery Flower Pattern, Mandarin Collar', price=169.23, description='Looking for an elegant comfortable Cheongsam dress? Then this dress is suitable for you!'),
+    Product(
+        seller_id=5, category='Attire&Accessories', name='Traditional Chinese Wedding Dress, Red Qipao, Embroidered Cheongsam, Tea Ceremony and Bridal Dress, Mandarin Collar', price=127.49, description='With great material, this dress will make you feel comfortable and soft when wearing, also is a good choice for gift.'),
+    Product(
+        seller_id=4, category='Attire&Accessories', name='Wedding dress from Inga Ezergale design Rose Collection', price=3083.19, description='This unique wedding gown is handmade and is the only one. Each flower is designed with hand and more than 7m of fabric is used. Each lace is sewn by hand. The process includes a petticoat.'),
+    Product(
+        seller_id=4, category='Attire&Accessories', name='Individual size A-line silhouette Tonisha wedding dress. Modern style by DevotionDresses', price=1275.00, description='This A-line wedding dress is made out of mesh, tulle and decorated with lace.'),
+    Product(
+        seller_id=6, category='Attire&Accessories', name='Cheongsam Dress Women, Qipao Dress Modern, Traditional Chinese Dress, Champagne Qipao Dress, Ball gowns, Flower Pattern, Mandarin Collar', price=152.31, description='This cheongsam dress makes you look gorgeous in daily life. Chinese cheongsam dress is made of high quality material and perfect design. Therefore, you could have a comfortable fit by wearing it.'),
+    Product(
+        seller_id=2, category='Attire&Accessories', name='Backless wedding dress long sleeve sheath form fitting gown| ANDREATTA', price=950.00, description='This lace backless wedding dress with long sleeves is for the bride who wants a gown that is both breathtaking and timeless.'),
+    Product(
+        seller_id=7, category='Attire&Accessories', name='Boho wedding Dress "KENDALL" with Fringes | Designer Luxurious dress Mermaid | Unique wedding Dress shot Sleeve | Bohemian shiny Bridal Gown', price=790.00, description='A light shimmering "KENDALL" A-line dress sparkles and shimmers with gold and platinum hues.'),
+    Product(
+        seller_id=7, category='Attire&Accessories', name='Short Sleeve Lace Midi Dress / Vintage Style Slim Wedding Dress / Korean Style Luxury wear Simple Dress / Elegant Unique Bridal Dress', price=100.00, description='This is a beautiful wedding dress for wedding/engagement.'),
+    Product(
+        seller_id=7, category='Attire&Accessories', name='Short Sleeve Lace Midi Dress / Vintage Style Slim Wedding Dress / Korean Style Luxury wear Simple Dress / Elegant Unique Bridal Dress', price=100.00, description='This is a beautiful wedding dress for wedding/engagement.'),
+    Product(
+        seller_id=8, category='Table Decor&Centerpieces', name='Book Stack Decor||Wedding Table Decor||Rustic Wedding decorations||Personalized table centerpieces', price=14.50, description='Personalized farmhouse books. These make great decor accents or centerpieces for your wedding. Each book can be created using whatever saying or name you wish (less than 12 characters including spaces works best).p'),
+    Product(
+        seller_id=8, category='Table Decor&Centerpieces', name='Newlyweds Mr. Mrs. Custom Engraved Engaged Wine Champagne Flutes 45th Anniversary Gift for Couples Wedding Centerpiece Set of 2 Bride Groom', price=19.95, description='Bridal Party Champagne Flutes Set of 2 Glass Flute Laser Engraved & Personalized with Last Name and Date Comes with Cursive Mr. & Mrs. Design AND Your Choice of Flute: Twisty Stem, Smooth Stem, or Stemless.'),
+    Product(
+        seller_id=8, category='Favors&Gifts', name='100 Wedding Opener Bottle Rustic Favors Wedding Vintage Skeleton Key Small But Practical Very Suitable Exquisite Card Key Ring Favor Wedding', price=56.99, description='DIY Card Tag: Each key bottle opener come with a brown Kraft escort cards tag. You can write or stamp it with your thanks or best wishes by yourself. The hole on the top of the cards is convenient for you to use key chain to hang with the bottle openers.'),
+    Product(
+        seller_id=8, category='Table Decor&Centerpieces', name='Circular Greenery Centerpiece', price=39.99, description='Beautiful circular centerpieces made to order, all handcrafted and personalized to each wedding. All come complete and no further assembly needed.'),
+    Product(
+        seller_id=8, category='Table Decor&Centerpieces', name='Set of 10 - 12 inch wood slices wedding centerpieces wood centerpieces wood slabs wood log slices centerpiece wood slab rustic wedding decor', price=71.99, description='Every wood slice sold on our shop has been fully dried in a specially designed, climate controlled shop. They have been dried without splits and last for years of reuse. There’s nothing you need to do to them and they are ready to use upon arrival!'),
+    Product(
+        seller_id=8, category='Table Decor&Centerpieces', name='Wedding Log Slices Perfect For Centerpieces, Flowers, Candles, Wedding Cake, Rustic, Vintage, Boho Barn Wedding Flower Decorations Decor', price=27.52, description='The logs are a natural product which means they may contain bark missing, have a sap on them from being cut etc. We would recommend removing them from the box once they have arrived to allow as much air to get to them. We can not be held responsible for the way in which the logs will turn out over time.p90.'),
+    Product(
+        seller_id=8, category='Table Decor&Centerpieces', name='Rustic Wedding Decor, String Lights, Wedding Table Decor, Reception, Centerpiece, Battery, Fairy lights, 10-30 LEDs, 3ft, 6ft, 9ft', price=2.97, description='String lights on a delicate wire for a whimsical glow in any size mason jar or centerpiece! p90.DIY rustic wedding decor. Save money on centerpieces. Easy to make!'),
+    Product(
+        seller_id=8, category='Table Decor&Centerpieces', name='Rustic Wedding Table Numbers - Table Centerpieces - Personalized Table Numbers for Event - Wedding Chair Sign - Place cards - Name Settings', price=11.90, description='Wedding table numbers for your wedding!'),
+    Product(
+        seller_id=8, category='Table Decor&Centerpieces', name='Photo Table Numbers, EDITABLE Minimalist Wedding Table Number, Modern Wedding 100% Editable Template, Elegant Table Numbers Printable #BW1', price=8.26, description='This listing is for a downloadable, high-resolution, EDITABLE, PRINTABLE Welcome Sign. Access your template(s) within minutes of purchase. Customize in your computer web browser. No software installations or font downloads. '),
+    Product(
+        seller_id=8, category='Table Decor&Centerpieces', name='Table numbers, wedding table numbers, acrylic table number, lucite table numbers, wedding signs, acrylic wedding signs, acrylic modern -nc', price=5.03, description='Acrylic signs: Made out of 1/8" acrylic, not glass; acrylic signs are sent with a protective paper on the back that should be peeled off prior to use; acrylic scratches very easily, thus minor scratches and wear should be expected. Acrylic signs should not be stacked on each other without protective paper as this can cause the paint to stick.'),
+    Product(
+        seller_id=7, category='Attire&Accessories', name='Moissanite Engagement Ring Set Unique Rose Gold Pear Shaped Moissanite Halo Ring Dainty Twisted Ring Bridal Set Wedding Ring Set For Her', price=392.22, description='We are jewelry artisans and manufacturers. Every Jewelry is made from the very scratch, and made by hand and carefully polished especially for you.'),
+    Product(
+        seller_id=7, category='Attire&Accessories', name='1.5ct Pear Shaped Moissanite Bridal Set Moissanite Engagement Ring Rose Gold Cluster Wedding Women Unique Marquise Moissanite Band Chevron', price=694.21, description=' Ring Material: solid 14k rose gold. Center Stone: Moissanite, D-E-F color, in Pear shaped.'),
+    Product(
+        seller_id=7, category='Attire&Accessories', name='Vintage kite cut green moss agate engagement ring set 14k rose gold marquise cut moissanite ring for women unique bridal wedding ring set', price=230.32, description='Every moss agate is natural, the color will be similar but not the same. It will be randomly selected when setting this stone.p98'),
+    Product(
+        seller_id=7, category='Attire&Accessories', name='Wedding Ring Set 3PCS 18K Rose Gold Plated Engagement Stacking Band 1.5 Carat Cubic Zircon Promise Bridal Band Set Valentine\'s Gift For Her', price=11.34, description='Delicate Design- Center stone is set with 1.25 carat round cut AAA cubic zircon. This three-piece cubic zircon wedding ring set for her will never be outdated and will make your eyes shine. Perfect couple rings bridal set are dazzling in your hand.'),
+    Product(
+        seller_id=7, category='Attire&Accessories', name='1.5ct Oval Natural Green Moss Agate Engagement Ring Rose Gold Cluster Aquatic Agate Promise Ring Woman Marquise Cut CZ Diamond Wedding Ring', price=97.55, description='Every moss agate is natural, no two moss agate stones are the same, making each one unique. It is normal that the finished ring won\'t be the same as our picture.'),
+    Product(
+        seller_id=3, category='Table Decor&Centerpieces', name='Boho Floral Wedding Cake Topper With Rustic Wreath / Mr and Mrs Cake Topper / Personalized Wedding Cake Topper / Monogram Toppers -MIM', price=16.43, description='Let us use the power of love to create an enchanting cake topper.'),
+    Product(
+        seller_id=3, category='Table Decor&Centerpieces', name='Gold Cake topper for Wedding, Personalized cake topper, Rustic wedding cake topper, Custom Mr Mrs cake topper, Anniversary Cake toppers', price=18.43, description='Designed and Made in USA- Wedding Decor and Wedding Decorations. Anniversary Decorations and perfect for any occasion! Make the Bride and Groom stand out on their wedding day with our beautiful and personalized cake toppers to add to their special day!'),
+    Product(
+        seller_id=3, category='Table Decor&Centerpieces', name='Miss to Mrs Laser Cut Bridal Shower Cake Topper - 5.5" Acrylic Cake Topper, Custom Bridal Shower Sign, Engagement Decor, Trendy Design', price=20.22, description='We\'ve got you covered for creative bridal shower decor! Our Miss to Mrs Mrs laser cut acrylic cake topper is beautifully designed to match any theme or dessert display.'),
+    Product(
+        seller_id=3, category='Table Decor&Centerpieces', name='Wedding cake topper wedding bride and groom cake topper rustic wedding cake topper figurine', price=70.32, description='Looking for a unique wedding cake topper which can be a keepsake last a lifetime. Our personalized wedding cake toppers are the great wedding topper and amazing wedding keepsake. It is also special wedding gift for bride and groom. These are 100% hand made so each wedding cake topper is absolute one-and-only in this world. Let us help create the unique wedding cake topper for your wedding day.'),
+    Product(
+        seller_id=4, category='Table Decor&Centerpieces', name='Personalized Gold Leaf Champagne Flutes (Set of TWO) Custom Engraved Rustic Toasting Flutes, Pair Etched Glasses, Premium Gold Flutes', price=75.00, description='Our classic, personalized rustic Gold Leaf toasting flutes are the must have gift that will serve as a lasting and meaningful memento for years to come!'),
+    Product(
+        seller_id=4, category='Table Decor&Centerpieces', name='Lenox True Love Silver Personalized Wedding Cake Cutting Set Bundle / Includes Engraved Wedding Champagne Flutes & Cake Knife and Server Set', price=120.32, description='This elegant set includes a pair of matching Champagne Toasting Flutes and Cake Knife and Server set from the Lenox True Love Collection, all custom engraved to your specifications, to make cherished wedding keepsakes for your favorite Bride and Groom.'),
+    Product(
+        seller_id=5, category='Table Decor&Centerpieces', name='Rose gold wedding glasses Cake server set Plate and forks Rose gold toasting flutes Cake cutter glasses dish forks Plate', price=67.20, description='Custom champagne glasses may be created to fit your needs. Your unique wedding colors can be used for this design. Names and date may be painted to customize to your occasion.'),
+    Product(
+        seller_id=5, category='Table Decor&Centerpieces', name='Personalized Wedding Toasting Flutes (Set of TWO) Pair Custom Engraved Vina Champagne Glasses, Couples Wedding Glass, Engagement Gift', price=38.00, description='Personalized pair Vina wedding toasting flutes are the must have gift that will serve as a lasting and meaningful memento for years to come!'),
+    Product(
+        seller_id=5, category='Table Decor&Centerpieces', name='Personalized Relationship Champagne Flutes - Toasting Glasses for Couples, Romantic Gift Idea, Anniversary Glasses, Design: N6', price=15.46, description='Personalized etched champagne glasses for newlyweds, newly engaged, anniversary, or any celebrating couples! Each champagne glass is laser etched for an elegant and permanent look. Perfect for toasting glasses and wedding gifts, or even wedding favors for your guests! Husband and wife both will adore these glasses long after the big day. Prosecco or Champagne, who cares?! Bubbles make everything better.'),
+    Product(
+        seller_id=5, category='Table Decor&Centerpieces', name='Personalized Wedding Glasses-Wedding Toasting Flutes-Engraved Wedding Glasses-Wedding Flutes-Champagne Flutes-Wedding Favours-Wedding Gifts', price=19.30, description='Personalized Wedding Champagne Glasses for the biggest day of your life! Each of our Personalized Wine Glass are handmade with love just for you!'),
     ]
 
     for product in products:
