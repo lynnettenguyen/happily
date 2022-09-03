@@ -36,11 +36,11 @@ def seed_products():
     Product(
         seller_id=4, category='Seating', name='Framed Acrylic Custom Seating Chart with wax', price=300.00, description='Beautiful custom framed acrylic seating chart with wax seal. We can fit 15-25 tables on each 24x36'),
     Product(
-        seller_id=4, category='Seating', name='Unique Table Seating Chart on Window Panel (Mirror, six paneled window)', price=200.00, description='If you are wanting to have a unique table seating chart and you live in Los Angeles, you can have your dream come true.p'),
+        seller_id=4, category='Seating', name='Unique Table Seating Chart on Window Panel (Mirror, six paneled window)', price=200.00, description='If you are wanting to have a unique table seating chart and you live in Los Angeles, you can have your dream come true.'),
     Product(
         seller_id=2, category='Seating', name='Acrylic Seating Chart // Wedding seating chart // acrylic wedding sign // seating chart sign // custom wedding decor // frosted acrylic', price=141.75, description='Add a touch of elegant detail to your wedding or special event with our beautiful, laser cut and ENGRAVED acrylic custom seating chart!p18'),
     Product(
-        seller_id=1, category='Seating', name='Wedding Reserved Sign - Wood Reserved Sign - Reserved Sign - Wedding Signs - Wedding decor - Wedding Aisle - Social distancing - Minimalist', price=8.50, description='These custom made reserved signs are the perfect addition to your wedding tables or pews to help save room for your closest friends and family.p1'),
+        seller_id=1, category='Seating', name='Wedding Reserved Sign - Wood Reserved Sign - Reserved Sign - Wedding Signs - Wedding decor - Wedding Aisle - Social distancing - Minimalist', price=8.50, description='These custom made reserved signs are the perfect addition to your wedding tables or pews to help save room for your closest friends and family.'),
     Product(
         seller_id=3, category='Seating', name='Reserved Seating Chair Tag Template, Modern Wedding Reserved Seat Tag, Minimalist Wedding Reserved Seating Tag, Printable, Templett, #016', price=3.99, description='Purchase, personalize, and print within minutes! Edit using the Templett app in your computer browser,p no additional software needed! Please try demo and seek clarification before purchasing the template.'),
     Product(
@@ -118,7 +118,7 @@ def seed_products():
     Product(
         seller_id=3, category='Guestbook', name='Alternative Guest Book Guest Book Alternative Wedding Family Name Sign Minimalist Boho Style Wedding Decor', price=20.95, description='An alternative wedding guestbook with your personalization is a great wedding decor for your holiday.'),
     Product(
-        seller_id=6, category='Groom&Groomsmen', name='Groomsman Rocks Glass, Custom Groomsman Gifts, Engraved Glass, Wedding Party Whiskey Glass, Whiskey glasses, Wedding Favors, Groomsmen Gifts', price=11.92, description='Personalize our engraved whiskey glasses with your choice deign from our design menu. Engraved glasses are an essential gift for your entire wedding party. Our restaurant quality glassware is laser engraved for a permanent, dishwasher safe, design that will never peel or fade.p'),
+        seller_id=6, category='Groom&Groomsmen', name='Groomsman Rocks Glass, Custom Groomsman Gifts, Engraved Glass, Wedding Party Whiskey Glass, Whiskey glasses, Wedding Favors, Groomsmen Gifts', price=11.92, description='Personalize our engraved whiskey glasses with your choice deign from our design menu. Engraved glasses are an essential gift for your entire wedding party. Our restaurant quality glassware is laser engraved for a permanent, dishwasher safe, design that will never peel or fade.'),
     Product(
         seller_id=6, category='Groom&Groomsmen', name='Groomsmen Gift, Bottle opener, Groomsmen Gifts Personalized bottle opener, Groomsmen Proposal Best Man Gift Custom Groomsman gift', price=10.35, description='This Personalized Bottle opener is the perfect gift for your groomsmen or any favorite beer drinker in your life. Perfect for a Bar or gift for your favorite bartender.'),
     Product(
@@ -152,9 +152,9 @@ def seed_products():
     Product(
         seller_id=5, category='Favors&Gifts', name='Custom Engraved Marble Wood Coasters | Anniversary Gifts Round Coaster for Men Personalized | Groomsmen Gifts', price=13.89, description='These laser engraved high quality wood and marble coasters will make unique and one of a kind gifts for birthday, anniversary, or any occasion that needs personal touch.'),
     Product(
-        seller_id=7, category='Attire&Accessories', name='Lace Boho Wedding Dress _ AVA', price=642.67, description='AVA has elegantly captured the essence of femininity with her illusion lace detailing bodice which drapes around her body, oh so effortlessly. She dares to captivate her guests with her deep plunging V back and flowing 1 metre lace train.p75.1'),
+        seller_id=7, category='Attire&Accessories', name='Lace Boho Wedding Dress _ AVA', price=642.67, description='AVA has elegantly captured the essence of femininity with her illusion lace detailing bodice which drapes around her body, oh so effortlessly. She dares to captivate her guests with her deep plunging V back and flowing 1 metre lace train.'),
     Product(
-        seller_id=6, category='Attire&Accessories', name='Traditional Chinese Dress, White Cheongsam Dress, Modern Qipao Dress, Women\'s Vintage Dresses, Floral Lace Dress, 2022 New Design Wedding Dress', price=112.82, description='White cheongsam dress is very suitable for Chinese wedding ceremony. The dress is a very elegant white wedding qipao dress with traditional Chinese style and fresh modern lace pattern. If you are looking for a dress that makes you stunning at the wedding or other events, then this dress is very suitable for you.p75.1'),
+        seller_id=6, category='Attire&Accessories', name='Traditional Chinese Dress, White Cheongsam Dress, Modern Qipao Dress, Women\'s Vintage Dresses, Floral Lace Dress, 2022 New Design Wedding Dress', price=112.82, description='White cheongsam dress is very suitable for Chinese wedding ceremony. The dress is a very elegant white wedding qipao dress with traditional Chinese style and fresh modern lace pattern. If you are looking for a dress that makes you stunning at the wedding or other events, then this dress is very suitable for you.'),
     Product(
         seller_id=5, category='Attire&Accessories', name='Modern Cheongsam Dress, Qipao Dress, Traditional Chinese Dress, White Qipao Dress, Cheongsam, Embroidery Flower Pattern, Mandarin Collar', price=169.23, description='Looking for an elegant comfortable Cheongsam dress? Then this dress is suitable for you!'),
     Product(
@@ -172,7 +172,7 @@ def seed_products():
     Product(
         seller_id=7, category='Attire&Accessories', name='Short Sleeve Lace Midi Dress / Vintage Style Slim Wedding Dress / Korean Style Luxury wear Simple Dress / Elegant Unique Bridal Dress', price=100.00, description='This is a beautiful wedding dress for wedding/engagement.'),
     Product(
-        seller_id=8, category='Table Decor&Centerpieces', name='Book Stack Decor || Wedding Table Decor || Rustic Wedding decorations || Personalized table centerpieces', price=14.50, description='Personalized farmhouse books. These make great decor accents or centerpieces for your wedding. Each book can be created using whatever saying or name you wish (less than 12 characters including spaces works best).p'),
+        seller_id=8, category='Table Decor&Centerpieces', name='Book Stack Decor || Wedding Table Decor || Rustic Wedding decorations || Personalized table centerpieces', price=14.50, description='Personalized farmhouse books. These make great decor accents or centerpieces for your wedding. Each book can be created using whatever saying or name you wish (less than 12 characters including spaces works best).'),
     Product(
         seller_id=8, category='Table Decor&Centerpieces', name='Newlyweds Mr. Mrs. Custom Engraved Engaged Wine Champagne Flutes 45th Anniversary Gift for Couples Wedding Centerpiece Set of 2 Bride Groom', price=19.95, description='Bridal Party Champagne Flutes Set of 2 Glass Flute Laser Engraved & Personalized with Last Name and Date Comes with Cursive Mr. & Mrs. Design AND Your Choice of Flute: Twisty Stem, Smooth Stem, or Stemless.'),
     Product(
@@ -182,7 +182,7 @@ def seed_products():
     Product(
         seller_id=8, category='Table Decor&Centerpieces', name='Set of 10 - 12 inch wood slices wedding centerpieces wood centerpieces wood slabs wood log slices centerpiece wood slab rustic wedding decor', price=71.99, description='Every wood slice sold on our shop has been fully dried in a specially designed, climate controlled shop. They have been dried without splits and last for years of reuse. There’s nothing you need to do to them and they are ready to use upon arrival!'),
     Product(
-        seller_id=8, category='Table Decor&Centerpieces', name='Wedding Log Slices Perfect For Centerpieces, Flowers, Candles, Wedding Cake, Rustic, Vintage, Boho Barn Wedding Flower Decorations Decor', price=27.52, description='The logs are a natural product which means they may contain bark missing, have a sap on them from being cut etc. We would recommend removing them from the box once they have arrived to allow as much air to get to them. We can not be held responsible for the way in which the logs will turn out over time.p90.'),
+        seller_id=8, category='Table Decor&Centerpieces', name='Wedding Log Slices Perfect For Centerpieces, Flowers, Candles, Wedding Cake, Rustic, Vintage, Boho Barn Wedding Flower Decorations Decor', price=27.52, description='The logs are a natural product which means they may contain bark missing, have a sap on them from being cut etc. We would recommend removing them from the box once they have arrived to allow as much air to get to them. We can not be held responsible for the way in which the logs will turn out over time.'),
     Product(
         seller_id=8, category='Table Decor&Centerpieces', name='Rustic Wedding Decor, String Lights, Wedding Table Decor, Reception, Centerpiece, Battery, Fairy lights, 10-30 LEDs, 3ft, 6ft, 9ft', price=2.97, description='String lights on a delicate wire for a whimsical glow in any size mason jar or centerpiece! p90.DIY rustic wedding decor. Save money on centerpieces. Easy to make!'),
     Product(
@@ -196,7 +196,7 @@ def seed_products():
     Product(
         seller_id=7, category='Attire&Accessories', name='1.5ct Pear Shaped Moissanite Bridal Set Moissanite Engagement Ring Rose Gold Cluster Wedding Women Unique Marquise Moissanite Band Chevron', price=694.21, description=' Ring Material: solid 14k rose gold. Center Stone: Moissanite, D-E-F color, in Pear shaped.'),
     Product(
-        seller_id=7, category='Attire&Accessories', name='Vintage kite cut green moss agate engagement ring set 14k rose gold marquise cut moissanite ring for women unique bridal wedding ring set', price=230.32, description='Every moss agate is natural, the color will be similar but not the same. It will be randomly selected when setting this stone.p98'),
+        seller_id=7, category='Attire&Accessories', name='Vintage kite cut green moss agate engagement ring set 14k rose gold marquise cut moissanite ring for women unique bridal wedding ring set', price=230.32, description='Every moss agate is natural, the color will be similar but not the same. It will be randomly selected when setting this stone.'),
     Product(
         seller_id=7, category='Attire&Accessories', name='Wedding Ring Set 3PCS 18K Rose Gold Plated Engagement Stacking Band 1.5 Carat Cubic Zircon Promise Bridal Band Set Valentine\'s Gift For Her', price=11.34, description='Delicate Design- Center stone is set with 1.25 carat round cut AAA cubic zircon. This three-piece cubic zircon wedding ring set for her will never be outdated and will make your eyes shine. Perfect couple rings bridal set are dazzling in your hand.'),
     Product(

@@ -65,6 +65,16 @@ export const findProductsByCategory = (category) => async (dispatch) => {
   }
 }
 
+export const loadProductsByOwner = (sellerId) => async (dispatch) => {
+  const response = await fetch(`/api/users/${sellerId}/products`)
+
+  if (response.ok) {
+    const products = await response.json()
+    dispatch(getProducts(products))
+    return products;
+  }
+}
+
 export const addNewProduct = (productData) => async (dispatch) => {
   const { sellerId, category, name, price, description } = productData;
   const response = await fetch(`/api/products`, {

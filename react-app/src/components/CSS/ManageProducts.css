@@ -1,0 +1,39 @@
+.my-products-upper {
+  background-color: #D4E9D7;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  min-height: 100px;
+  min-width: 100%;
+  z-index: -3;
+}
+
+.my-products-header {
+  margin: 2rem 15.2rem;
+  font-family: GuardianEgypLight, Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+}
+
+.my-products-outer {
+  display: flex;
+  flex-direction: column;
+  padding-top: 100px;
+  justify-content: center;
+  margin: 0 14rem;
+}
+
+.my-products-img-main {
+  width: 200px;
+  height: 150px;
+}
+
+.my-products-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.my-products-inner {
+  display: flex;
+  flex-direction: row;
+}

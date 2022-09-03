@@ -38,7 +38,7 @@ const NavBar = () => {
           </div>
           {user ? <>
             <div className='navBar-link-icon'>
-              <NavLink to='/shop' exact={true} activeClassName='active'>
+              <NavLink to='/shop/products' exact={true} activeClassName='active'>
                 <img src={shop}></img>
               </NavLink>
             </div>

@@ -24,9 +24,7 @@ const starsDisplay = (starCount) => {
     <>
       {starCount.map((star) => {
         return (
-          <>
-            <img className='star-display' src={star}></img>
-          </>
+          <img className='star-display' src={star}></img>
         )
       })}
     </>
@@ -36,12 +34,9 @@ const starsDisplay = (starCount) => {
 const ProductsByCategory = () => {
   const dispatch = useDispatch()
   let { category } = useParams()
-  const products = useSelector(state => Object.values(state.products))
   const categories = useSelector(state => state.categories)
-
-  console.log(category)
-
-
+  let products = useSelector(state => Object.values(state.products))
+  products = products.sort(() => 0.5 - Math.random())
 
   useEffect(() => {
     dispatch(findProductsByCategory(category))
