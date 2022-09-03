@@ -29,7 +29,13 @@ const Product = () => {
     if (difference >= 0.5) ratingArr.push(halfStar)
 
     const remainder = 5 - ratingArr.length
-    if (ratingArr.length > 0 && remainder > 0) ratingArr.push(emptyStar)
+    if (ratingArr.length > 0 && remainder > 0) {
+      let index = 0
+      while (index < remainder) {
+        ratingArr.push(emptyStar)
+        index += 1
+      }
+    }
 
     setRating(ratingArr)
   }
