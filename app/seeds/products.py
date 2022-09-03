@@ -38,7 +38,7 @@ def seed_products():
     Product(
         seller_id=4, category='Seating', name='Unique Table Seating Chart on Window Panel (Mirror, six paneled window)', price=200.00, description='If you are wanting to have a unique table seating chart and you live in Los Angeles, you can have your dream come true.'),
     Product(
-        seller_id=2, category='Seating', name='Acrylic Seating Chart // Wedding seating chart // acrylic wedding sign // seating chart sign // custom wedding decor // frosted acrylic', price=141.75, description='Add a touch of elegant detail to your wedding or special event with our beautiful, laser cut and ENGRAVED acrylic custom seating chart!p18'),
+        seller_id=2, category='Seating', name='Acrylic Seating Chart // Wedding Seating Chart // Acrylic Wedding Sign // Seating Chart Sign // Custom Wedding Decor // Frosted Acrylic', price=141.75, description='Add a touch of elegant detail to your wedding or special event with our beautiful, laser cut and ENGRAVED acrylic custom seating chart!p18'),
     Product(
         seller_id=1, category='Seating', name='Wedding Reserved Sign - Wood Reserved Sign - Reserved Sign - Wedding Signs - Wedding decor - Wedding Aisle - Social distancing - Minimalist', price=8.50, description='These custom made reserved signs are the perfect addition to your wedding tables or pews to help save room for your closest friends and family.'),
     Product(
@@ -56,7 +56,7 @@ def seed_products():
     Product(
         seller_id=1, category='Arches', name='Double Square Wedding Arch Bridal Shower Ceremony Flower Arch Balloons Arch Background Party Stage Rustic Wedding Decoration', price=385.00, description='Double Pole Square Wedding Arch Wrought Iron Frame Background Party Stage Flower Arch Decoration'),
     Product(
-        seller_id=2, category='Guestbook', name='Wedding guest book, guestbook, floral foliage, rustic guest book, guestbook, custom guest book, wedding, alternative, wood wooden PG1', price=36.30, description='Your best wishes from guests can be kept forever in this stunning wooden guest book. Made as a counterpart to our engraved wedding signs, this beautiful floral guestbook has been hand designed in our New Forest studio by our in house artist.'),
+        seller_id=2, category='Guestbook', name='Wedding Guest Book, Guestbook, Floral Foliage, Rustic Guest Book, Custom Wedding, Alternative, Wood Wooden PG1', price=36.30, description='Your best wishes from guests can be kept forever in this stunning wooden guest book. Made as a counterpart to our engraved wedding signs, this beautiful floral guestbook has been hand designed in our New Forest studio by our in house artist.'),
     Product(
         seller_id=1, category='Arches', name='Wedding Backdrop | Wedding Arch Alternative | Floral Stands | Ceremony Floral Accents | Decor | Custom Sizes Available', price=270.00, description='These handmade COPPER STANDS are perfect for shaping your alter with your custom wedding color florals. These pieces come polished and cleaned thoroughly however copper naturally holds onto oils so I highly recommend using TarnX to polish the copper a day or two before your event to make it the most beautiful rose gold color.'),
     Product(
@@ -66,7 +66,7 @@ def seed_products():
     Product(
         seller_id=2, category='Arches', name='Wedding Arch - Hexagon Wedding Arch - Wooden Arch Wedding - Boho Wedding Décor - Geometric Wedding Arbor - Rustic Wedding Backdrop', price=209.66, description='This wedding arch will be the centerpiece décor on your Big day. So it has to be perfect. We wanted to create something we would be proud to use at our own wedding.'),
     Product(
-        seller_id=1, category='Bar & Menu', name='Signature Dog Cocktails Frosted Acrylic Wedding Bar Sign || custom wedding bar sign personalized bar drinks menu after party 03-038-547', price=18.36, description='Our acrylic signs are a beautiful way to welcome your guests. Made on sturdy acrylic for a glass-like effect, they are eye-catching and stunning. Our signs are never made using vinyl or stickers, and the design is 100% permanent. It will never fade or scratch off and is 100% weatherproof. Acrylic is a a superior material for signs, it is shatterproof, rigid enough to stand on its own while being lightweight and easy to handle. Place it in an easel for a crisp, clean look, frame it, or dress up with a floral arrangement.'),
+        seller_id=1, category='Bar & Menu', name='Signature Dog Cocktails Frosted Acrylic Wedding Bar Sign || Custom Wedding Bar Sign Personalized Bar Drinks Menu After Party', price=18.36, description='Our acrylic signs are a beautiful way to welcome your guests. Made on sturdy acrylic for a glass-like effect, they are eye-catching and stunning. Our signs are never made using vinyl or stickers, and the design is 100% permanent. It will never fade or scratch off and is 100% weatherproof. Acrylic is a a superior material for signs, it is shatterproof, rigid enough to stand on its own while being lightweight and easy to handle. Place it in an easel for a crisp, clean look, frame it, or dress up with a floral arrangement.'),
     Product(
         seller_id=3, category='Bar&Menu', name='Signature Cocktails Acrylic Sign, Signature Drink Bar Menu, Wedding Bar Menu, Wedding Bar Sign, Acrylic Bar Menu Sign', price=25.00, description='This is a perfect signature drink sign for a wedding or party.'),
     Product(
@@ -132,7 +132,7 @@ def seed_products():
     Product(
         seller_id=2, category='Guestbook', name='Acrylic Wedding Guestbook, Guest Book Alternative, Modern Acrylic Guestbook, Rustic Wedding Decor', price=60.00, description='Our guest books are made of acrylic + plywood frame and personalization (your surnames and date), it is done with paint.'),
     Product(
-        seller_id=2, category='Guestbook', name='Guestbook Heart, Circle, Rectangle / Guest Book Sign/ Acrylic sign/ Acrylic Guestbook By Eli', price=55.00, description='Our guest books are made of acrylic + plywood frame and personalization (your surnames and date), it is done with paint.'),
+        seller_id=2, category='Guestbook', name='Guestbook Heart, Circle, Rectangle / Guest Book Sign / Acrylic Sign / Acrylic Guestbook By Eli', price=55.00, description='Our guest books are made of acrylic + plywood frame and personalization (your surnames and date), it is done with paint.'),
     Product(
         seller_id=3, category='Seating', name='Find Your Seat Escort Card Wedding Sign, Hexagon or Circle Party & Event Seating Chart Sign Modern Boho Wedding Decor (Item - FYC220)', price=35.72, description='This find your seat escort card sign is a beautiful piece for the wedding or event decor that can be used as a sign at the wedding reception escort card display area! Choose your shape! With this beautiful sign, the special day will be unique and memorable! Choose your color from our selection of gorgeous metallic, glitter, and on-trend colors.'),
     Product(
@@ -144,7 +144,7 @@ def seed_products():
     Product(
         seller_id=7, category='Favors&Gifts', name='Engraved Home Coordinates Custom Cutting Board | Bread Board | Personalized Charcuterie | Housewarming Gift | Closing Gift | Wedding Gift', price=50.03, description='Say hello to this USA made, premium solid walnut engraved cutting board- The perfect way to celebrate a housewarming, closing, wedding, or birthday! This timeless keepsake is not only functional, but serves as a unique gift that will be cherished forever.'),
     Product(
-        seller_id=2, category='Favors&Gifts', name='Mr & Mrs Tequila Board,Personalized Gift,Housewarming Gift,Wedding Gift,Wedding Favors,Engagement Gift,Gift for Couple,Tequila Board', price=59.99, description='This 2 IN 1 DUAL PURPOSE board can be used as a cutting board or a serving tray. This makes the perfect gift for any occasion!'),
+        seller_id=2, category='Favors&Gifts', name='Mr & Mrs Tequila Board, Personalized Gift, Housewarming Gift, Wedding Gift, Wedding Favors, Engagement Gift, Gift for Couple, Tequila Board', price=59.99, description='This 2 IN 1 DUAL PURPOSE board can be used as a cutting board or a serving tray. This makes the perfect gift for any occasion!'),
     Product(
         seller_id=3, category='Favors&Gifts', name='Engagement Gift For Couple, Personalized Unique Wedding Present, Personalized Wedding Gift, Engraved Chopping Board, Hochzeitsgeschenk Holz', price=114.18, description='A stunning collaboration of art and usability. Gift your loved one this thoughtfully unique gift. Highlight the momentous occasions in their life by personalizing a gift that will last a lifetime! This stunning resin art chopping board has been handcrafted by artisans on the Sunshine Coast in Australia. Every piece we make is 100% unique and of the finest quality.'),
     Product(
@@ -166,7 +166,7 @@ def seed_products():
     Product(
         seller_id=6, category='Attire&Accessories', name='Cheongsam Dress Women, Qipao Dress Modern, Traditional Chinese Dress, Champagne Qipao Dress, Ball gowns, Flower Pattern, Mandarin Collar', price=152.31, description='This cheongsam dress makes you look gorgeous in daily life. Chinese cheongsam dress is made of high quality material and perfect design. Therefore, you could have a comfortable fit by wearing it.'),
     Product(
-        seller_id=2, category='Attire&Accessories', name='Backless wedding dress long sleeve sheath form fitting gown| ANDREATTA', price=950.00, description='This lace backless wedding dress with long sleeves is for the bride who wants a gown that is both breathtaking and timeless.'),
+        seller_id=2, category='Attire&Accessories', name='Backless Wedding Dress Long Sleeve Sheath Form Fitting Gown | ANDREATTA', price=950.00, description='This lace backless wedding dress with long sleeves is for the bride who wants a gown that is both breathtaking and timeless.'),
     Product(
         seller_id=7, category='Attire&Accessories', name='Boho wedding Dress "KENDALL" with Fringes | Designer Luxurious dress Mermaid | Unique wedding Dress shot Sleeve | Bohemian shiny Bridal Gown', price=790.00, description='A light shimmering "KENDALL" A-line dress sparkles and shimmers with gold and platinum hues.'),
     Product(

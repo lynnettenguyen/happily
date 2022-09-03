@@ -14,6 +14,10 @@ const ManageProducts = () => {
     dispatch(loadProductsByOwner(user.id))
   }, [])
 
+  const handleEdit = () => {
+
+  }
+
   return (
     <>
       <div className="my-products-main">
@@ -22,7 +26,7 @@ const ManageProducts = () => {
         </div>
         <div className="my-products-outer">
           <div className="my-products-inner">
-            {products?.map((product, i) => {
+            {products?.reverse().map((product, i) => {
               return (
                 <>
                   <div className="my-products-img-main">
@@ -35,7 +39,7 @@ const ManageProducts = () => {
                     <div className="my-product-name">{product?.name}</div>
                     <div className="my-product-price">${product?.price.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
                     <div className="my-product-buttons">
-                      <button className="my-product-edit-button">Edit</button>
+                      <button className="my-product-edit-button" onClick={handleEdit}>Edit</button>
                       <button className="my-product-delete-button">Delete</button>
                     </div>
                   </div>
