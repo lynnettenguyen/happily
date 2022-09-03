@@ -1,5 +1,6 @@
 const GET_PRODUCTS = 'products/GET_PRODUCTS'
 const FIND_PRODUCT = 'products/FIND_PRODUCT'
+const LOAD_PRODUCTS_BY_CATEGORY = 'products/LOAD_PRODUCTS_BY_CATEGORY'
 const ADD_PRODUCT = 'products/ADD_PRODUCT'
 const EDIT_PRODUCT = 'products/EDIT_PRODUCT'
 const DELETE_PRODUCT = 'products/DELETE_PRODUCT'
@@ -12,6 +13,11 @@ const getProducts = (products) => ({
 const findProduct = (product) => ({
   type: FIND_PRODUCT,
   product
+})
+
+const loadProductsByCategory = (products) => ({
+  type: LOAD_PRODUCTS_BY_CATEGORY,
+  products
 })
 
 const addProduct = (newProduct) => ({
@@ -54,7 +60,7 @@ export const findProductsByCategory = (category) => async (dispatch) => {
 
   if (response.ok) {
     const product = await response.json()
-    dispatch(findProduct(product))
+    dispatch(loadProductsByCategory(product))
     return product;
   }
 }
@@ -121,6 +127,10 @@ const productsReducer = (state = {}, action) => {
     case FIND_PRODUCT: {
       newState = { ...state }
       newState[action.product[0].id] = action.product[0]
+      return newState
+    }
+    case LOAD_PRODUCTS_BY_CATEGORY: {
+      for (let product of action.products) newState[product.id] = product
       return newState
     }
     case ADD_PRODUCT: {

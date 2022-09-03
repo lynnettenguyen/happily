@@ -4,7 +4,9 @@ NavLink {
 
 .navBar-main {
   border-bottom: 1px solid rgba(128, 128, 128, 0.242);
-  padding: 0 60px 10px 60px;
+  padding: 0 60px;
+  box-sizing: border-box;
+  min-height: 101px;
 }
 
 .navBar-outer {
@@ -106,5 +108,11 @@ NavLink {
 }
 
 .navBar-feature {
-  margin: 0.5rem 1rem;
+  padding: 0.5rem 0 1rem;
+  margin: 0 auto;
+}
+
+.navBar-feature:hover {
+  cursor: pointer;
+  border-bottom: 1.5px solid black;
 }
