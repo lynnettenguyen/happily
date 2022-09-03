@@ -25,7 +25,7 @@ const NavBar = () => {
         <div className='navBar-outer'>
           <div className='navBar-link'>
             <NavLink to='/' exact={true} activeClassName='active'>
-              <div className='navBar-home'>Knotsy</div>
+              <div className='navBar-home'>Happily</div>
             </NavLink>
           </div>
           <div className='navBar-searchBar-outer'>
