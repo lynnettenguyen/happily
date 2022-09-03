@@ -9,7 +9,7 @@ def user_exists(form, field):
     email = field.data
     user = User.query.filter(User.email == email).first()
     if user:
-        raise ValidationError('Email address is already in use')
+        raise ValidationError('Email address already in use')
 
 
 # def shop_name_exists(form, field):
@@ -22,9 +22,9 @@ def user_exists(form, field):
 
 class SignUpForm(FlaskForm):
     first_name = StringField(
-        'first_name', validators=[DataRequired()])
-    email = StringField('email', validators=[DataRequired(), user_exists, Email('Email address is invalid')])
-    password = StringField('password', validators=[DataRequired(), Regexp(
-        '^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$', message='Passwords must contain at least 8 characters, 1 uppercase letter, 1 lowercase letter, and 1 number')])
+        'first_name', validators=[DataRequired(message='First name is required')])
+    email = StringField('email', validators=[DataRequired(), user_exists, Email('Email address invalid')])
+    password = StringField('password', validators=[DataRequired(), Length(min=8, message='Password must contain at least 8 characters'), Regexp(
+        '^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$', message='Password must contain 1 uppercase, 1 lowercase, and 1 number')])
     # shop_name = StringField(
     #     'shop_name', validators=[DataRequired(), shop_name_exists, Length(min=4, max=20, message='Your shop\'s name must be between 4 and 20 characters'), Regexp('^[a-zA-Z]+$', message='Your shop\'s name must only include alphabetical characters')])

@@ -38,6 +38,7 @@
   height: 36px;
   border-radius: 10px;
   padding-left: 14px;
+  outline: none;
 }
 
 .signup-form-button {
@@ -47,9 +48,11 @@
   font-family: GraphikMedium, Arial, Helvetica, sans-serif;
   height: 40px;
   border-radius: 20px;
+  margin-top: 1rem;
 }
 
-.signup-form-button:hover {
+.signup-form-button:hover,
+.signup-input:hover {
   cursor: pointer;
 }
 

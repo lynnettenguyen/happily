@@ -43,6 +43,7 @@
   height: 36px;
   border-radius: 10px;
   padding-left: 14px;
+  outline: none;
 }
 
 .login-form-button,
@@ -65,7 +66,8 @@
 
 .login-form-button:hover,
 .login-form-demo-button:hover,
-.login-register-button:hover {
+.login-register-button:hover,
+.login-input:hover {
   cursor: pointer;
 }
 

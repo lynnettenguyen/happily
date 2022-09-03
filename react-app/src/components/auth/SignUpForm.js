@@ -18,6 +18,7 @@ const SignUpForm = () => {
     if (password === repeatPassword) {
       const data = await dispatch(signUp(first_name, email, password));
       if (data) {
+        console.log(data)
         setErrors(data)
       }
     }
@@ -49,11 +50,6 @@ const SignUpForm = () => {
         <div className='signup-header'>Create your account</div>
         <div className='signup-caption'>Registration is easy.</div>
       </div>
-      <div className='signup-error-outer'>
-        {errors.map((error, ind) => (
-          <div key={ind} className='signup-errors'>{error}</div>
-        ))}
-      </div>
       <div className='signup-field-outer'>
         <label className='signup-label'>Email address *</label>
         <input
@@ -64,6 +60,14 @@ const SignUpForm = () => {
           value={email}
         ></input>
       </div>
+      <div className='signup-error-outer'>
+        {errors.map((error, ind) => {
+          if (error.split(":")[0].toLowerCase() === 'email ')
+            return (
+              <div key={ind} className='signup-errors'>*{error.split(":")[1]}</div>
+            )
+        })}
+      </div>
       <div className='signup-field-outer'>
         <label className='signup-label'>First name *</label>
         <input
@@ -73,6 +77,14 @@ const SignUpForm = () => {
           onChange={updateFirstName}
           value={first_name}
         ></input>
+      </div>
+      <div className='login-error-outer'>
+        {errors.map((error, ind) => {
+          if (error.split(":")[0].toLowerCase() === 'first name ')
+            return (
+              <div key={ind} className='login-errors'>*{error.split(":")[1]}</div>
+            )
+        })}
       </div>
       <div>
       </div>
@@ -97,6 +109,14 @@ const SignUpForm = () => {
             value={repeatPassword}
             required={true}
           ></input>
+        </div>
+        <div className='login-error-outer'>
+          {errors.map((error, ind) => {
+            if (error.split(":")[0].toLowerCase() === 'password ')
+              return (
+                <div key={ind} className='login-errors'>*{error.split(":")[1]}</div>
+              )
+          })}
         </div>
       </div>
       <div className='signup-buttons-outer'>
