@@ -15,6 +15,7 @@ const LoginForm = () => {
     e.preventDefault();
     const data = await dispatch(login(email, password));
     if (data) {
+      console.log(data)
       setErrors(data);
     }
   };
@@ -37,13 +38,8 @@ const LoginForm = () => {
         <div className='login-header'>Sign in</div>
         <button className='login-register-button'>Register</button>
       </div>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-      </div>
       <div className='login-field-outer'>
-        <label className='login-label' htmlFor='email'>Email address</label>
+        <label className='login-label' htmlFor='email'>Email address *</label>
         <input
           name='email'
           className='login-input'
@@ -53,8 +49,16 @@ const LoginForm = () => {
           onChange={updateEmail}
         />
       </div>
+      <div className='login-error-outer'>
+        {errors.map((error, ind) => {
+          if (error.split(":")[0].toLowerCase() === 'email ')
+            return (
+              <div key={ind} className='login-errors'>*{error.split(":")[1]}</div>
+            )
+        })}
+      </div>
       <div className='login-field-outer'>
-        <label className='login-label'  htmlFor='password'>Password</label>
+        <label className='login-label' htmlFor='password'>Password *</label>
         <input
           name='password'
           className='login-input'
@@ -63,9 +67,20 @@ const LoginForm = () => {
           value={password}
           onChange={updatePassword}
         />
-        <button type='submit' className='login-form-button'>Sign in</button>
       </div>
-    </form>
+      <div className='login-error-outer'>
+        {errors.map((error, ind) => {
+          if (error.split(":")[0].toLowerCase() === 'password ')
+            return (
+              <div key={ind} className='login-errors'>*{error.split(":")[1]}</div>
+            )
+        })}
+      </div>
+      <div className='login-buttons-outer'>
+        <button type='submit' className='login-form-button'>Sign in</button>
+        <button type='submit' className='login-form-demo-button' onClick={() => { setEmail('demo@aa.io'); setPassword('password') }}> Demo User</button>
+      </div>
+    </form >
   );
 };
 

@@ -42,14 +42,43 @@
   border: 1px solid rgba(128, 128, 128, 0.336);
   height: 36px;
   border-radius: 10px;
+  padding-left: 14px;
 }
 
-.login-form-button {
+.login-form-button,
+.login-form-demo-button {
   border: none;
   background-color: rgba(0, 0, 0, 0.925);
   color: white;
   font-family: GraphikMedium, Arial, Helvetica, sans-serif;
   height: 40px;
   border-radius: 20px;
-  margin-top: 1.5rem;
+}
+
+.login-form-button {
+  margin-top: 0.5rem;
+}
+
+.login-form-demo-button {
+  margin: 1rem 0;
+}
+
+.login-form-button:hover,
+.login-form-demo-button:hover {
+  cursor: pointer;
+}
+
+.login-error-outer {
+  margin-bottom: 0.5rem;
+}
+
+.login-errors {
+  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
+  color: rgb(255, 0, 0);
+  font-size: 12px;
+}
+
+.login-buttons-outer {
+  display: flex;
+  flex-direction: column;
 }
