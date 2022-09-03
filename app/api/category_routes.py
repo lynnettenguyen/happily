@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify
 from .auth_routes import validation_errors_to_error_messages
-from app.models import db, Product, Review, Image, Category
+from app.models import db, Product, Review, Image, Category, User
 from app.forms import ProductForm
 from datetime import date
 
@@ -27,10 +27,10 @@ def products_by_category(category_name):
 
       main_image = db.session.query(Image).filter(Image.product_id == product_id).first()
 
-      # print(main_images)
-
       reviews_for_product = db.session.query(Review).filter(Review.product_id == product_id).all()
-      reviews = [review.to_dict() for review in reviews_for_product]
+      # reviews = [review.to_dict() for review in reviews_for_product]
+
+      seller = db.session.query(User).filter(User.id == product['seller_id']).first()
 
       sum_stars = 0
       if len(reviews_for_product) > 0 :
@@ -40,9 +40,10 @@ def products_by_category(category_name):
         avg = sum_stars // len(reviews_for_product)
         product['avg_stars'] = avg
 
-      product['images'] = main_image.to_url()
-      product['reviews'] = reviews
+      product['images'] = [main_image.to_url()]
+      # product['reviews'] = reviews
       product['num_reviews'] = len(reviews_for_product)
+      product['shop_name'] = seller.shop_name
 
       product_details.append(product)
 

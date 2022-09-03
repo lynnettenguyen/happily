@@ -24,6 +24,11 @@
 }
 
 @font-face {
+  font-family: GraphikCompactLight;
+  src: url('./fonts/Graphik/GraphikCompact-Light-Trial.otf');
+}
+
+@font-face {
   font-family: GuardianEgypRegular;
   src: url('./fonts/Guardian/GuardianEgyp-Regular-Trial.otf');
 }

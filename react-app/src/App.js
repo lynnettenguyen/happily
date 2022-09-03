@@ -15,6 +15,7 @@ import '../src/components/CSS/Fonts.css'
 import Shop from './components/Shop';
 import Cart from './components/Cart';
 import { ModalProvider } from './components/Context/modal'
+import ProductsByCategory from './components/Product/ProductsByCategory';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -44,6 +45,9 @@ function App() {
           </Route>
           <Route path='/products/:productId'>
             <Product />
+          </Route>
+          <Route path='/featured/:category'>
+            <ProductsByCategory />
           </Route>
           <ProtectedRoute path='/shop' exact={true} >
             <Shop />

@@ -22,7 +22,7 @@ const categoryReducer = (state = {}, action) => {
   let newState = {}
   switch (action.type) {
     case GET_CATEGORIES: {
-      for (let category of action.categories) newState[category.id] = category
+      for (let category of action.categories) newState[category.name.toLowerCase()] = category
       return newState
     }
     default:
