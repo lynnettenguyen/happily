@@ -27,7 +27,7 @@
 .login-field-outer {
   display: flex;
   flex-direction: column;
-  margin: 1rem 0;
+  margin: 1rem 0 0.5rem;
 }
 
 .login-label {
@@ -56,7 +56,7 @@
 }
 
 .login-form-button {
-  margin-top: 0.5rem;
+  margin-top: 1rem;
 }
 
 .login-form-demo-button {
