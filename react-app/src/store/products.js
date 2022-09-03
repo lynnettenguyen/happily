@@ -145,6 +145,10 @@ const productsReducer = (state = {}, action) => {
       newState[action.product[0].id] = action.product[0]
       return newState
     }
+    case LOAD_PRODUCTS_BY_CATEGORY: {
+      for (let product of action.products) newState[product.id] = product
+      return newState
+    }
     case LOAD_PRODUCTS_BY_OWNER: {
       for (let product of action.products) newState[product.id] = product
       return newState

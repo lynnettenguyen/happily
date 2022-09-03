@@ -6,11 +6,11 @@ def seed_users():
     User(
         shop_name='KnotNamiDecors', first_name='Nami', email='nami@aa.io', password='password', profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/nami.png'),
     User(
-        shop_name='KnotDemo', first_name='Demo', email='demo@aa.io', password='password', profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/demo.png'),
-    User(
         shop_name='KnotChopperDesigns', first_name='Chopper', email='chopper@aa.io', password='password', profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/chopper.png'),
     User(
         shop_name='KnotZoroReady', first_name='Zoro', email='zoro@aa.io', password='password', profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/zoro.png'),
+    User(
+        shop_name='KnotDemo', first_name='Demo', email='demo@aa.io', password='password', profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/demo.png'),
     User(
         shop_name='KnotRobinBridal', first_name='Robin', email='robin@aa.io', password='password', profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/robin.png'),
     User(
