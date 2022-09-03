@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import '../CSS/SignUpForm.css'
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -17,6 +18,7 @@ const SignUpForm = () => {
     if (password === repeatPassword) {
       const data = await dispatch(signUp(first_name, email, password));
       if (data) {
+        console.log(data)
         setErrors(data)
       }
     }
@@ -43,50 +45,83 @@ const SignUpForm = () => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
+    <form onSubmit={onSignUp} className='signup-form-main'>
+      <div className='signup-upper'>
+        <div className='signup-header'>Create your account</div>
+        <div className='signup-caption'>Registration is easy.</div>
       </div>
-      <div>
-        <label>First Name</label>
+      <div className='signup-field-outer'>
+        <label className='signup-label'>Email address *</label>
         <input
           type='text'
-          name='firstName'
-          onChange={updateFirstName}
-          value={first_name}
-        ></input>
-      </div>
-      <div>
-        <label>Email</label>
-        <input
-          type='text'
+          className='signup-input'
           name='email'
           onChange={updateEmail}
           value={email}
         ></input>
       </div>
+      <div className='signup-error-outer'>
+        {errors.map((error, ind) => {
+          if (error.split(":")[0].toLowerCase() === 'email ')
+            return (
+              <div key={ind} className='signup-errors'>*{error.split(":")[1]}</div>
+            )
+        })}
+      </div>
+      <div className='signup-field-outer'>
+        <label className='signup-label'>First name *</label>
+        <input
+          type='text'
+          className='signup-input'
+          name='firstName'
+          onChange={updateFirstName}
+          value={first_name}
+        ></input>
+      </div>
+      <div className='login-error-outer'>
+        {errors.map((error, ind) => {
+          if (error.split(":")[0].toLowerCase() === 'first name ')
+            return (
+              <div key={ind} className='login-errors'>*{error.split(":")[1]}</div>
+            )
+        })}
+      </div>
       <div>
-        <label>Password</label>
+      </div>
+      <div className='signup-field-outer'>
+        <label className='signup-label'>Password *</label>
         <input
           type='password'
+          className='signup-input'
           name='password'
           onChange={updatePassword}
           value={password}
         ></input>
       </div>
       <div>
-        <label>Repeat Password</label>
-        <input
-          type='password'
-          name='repeat_password'
-          onChange={updateRepeatPassword}
-          value={repeatPassword}
-          required={true}
-        ></input>
+        <div className='signup-field-outer'>
+          <label className='signup-label'>Repeat password *</label>
+          <input
+            type='password'
+            className='signup-input'
+            name='repeat_password'
+            onChange={updateRepeatPassword}
+            value={repeatPassword}
+            required={true}
+          ></input>
+        </div>
+        <div className='login-error-outer'>
+          {errors.map((error, ind) => {
+            if (error.split(":")[0].toLowerCase() === 'password ')
+              return (
+                <div key={ind} className='login-errors'>*{error.split(":")[1]}</div>
+              )
+          })}
+        </div>
       </div>
-      <button type='submit'>Sign Up</button>
+      <div className='signup-buttons-outer'>
+        <button type='submit' className='signup-form-button'>Register</button>
+      </div>
     </form>
   );
 };

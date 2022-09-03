@@ -9,6 +9,7 @@ import Profile from './Profile'
 import magnifyingGlass from '../CSS/Images/magnifying_glass.svg'
 import { Modal } from '../Context/modal';
 import SignUpForm from '../auth/SignUpForm';
+import LoginForm from '../auth/LoginForm';
 
 const NavBar = () => {
   const user = useSelector(state => state.session.user)
@@ -51,7 +52,7 @@ const NavBar = () => {
               </div>
               {showSignIn && (
                 <Modal onClose={() => setShowSignIn(false)}>
-                  <SignUpForm setShowSignIn={setShowSignIn} />
+                  <LoginForm setShowSignIn={setShowSignIn} />
                 </Modal>
               )}
             </div>

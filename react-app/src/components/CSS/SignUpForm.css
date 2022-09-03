@@ -1,0 +1,72 @@
+.signup-form-main {
+  padding: 24px 24px 12px;
+  width: 300px;
+}
+
+.signup-upper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.signup-header {
+  font-family: GraphikMedium, Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+
+.signup-caption {
+  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
+  margin-top: 0.5rem;
+}
+
+.signup-field-outer {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0 0.5rem;
+}
+
+.signup-label {
+  font-family: GraphikMedium, Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  margin-bottom: 0.3rem;
+}
+
+.signup-input {
+  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  border: 1px solid rgba(128, 128, 128, 0.336);
+  height: 36px;
+  border-radius: 10px;
+  padding-left: 14px;
+  outline: none;
+}
+
+.signup-form-button {
+  border: none;
+  background-color: rgba(0, 0, 0, 0.925);
+  color: white;
+  font-family: GraphikMedium, Arial, Helvetica, sans-serif;
+  height: 40px;
+  border-radius: 20px;
+  margin-top: 1rem;
+}
+
+.signup-form-button:hover,
+.signup-input:hover {
+  cursor: pointer;
+}
+
+.signup-error-outer {
+  margin-bottom: 0.5rem;
+}
+
+.signup-errors {
+  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
+  color: rgb(255, 0, 0);
+  font-size: 12px;
+}
+
+.signup-buttons-outer {
+  display: flex;
+  flex-direction: column;
+}
