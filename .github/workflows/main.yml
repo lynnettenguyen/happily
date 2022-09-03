@@ -41,14 +41,14 @@ jobs:
     - name: Build Container and push
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-      run: heroku container:push -a knotsy web
+      run: heroku container:push -a happily-app-etsy-clone web
 
     - name: Release
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-      run: heroku container:release -a knotsy web
+      run: heroku container:release -a happily-app-etsy-clone web
 
     - name: Run DB Migration
       env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-      run: heroku run -a knotsy flask db upgrade
+      run: heroku run -a happily-app-etsy-clone flask db upgrade
