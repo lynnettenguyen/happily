@@ -88,7 +88,7 @@ def seed_images():
     Image(
         user_id=1, product_id=21, url='https://knotsy.s3.us-west-1.amazonaws.com/p21.1.jpg'),
     Image(
-        user_id=4, product_id=22, url='https://knotsy.s3.us-west-1.amazonaws.com/p22.1.webp'),
+        user_id=4, product_id=22, url='https://knotsy.s3.us-west-1.amazonaws.com/p22.4.webp'),
     Image(
         user_id=4, product_id=22, url='https://knotsy.s3.us-west-1.amazonaws.com/p22.2.webp'),
     Image(
@@ -444,9 +444,9 @@ def seed_images():
     Image(
         user_id=8, product_id=86, url='https://knotsy.s3.us-west-1.amazonaws.com/p86.2.webp'),
     Image(
-        user_id=8, product_id=87, url='https://knotsy.s3.us-west-1.amazonaws.com/p87.1webp'),
+        user_id=8, product_id=87, url='https://knotsy.s3.us-west-1.amazonaws.com/p87.1.webp'),
     Image(
-        user_id=8, product_id=87, url='https://knotsy.s3.us-west-1.amazonaws.com/p87.2webp'),
+        user_id=8, product_id=87, url='https://knotsy.s3.us-west-1.amazonaws.com/p87.2.webp'),
     Image(
         user_id=8, product_id=88, url='https://knotsy.s3.us-west-1.amazonaws.com/p88.1.png'),
     Image(

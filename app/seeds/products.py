@@ -172,9 +172,7 @@ def seed_products():
     Product(
         seller_id=7, category='Attire&Accessories', name='Short Sleeve Lace Midi Dress / Vintage Style Slim Wedding Dress / Korean Style Luxury wear Simple Dress / Elegant Unique Bridal Dress', price=100.00, description='This is a beautiful wedding dress for wedding/engagement.'),
     Product(
-        seller_id=7, category='Attire&Accessories', name='Short Sleeve Lace Midi Dress / Vintage Style Slim Wedding Dress / Korean Style Luxury wear Simple Dress / Elegant Unique Bridal Dress', price=100.00, description='This is a beautiful wedding dress for wedding/engagement.'),
-    Product(
-        seller_id=8, category='Table Decor&Centerpieces', name='Book Stack Decor||Wedding Table Decor||Rustic Wedding decorations||Personalized table centerpieces', price=14.50, description='Personalized farmhouse books. These make great decor accents or centerpieces for your wedding. Each book can be created using whatever saying or name you wish (less than 12 characters including spaces works best).p'),
+        seller_id=8, category='Table Decor&Centerpieces', name='Book Stack Decor || Wedding Table Decor || Rustic Wedding decorations || Personalized table centerpieces', price=14.50, description='Personalized farmhouse books. These make great decor accents or centerpieces for your wedding. Each book can be created using whatever saying or name you wish (less than 12 characters including spaces works best).p'),
     Product(
         seller_id=8, category='Table Decor&Centerpieces', name='Newlyweds Mr. Mrs. Custom Engraved Engaged Wine Champagne Flutes 45th Anniversary Gift for Couples Wedding Centerpiece Set of 2 Bride Groom', price=19.95, description='Bridal Party Champagne Flutes Set of 2 Glass Flute Laser Engraved & Personalized with Last Name and Date Comes with Cursive Mr. & Mrs. Design AND Your Choice of Flute: Twisty Stem, Smooth Stem, or Stemless.'),
     Product(
