@@ -75,3 +75,8 @@
   border-radius: 10px;
   margin-right: 10px;
 }
+
+.my-product-edit-button:hover,
+.my-product-delete-button:hover {
+  cursor: pointer;
+}

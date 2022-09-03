@@ -1,5 +1,6 @@
 const GET_PRODUCTS = 'products/GET_PRODUCTS'
 const FIND_PRODUCT = 'products/FIND_PRODUCT'
+const LOAD_PRODUCTS_BY_OWNER = 'products/LOAD_PRODUCTS_BY_OWNER'
 const LOAD_PRODUCTS_BY_CATEGORY = 'products/LOAD_PRODUCTS_BY_CATEGORY'
 const ADD_PRODUCT = 'products/ADD_PRODUCT'
 const EDIT_PRODUCT = 'products/EDIT_PRODUCT'
@@ -13,6 +14,11 @@ const getProducts = (products) => ({
 const findProduct = (product) => ({
   type: FIND_PRODUCT,
   product
+})
+
+const loadProductByOwners = (products) => ({
+  type: LOAD_PRODUCTS_BY_OWNER,
+  products
 })
 
 const loadProductsByCategory = (products) => ({
@@ -70,7 +76,7 @@ export const loadProductsByOwner = (sellerId) => async (dispatch) => {
 
   if (response.ok) {
     const products = await response.json()
-    dispatch(getProducts(products))
+    dispatch(loadProductByOwners(products))
     return products;
   }
 }
@@ -139,7 +145,7 @@ const productsReducer = (state = {}, action) => {
       newState[action.product[0].id] = action.product[0]
       return newState
     }
-    case LOAD_PRODUCTS_BY_CATEGORY: {
+    case LOAD_PRODUCTS_BY_OWNER: {
       for (let product of action.products) newState[product.id] = product
       return newState
     }

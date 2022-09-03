@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { loadProductsByOwner } from "../../store/products";
+import { loadProductsByOwner, findProductById } from "../../store/products";
 import '../CSS/ManageProducts.css'
 
 const ManageProducts = () => {
@@ -25,7 +25,11 @@ const ManageProducts = () => {
             {products?.map((product, i) => {
               return (
                 <>
-                  <div className="my-products-img-main"><img src={product?.images[0]} className='my-products-img'></img></div>
+                  <div className="my-products-img-main">
+                    <Link to={`/products/${product?.id}`} onClick={() => dispatch(findProductById(product?.id))}><img src={product?.images[0]} className='my-products-img'>
+                    </img>
+                    </Link>
+                  </div>
                   <div className="my-products-info">
                     <div className="my-product-category">{product.category.split("&").join(' & ')}</div>
                     <div className="my-product-name">{product?.name}</div>
