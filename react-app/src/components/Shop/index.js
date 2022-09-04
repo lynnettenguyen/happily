@@ -85,7 +85,7 @@ const Shop = () => {
             <div className='first-page-main'>
               <div className='first-page-main-upper'>
                 <label className='sell-product-name-shop-label'>Name your shop</label>
-                <div className='sell-product-caption'>We find sellers often draw inspiration from what they sell, their style, pretty much anything goes.</div>
+                <div className='sell-product-caption'>We find sellers often draw inspiration from what they sell or their style, pretty much anything goes.</div>
                 <input
                   type='text'
                   className='user-form-input'
@@ -110,7 +110,7 @@ const Shop = () => {
                 <div className='product-form-field'>
                   <div>
                     <label className='sell-product-label'>Title *</label>
-                    <span className='sell-product-instructions'>Include keywords that buys would use to search for your item.</span>
+                    <span className='sell-product-instructions'>Include keywords that buyers would use to search for your item.</span>
                   </div>
                   <div>
                     <input

@@ -1,0 +1,60 @@
+.edit-main {
+  padding: 1.5rem;
+}
+
+.edit-form-upper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.edit-return-button {
+  width: 134px;
+  padding: 5px 0;
+  border: none;
+  background-color: #d4e9d77c;
+  color: #050404a6;
+  border-radius: 10px;
+  font-size: 11px;
+  font-family: GraphikThin, Arial, Helvetica, sans-serif;
+  margin-bottom: 5px;
+}
+
+.edit-header {
+  font-family: GuardianEgypLight, Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.edit-label {
+  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  margin-right: 10px;
+}
+
+.edit-instructions {
+  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
+  font-size: 0.8rem;
+}
+
+.edit-input,
+.edit-text-area {
+  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
+  width: 100%;
+  height: 36px;
+  border-radius: 10px;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+  border: 0.5px solid grey;
+  color: #050404a6;
+}
+
+.edit-text-area {
+  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
+  height: 120px;
+  max-height: 120px;
+  color: #050404a6;
+}

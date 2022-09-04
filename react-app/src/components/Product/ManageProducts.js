@@ -3,19 +3,24 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { loadProductsByOwner, findProductById } from "../../store/products";
 import '../CSS/ManageProducts.css'
+import { Modal } from '../Context/modal';
+import EditProduct from "./EditProduct";
 
 const ManageProducts = () => {
   const dispatch = useDispatch()
   const user = useSelector(state => state.session.user)
   const products = useSelector(state => Object.values(state.products))
+  const [productId, setProductId] = useState()
 
+  const [showEditForm, setShowEditForm] = useState(false)
 
   useEffect(() => {
     dispatch(loadProductsByOwner(user.id))
   }, [])
 
-  const handleEdit = () => {
-
+  const handleEdit = (id) => {
+    setProductId(id)
+    setShowEditForm(true)
   }
 
   return (
@@ -39,7 +44,7 @@ const ManageProducts = () => {
                     <div className="my-product-name">{product?.name}</div>
                     <div className="my-product-price">${product?.price.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
                     <div className="my-product-buttons">
-                      <button className="my-product-edit-button" onClick={handleEdit}>Edit</button>
+                      <button className="my-product-edit-button" onClick={() => handleEdit(product.id)}>Edit</button>
                       <button className="my-product-delete-button">Delete</button>
                     </div>
                   </div>
@@ -47,6 +52,11 @@ const ManageProducts = () => {
               )
             })}
           </div>
+          {showEditForm && (
+            <Modal onClose={() => setShowEditForm(false)}>
+              <EditProduct productId={productId} setShowEditForm={setShowEditForm} />
+            </Modal>
+          )}
         </div>
       </div>
     </>

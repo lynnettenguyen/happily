@@ -23,8 +23,6 @@ const LoginForm = ({ setShowSignIn }) => {
     }
   };
 
-  console.log('SHOWREGISTER', showRegister)
-
   const updateEmail = (e) => {
     setEmail(e.target.value);
   };
