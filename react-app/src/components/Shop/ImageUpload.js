@@ -18,8 +18,7 @@ const ImageUpload = ({ productId }) => {
   const user = useSelector(state => state.session.user)
   const [errors, setErrors] = useState([])
 
-  console.log('image', image)
-  console.log('image2', image2)
+  console.log(productId)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -45,7 +44,7 @@ const ImageUpload = ({ productId }) => {
     }
     else {
       setImageLoading(false);
-      setErrors(['Image is not a valid file type (.png, .jpeg, .jpg, .webp)'])
+      setErrors(['Image is not a valid file type (.png, .jpeg, .jpg)'])
     }
   }
 
@@ -69,7 +68,7 @@ const ImageUpload = ({ productId }) => {
   return (
     <div className="upload-image-main">
       <div className="photo-header">Add Photos</div>
-      <div className="photo-caption">Use up to four photos to show your item's most important qualities.</div>
+      <div className="photo-caption">Use up to four photos to show your item's most important qualities. *Only PNGs, JPEGs, and JPGs accepted.</div>
       <form onSubmit={handleSubmit}>
         <div className="photo-upload-main">
           <div className={image ? 'file-upload-outer-image' : 'file-upload-outer'}>
@@ -141,17 +140,20 @@ const ImageUpload = ({ productId }) => {
           onChange={updateImage4}
           style={{ display: 'none' }}
         />
+        {imageLoading && <div className="loading-outer">
+          <p className="loading-message">Loading...</p>
+        </div>}
+        {errors && <div className="image-errors-outer">
+          {errors?.map((error) => {
+            return (
+              <div className="image-error">*{error}</div>
+            )
+          })}
+        </div>
+        }
         <div className="image-upload-button-outer">
           <button type="submit" className='image-upload-button'>Upload</button>
         </div>
-        {(imageLoading) && <p>Loading...</p>}
-        {
-          errors?.map((error) => {
-            return (
-              <div>{error}</div>
-            )
-          })
-        }
       </form >
     </div >
   )

@@ -41,7 +41,6 @@
   justify-content: center;
   align-items: center;
   margin: 1rem;
-  box-sizing: border-box;
 }
 
 .file-upload-outer:hover {
@@ -98,9 +97,36 @@
   color: white;
   background-color: black;
   border-radius: 20px;
-  height: 30px;
+  height: 34px;
   padding: 0 10px;
   font-family: GraphikRegular, Arial, Helvetica, sans-serif;
   font-size: 13px;
   cursor: pointer;
+  width: 80px;
+  margin-right: 1rem;
+}
+
+.loading-outer,
+.image-errors-outer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.loading-message,
+.image-error {
+  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
+  color: white;
+  margin: 0 1rem 0.5rem 0;
+  background-color: black;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.loading-message {
+  font-size: 16px;
+}
+
+.image-error {
+  font-size: 12px;
 }
