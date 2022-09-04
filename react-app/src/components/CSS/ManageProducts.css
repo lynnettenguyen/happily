@@ -74,12 +74,6 @@
   padding: 4px 8px 2px;
   border-radius: 10px;
   margin-right: 10px;
-}
-
-.my-product-edit-button:hover,
-.my-product-delete-button:hover,
-.delete-return-button:hover,
-.delete-confirm-button:hover {
   cursor: pointer;
 }
 
@@ -100,6 +94,7 @@
   font-size: 11px;
   font-family: GraphikThin, Arial, Helvetica, sans-serif;
   margin-bottom: 5px;
+  cursor: pointer;
 }
 
 .delete-message {
@@ -121,5 +116,6 @@
   border-radius: 10px;
   font-family: GraphikRegular, Arial, Helvetica, sans-serif;
   font-size: 12px;
-  height: 30px
+  height: 30px;
+  cursor: pointer;
 }

@@ -49,7 +49,7 @@ const ManageProducts = () => {
                 <>
                   <div className="my-products-img-main">
                     <Link to={`/products/${product?.id}`} onClick={() => dispatch(findProductById(product?.id))}>
-                      <img src={product?.images[0]} className='my-products-img'></img>
+                      {/* <img src={product?.images[0]} className='my-products-img'></img> */}
                     </Link>
                   </div>
                   <div className="my-products-info">

@@ -5,6 +5,7 @@ import { findProductById, getAllProducts } from "../../store/products";
 import '../CSS/ImageUpload.css'
 import photo from '../CSS/Images/photo.svg'
 import deleteBin from '../CSS/Images/delete-image-bin.svg'
+import whiteX from '../CSS/Images/white-x.svg'
 
 const ImageUpload = ({ productId }) => {
   const history = useHistory();
@@ -17,6 +18,8 @@ const ImageUpload = ({ productId }) => {
   const user = useSelector(state => state.session.user)
   const [errors, setErrors] = useState([])
 
+  console.log('image', image)
+  console.log('image2', image2)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -69,25 +72,44 @@ const ImageUpload = ({ productId }) => {
       <div className="photo-caption">Use up to four photos to show your item's most important qualities.</div>
       <form onSubmit={handleSubmit}>
         <div className="photo-upload-main">
-          <div className="file-upload-outer">
-            <label for='file-upload' className="file-upload-label">
+          <div className={image ? 'file-upload-outer-image' : 'file-upload-outer'}>
+            <label for='file-upload' className='file-upload-label'>
               <img src={image ? URL.createObjectURL(image) : photo} className={image ? 'photo-preview' : 'file-upload-image'}></img>
-              {image ? <img src={deleteBin} className='delete-image-bin'></img> : 'Add Photo'}
+              {image ?
+                <div className="delete-image-outer">
+                  <img src={whiteX} className='delete-image-x'></img>
+                </div>
+                : 'Add Photo'}
             </label>
           </div>
-          <div className="file-upload-outer">
-            <label for='file-upload2' className="file-upload-label">
-              <img src={image2 ? URL.createObjectURL(image) : photo} className={image2 ? 'photo-preview' : 'file-upload-image'}></img>{image2 ? 'Update/Remove Photo' : 'Add Photo'}
+          <div className={image2 ? 'file-upload-outer-image' : 'file-upload-outer'}>
+            <label for='file-upload2' className='file-upload-label'>
+              <img src={image2 ? URL.createObjectURL(image2) : photo} className={image2 ? 'photo-preview' : 'file-upload-image'}></img>
+              {image2 ?
+                <div className="delete-image-outer">
+                  <img src={whiteX} className='delete-image-x'></img>
+                </div>
+                : 'Add Photo'}
             </label>
           </div>
-          <div className="file-upload-outer">
-            <label for='file-upload3' className="file-upload-label">
-              <img src={image3 ? URL.createObjectURL(image) : photo} className={image3 ? 'photo-preview' : 'file-upload-image'}></img>{image3 ? 'Update/Remove Photo' : 'Add Photo'}
+          <div className={image3 ? 'file-upload-outer-image' : 'file-upload-outer'}>
+            <label for='file-upload3' className='file-upload-label'>
+              <img src={image3 ? URL.createObjectURL(image3) : photo} className={image3 ? 'photo-preview' : 'file-upload-image'}></img>
+              {image3 ?
+                <div className="delete-image-outer">
+                  <img src={whiteX} className='delete-image-x'></img>
+                </div>
+                : 'Add Photo'}
             </label>
           </div>
-          <div className="file-upload-outer">
-            <label for='file-upload4' className="file-upload-label">
-              <img src={image4 ? URL.createObjectURL(image) : photo} className={image4 ? 'photo-preview' : 'file-upload-image'}></img>{image4 ? 'Update/Remove Photo' : 'Add Photo'}
+          <div className={image4 ? 'file-upload-outer-image' : 'file-upload-outer'}>
+            <label for='file-upload4' className='file-upload-label'>
+              <img src={image4 ? URL.createObjectURL(image4) : photo} className={image4 ? 'photo-preview' : 'file-upload-image'}></img>
+              {image4 ?
+                <div className="delete-image-outer">
+                  <img src={whiteX} className='delete-image-x'></img>
+                </div>
+                : 'Add Photo'}
             </label>
           </div>
         </div>
@@ -119,15 +141,19 @@ const ImageUpload = ({ productId }) => {
           onChange={updateImage4}
           style={{ display: 'none' }}
         />
-        <button type="submit">Submit</button>
+        <div className="image-upload-button-outer">
+          <button type="submit" className='image-upload-button'>Upload</button>
+        </div>
         {(imageLoading) && <p>Loading...</p>}
-        {errors?.map((error) => {
-          return (
-            <div>{error}</div>
-          )
-        })}
-      </form>
-    </div>
+        {
+          errors?.map((error) => {
+            return (
+              <div>{error}</div>
+            )
+          })
+        }
+      </form >
+    </div >
   )
 }
 

@@ -3,7 +3,7 @@
   justify-content: center;
 }
 
-.new-shop-name-outer {
+.main-shop-outer {
   overflow-y: hidden;
   background-image: url('../CSS/Images/new_shop.jpg');
   background-size: cover;
@@ -34,9 +34,6 @@
 
 .get-started-button:hover,
 .save-button:hover,
-.product-form-input:hover,
-.product-form-select:hover,
-.product-form-text-area:hover,
 .product-save-button:hover {
   cursor: pointer;
 }
@@ -116,6 +113,7 @@
   margin-top: 0.2rem;
   font-family: GraphikRegular;
   font-size: 12px;
+  cursor: pointer;
 }
 
 .product-form-text-area {

@@ -63,7 +63,7 @@ const Shop = () => {
   return (
     <div className='sell-product-main'>
       {page === 0 && <>
-        <div className='new-shop-name-outer'>
+        <div className='main-shop-outer'>
           <div className='sell-product-main-header'>Millions of shopper can't wait to see what you have in store</div>
           <button className='get-started-button' onClick={checkShopName}>Get started</button>
         </div>
@@ -91,7 +91,7 @@ const Shop = () => {
       }
       <form onSubmit={handleUserSubmit}>
         {page === 1 && <>
-          <div className='new-shop-name-outer'>
+          <div className='main-shop-outer'>
             <div className='first-page-main'>
               <div className='first-page-main-upper'>
                 <label className='sell-product-name-shop-label'>Name your shop</label>
@@ -113,7 +113,7 @@ const Shop = () => {
       </form>
       {page === 2 &&
         <form onSubmit={handleProductSubmit}>
-          <div className='new-shop-name-outer'>
+          <div className='main-shop-outer'>
             <div className='product-form-main'>
               <div className='product-form-header'>Create a Listing</div>
               <div className='product-form-field'>
@@ -184,9 +184,9 @@ const Shop = () => {
         </form>
       }
       {page === 3 &&
-        <>
+        <div className='main-shop-outer'>
           <ImageUpload productId={productId} />
-        </>
+        </div>
       }
     </div >
   )
