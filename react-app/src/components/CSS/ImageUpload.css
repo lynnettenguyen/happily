@@ -1,0 +1,50 @@
+.photo-header {
+  font-family: GuardianEgypLight, Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+}
+
+.photo-caption {
+  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+.photo-upload-main {
+  display: flex;
+}
+
+.file-upload-label {
+  text-align: center;
+  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.file-upload-outer {
+  border: 1px solid rgba(128, 128, 128, 0.464);
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}
+
+.file-upload-image {
+  display: flex;
+  padding: 0 2rem;
+  margin-bottom: 0.2rem;
+  cursor: pointer;
+}
+
+.photo-display-preview {
+  display: grid;
+  grid-template-columns: repeat(4, 200px);
+  border: 1px solid red;
+}
+
+.photo-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
