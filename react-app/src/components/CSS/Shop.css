@@ -36,7 +36,8 @@
 .save-button:hover,
 .product-form-input:hover,
 .product-form-select:hover,
-.product-form-text-area:hover {
+.product-form-text-area:hover,
+.product-save-button:hover {
   cursor: pointer;
 }
 
@@ -199,4 +200,8 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+.add-images-outer {
+  border: 1px solid red;
 }
