@@ -7,9 +7,9 @@ const loadImages = (images) => ({
   images
 })
 
-const addImages = (image) => ({
+const addImages = (newImage) => ({
   type: ADD_IMAGE,
-  image
+  newImage
 })
 
 const deleteImages = (imageId) => ({
@@ -17,6 +17,18 @@ const deleteImages = (imageId) => ({
   imageId
 })
 
+export const uploadImages = (imageData) => async (dispatch) => {
+  const response = await fetch(`/api/images`, {
+    method: "POST",
+    body: imageData
+  })
+
+  if (response.ok) {
+    const newImage = await response.json()
+    dispatch(addImages(newImage));
+    return newImage;
+  }
+}
 
 
 const imageReducer = (state = {}, action) => {
@@ -28,7 +40,7 @@ const imageReducer = (state = {}, action) => {
     }
     case ADD_IMAGE: {
       newState = { ...state }
-      newState[action.image.id] = action.image
+      newState[action.newImage.id] = action.newImage
       return newState
     }
     case DELETE_IMAGE: {

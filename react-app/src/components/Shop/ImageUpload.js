@@ -6,6 +6,7 @@ import '../CSS/ImageUpload.css'
 import photo from '../CSS/Images/photo.svg'
 import deleteBin from '../CSS/Images/delete-image-bin.svg'
 import whiteX from '../CSS/Images/white-x.svg'
+import { uploadImages } from "../../store/images";
 
 const ImageUpload = ({ productId }) => {
   const history = useHistory();
@@ -18,37 +19,50 @@ const ImageUpload = ({ productId }) => {
   const user = useSelector(state => state.session.user)
   const [errors, setErrors] = useState([])
 
-  console.log(productId)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const formData = new FormData();
-    formData.append("image", image);
-    formData.append("product_id", productId);
-    formData.append("user_id", user.id)
+    const imageData = new FormData();
+    imageData.append("image", image);
+    imageData.append("product_id", productId);
+    imageData.append("user_id", user.id)
 
     setImageLoading(true);
 
-    const res = await fetch('/api/images', {
-      method: "POST",
-      body: formData,
-    });
-    if (res.ok) {
-      await res.json();
+    const response = await dispatch(uploadImages(imageData))
+    if (response) {
       setImageLoading(false);
       await dispatch(getAllProducts())
-      const response = await dispatch(findProductById(productId))
+      await dispatch(findProductById(productId))
 
-      if (response) history.push(`/products/${productId}`);
-    }
-    else {
+      history.push(`/products/${productId}`)
+    } else {
       setImageLoading(false);
       setErrors(['Image is not a valid file type (.png, .jpeg, .jpg)'])
     }
   }
 
+  //   const res = await fetch('/api/images', {
+  //     method: "POST",
+  //     body: formData,
+  //   });
+  //   if (res.ok) {
+  //     await res.json();
+  //     setImageLoading(false);
+  //     await dispatch(getAllProducts())
+  //     const response = await dispatch(findProductById(productId))
+
+  //     if (response) history.push(`/products/${productId}`);
+  //   }
+  //   else {
+  //     setImageLoading(false);
+  //     setErrors(['Image is not a valid file type (.png, .jpeg, .jpg)'])
+  //   }
+  // }
+
   const updateImage = (e) => {
+    console.log(e.target.files)
     const file = e.target.files[0];
     setImage(file);
   }
