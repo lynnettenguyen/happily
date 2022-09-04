@@ -38,7 +38,7 @@ const NavBar = () => {
           </div>
           {user ? <>
             <div className='navBar-link-icon'>
-              <NavLink to='/shop' exact={true} activeClassName='active'>
+              <NavLink to='/shop/products' exact={true} activeClassName='active'>
                 <img src={shop}></img>
               </NavLink>
             </div>
@@ -66,11 +66,11 @@ const NavBar = () => {
         <div className='navBar-featured-outer'>
           {categories.map((category, i) => {
             return (
-              <div className='navBar-feature' key={i}>
-                <NavLink to={`/featured/${category?.name.toLowerCase()}`}>
+              <NavLink to={`/featured/${category?.name.toLowerCase()}`}>
+                <div className='navBar-feature' key={i}>
                   {category?.display_name}
-                </NavLink>
-              </div>
+                </div>
+              </NavLink>
             )
           })}
         </div>

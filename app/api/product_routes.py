@@ -103,7 +103,11 @@ def edit_product(product_id):
 
   form.category.choices=[(category.to_name(), category.to_display_name() )for category in categories]
 
+  image = db.session.query(Image).filter(Image.product_id == product_id).first()
+
   product = Product.query.get(product_id)
+  product_details = []
+  # print("!!!!!!!!!!!!", product.to_dict())
 
   if product.seller_id == current_user.id:
 
@@ -113,15 +117,21 @@ def edit_product(product_id):
         product.name = form.data['name']
         product.price = form.data['price']
         product.description = form.data['description']
+        product.updated_at = form.data['updated_at']
 
         db.session.commit()
 
-        return jsonify(product.to_dict()), 201
-    else:
-      return {'errors': ['Unauthorized']}, 403
+        product = product.to_dict()
+        product['images'] = [image.to_url()]
+        product_details.append(product)
 
+        # return jsonify(product.to_dict()), 201
+        return jsonify(product_details), 201
+    else:
+      return {'errors': validation_errors_to_error_messages(form.errors)}, 400
   else:
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+    return {'errors': ['Unauthorized']}, 403
+
 
 
 @product.route("/<int:product_id>", methods=['DELETE'])

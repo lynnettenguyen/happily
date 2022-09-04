@@ -26,7 +26,7 @@ const Profile = ({ user }) => {
       </div>
       {showDropdown ?
         <>
-          <span class="triangle-dropdown"></span>
+          <span className="triangle-dropdown"></span>
           <div className='profile-dropdown'>
             <div className='dropdown-item-top'>
               <img src={user.profile_pic} className='profile-user-img' alt='profile'></img>

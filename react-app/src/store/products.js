@@ -1,5 +1,6 @@
 const GET_PRODUCTS = 'products/GET_PRODUCTS'
 const FIND_PRODUCT = 'products/FIND_PRODUCT'
+const LOAD_PRODUCTS_BY_OWNER = 'products/LOAD_PRODUCTS_BY_OWNER'
 const LOAD_PRODUCTS_BY_CATEGORY = 'products/LOAD_PRODUCTS_BY_CATEGORY'
 const ADD_PRODUCT = 'products/ADD_PRODUCT'
 const EDIT_PRODUCT = 'products/EDIT_PRODUCT'
@@ -13,6 +14,11 @@ const getProducts = (products) => ({
 const findProduct = (product) => ({
   type: FIND_PRODUCT,
   product
+})
+
+const loadProductByOwners = (products) => ({
+  type: LOAD_PRODUCTS_BY_OWNER,
+  products
 })
 
 const loadProductsByCategory = (products) => ({
@@ -65,6 +71,16 @@ export const findProductsByCategory = (category) => async (dispatch) => {
   }
 }
 
+export const loadProductsByOwner = (sellerId) => async (dispatch) => {
+  const response = await fetch(`/api/users/${sellerId}/products`)
+
+  if (response.ok) {
+    const products = await response.json()
+    dispatch(loadProductByOwners(products))
+    return products;
+  }
+}
+
 export const addNewProduct = (productData) => async (dispatch) => {
   const { sellerId, category, name, price, description } = productData;
   const response = await fetch(`/api/products`, {
@@ -85,16 +101,18 @@ export const addNewProduct = (productData) => async (dispatch) => {
 }
 
 export const updateProduct = (productData) => async (dispatch) => {
-  const { id, sellerId, category, name, price, description, updatedAt } = productData;
-  const response = await fetch(`/api/products/${id}`, {
+  const { product_id, category, name, price, description } = productData;
+  const response = await fetch(`/api/products/${product_id}`, {
     method: "PUT",
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      sellerId, category, name, price, description, updatedAt
+      product_id, category, name, price, description
     })
   })
+
+  console.log(response, "RESPONSE")
 
   if (response.ok) {
     const product = await response.json()
@@ -133,17 +151,24 @@ const productsReducer = (state = {}, action) => {
       for (let product of action.products) newState[product.id] = product
       return newState
     }
+    case LOAD_PRODUCTS_BY_OWNER: {
+      for (let product of action.products) newState[product.id] = product
+      return newState
+    }
     case ADD_PRODUCT: {
+      newState = { ...state }
       newState[action.newProduct.id] = action.newProduct
-      return { ...state, ...newState }
+      return newState
     }
     case EDIT_PRODUCT: {
-      newState[action.product.id] = action.product
-      return { ...state, ...newState }
+      newState = { ...state }
+      newState[action.product[0].id] = action.product[0]
+      return newState
     }
     case DELETE_PRODUCT: {
+      newState = { ...state }
       delete newState[action.productId]
-      return { ...state, ...newState }
+      return newState
     }
     default:
       return state;

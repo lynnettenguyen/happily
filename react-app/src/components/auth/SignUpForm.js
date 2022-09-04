@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import '../CSS/SignUpForm.css'
 
-const SignUpForm = () => {
+const SignUpForm = ({ setShowSignIn }) => {
   const [errors, setErrors] = useState([]);
   const [first_name, setFirstName] = useState('');
   const [email, setEmail] = useState('');
@@ -13,14 +13,17 @@ const SignUpForm = () => {
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
+  console.log(errors)
+
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
       const data = await dispatch(signUp(first_name, email, password));
       if (data) {
-        console.log(data)
         setErrors(data)
       }
+    } else {
+      setErrors(['Password : Passwords do not match'])
     }
   };
 
@@ -60,14 +63,14 @@ const SignUpForm = () => {
           value={email}
         ></input>
       </div>
-      <div className='signup-error-outer'>
-        {errors.map((error, ind) => {
+      {errors && <div className='signup-error-outer'>
+        {errors?.map((error, ind) => {
           if (error.split(":")[0].toLowerCase() === 'email ')
             return (
               <div key={ind} className='signup-errors'>*{error.split(":")[1]}</div>
             )
         })}
-      </div>
+      </div>}
       <div className='signup-field-outer'>
         <label className='signup-label'>First name *</label>
         <input
@@ -78,14 +81,14 @@ const SignUpForm = () => {
           value={first_name}
         ></input>
       </div>
-      <div className='login-error-outer'>
-        {errors.map((error, ind) => {
-          if (error.split(":")[0].toLowerCase() === 'first name ')
+      {errors && <div className='login-error-outer'>
+        {errors?.map((error, ind) => {
+          if (error?.split(":")[0].toLowerCase() === 'first name ')
             return (
               <div key={ind} className='login-errors'>*{error.split(":")[1]}</div>
             )
         })}
-      </div>
+      </div>}
       <div>
       </div>
       <div className='signup-field-outer'>

@@ -41,7 +41,7 @@ const LoginForm = ({ setShowSignIn }) => {
 
   return (
     <>
-      {showRegister ? <SignUpForm /> : <form onSubmit={onLogin} className='login-form-main'>
+      {showRegister ? <SignUpForm setShowSignIn={setShowSignIn} /> : <form onSubmit={onLogin} className='login-form-main'>
         <div className='login-upper'>
           <div className='login-header'>Sign in</div>
           <div className='login-register-button' onClick={() => handleRegister()}>Register</div>
@@ -58,7 +58,7 @@ const LoginForm = ({ setShowSignIn }) => {
           />
         </div>
         <div className='login-error-outer'>
-          {errors.map((error, ind) => {
+          {errors?.map((error, ind) => {
             if (error.split(":")[0].toLowerCase() === 'email ')
               return (
                 <div key={ind} className='login-errors'>*{error.split(":")[1]}</div>
@@ -77,7 +77,7 @@ const LoginForm = ({ setShowSignIn }) => {
           />
         </div>
         <div className='login-error-outer'>
-          {errors.map((error, ind) => {
+          {errors?.map((error, ind) => {
             if (error.split(":")[0].toLowerCase() === 'password ')
               return (
                 <div key={ind} className='login-errors'>*{error.split(":")[1]}</div>
