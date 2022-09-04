@@ -21,11 +21,23 @@
   margin-bottom: 5px;
 }
 
+.edit-return-button:hover,
+.edit-save-button:hover,
+.edit-input:hover,
+.edit-text-area:hover,
+.edit-text-area-name:hover {
+  cursor: pointer;
+}
+
 .edit-header {
   font-family: GuardianEgypLight, Arial, Helvetica, sans-serif;
   font-size: 1.5rem;
   margin-bottom: 1rem;
   text-align: center;
+}
+
+.edit-field-inner {
+  margin-bottom: 0.2rem;
 }
 
 .edit-label {
@@ -37,15 +49,17 @@
 .edit-instructions {
   font-family: GraphikRegular, Arial, Helvetica, sans-serif;
   font-size: 0.8rem;
+  color: #050404c8;
 }
 
 .edit-input,
-.edit-text-area {
+.edit-text-area,
+.edit-text-area-name {
   font-family: GraphikRegular, Arial, Helvetica, sans-serif;
   width: 100%;
-  height: 36px;
+  height: 40px;
   border-radius: 10px;
-  padding: 10px 15px;
+  padding: 12px;
   box-sizing: border-box;
   margin-bottom: 1rem;
   border: 0.5px solid grey;
@@ -53,8 +67,27 @@
 }
 
 .edit-text-area {
-  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
   height: 120px;
   max-height: 120px;
-  color: #050404a6;
+}
+
+.edit-text-area-name {
+  height: 70px;
+  max-height: 70px;
+}
+
+.edit-save-button-outer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.edit-save-button {
+  border: none;
+  background-color: black;
+  color: white;
+  border-radius: 20px;
+  padding: 10px;
+  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  height: 36px
 }

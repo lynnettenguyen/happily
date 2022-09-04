@@ -101,16 +101,18 @@ export const addNewProduct = (productData) => async (dispatch) => {
 }
 
 export const updateProduct = (productData) => async (dispatch) => {
-  const { id, sellerId, category, name, price, description, updatedAt } = productData;
-  const response = await fetch(`/api/products/${id}`, {
+  const { product_id, category, name, price, description } = productData;
+  const response = await fetch(`/api/products/${product_id}`, {
     method: "PUT",
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      sellerId, category, name, price, description, updatedAt
+      product_id, category, name, price, description
     })
   })
+
+  console.log(response, "RESPONSE")
 
   if (response.ok) {
     const product = await response.json()
@@ -154,16 +156,19 @@ const productsReducer = (state = {}, action) => {
       return newState
     }
     case ADD_PRODUCT: {
+      newState = { ...state }
       newState[action.newProduct.id] = action.newProduct
-      return { ...state, ...newState }
+      return newState
     }
     case EDIT_PRODUCT: {
-      newState[action.product.id] = action.product
-      return { ...state, ...newState }
+      newState = { ...state }
+      newState[action.product[0].id] = action.product[0]
+      return newState
     }
     case DELETE_PRODUCT: {
+      newState = { ...state }
       delete newState[action.productId]
-      return { ...state, ...newState }
+      return newState
     }
     default:
       return state;
