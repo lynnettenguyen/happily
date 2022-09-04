@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { findProductById, getAllProducts } from "../../store/products";
 import '../CSS/ImageUpload.css'
 import photo from '../CSS/Images/photo.svg'
+import deleteBin from '../CSS/Images/delete-image-bin.svg'
 
 const ImageUpload = ({ productId }) => {
   const history = useHistory();
@@ -41,7 +42,7 @@ const ImageUpload = ({ productId }) => {
     }
     else {
       setImageLoading(false);
-      setErrors(['Image is not a valid file type (.png, .jpeg, .jpg)'])
+      setErrors(['Image is not a valid file type (.png, .jpeg, .jpg, .webp)'])
     }
   }
 
@@ -70,22 +71,23 @@ const ImageUpload = ({ productId }) => {
         <div className="photo-upload-main">
           <div className="file-upload-outer">
             <label for='file-upload' className="file-upload-label">
-              <img src={photo} className='file-upload-image'></img>Add a Photo
+              <img src={image ? URL.createObjectURL(image) : photo} className={image ? 'photo-preview' : 'file-upload-image'}></img>
+              {image ? <img src={deleteBin} className='delete-image-bin'></img> : 'Add Photo'}
             </label>
           </div>
           <div className="file-upload-outer">
             <label for='file-upload2' className="file-upload-label">
-              <img src={photo} className='file-upload-image'></img>Add a Photo
+              <img src={image2 ? URL.createObjectURL(image) : photo} className={image2 ? 'photo-preview' : 'file-upload-image'}></img>{image2 ? 'Update/Remove Photo' : 'Add Photo'}
             </label>
           </div>
           <div className="file-upload-outer">
             <label for='file-upload3' className="file-upload-label">
-              <img src={photo} className='file-upload-image'></img>Add a Photo
+              <img src={image3 ? URL.createObjectURL(image) : photo} className={image3 ? 'photo-preview' : 'file-upload-image'}></img>{image3 ? 'Update/Remove Photo' : 'Add Photo'}
             </label>
           </div>
           <div className="file-upload-outer">
             <label for='file-upload4' className="file-upload-label">
-              <img src={photo} className='file-upload-image'></img>Add a Photo
+              <img src={image4 ? URL.createObjectURL(image) : photo} className={image4 ? 'photo-preview' : 'file-upload-image'}></img>{image4 ? 'Update/Remove Photo' : 'Add Photo'}
             </label>
           </div>
         </div>
@@ -117,12 +119,6 @@ const ImageUpload = ({ productId }) => {
           onChange={updateImage4}
           style={{ display: 'none' }}
         />
-        <div className="photo-display-preview">
-          <img src={image ? URL.createObjectURL(image) : ""} className='photo-preview'></img>
-          <img src={image2 ? URL.createObjectURL(image2) : ""} className='photo-preview'></img>
-          <img src={image3 ? URL.createObjectURL(image3) : ""} className='photo-preview'></img>
-          <img src={image4 ? URL.createObjectURL(image4) : ""} className='photo-preview'></img>
-        </div>
         <button type="submit">Submit</button>
         {(imageLoading) && <p>Loading...</p>}
         {errors?.map((error) => {

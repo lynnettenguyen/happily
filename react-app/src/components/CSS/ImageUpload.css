@@ -17,12 +17,13 @@
   font-family: GraphikRegular, Arial, Helvetica, sans-serif;
   font-size: 12px;
   cursor: pointer;
+  position: relative
 }
 
 .file-upload-outer {
   border: 1px solid rgba(128, 128, 128, 0.464);
-  width: 150px;
-  height: 150px;
+  width: 180px;
+  height: 180px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -37,14 +38,15 @@
   cursor: pointer;
 }
 
-.photo-display-preview {
-  display: grid;
-  grid-template-columns: repeat(4, 200px);
-  border: 1px solid red;
-}
-
 .photo-preview {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.delete-image-bin {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
