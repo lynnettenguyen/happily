@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import { findProductById, getAllProducts } from "../../store/products";
 import '../CSS/ImageUpload.css'
 import photo from '../CSS/Images/photo.svg'
-import deleteBin from '../CSS/Images/delete-image-bin.svg'
 import whiteX from '../CSS/Images/white-x.svg'
 import { uploadImages } from "../../store/images";
 
@@ -18,6 +17,7 @@ const ImageUpload = ({ productId }) => {
   const [imageLoading, setImageLoading] = useState(false);
   const user = useSelector(state => state.session.user)
   const [errors, setErrors] = useState([])
+  const [imageCount, setImageCount] = useState(0)
 
 
   const handleSubmit = async (e) => {
@@ -62,20 +62,23 @@ const ImageUpload = ({ productId }) => {
   // }
 
   const updateImage = (e) => {
-    console.log(e.target.files)
     const file = e.target.files[0];
+    setImageCount(imageCount + 1)
     setImage(file);
   }
   const updateImage2 = (e) => {
     const file = e.target.files[0];
+    setImageCount(imageCount + 1)
     setImage2(file);
   }
   const updateImage3 = (e) => {
     const file = e.target.files[0];
+    setImageCount(imageCount + 1)
     setImage3(file);
   }
   const updateImage4 = (e) => {
     const file = e.target.files[0];
+    setImageCount(imageCount + 1)
     setImage4(file);
   }
 
