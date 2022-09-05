@@ -76,7 +76,9 @@ def user_purchases(id):
     for purchase in purchases:
       purchase = purchase.to_dict()
 
-      seller = User.query.filter(User.id == purchase['user_id']).first()
+      product = Product.query.filter(Product.id == purchase['product_id']).first()
+      seller_id = product.seller_id
+      seller = User.query.filter(User.id == seller_id).first()
 
       purchase['shop_name'] = seller.shop_name
 
