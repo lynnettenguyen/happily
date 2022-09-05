@@ -4,21 +4,21 @@ from app.models import db, User
 def seed_users():
     demo_users = [
     User(
-        shop_name='KnotNamiDecors', first_name='Nami', email='nami@aa.io', password='password', profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/nami.png'),
+        shop_name='HappilyNamiDecors', first_name='Nami', email='nami@aa.io', password='password', profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/nami.png'),
     User(
-        shop_name='KnotChopperDesigns', first_name='Chopper', email='chopper@aa.io', password='password', profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/chopper.png'),
+        shop_name='HappilyChopperDesigns', first_name='Chopper', email='chopper@aa.io', password='password', profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/chopper.png'),
     User(
-        shop_name='KnotZoroReady', first_name='Zoro', email='zoro@aa.io', password='password', profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/zoro.png'),
+        shop_name='HappilyZoroShop', first_name='Zoro', email='zoro@aa.io', password='password', profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/zoro.png'),
     User(
-        shop_name='KnotDemo', first_name='Demo', email='demo@aa.io', password='password', profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/demo.png'),
+        shop_name='HappilyDemo', first_name='Demo', email='demo@aa.io', password='password', profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/demo.png'),
     User(
-        shop_name='KnotRobinBridal', first_name='Robin', email='robin@aa.io', password='password', profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/robin.png'),
+        shop_name='HappilyRobinBridal', first_name='Robin', email='robin@aa.io', password='password', profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/robin.png'),
     User(
-        shop_name='KnotSanjiPersonalized', first_name='Sanji', email='sanji@aa.io', password='password', profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/sanji.png'),
+        shop_name='HappilySanjiPersonalized', first_name='Sanji', email='sanji@aa.io', password='password', profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/sanji.png'),
     User(
-        shop_name='KnotLuffyStudios', first_name='Luffy', email='luffy@aa.io', password='password', profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/luffy.png'),
+        shop_name='HappilyLuffyStudios', first_name='Luffy', email='luffy@aa.io', password='password', profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/luffy.png'),
     User(
-        shop_name='KnotUsoppHandmade', first_name='Usopp', email='usopp@aa.io', password='password', profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/usopp.png')
+        shop_name='HappilyUsoppHandmade', first_name='Usopp', email='usopp@aa.io', password='password', profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/usopp.png')
     ]
 
     for user in demo_users:

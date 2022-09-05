@@ -6,6 +6,7 @@ import '../CSS/Product.css'
 import filledStar from '../CSS/Images/filled-star.svg'
 import halfStar from '../CSS/Images/half-star.svg'
 import emptyStar from '../CSS/Images/empty-star.svg'
+import check from '../CSS/Images/check.svg'
 
 
 const Product = () => {
@@ -15,6 +16,7 @@ const Product = () => {
   productId = Number(productId)
 
   const dispatch = useDispatch()
+  const history = useHistory()
   const user = useSelector(state => state.session.user)
   const product = useSelector(state => state.products)
   const [selectedImage, setSelectedImage] = useState(product[productId]?.images[0])
@@ -22,18 +24,20 @@ const Product = () => {
 
   const [cart, setCart] = useState(cartInStorage)
 
+  const [notification, setNotification] = useState(false)
+  const [count, setCount] = useState(0)
+
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart))
-    console.log('USE EFFECT RAN')
+    // console.log('USE EFFECT RAN')
   }, [cart])
 
-  console.log('cart', cart)
-  console.log('cart.length', cart.length)
-
+  // console.log('cart', cart)
+  // console.log('cart.length', cart.length)
 
   const addToCart = (selectedProduct) => {
-    if (cart.length > 0) {
-      console.log('ITEM IS ALREADY IN CART')
+    if (cart && cart.length > 0) {
+      // console.log('ITEM IS ALREADY IN CART')
       let findItem = cart.filter((item, i) => item.id === selectedProduct.id)
       let newCart = [...cart]
 
@@ -47,15 +51,13 @@ const Product = () => {
         newCart.push(findItem)
       }
       setCart(newCart)
-      console.log('cart inside addToCart first', cart)
 
     } else {
-      console.log('CART IS EMPTY')
       selectedProduct.quantity = 1
       setCart([selectedProduct])
-      console.log('cart inside addToCart', cart)
     }
-
+    setNotification(true)
+    setCount(count + 1)
   }
 
 
@@ -109,7 +111,7 @@ const Product = () => {
             <div className='product-reviews-main'>
               <div className='product-reviews-header'>
                 <div className='product-reviews-num-ratings'>
-                  {product[productId]?.reviews?.length} shop reviews
+                  {product[productId]?.reviews?.length} shop review(s)
                   {product[productId]?.reviews?.length === 0 && <div className='empty-stars-outer'>
                     <img src={emptyStar} className='empty-star first-star' alt='star'></img>
                     <img src={emptyStar} className='empty-star' alt='star'></img>
@@ -146,10 +148,16 @@ const Product = () => {
           </div>
           <div className='product-right-main'>
             <div className='product-right-upper'>
-              <div className='product-shop-name'>{user?.shop_name}</div>
+              {notification &&
+                <div className='notification-outer'>
+                  <img src={check}></img>
+                  <span className='notification-message'>You added {count} item(s) to your <Link to='/cart' className='view-cart-link'>cart</Link>!</span>
+                </div>
+              }
+              <div className='product-shop-name'>{product[productId]?.shop_name}</div>
               <div className='product-rating'>
                 {product[productId]?.reviews?.length > 0 ? <>
-                  <div className='product-sales'>{`${(Math.floor(Math.random() * (2000 - 200 + 1) + 200)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} sales`} <span className='divider'>&nbsp; | &nbsp;</span></div>
+                  {/* <div className='product-sales'>{`${(Math.floor(Math.random() * (2000 - 200 + 1) + 200)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} sales`} <span className='divider'>&nbsp; | &nbsp;</span></div> */}
                   <div className='product-rating-outer'>
                     {rating?.map((star) => {
                       return (
