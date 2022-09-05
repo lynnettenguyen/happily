@@ -3,10 +3,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams, useHistory } from "react-router-dom";
 import '../CSS/Cart.css'
 
-let cartInStorage = JSON.parse(localStorage.getItem('cart' || '[]'))
 // console.log(cartInStorage, 'cartInStorage')
 
 const Cart = () => {
+  let cartInStorage = JSON.parse(localStorage.getItem('cart' || '[]'))
   const dispatch = useDispatch()
   const user = useSelector(state => state.session.user)
 

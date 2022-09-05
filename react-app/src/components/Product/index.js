@@ -7,10 +7,10 @@ import filledStar from '../CSS/Images/filled-star.svg'
 import halfStar from '../CSS/Images/half-star.svg'
 import emptyStar from '../CSS/Images/empty-star.svg'
 
-const cartInStorage = JSON.parse(localStorage.getItem('cart'))
-console.log(cartInStorage, 'cartInStorage') // returns null if empty
 
 const Product = () => {
+  const cartInStorage = JSON.parse(localStorage.getItem('cart'))
+  console.log(cartInStorage, 'cartInStorage') // returns null if empty
   let { productId } = useParams()
   productId = Number(productId)
 
@@ -20,10 +20,11 @@ const Product = () => {
   const [selectedImage, setSelectedImage] = useState(product[productId]?.images[0])
   const [rating, setRating] = useState([])
 
-  const [cart, setCart] = useState(cartInStorage ? cartInStorage : [])
+  const [cart, setCart] = useState(cartInStorage)
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart))
+    console.log('USE EFFECT RAN')
   }, [cart])
 
   console.log('cart', cart)
@@ -34,29 +35,27 @@ const Product = () => {
     if (cart.length > 0) {
       console.log('ITEM IS ALREADY IN CART')
       let findItem = cart.filter((item, i) => item.id === selectedProduct.id)
-      console.log('finditem', findItem)
       let newCart = [...cart]
-      console.log('NEWCART', newCart)
 
       if (findItem[0]) {
         findItem[0].quantity++
-        console.log(findItem[0].quantity, "!!!!!!!!!!!!")
-
       } else {
         findItem = {
           ...selectedProduct,
           quantity: 1
         }
-        console.log(findItem, 'fine item in object')
         newCart.push(findItem)
       }
       setCart(newCart)
+      console.log('cart inside addToCart first', cart)
 
     } else {
       console.log('CART IS EMPTY')
       selectedProduct.quantity = 1
       setCart([selectedProduct])
+      console.log('cart inside addToCart', cart)
     }
+
   }
 
 
