@@ -2,12 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams, useHistory } from "react-router-dom";
 import { findProductById } from '../../store/products';
-import '../CSS/Products.css'
+import '../CSS/Product.css'
 import filledStar from '../CSS/Images/filled-star.svg'
 import halfStar from '../CSS/Images/half-star.svg'
 import emptyStar from '../CSS/Images/empty-star.svg'
 
+
 const Product = () => {
+  const cartInStorage = JSON.parse(localStorage.getItem('cart'))
+  console.log(cartInStorage, 'cartInStorage') // returns null if empty
   let { productId } = useParams()
   productId = Number(productId)
 
@@ -16,6 +19,46 @@ const Product = () => {
   const product = useSelector(state => state.products)
   const [selectedImage, setSelectedImage] = useState(product[productId]?.images[0])
   const [rating, setRating] = useState([])
+
+  const [cart, setCart] = useState(cartInStorage)
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart))
+    console.log('USE EFFECT RAN')
+  }, [cart])
+
+  console.log('cart', cart)
+  console.log('cart.length', cart.length)
+
+
+  const addToCart = (selectedProduct) => {
+    if (cart.length > 0) {
+      console.log('ITEM IS ALREADY IN CART')
+      let findItem = cart.filter((item, i) => item.id === selectedProduct.id)
+      let newCart = [...cart]
+
+      if (findItem[0]) {
+        findItem[0].quantity++
+      } else {
+        findItem = {
+          ...selectedProduct,
+          quantity: 1
+        }
+        newCart.push(findItem)
+      }
+      setCart(newCart)
+      console.log('cart inside addToCart first', cart)
+
+    } else {
+      console.log('CART IS EMPTY')
+      selectedProduct.quantity = 1
+      setCart([selectedProduct])
+      console.log('cart inside addToCart', cart)
+    }
+
+  }
+
+
 
   const roundedStars = Math.floor(product[productId]?.avg_stars)
   const difference = product[productId]?.avg_stars - roundedStars
@@ -119,7 +162,7 @@ const Product = () => {
               <div className='product-name'>{product[productId]?.name}</div>
               <div className='product-price'>${product[productId]?.price.toFixed(2)}</div>
               <div className='product-cart-outer'>
-                <button className='product-cart-button'>Add to cart</button>
+                <button className='product-cart-button' onClick={() => addToCart(product[productId])}>Add to cart</button>
               </div>
             </div>
             <div className='product-right-lower'>

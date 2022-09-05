@@ -14,14 +14,15 @@ image_routes = Blueprint("images", __name__)
 @login_required
 def upload_image():
     if "image" not in request.files:
-        return {"errors": "image required"}, 400
+        print(request.files, "!!!!!!!!!!!!!!!")
+        return {"errors": "At least one image required"}, 400
 
     # print(request.files) # ImmutableMultiDict([('image', <FileStorage: 'chopper.png' ('image/png')>)])
 
     image = request.files["image"]
 
     if not allowed_file(image.filename):
-        return {"errors": "file type not permitted"}, 400
+        return {"errors": "Image is not a permitted file type (file type must be .png, .jpeg, or .jpg)"}, 400
 
     image.filename = get_unique_filename(image.filename)
 

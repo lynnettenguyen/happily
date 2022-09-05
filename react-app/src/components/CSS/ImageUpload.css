@@ -1,15 +1,25 @@
+.upload-image-main {
+  margin: 1.5rem auto;
+  max-width: 49%;
+}
+
 .photo-header {
   font-family: GuardianEgypLight, Arial, Helvetica, sans-serif;
-  font-size: 1.5rem;
+  font-size: 26px;
+  color: white;
+  margin-bottom: 1rem;
 }
 
 .photo-caption {
   font-family: GraphikRegular, Arial, Helvetica, sans-serif;
   font-size: 14px;
+  color: white;
 }
 
 .photo-upload-main {
   display: flex;
+  justify-content: center;
+  box-sizing: border-box;
 }
 
 .file-upload-label {
@@ -17,12 +27,15 @@
   font-family: GraphikRegular, Arial, Helvetica, sans-serif;
   font-size: 12px;
   cursor: pointer;
+  position: relative;
+  color: white;
 }
 
-.file-upload-outer {
-  border: 1px solid rgba(128, 128, 128, 0.464);
+.file-upload-outer,
+.file-upload-outer-image {
+  border: 1px solid rgb(255, 255, 255);
   width: 200px;
-  height: 200px;
+  height: 180px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -30,21 +43,90 @@
   margin: 1rem;
 }
 
+.file-upload-outer:hover {
+  border: 1.5px solid #F1641E;
+}
+
 .file-upload-image {
   display: flex;
   padding: 0 2rem;
   margin-bottom: 0.2rem;
   cursor: pointer;
-}
-
-.photo-display-preview {
-  display: grid;
-  grid-template-columns: repeat(4, 200px);
-  border: 1px solid red;
+  justify-content: center;
 }
 
 .photo-preview {
-  width: 100%;
-  height: 100%;
+  width: 200px;
+  height: 180px;
   object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-image-outer {
+  height: 30px;
+  width: 30px;
+  background-color: rgba(104, 104, 104, 0.677);
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 2;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid white;
+}
+
+.delete-image-x {
+  height: 20px;
+}
+
+.delete-image-outer:hover {
+  background-color: rgba(0, 0, 0, 0.878);
+}
+
+.image-upload-button-outer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.image-upload-button {
+  border: none;
+  color: white;
+  background-color: black;
+  border-radius: 20px;
+  height: 34px;
+  padding: 0 10px;
+  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+  width: 80px;
+  margin-right: 1rem;
+}
+
+.loading-outer,
+.image-errors-outer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.loading-message,
+.image-error {
+  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
+  color: white;
+  margin: 0 1rem 0.5rem 0;
+  background-color: black;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.loading-message {
+  font-size: 16px;
+}
+
+.image-error {
+  font-size: 12px;
 }

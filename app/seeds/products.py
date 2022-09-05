@@ -176,9 +176,9 @@ def seed_products():
     Product(
         seller_id=8, category='Table Decor&Centerpieces', name='Newlyweds Mr. Mrs. Custom Engraved Engaged Wine Champagne Flutes 45th Anniversary Gift for Couples Wedding Centerpiece Set of 2 Bride Groom', price=19.95, description='Bridal Party Champagne Flutes Set of 2 Glass Flute Laser Engraved & Personalized with Last Name and Date Comes with Cursive Mr. & Mrs. Design AND Your Choice of Flute: Twisty Stem, Smooth Stem, or Stemless.'),
     Product(
-        seller_id=8, category='Favors&Gifts', name='100 Wedding Opener Bottle Rustic Favors Wedding Vintage Skeleton Key Small But Practical Very Suitable Exquisite Card Key Ring Favor Wedding', price=56.99, description='DIY Card Tag: Each key bottle opener come with a brown Kraft escort cards tag. You can write or stamp it with your thanks or best wishes by yourself. The hole on the top of the cards is convenient for you to use key chain to hang with the bottle openers.'),
-    Product(
         seller_id=8, category='Table Decor&Centerpieces', name='Circular Greenery Centerpiece', price=39.99, description='Beautiful circular centerpieces made to order, all handcrafted and personalized to each wedding. All come complete and no further assembly needed.'),
+    Product(
+        seller_id=8, category='Favors&Gifts', name='Let Love Grow Printable Wedding Sign, Wedding Favors Sign, Please Take One, Succulent Favor Sign, Modern Minimalist Wedding Table Sign', price=4.19, description='This DIY, printable WEDDING SIGN features editable text for personalization! Using Templett - a web based template editor that allows you to customize your printable in minutes - you can customize this menu to fit your special day!'),
     Product(
         seller_id=8, category='Table Decor&Centerpieces', name='Set of 10 - 12 inch wood slices wedding centerpieces wood centerpieces wood slabs wood log slices centerpiece wood slab rustic wedding decor', price=71.99, description='Every wood slice sold on our shop has been fully dried in a specially designed, climate controlled shop. They have been dried without splits and last for years of reuse. There’s nothing you need to do to them and they are ready to use upon arrival!'),
     Product(

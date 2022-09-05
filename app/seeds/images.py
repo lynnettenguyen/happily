@@ -448,7 +448,7 @@ def seed_images():
     Image(
         user_id=8, product_id=87, url='https://knotsy.s3.us-west-1.amazonaws.com/p87.2.webp'),
     Image(
-        user_id=8, product_id=88, url='https://knotsy.s3.us-west-1.amazonaws.com/p88.1.png'),
+        user_id=8, product_id=88, url='https://knotsy.s3.us-west-1.amazonaws.com/p88.1.webp'),
     Image(
         user_id=8, product_id=88, url='https://knotsy.s3.us-west-1.amazonaws.com/p88.2.webp'),
     Image(

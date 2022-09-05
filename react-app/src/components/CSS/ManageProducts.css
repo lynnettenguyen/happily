@@ -9,13 +9,19 @@
 }
 
 .my-products-header {
-  margin: 2rem 15.2rem;
+  margin: 2rem 15.2rem 0.5rem;
   font-family: GuardianEgypLight, Arial, Helvetica, sans-serif;
   font-size: 1.5rem;
 }
 
+.my-products-shop {
+  font-family: GuardianEgypLight, Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  margin: 0 15.2rem 2rem;
+}
+
 .my-products-outer {
-  padding-top: 100px;
+  padding-top: 7.5rem;
   margin: 0 14rem;
 }
 
@@ -74,12 +80,6 @@
   padding: 4px 8px 2px;
   border-radius: 10px;
   margin-right: 10px;
-}
-
-.my-product-edit-button:hover,
-.my-product-delete-button:hover,
-.delete-return-button:hover,
-.delete-confirm-button:hover {
   cursor: pointer;
 }
 
@@ -100,6 +100,7 @@
   font-size: 11px;
   font-family: GraphikThin, Arial, Helvetica, sans-serif;
   margin-bottom: 5px;
+  cursor: pointer;
 }
 
 .delete-message {
@@ -121,5 +122,6 @@
   border-radius: 10px;
   font-family: GraphikRegular, Arial, Helvetica, sans-serif;
   font-size: 12px;
-  height: 30px
+  height: 30px;
+  cursor: pointer;
 }
