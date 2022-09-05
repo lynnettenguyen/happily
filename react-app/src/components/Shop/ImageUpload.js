@@ -19,27 +19,67 @@ const ImageUpload = ({ productId }) => {
   const [errors, setErrors] = useState([])
   const [imageCount, setImageCount] = useState(0)
 
+  // console.log('image1', image)
+  // console.log('image2', image2)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const imageData = new FormData();
-    imageData.append("image", image);
-    imageData.append("product_id", productId);
-    imageData.append("user_id", user.id)
+    if (image === null) {
+      setErrors(['Minimum of one image upload required'])
+      return
+    }
 
-    setImageLoading(true);
+    if (image && !image2) {
 
-    const response = await dispatch(uploadImages(imageData))
-    if (response) {
-      setImageLoading(false);
-      await dispatch(getAllProducts())
-      await dispatch(findProductById(productId))
+      const imageData = new FormData();
+      imageData.append("image", image);
+      imageData.append("product_id", productId);
+      imageData.append("user_id", user.id)
 
-      history.push(`/products/${productId}`)
-    } else {
-      setImageLoading(false);
-      setErrors(['Image is not a valid file type (.png, .jpeg, .jpg)'])
+      setImageLoading(true);
+
+      console.log(imageData['image'], "!!!!!!!!!!")
+
+      const response = await dispatch(uploadImages(imageData))
+      if (response) {
+        setImageLoading(false);
+        await dispatch(getAllProducts())
+        await dispatch(findProductById(productId))
+        history.push(`/products/${productId}`)
+      } else {
+        setImageLoading(false);
+        setErrors(['Image is not a valid file type (.png, .jpeg, .jpg)'])
+      }
+    } else if (image && image2 && !image3) {
+
+      const imageData = new FormData();
+      imageData.append("image", image);
+      imageData.append("product_id", productId);
+      imageData.append("user_id", user.id)
+
+      const imageData2 = new FormData();
+      imageData.append("image", image2);
+      imageData.append("product_id", productId);
+      imageData.append("user_id", user.id)
+
+      setImageLoading(true);
+
+      console.log(imageData['image'], "!!!!!!!!!!")
+      console.log(imageData2['image'],"22222222")
+
+      const response = await dispatch(uploadImages(imageData))
+      const response2 = await dispatch(uploadImages(imageData2))
+
+      if (response && response2) {
+        setImageLoading(false);
+        await dispatch(getAllProducts())
+        await dispatch(findProductById(productId))
+        history.push(`/products/${productId}`)
+      } else {
+        setImageLoading(false);
+        setErrors(['Image is not a valid file type (.png, .jpeg, .jpg)'])
+      }
     }
   }
 
@@ -62,23 +102,21 @@ const ImageUpload = ({ productId }) => {
   // }
 
   const updateImage = (e) => {
+    // console.log(e.target.files, "11111111111111")
     const file = e.target.files[0];
-    setImageCount(imageCount + 1)
     setImage(file);
   }
   const updateImage2 = (e) => {
+    // console.log(e.target.files, "222222222222")
     const file = e.target.files[0];
-    setImageCount(imageCount + 1)
     setImage2(file);
   }
   const updateImage3 = (e) => {
     const file = e.target.files[0];
-    setImageCount(imageCount + 1)
     setImage3(file);
   }
   const updateImage4 = (e) => {
     const file = e.target.files[0];
-    setImageCount(imageCount + 1)
     setImage4(file);
   }
 
@@ -98,7 +136,7 @@ const ImageUpload = ({ productId }) => {
                 : 'Add Photo'}
             </label>
           </div>
-          <div className={image2 ? 'file-upload-outer-image' : 'file-upload-outer'}>
+          {image && <div className={image2 ? 'file-upload-outer-image' : 'file-upload-outer'}>
             <label for='file-upload2' className='file-upload-label'>
               <img src={image2 ? URL.createObjectURL(image2) : photo} className={image2 ? 'photo-preview' : 'file-upload-image'}></img>
               {image2 ?
@@ -107,8 +145,8 @@ const ImageUpload = ({ productId }) => {
                 </div>
                 : 'Add Photo'}
             </label>
-          </div>
-          <div className={image3 ? 'file-upload-outer-image' : 'file-upload-outer'}>
+          </div>}
+          {image && image2 && <div className={image3 ? 'file-upload-outer-image' : 'file-upload-outer'}>
             <label for='file-upload3' className='file-upload-label'>
               <img src={image3 ? URL.createObjectURL(image3) : photo} className={image3 ? 'photo-preview' : 'file-upload-image'}></img>
               {image3 ?
@@ -117,8 +155,8 @@ const ImageUpload = ({ productId }) => {
                 </div>
                 : 'Add Photo'}
             </label>
-          </div>
-          <div className={image4 ? 'file-upload-outer-image' : 'file-upload-outer'}>
+          </div>}
+          {image && image2 && image3 && <div className={image4 ? 'file-upload-outer-image' : 'file-upload-outer'}>
             <label for='file-upload4' className='file-upload-label'>
               <img src={image4 ? URL.createObjectURL(image4) : photo} className={image4 ? 'photo-preview' : 'file-upload-image'}></img>
               {image4 ?
@@ -127,7 +165,7 @@ const ImageUpload = ({ productId }) => {
                 </div>
                 : 'Add Photo'}
             </label>
-          </div>
+          </div>}
         </div>
         <input
           id='file-upload'
