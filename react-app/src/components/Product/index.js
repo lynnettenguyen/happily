@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams, useHistory } from "react-router-dom";
 import { findProductById } from '../../store/products';
-import '../CSS/Products.css'
+import '../CSS/Product.css'
 import filledStar from '../CSS/Images/filled-star.svg'
 import halfStar from '../CSS/Images/half-star.svg'
 import emptyStar from '../CSS/Images/empty-star.svg'
+
+const cartInStorage = JSON.parse(localStorage.getItem('cart' || '[]'))
 
 const Product = () => {
   let { productId } = useParams()
@@ -16,6 +18,30 @@ const Product = () => {
   const product = useSelector(state => state.products)
   const [selectedImage, setSelectedImage] = useState(product[productId]?.images[0])
   const [rating, setRating] = useState([])
+
+  const [cart, setCart] = useState(cartInStorage)
+
+  const addToCart = (selectedProduct) => {
+    if (cart && cart.length > 0) {
+      let updateCart = [...cart]
+      let cartItem = cart.find((item) => selectedProduct.id === item.id)
+      if (cartItem) {
+        cartItem.quantity++
+      } else {
+        cartItem = {
+          ...selectedProduct, quantity: 1
+        }
+        updateCart.push(cartItem)
+      }
+      setCart(updateCart)
+    }
+    else setCart([selectedProduct])
+  }
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart))
+    // localStorage.clear()
+  }, [cart])
 
   const roundedStars = Math.floor(product[productId]?.avg_stars)
   const difference = product[productId]?.avg_stars - roundedStars
@@ -119,7 +145,7 @@ const Product = () => {
               <div className='product-name'>{product[productId]?.name}</div>
               <div className='product-price'>${product[productId]?.price.toFixed(2)}</div>
               <div className='product-cart-outer'>
-                <button className='product-cart-button'>Add to cart</button>
+                <button className='product-cart-button' onClick={() => addToCart(product[productId])}>Add to cart</button>
               </div>
             </div>
             <div className='product-right-lower'>
