@@ -16,8 +16,6 @@ const EditProduct = ({ productId, setShowEditForm }) => {
   const [description, setDescription] = useState(product?.description)
   const [category, setCategory] = useState(product?.category)
 
-  console.log('PRODUCT ID', productId)
-
   const handleEdit = async (e) => {
     e.preventDefault()
 

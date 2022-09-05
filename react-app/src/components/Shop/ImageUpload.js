@@ -39,7 +39,7 @@ const ImageUpload = ({ productId }) => {
 
       setImageLoading(true);
 
-      console.log(imageData['image'], "!!!!!!!!!!")
+      // console.log(imageData, "!!!!!!!!!!")
 
       const response = await dispatch(uploadImages(imageData))
       if (response) {
@@ -65,8 +65,8 @@ const ImageUpload = ({ productId }) => {
 
       setImageLoading(true);
 
-      console.log(imageData['image'], "!!!!!!!!!!")
-      console.log(imageData2['image'],"22222222")
+      console.log(imageData, "!!!!!!!!!!")
+      console.log(imageData2,"22222222")
 
       const response = await dispatch(uploadImages(imageData))
       const response2 = await dispatch(uploadImages(imageData2))
@@ -102,12 +102,10 @@ const ImageUpload = ({ productId }) => {
   // }
 
   const updateImage = (e) => {
-    // console.log(e.target.files, "11111111111111")
     const file = e.target.files[0];
     setImage(file);
   }
   const updateImage2 = (e) => {
-    // console.log(e.target.files, "222222222222")
     const file = e.target.files[0];
     setImage2(file);
   }

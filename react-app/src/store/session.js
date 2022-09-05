@@ -115,7 +115,6 @@ export const editUser = (userData) => async (dispatch) => {
     })
   })
 
-  console.log("shop_name", shop_name)
 
   if (response.ok) {
     const user = await response.json()

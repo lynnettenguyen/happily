@@ -34,13 +34,13 @@ const ManageProducts = () => {
     setDeleteConfirmation(false)
   }
 
-  console.log('PRODUCTS', products)
 
   return (
     <>
       <div className="my-products-main">
         <div className="my-products-upper">
           <div className="my-products-header">Shop Manager</div>
+          <div className="my-products-shop">{user?.shop_name ? user.shop_name : ""}</div>
         </div>
         <div className="my-products-outer">
           <div className="my-products-inner">
@@ -49,7 +49,7 @@ const ManageProducts = () => {
                 <>
                   <div className="my-products-img-main">
                     <Link to={`/products/${product?.id}`} onClick={() => dispatch(findProductById(product?.id))}>
-                      {/* <img src={product?.images[0]} className='my-products-img'></img> */}
+                      <img src={product?.images[0]} className='my-products-img'></img>
                     </Link>
                   </div>
                   <div className="my-products-info">

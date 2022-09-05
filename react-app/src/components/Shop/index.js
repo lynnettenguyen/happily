@@ -50,8 +50,6 @@ const Shop = () => {
       description
     }
 
-    console.log(productData)
-
     const response = await dispatch(addNewProduct(productData))
     if (response) {
       setProductId(response.id)

@@ -9,13 +9,19 @@
 }
 
 .my-products-header {
-  margin: 2rem 15.2rem;
+  margin: 2rem 15.2rem 0.5rem;
   font-family: GuardianEgypLight, Arial, Helvetica, sans-serif;
   font-size: 1.5rem;
 }
 
+.my-products-shop {
+  font-family: GuardianEgypLight, Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  margin: 0 15.2rem 2rem;
+}
+
 .my-products-outer {
-  padding-top: 100px;
+  padding-top: 7.5rem;
   margin: 0 14rem;
 }
 
