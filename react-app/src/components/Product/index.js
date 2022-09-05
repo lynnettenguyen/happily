@@ -157,7 +157,7 @@ const Product = () => {
               <div className='product-shop-name'>{product[productId]?.shop_name}</div>
               <div className='product-rating'>
                 {product[productId]?.reviews?.length > 0 ? <>
-                  <div className='product-sales'>{`${(Math.floor(Math.random() * (2000 - 200 + 1) + 200)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} sales`} <span className='divider'>&nbsp; | &nbsp;</span></div>
+                  {/* <div className='product-sales'>{`${(Math.floor(Math.random() * (2000 - 200 + 1) + 200)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} sales`} <span className='divider'>&nbsp; | &nbsp;</span></div> */}
                   <div className='product-rating-outer'>
                     {rating?.map((star) => {
                       return (

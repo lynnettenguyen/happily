@@ -6,7 +6,7 @@ import '../CSS/Cart.css'
 // console.log(cartInStorage, 'cartInStorage')
 
 const Cart = () => {
-  let cartInStorage = JSON.parse(localStorage.getItem('cart' || '[]'))
+  let cartInStorage = JSON.parse(localStorage.getItem('cart'))
   const dispatch = useDispatch()
   const user = useSelector(state => state.session.user)
 
@@ -27,11 +27,11 @@ const Cart = () => {
   }
 
   const calculateTotal = () => {
-    // return cart.reduce((sum, { price }) => sum + price, 0)
+    return cart.reduce((sum, { price }) => sum + price, 0)
   }
 
   const totalCartItems = () => {
-    // return cart.reduce((sum, { quantity }) => sum + quantity, 0)
+    return cart.reduce((sum, { quantity }) => sum + quantity, 0)
   }
 
   return (
@@ -40,7 +40,7 @@ const Cart = () => {
         <div className='cart-header'>{totalCartItems()} item(s) in your cart</div>
         <div className='cart-main'>
           <div className='cart-items-outer'>
-            {cart && Object.values(cartInStorage)?.map((product) => {
+            {cart && Object.values(cart)?.map((product) => {
               return (
                 <div className='cart-outer'>
                   <div className='cart-product-img-outer'>
@@ -74,7 +74,7 @@ const Cart = () => {
           </div>
         </div>
       </form> :
-      <div>There are no items in the cart.</div>}
+      <div>There are no items in the cart. Continue Shopping</div>}
     </>
   )
 }
