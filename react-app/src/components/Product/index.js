@@ -15,6 +15,7 @@ const Product = () => {
   productId = Number(productId)
 
   const dispatch = useDispatch()
+  const history = useHistory()
   const user = useSelector(state => state.session.user)
   const product = useSelector(state => state.products)
   const [selectedImage, setSelectedImage] = useState(product[productId]?.images[0])
@@ -22,18 +23,20 @@ const Product = () => {
 
   const [cart, setCart] = useState(cartInStorage)
 
+  const [notification, setNotification] = useState(false)
+  const [count, setCount] = useState(0)
+
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart))
-    console.log('USE EFFECT RAN')
+    // console.log('USE EFFECT RAN')
   }, [cart])
 
-  console.log('cart', cart)
-  console.log('cart.length', cart.length)
-
+  // console.log('cart', cart)
+  // console.log('cart.length', cart.length)
 
   const addToCart = (selectedProduct) => {
-    if (cart.length > 0) {
-      console.log('ITEM IS ALREADY IN CART')
+    if (cart && cart.length > 0) {
+      // console.log('ITEM IS ALREADY IN CART')
       let findItem = cart.filter((item, i) => item.id === selectedProduct.id)
       let newCart = [...cart]
 
@@ -47,15 +50,13 @@ const Product = () => {
         newCart.push(findItem)
       }
       setCart(newCart)
-      console.log('cart inside addToCart first', cart)
 
     } else {
-      console.log('CART IS EMPTY')
       selectedProduct.quantity = 1
       setCart([selectedProduct])
-      console.log('cart inside addToCart', cart)
     }
-
+    setNotification(true)
+    setCount(count + 1)
   }
 
 
@@ -146,6 +147,7 @@ const Product = () => {
           </div>
           <div className='product-right-main'>
             <div className='product-right-upper'>
+              {notification && <div>ITEM WAS ADDED TO CART x{count} <Link to='/cart'>View Cart</Link></div>}
               <div className='product-shop-name'>{user?.shop_name}</div>
               <div className='product-rating'>
                 {product[productId]?.reviews?.length > 0 ? <>
