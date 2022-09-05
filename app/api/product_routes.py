@@ -103,14 +103,12 @@ def edit_product(product_id):
   form['csrf_token'].data = request.cookies['csrf_token']
 
   categories = Category.query.all()
-
   form.category.choices=[(category.to_name(), category.to_display_name() )for category in categories]
 
   image = db.session.query(Image).filter(Image.product_id == product_id).first()
-
   product = Product.query.get(product_id)
+  
   product_details = []
-  # print("!!!!!!!!!!!!", product.to_dict())
 
   if product.seller_id == current_user.id:
 
@@ -120,8 +118,7 @@ def edit_product(product_id):
         product.name = form.data['name']
         product.price = form.data['price']
         product.description = form.data['description']
-        product.updated_at = form.data['updated_at']
-
+        product.updated_at = date.today()
         db.session.commit()
 
         product = product.to_dict()

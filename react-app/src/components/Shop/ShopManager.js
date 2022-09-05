@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { loadProductsByOwner, findProductById, removeProduct } from "../../store/products";
-import '../CSS/ManageProducts.css'
+import '../CSS/ShopManager.css'
 import { Modal } from '../Context/modal';
-import EditProduct from "./EditProduct";
+import EditProduct from "../Product/EditProduct";
 
-const ManageProducts = () => {
+const ShopManager = () => {
   const dispatch = useDispatch()
   const user = useSelector(state => state.session.user)
   const products = useSelector(state => Object.values(state.products))
@@ -87,4 +87,4 @@ const ManageProducts = () => {
   )
 }
 
-export default ManageProducts
+export default ShopManager

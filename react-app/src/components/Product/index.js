@@ -11,7 +11,7 @@ import check from '../CSS/Images/check.svg'
 
 const Product = () => {
   const cartInStorage = JSON.parse(localStorage.getItem('cart'))
-  console.log(cartInStorage, 'cartInStorage') // returns null if empty
+  // console.log(cartInStorage, 'cartInStorage') // returns null if empty
   let { productId } = useParams()
   productId = Number(productId)
 

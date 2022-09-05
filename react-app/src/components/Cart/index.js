@@ -3,15 +3,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams, useHistory } from "react-router-dom";
 import '../CSS/Cart.css'
 
-// console.log(cartInStorage, 'cartInStorage')
-
 const Cart = () => {
   let cartInStorage = JSON.parse(localStorage.getItem('cart'))
-  const dispatch = useDispatch()
+  // console.log(cartInStorage, 'cartInStorage')
   const user = useSelector(state => state.session.user)
-
+  const dispatch = useDispatch()
   const [quantity, setQuantity] = useState(0)
-  const [productId, setProductId] = useState()
+  const [productId, setProductId] = useState(0)
   const [cart, setCart] = useState(cartInStorage)
 
   useEffect(() => {
