@@ -6,6 +6,7 @@ import '../CSS/Product.css'
 import filledStar from '../CSS/Images/filled-star.svg'
 import halfStar from '../CSS/Images/half-star.svg'
 import emptyStar from '../CSS/Images/empty-star.svg'
+import check from '../CSS/Images/check.svg'
 
 
 const Product = () => {
@@ -147,8 +148,13 @@ const Product = () => {
           </div>
           <div className='product-right-main'>
             <div className='product-right-upper'>
-              {notification && <div>ITEM WAS ADDED TO CART x{count} <Link to='/cart'>View Cart</Link></div>}
-              <div className='product-shop-name'>{user?.shop_name}</div>
+              {notification &&
+                <div className='notification-outer'>
+                  <img src={check}></img>
+                  <span className='notification-message'>You added {count} item(s) to your <Link to='/cart' className='view-cart-link'>cart</Link>!</span>
+                </div>
+              }
+              <div className='product-shop-name'>{product[productId]?.shop_name}</div>
               <div className='product-rating'>
                 {product[productId]?.reviews?.length > 0 ? <>
                   <div className='product-sales'>{`${(Math.floor(Math.random() * (2000 - 200 + 1) + 200)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} sales`} <span className='divider'>&nbsp; | &nbsp;</span></div>

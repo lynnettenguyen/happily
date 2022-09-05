@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_login import current_user, login_required
 from .auth_routes import validation_errors_to_error_messages
-from app.models import db, Product, Review, Image, Category
+from app.models import db, Product, Review, Image, Category, User
 from app.forms import ProductForm
 from datetime import date
 
@@ -37,6 +37,8 @@ def product_by_id(product_id):
   reviews = db.session.query(Review).filter(Review.product_id == product_id).all()
   images = db.session.query(Image).filter(Image.product_id == product_id).all()
 
+  seller = db.session.query(User).filter(User.id == product.seller_id).first()
+
   avg = None
   if reviews is not None:
     num_reviews = len(reviews)
@@ -55,6 +57,7 @@ def product_by_id(product_id):
     product['reviews'] = [review.to_dict() for review in reviews]
     product['images'] = [image.to_url() for image in images]
     product['avg_stars'] = avg
+    product['shop_name'] = seller.shop_name
     product_details.append(product)
 
     return jsonify(product_details)
