@@ -58,7 +58,7 @@ const ProductsByCategory = () => {
                 <Link to={`/products/${product?.id}`} onClick={() => dispatch(findProductById(product?.id))}>
                   <div className='category-product-inner'>
                     <div className='category-product-img-outer'>
-                      <img src={product?.images} className='category-product-img'></img>
+                      {product?.images?.length > 0 && <img src={product?.images} className='category-product-img'></img>}
                     </div>
                     <div className='category-product-name'>{product.name}</div>
                     {product?.num_reviews > 0 && <>

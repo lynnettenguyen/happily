@@ -70,7 +70,7 @@ const Purchases = () => {
                 </div>
                 <div className="purchases-bottom-outer">
                   <div className="purchase-product-img-outer">
-                    <img src={products[purchase.product_id]?.images[0]} className='purchase-product-img'></img>
+                    {products[purchase.product_id]?.images.length > 0 && <img src={products[purchase.product_id]?.images[0]} className='purchase-product-img'></img>}
                   </div>
                   <div className="purchase-product-info">
                     <div className="purchase-product-name">{products[purchase.product_id]?.name}</div>

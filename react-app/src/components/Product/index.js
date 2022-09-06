@@ -94,7 +94,7 @@ const Product = () => {
           <div className='product-left-main'>
             <div className='product-image-main'>
               <div className='product-preview-image-outer'>
-                {product[productId]?.images?.map((image) => {
+                {product[productId]?.images?.length > 0 && product[productId]?.images?.map((image) => {
                   return (
                     <img src={image} className='product-preview-image' onClick={() => { setSelectedImage(image) }}></img>
                   )

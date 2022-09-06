@@ -57,14 +57,14 @@ const HomePage = () => {
             <div className={`display-product-outer img${i}`}>
               <Link to={`/products/${product.id}`} onClick={() => dispatch(findProductById(product.id))}>
                 <div className='display-img-outer' >
-                  <img src={product?.images[0]} className={`display-product-img img${i}`} alt='product'></img>
+                  {product?.images?.length > 0 && <img src={product?.images[0]} className={`display-product-img img${i}`} alt='product'></img>}
                 </div>
                 <div className='display-product-price'>${product?.price.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
               </Link>
-            </div>
-          )
-        })}
-      </div>
+    </div>
+  )
+})}
+      </div >
     </>
   )
 }

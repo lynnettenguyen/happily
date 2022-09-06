@@ -107,7 +107,7 @@ const Cart = () => {
                 <div className='cart-outer'>
                   <Link to={`/products/${product.id}`}>
                     <div className='cart-product-img-outer'>
-                      <img src={product?.images[0]} className='cart-product-img'></img>
+                      {product?.images?.length > 0 && <img src={product?.images[0]} className='cart-product-img'></img>}
                     </div>
                   </Link>
                   <div className='cart-product-name'>
