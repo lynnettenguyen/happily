@@ -23,7 +23,7 @@ const Shop = () => {
 
   const checkShopName = () => {
     if (shopName) setPage(2)
-    else setPage(3)
+    else setPage(1)
   }
 
   const handleUserSubmit = async (e) => {
