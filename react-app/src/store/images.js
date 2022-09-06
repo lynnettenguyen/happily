@@ -20,6 +20,9 @@ const deleteImages = (imageId) => ({
 export const uploadImages = (imageData) => async (dispatch) => {
   const response = await fetch(`/api/images`, {
     method: "POST",
+    // headers: {
+    //   "Content-Type": "multipart/form-data",
+    // },
     body: imageData
   })
 

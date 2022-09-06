@@ -1,4 +1,5 @@
 from flask import Blueprint, request
+from werkzeug.utils import secure_filename
 from app.models import db, Image
 from app.forms import ImageForm
 from .auth_routes import validation_errors_to_error_messages
@@ -13,8 +14,13 @@ image_routes = Blueprint("images", __name__)
 @image_routes.route("", methods=["POST"])
 @login_required
 def upload_image():
+
+    # for image_file in request.files:
+    #     print(request.files, "!!!!!!!!!!!!!!! REQUEST FILES")
+    #     # print(request.files.getList('images'), "REQUEST FILES GET LIST")
+    #     print(request.files["image"], "REQUEST FILE IMAGE")
+
     if "image" not in request.files:
-        print(request.files, "!!!!!!!!!!!!!!!")
         return {"errors": "At least one image required"}, 400
 
     # print(request.files) # ImmutableMultiDict([('image', <FileStorage: 'chopper.png' ('image/png')>)])
