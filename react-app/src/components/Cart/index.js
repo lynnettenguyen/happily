@@ -13,14 +13,15 @@ const Cart = () => {
   const [productId, setProductId] = useState(0)
   const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')))
   const [total, setTotal] = useState(0)
+  const [updateCart, setUpdateCart] = useState(false)
 
   useEffect(() => {
     const loadCart = async () => {
-      const data = await localStorage.getItem('cart' || '[]');
+      const data = await localStorage.getItem('cart');
       setCart(JSON.parse(data))
     }
     loadCart()
-  }, [])
+  }, [updateCart])
 
   console.log('cart', cart)
 
@@ -71,7 +72,19 @@ const Cart = () => {
   const handleRemoveQuantity = (product) => {
     let findItem = cart.filter((item, i) => item.id === product.id)
     let newCart = [...cart]
-    findItem[0].quantity--;
+
+    if (findItem[0].quantity >= 2) {
+      findItem[0].quantity--;
+    } else {
+      let remainingItems = cart.filter((item, i) => item.id !== product.id)
+      let data = localStorage.setItem('cart', JSON.stringify(remainingItems))
+      if (data) {
+        setCart(JSON.parse(data))
+      } else {
+        setCart([])
+      }
+      setUpdateCart(true)
+    }
     setCart(newCart)
   }
 
