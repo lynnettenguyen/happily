@@ -112,7 +112,6 @@ export const updateProduct = (productData) => async (dispatch) => {
     })
   })
 
-  console.log(response, "RESPONSE")
 
   if (response.ok) {
     const product = await response.json()

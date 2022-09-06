@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify, request
+from sqlalchemy import desc
 from flask_login import current_user, login_required
-from app.models import db, User, Product, Image
+from app.models import db, User, Product, Image, Purchase
 from app.forms import ShopForm
 from .auth_routes import validation_errors_to_error_messages
 
@@ -40,6 +41,7 @@ def edit_shop_name(id):
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
+
 @user_routes.route("/<int:id>/products")
 # list all products owned by user
 @login_required
@@ -61,3 +63,26 @@ def user_products(id):
       product_details.append(product)
 
     return jsonify(product_details), 200
+
+
+@user_routes.route("/<int:id>/purchases")
+# list all purchases made by user
+@login_required
+def user_purchases(id):
+  purchases = Purchase.query.filter(Purchase.user_id == id).all()
+
+  purchase_details = []
+
+  if purchases is not None:
+    for purchase in purchases:
+      purchase = purchase.to_dict()
+
+      product = Product.query.filter(Product.id == purchase['product_id']).first()
+      seller_id = product.seller_id
+      seller = User.query.filter(User.id == seller_id).first()
+
+      purchase['shop_name'] = seller.shop_name
+
+      purchase_details.append(purchase)
+
+    return jsonify(purchase_details), 200

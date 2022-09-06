@@ -47,3 +47,8 @@
   font-family: GuardianSansNarrow;
   src: url('./fonts/Guardian/GuardianSansNarrow-Light-Trial.otf');
 }
+
+@font-face {
+  font-family: GuardianEgypMedium;
+  src: url('./fonts/Guardian/GuardianEgyp-Medium-Trial.otf');
+}
