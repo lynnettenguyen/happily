@@ -29,15 +29,11 @@ const Product = () => {
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart))
-    // console.log('USE EFFECT RAN')
   }, [cart])
 
-  // console.log('cart', cart)
-  // console.log('cart.length', cart.length)
 
   const addToCart = (selectedProduct) => {
     if (cart && cart.length > 0) {
-      // console.log('ITEM IS ALREADY IN CART')
       let findItem = cart.filter((item, i) => item.id === selectedProduct.id)
       let newCart = [...cart]
 
@@ -170,6 +166,7 @@ const Product = () => {
               <div className='product-name'>{product[productId]?.name}</div>
               <div className='product-price'>${product[productId]?.price.toFixed(2)}</div>
               <div className='product-cart-outer'>
+                {/* {user && user.id === product[productId].seller_id ? <button className='product-cart-button'>Unable</button> : <button className='product-cart-button' onClick={() => addToCart(product[productId])}>Add to cart</button>} */}
                 <button className='product-cart-button' onClick={() => addToCart(product[productId])}>Add to cart</button>
               </div>
             </div>

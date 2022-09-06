@@ -68,26 +68,34 @@ const Cart = () => {
     return price.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
   }
 
+  const handleRemoveQuantity = () => {
+
+  }
+  const handleAddQuantity = () => {
+
+  }
 
   return (
     <>
       {cart ? <form onSubmit={handleCheckOut} className='cart-main-outer'>
-        <div className='cart-header'>{totalCartItems()} item(s) in your cart</div>
+        <div className='cart-header'>
+          {totalCartItems() > 1 ?
+            <> {totalCartItems()} items in your cart </> :
+            <>{totalCartItems()} item in your cart</>}
+        </div>
         <div className='cart-main'>
           <div className='cart-items-outer'>
-            {cart && Object.values(cart)?.map((product) => {
+            {cart && Object.values(cart)?.reverse().map((product) => {
               return (
                 <div className='cart-outer'>
                   <div className='cart-product-img-outer'>
                     <img src={product?.images[0]} className='cart-product-img'></img>
                   </div>
-                  <div className='cart-product-info'>
-                    <div>{product.name}</div>
-                  </div>
-                  <div className='cart-product-quantity'>
-                    <div>
-                      {product.quantity}
-                    </div>
+                  <div className='cart-product-name'>{product.name}</div>
+                  <div className='cart-product-quantity-outer'>
+                    <div onClick={handleRemoveQuantity} className='quantity-button'>-</div>
+                    <div className='cart-product-quantity'>{product.quantity}</div>
+                    <div onClick={handleAddQuantity} className='quantity-button'>+</div>
                   </div>
                   <div className='cart-product-price'>${product.price}</div>
                 </div>
@@ -109,7 +117,8 @@ const Cart = () => {
           </div>
         </div>
       </form> :
-        <div>There are no items in the cart. Continue Shopping</div>}
+        <div>There are no items in the cart. Continue Shopping</div>
+      }
     </>
   )
 }
