@@ -12,6 +12,12 @@
   font-size: 1.5rem;
 }
 
+.cart-header-empty {
+  margin: 2rem 0;
+  font-family: GuardianEgypLight, Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+}
+
 .cart-main {
   display: grid;
   grid-template-columns: 800px 300px;

@@ -36,7 +36,6 @@ const ShopManager = () => {
 
 
   return (
-    <>
       <div className="my-products-main">
         <div className="my-products-upper">
           <div className="my-products-header">Shop Manager</div>
@@ -83,7 +82,6 @@ const ShopManager = () => {
           )}
         </div>
       </div>
-    </>
   )
 }
 

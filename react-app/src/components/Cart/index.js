@@ -9,10 +9,7 @@ const Cart = () => {
   const user = useSelector(state => state.session.user)
   const dispatch = useDispatch()
   const history = useHistory()
-  const [quantity, setQuantity] = useState(0)
-  const [productId, setProductId] = useState(0)
   const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')))
-  const [total, setTotal] = useState(0)
   const [updateCart, setUpdateCart] = useState(false)
 
   useEffect(() => {
@@ -22,8 +19,6 @@ const Cart = () => {
     }
     loadCart()
   }, [updateCart])
-
-  console.log('cart', cart)
 
   const handleCheckOut = async (e) => {
     e.preventDefault()
@@ -51,9 +46,11 @@ const Cart = () => {
     })
 
     if (count === cart.length) {
-      dispatch(getAllPurchases())
-      localStorage.removeItem('cart')
-      history.push('/purchases')
+      const response = dispatch(getAllPurchases())
+      if (response) {
+        localStorage.removeItem('cart')
+        history.push('/purchases')
+      }
     }
   }
 
@@ -96,8 +93,8 @@ const Cart = () => {
   }
 
   return (
-    <>
-      {cart ? <form onSubmit={handleCheckOut} className='cart-main-outer'>
+    <form onSubmit={handleCheckOut} className='cart-main-outer'>
+      {cart ? <>
         <div className='cart-header'>
           {totalCartItems() > 1 ?
             <> {totalCartItems()} items in your cart </> :
@@ -152,10 +149,8 @@ const Cart = () => {
             </div>
           </div>
         </div>
-      </form> :
-        <div>There are no items in the cart. Continue Shopping</div>
-      }
-    </>
+      </> : <div className='cart-header-empty'>Your cart is empty.</div>}
+    </form>
   )
 }
 
