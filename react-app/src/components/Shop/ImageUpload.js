@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
 import { findProductById, getAllProducts } from "../../store/products";
@@ -10,6 +10,7 @@ import { uploadImages } from "../../store/images";
 const ImageUpload = ({ productId }) => {
   const history = useHistory();
   const dispatch = useDispatch();
+  const [multiImages, setMultiImage] = useState([])
   const [image, setImage] = useState(null);
   const [image2, setImage2] = useState(null);
   const [image3, setImage3] = useState(null);
@@ -18,9 +19,15 @@ const ImageUpload = ({ productId }) => {
   const user = useSelector(state => state.session.user)
   const [errors, setErrors] = useState([])
   const [imageCount, setImageCount] = useState(0)
+  const fileInput = React.useRef()
 
-  // console.log('image1', image)
-  // console.log('image2', image2)
+  useEffect(() => {
+    if (image4) setMultiImage([image, image2, image3, image4])
+    else if (image3) setMultiImage([image, image2, image3])
+    else if (image2) setMultiImage([image, image2])
+    else if (image) setMultiImage([image])
+  }, [image, image2, image3, image4])
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,82 +37,49 @@ const ImageUpload = ({ productId }) => {
       return
     }
 
-    // if (image && !image2) {
+    const imageData = new FormData();
+    imageData.append("product_id", productId);
+    imageData.append("user_id", user.id)
+    setImageLoading(true);
 
-      const imageData = new FormData();
-      imageData.append("image", image);
-      imageData.append("product_id", productId);
-      imageData.append("user_id", user.id)
+    for (let i = 0; i < multiImages.length; i++) {
+      console.log(i, multiImages[i])
+      imageData.append("image", multiImages[i]);
+      await dispatch(uploadImages(imageData))
+    }
 
-      setImageLoading(true);
+    for (let pair of imageData.entries()) {
+      console.log(pair[0] + ': ' + pair[1]);
+    }
 
-      // console.log(imageData, "!!!!!!!!!!")
+    setImageLoading(false);
+    await dispatch(getAllProducts())
+    const response = await dispatch(findProductById(productId))
+    if (response) history.push(`/products/${productId}`)
 
-      const response = await dispatch(uploadImages(imageData))
-      console.log("!!!!!!", response)
-      if (response) {
-        setImageLoading(false);
-        await dispatch(getAllProducts())
-        await dispatch(findProductById(productId))
-        history.push(`/products/${productId}`)
-      } else {
-        setImageLoading(false);
-        setErrors(['Image is not a valid file type (.png, .jpeg, .jpg)'])
-      }
-    // } else if (image && image2 && !image3) {
-
-    //   const imageData = new FormData();
-    //   imageData.append("image", image);
-    //   imageData.append("product_id", productId);
-    //   imageData.append("user_id", user.id)
-
-    //   const imageData2 = new FormData();
-    //   imageData.append("image", image2);
-    //   imageData.append("product_id", productId);
-    //   imageData.append("user_id", user.id)
-
-    //   setImageLoading(true);
-
-    //   console.log(imageData, "!!!!!!!!!!")
-    //   console.log(imageData2,"22222222")
-
-    //   const response = await dispatch(uploadImages(imageData))
-    //   const response2 = await dispatch(uploadImages(imageData2))
-
-    //   if (response && response2) {
+    //   const res = await fetch('/api/images', {
+    //     method: "POST",
+    //     body: formData,
+    //   });
+    //   if (res.ok) {
+    //     await res.json();
     //     setImageLoading(false);
     //     await dispatch(getAllProducts())
-    //     await dispatch(findProductById(productId))
-    //     history.push(`/products/${productId}`)
-    //   } else {
+    //     const response = await dispatch(findProductById(productId))
+
+    //     if (response) history.push(`/products/${productId}`);
+    //   }
+    //   else {
     //     setImageLoading(false);
     //     setErrors(['Image is not a valid file type (.png, .jpeg, .jpg)'])
     //   }
-    // }
   }
-
-  //   const res = await fetch('/api/images', {
-  //     method: "POST",
-  //     body: formData,
-  //   });
-  //   if (res.ok) {
-  //     await res.json();
-  //     setImageLoading(false);
-  //     await dispatch(getAllProducts())
-  //     const response = await dispatch(findProductById(productId))
-
-  //     if (response) history.push(`/products/${productId}`);
-  //   }
-  //   else {
-  //     setImageLoading(false);
-  //     setErrors(['Image is not a valid file type (.png, .jpeg, .jpg)'])
-  //   }
-  // }
 
   const updateImage = (e) => {
     const file = e.target.files[0];
     setImage(file);
   }
+
   const updateImage2 = (e) => {
     const file = e.target.files[0];
     setImage2(file);
@@ -172,6 +146,8 @@ const ImageUpload = ({ productId }) => {
           accept="image/*"
           onChange={updateImage}
           style={{ display: 'none' }}
+        // multiple
+        // name='files[]'
         />
         <input
           id='file-upload2'
@@ -179,6 +155,8 @@ const ImageUpload = ({ productId }) => {
           accept="image/*"
           onChange={updateImage2}
           style={{ display: 'none' }}
+        // multiple
+        // name='files[]'
         />
         <input
           id='file-upload3'

@@ -21,9 +21,5 @@ COPY /react-app/build/* app/static/
 # install psycopg2
 RUN pip install -r requirements.txt
 RUN pip install psycopg2
-# Start the flask environment by setting our
-# closing command to gunicorn app:app
-
-# CHANGED FOR WEBSOCKET
-# CMD gunicorn app:app - ORGINAL COMMAND HERE
+# Start the flask environment by setting closing command to gunicorn app:app
 CMD gunicorn app:app
