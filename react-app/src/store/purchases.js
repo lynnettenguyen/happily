@@ -6,9 +6,9 @@ const getPurchases = (purchases) => ({
   purchases
 })
 
-const removePurchases = (orderNumber) => ({
+const removePurchases = (purchaseId) => ({
   type: REMOVE_PURCHASE,
-  orderNumber
+  purchaseId
 })
 
 
@@ -40,12 +40,12 @@ const purchaseReducer = (state = {}, action) => {
   let newState = {}
   switch (action.type) {
     case GET_PURCHASES: {
-      for (let purchase of action.purchases) newState[purchase.order_number.toUpperCase()] = purchase
+      for (let purchase of action.purchases) newState[purchase.id] = purchase
       return newState
     }
     case REMOVE_PURCHASE: {
       newState = { ...state }
-      delete newState[action.orderNumber.toUpperCase()]
+      delete newState[action.purchaseId]
       return newState
     }
     default:

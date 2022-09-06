@@ -17,6 +17,7 @@ import Cart from './components/Cart';
 import { ModalProvider } from './components/Context/modal'
 import ProductsByCategory from './components/Product/ProductsByCategory';
 import ShopManager from './components/Shop/ShopManager';
+import Purchases from './components/Purchases';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -56,18 +57,21 @@ function App() {
           <ProtectedRoute path='/shop/products' exact={true} >
             <ShopManager />
           </ProtectedRoute>
+          <ProtectedRoute path='/purchases' exact={true} >
+            <Purchases />
+          </ProtectedRoute>
           <Route path='/images'>
             <ImageUpload />
           </Route>
           <Route path='/cart'>
             <Cart />
           </Route>
-          <ProtectedRoute path='/users' exact={true} >
+          {/* <ProtectedRoute path='/users' exact={true} >
             <UsersList />
           </ProtectedRoute>
           <ProtectedRoute path='/users/:userId' exact={true} >
             <User />
-          </ProtectedRoute>
+          </ProtectedRoute> */}
           <Route path='/'>
             <HomePage />
           </Route>
