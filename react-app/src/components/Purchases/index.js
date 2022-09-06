@@ -21,6 +21,7 @@ const Purchases = () => {
   const [cancelConfirmation, setCancelConfirmation] = useState(false)
   const [purchaseId, setPurchaseId] = useState()
   const [orderNumber, setOrderNumber] = useState()
+  const [productName, setProductName] = useState()
 
   useEffect(() => {
     dispatch(getAllProducts())
@@ -52,14 +53,16 @@ const Purchases = () => {
     return price.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
   }
 
-  const cancelOrder = (id, num) => {
+  const cancelOrder = (id, num, name) => {
     setPurchaseId(id)
     setOrderNumber(num)
+    setProductName(name)
     setCancelConfirmation(true)
   }
 
   const confirmCancel = () => {
     dispatch(cancelPurchase(purchaseId))
+    setCancelConfirmation(false)
   }
 
   return (
@@ -101,7 +104,7 @@ const Purchases = () => {
               </div>
               <div className="purchase-shipping-details">
                 <div className="purchase-dates-outer">
-                  <div className="cancel-order-button-outer"><button className="cancel-order-button" onClick={() => cancelOrder(purchase.id, purchase.order_number)}>Cancel Order</button>
+                  <div className="cancel-order-button-outer"><button className="cancel-order-button" onClick={() => cancelOrder(purchase?.id, purchase?.order_number, products[purchase.product_id]?.name)}>Cancel Order</button>
                   </div>
                   <div className="purchase-shipped-upper">
                     <span className="purchase-shipping-header">Ship by</span>
@@ -138,7 +141,8 @@ const Purchases = () => {
           <Modal onClose={() => setCancelConfirmation(false)}>
             <div className="cancel-confirm-outer">
               <button onClick={() => setCancelConfirmation(false)} className='cancel-return-button'>Return to Purchases</button>
-              <div className="cancel-message">Cancel selected items purchased in order #{orderNumber.toUpperCase()}?</div>
+              <div className="cancel-message">Cancel Order <span className="cancel-order-number">#{orderNumber.toUpperCase()}</span>?</div>
+              <div className="cancel-product-name"><span className="cancel-confirm">Product description: </span>{productName}</div>
               <div className="cancel-confirm-button-outer">
                 <button onClick={confirmCancel} className='cancel-confirm-button'>Confirm</button>
               </div>

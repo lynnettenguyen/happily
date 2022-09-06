@@ -188,3 +188,61 @@
   width: 100%;
   height: 20px;
 }
+
+.cancel-confirm-outer {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  align-items: center;
+  width: 500px;
+}
+
+.cancel-return-button {
+  width: 134px;
+  padding: 5px 0;
+  border: none;
+  background-color: #F5F5F1;
+  color: #050404a6;
+  border-radius: 10px;
+  font-size: 11px;
+  font-family: GraphikThin, Arial, Helvetica, sans-serif;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.cancel-message {
+  font-family: GuardianEgypRegular, Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.cancel-confirm {
+  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
+}
+
+.cancel-product-name {
+  font-family: GraphikLight, Arial, Helvetica, sans-serif;
+  font-size: 0.9rem;
+}
+
+.cancel-confirm-button-outer {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.cancel-confirm-button {
+  border: none;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  height: 30px;
+  cursor: pointer;
+  margin-top: 0.8rem;
+}
+
+.cancel-order-number {
+  color: #393939;
+}
