@@ -15,6 +15,10 @@ const Purchases = () => {
   const products = useSelector(state => state.products)
   const purchases = useSelector(state => Object.values(state.purchases))
   const [ratedStar, setRatedStar] = useState(false)
+  const [ratedStar2, setRatedStar2] = useState(false)
+  const [ratedStar3, setRatedStar3] = useState(false)
+  const [ratedStar4, setRatedStar4] = useState(false)
+  const [ratedStar5, setRatedStar5] = useState(false)
 
   useEffect(() => {
     dispatch(getAllProducts())
@@ -51,7 +55,7 @@ const Purchases = () => {
       <div className="purchase-header-main">
         <div className="purchase-header">Purchases</div>
       </div>
-      <div className="purchases-details-outer">
+      {purchases ? <div className="purchases-details-outer">
         {purchases?.reverse().map((purchase, i) => {
           return (
             <div className="purchases-details-main">
@@ -101,7 +105,7 @@ const Purchases = () => {
                     </div>
                     <div className="order-receipt-price">
                       <div className="order-price">${convertTotal(purchase?.product_total)}</div>
-                      <div className="order-price">FREE</div>
+                      <div className="order-price-free">FREE</div>
                       <div className="order-price">${convertTotal(purchase?.product_total * 0.09125)}</div>
                     </div>
                   </div>
@@ -114,7 +118,7 @@ const Purchases = () => {
             </div>
           )
         })}
-      </div>
+      </div> : <div>No Purchases? No Problem! Browse Happily for awesome items.</div>}
     </div>
   )
 }

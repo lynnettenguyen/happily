@@ -42,7 +42,7 @@ const ShopManager = () => {
           <div className="my-products-shop">{user?.shop_name ? user.shop_name : ""}</div>
         </div>
         <div className="my-products-outer">
-          <div className="my-products-inner">
+          {products ? <div className="my-products-inner">
             {products?.reverse().map((product, i) => {
               return (
                 <>

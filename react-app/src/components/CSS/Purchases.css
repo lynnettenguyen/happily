@@ -145,12 +145,20 @@
   padding-bottom: 0.1rem;
 }
 
+.order-price-free {
+  display: flex;
+  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
+  padding-bottom: 0.1rem;
+  color: green;
+}
+
 .order-label-total {
   display: flex;
   font-family: GraphikRegular, Arial, Helvetica, sans-serif;
 }
 
-.order-price {
+.order-price,
+.order-price-free {
   justify-content: flex-end;
 }
 
