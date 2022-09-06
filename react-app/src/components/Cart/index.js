@@ -2,15 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams, useHistory } from "react-router-dom";
 import '../CSS/Cart.css'
+import { nanoid } from 'nanoid'
 
 const Cart = () => {
-  let cartInStorage = JSON.parse(localStorage.getItem('cart'))
-  // console.log(cartInStorage, 'cartInStorage')
   const user = useSelector(state => state.session.user)
   const dispatch = useDispatch()
   const [quantity, setQuantity] = useState(0)
   const [productId, setProductId] = useState(0)
-  const [cart, setCart] = useState(cartInStorage)
+  const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')))
+  const [total, setTotal] = useState(0)
 
   useEffect(() => {
     const loadCart = async () => {
@@ -18,23 +18,48 @@ const Cart = () => {
       setCart(JSON.parse(data))
     }
     loadCart()
-  }, [cartInStorage])
+  }, [])
+
+  console.log('cart', cart)
 
   const handleCheckOut = async (e) => {
     e.preventDefault()
+
+    let purchaseData;
+
+    cart.forEach((item) => {
+
+      purchaseData = {
+        order_number: nanoid(8),
+        quantity: item.quantity,
+        product_total: (item.price * item.quantity).toFixed(2),
+        purchase_total: calculateTotal()
+      }
+
+      dispatch()
+    })
+
+
+
+
   }
 
   const calculateTotal = () => {
-    return cart.reduce((sum, { price }) => sum + price, 0)
+    return cart.reduce((sum, { price, quantity }) => sum + price * quantity, 0)
   }
 
   const totalCartItems = () => {
     return cart.reduce((sum, { quantity }) => sum + quantity, 0)
   }
 
+  const convertTotal = (price) => {
+    return price.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+  }
+
+
   return (
     <>
-      {cartInStorage ? <form onSubmit={handleCheckOut} className='cart-main-outer'>
+      {cart ? <form onSubmit={handleCheckOut} className='cart-main-outer'>
         <div className='cart-header'>{totalCartItems()} item(s) in your cart</div>
         <div className='cart-main'>
           <div className='cart-items-outer'>
@@ -59,20 +84,20 @@ const Cart = () => {
           </div>
           <div className='cart-purchase-total-outer'>
             <div>Item(s) total</div>
-            <div>${calculateTotal()}</div>
+            <div>${convertTotal(calculateTotal())}</div>
             <div>Shipping</div>
-            <div>$</div>
+            <div>FREE</div>
             <div>Sales tax</div>
-            <div>$</div>
+            <div>${convertTotal(calculateTotal() * 0.09125)}</div>
             <div>Subtotal</div>
-            <div>$</div>
+            <div>${convertTotal(calculateTotal() * 1.09125)}</div>
             <div>
               <button type='submit'>Checkout</button>
             </div>
           </div>
         </div>
       </form> :
-      <div>There are no items in the cart. Continue Shopping</div>}
+        <div>There are no items in the cart. Continue Shopping</div>}
     </>
   )
 }

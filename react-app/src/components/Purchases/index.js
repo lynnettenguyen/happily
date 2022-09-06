@@ -45,6 +45,7 @@ const Purchases = () => {
 
   return (
     <>
+      <div className="purchase-header-main">Purchases</div>
       {purchases?.map((purchase, i) => {
         return (
           <div className="purchases-details-main">
