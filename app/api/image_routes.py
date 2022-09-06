@@ -1,4 +1,4 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 from werkzeug.utils import secure_filename
 from app.models import db, Image
 from app.forms import ImageForm
@@ -51,7 +51,8 @@ def upload_image():
 
         db.session.add(new_image)
         db.session.commit()
-        return {"url": url}
+        # return {"url": url}
+        return jsonify(new_image.to_dict())
 
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}, 400
