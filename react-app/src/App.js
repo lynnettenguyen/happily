@@ -18,6 +18,7 @@ import { ModalProvider } from './components/Context/modal'
 import ProductsByCategory from './components/Product/ProductsByCategory';
 import ShopManager from './components/Shop/ShopManager';
 import Purchases from './components/Purchases';
+import SearchBar from './components/Product/SearchBar';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -65,6 +66,9 @@ function App() {
           </Route>
           <Route path='/cart'>
             <Cart />
+          </Route>
+          <Route path='/search'>
+            <SearchBar />
           </Route>
           {/* <ProtectedRoute path='/users' exact={true} >
             <UsersList />
