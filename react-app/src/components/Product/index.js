@@ -7,7 +7,8 @@ import filledStar from '../CSS/Images/filled-star.svg'
 import halfStar from '../CSS/Images/half-star.svg'
 import emptyStar from '../CSS/Images/empty-star.svg'
 import check from '../CSS/Images/check.svg'
-
+import { halfStars, oneStar, oneHalfStar, twoStar, twoHalfStar, threeStar, threeHalfStar, fourStar, fourHalfStar, fiveStar } from './Rating';
+import { getUsers } from '../../store/users';
 
 const Product = () => {
   const cartInStorage = JSON.parse(localStorage.getItem('cart'))
@@ -21,15 +22,30 @@ const Product = () => {
   const product = useSelector(state => state.products)
   const [selectedImage, setSelectedImage] = useState(product[productId]?.images[0])
   const [rating, setRating] = useState([])
+  const users = useSelector(state => state.users)
 
   const [cart, setCart] = useState(cartInStorage)
 
   const [notification, setNotification] = useState(false)
   const [count, setCount] = useState(0)
 
+  const roundedStars = Math.floor(product[productId]?.avg_stars)
+  const difference = product[productId]?.avg_stars - roundedStars
+
+  useEffect(() => {
+    dispatch(getUsers())
+  }, [])
+
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart))
   }, [cart])
+
+
+  useEffect(() => {
+    const response = dispatch(findProductById(productId))
+    if (response) setSelectedImage(product[productId]?.images[0])
+    displayRating()
+  }, [roundedStars])
 
 
   const addToCart = (selectedProduct) => {
@@ -56,11 +72,6 @@ const Product = () => {
     setCount(count + 1)
   }
 
-
-
-  const roundedStars = Math.floor(product[productId]?.avg_stars)
-  const difference = product[productId]?.avg_stars - roundedStars
-
   const displayRating = () => {
     const ratingArr = []
     for (let i = 0; i < roundedStars; i++) {
@@ -77,15 +88,22 @@ const Product = () => {
         index += 1
       }
     }
-
     setRating(ratingArr)
   }
 
-  useEffect(() => {
-    const response = dispatch(findProductById(productId))
-    if (response) setSelectedImage(product[productId]?.images[0])
-    displayRating()
-  }, [roundedStars])
+  const starsDisplay = (starCount) => {
+    return (
+      <>
+        {starCount.map((star) => {
+          return (
+            <img className='star-display-rating' src={star}></img>
+          )
+        })}
+      </>
+    )
+  }
+
+
 
   return (
     <>
@@ -129,8 +147,18 @@ const Product = () => {
                   return (
                     <>
                       <div className='product-review-user-rating'>
+                        {review?.stars <= 0.5 && <span>{starsDisplay(halfStars)}</span>}
+                        {review?.stars > 0.5 && review?.stars <= 1 && <span>{starsDisplay(oneStar)}</span>}
+                        {review?.stars > 1 && review?.stars <= 1.5 && <span>{starsDisplay(oneHalfStar)}</span>}
+                        {review?.stars > 1.5 && review?.stars <= 2 && <span>{starsDisplay(twoStar)}</span>}
+                        {review?.stars > 2 && review?.stars <= 2.5 && <span>{starsDisplay(twoHalfStar)}</span>}
+                        {review?.stars > 2.5 && review?.stars <= 3 && <span>{starsDisplay(threeStar)}</span>}
+                        {review?.stars > 3 && review?.stars <= 3.5 && <span>{starsDisplay(threeHalfStar)}</span>}
+                        {review?.stars > 3.5 && review?.stars <= 4 && <span>{starsDisplay(fourStar)}</span>}
+                        {review?.stars > 4 && review?.stars <= 4.5 && <span>{starsDisplay(fourHalfStar)}</span>}
+                        {review?.stars > 4.5 && <span>{starsDisplay(fiveStar)}</span>}
                       </div>
-                      <div className='product-review-content'></div>
+                      <div className='product-review-content'>{review.content}</div>
                       <div className='product-review-user'>
                         <div className='product-review-user-outer'></div>
                         <div className='product-review-user-name'></div>
