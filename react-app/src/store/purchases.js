@@ -47,14 +47,14 @@ export const createPurchase = (purchaseData) => async (dispatch) => {
   }
 }
 
-export const cancelPurchase = (orderNumber) => async (dispatch) => {
-  const response = await fetch(`/api/purchases/${orderNumber}`, {
+export const cancelPurchase = (purchaseId) => async (dispatch) => {
+  const response = await fetch(`/api/purchases/${purchaseId}`, {
     method: "DELETE"
   })
 
   if (response.ok) {
     const purchase = await response.json();
-    dispatch(removePurchases(orderNumber))
+    dispatch(removePurchases(purchaseId))
     return purchase;
   }
 }

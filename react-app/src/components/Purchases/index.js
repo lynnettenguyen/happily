@@ -3,11 +3,10 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import '../CSS/ShopManager.css'
 import { Modal } from '../Context/modal';
-import { getAllPurchases } from "../../store/purchases";
+import { cancelPurchase, getAllPurchases } from "../../store/purchases";
 import { getAllProducts } from "../../store/products";
 import '../CSS/Purchases.css'
 import unfilledStar from '../CSS/Images/review-star-grey.svg'
-
 
 const Purchases = () => {
   const dispatch = useDispatch()
@@ -19,6 +18,9 @@ const Purchases = () => {
   const [ratedStar3, setRatedStar3] = useState(false)
   const [ratedStar4, setRatedStar4] = useState(false)
   const [ratedStar5, setRatedStar5] = useState(false)
+  const [cancelConfirmation, setCancelConfirmation] = useState(false)
+  const [purchaseId, setPurchaseId] = useState()
+  const [orderNumber, setOrderNumber] = useState()
 
   useEffect(() => {
     dispatch(getAllProducts())
@@ -50,6 +52,16 @@ const Purchases = () => {
     return price.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
   }
 
+  const cancelOrder = (id, num) => {
+    setPurchaseId(id)
+    setOrderNumber(num)
+    setCancelConfirmation(true)
+  }
+
+  const confirmCancel = () => {
+    dispatch(cancelPurchase(purchaseId))
+  }
+
   return (
     <div className="purchases-main">
       <div className="purchase-header-main">
@@ -62,7 +74,9 @@ const Purchases = () => {
               <div div className="purchases-details-left">
                 <div className="purchases-upper-outer">
                   <div className="purchase-shop-total">
-                    <div className="purchase-shop-name-outer">Purchased from <span className="purchase-shop-name">{purchase?.shop_name}</span> on {formatDate(purchase?.created_at)}</div>
+                    <div className="purchase-shop-name-outer">
+                      <div className="purchase-shop-order">Order #{purchase.order_number.toUpperCase()}</div>
+                      Purchased from <span className="purchase-shop-name">{purchase?.shop_name}</span> on {formatDate(purchase?.created_at)}</div>
                     {purchase.product_total != purchase.purchase_total &&
                       <div className="purchase-item-total">This item was part of a ${convertTotal(purchase?.purchase_total * 1.09125)} purchase.</div>}
                   </div>
@@ -87,6 +101,8 @@ const Purchases = () => {
               </div>
               <div className="purchase-shipping-details">
                 <div className="purchase-dates-outer">
+                  <div className="cancel-order-button-outer"><button className="cancel-order-button" onClick={() => cancelOrder(purchase.id, purchase.order_number)}>Cancel Order</button>
+                  </div>
                   <div className="purchase-shipped-upper">
                     <span className="purchase-shipping-header">Ship by</span>
                     <span className="purchase-shipping-date">{generatedShipped(purchase?.created_at)}</span>
@@ -118,6 +134,17 @@ const Purchases = () => {
             </div>
           )
         })}
+        {cancelConfirmation && (
+          <Modal onClose={() => setCancelConfirmation(false)}>
+            <div className="cancel-confirm-outer">
+              <button onClick={() => setCancelConfirmation(false)} className='cancel-return-button'>Return to Purchases</button>
+              <div className="cancel-message">Cancel selected items purchased in order #{orderNumber.toUpperCase()}?</div>
+              <div className="cancel-confirm-button-outer">
+                <button onClick={confirmCancel} className='cancel-confirm-button'>Confirm</button>
+              </div>
+            </div>
+          </Modal>
+        )}
       </div> : <div>No Purchases? No Problem! Browse Happily for awesome items.</div>}
     </div>
   )
