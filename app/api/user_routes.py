@@ -1,4 +1,5 @@
 from flask import Blueprint, jsonify, request
+from sqlalchemy import desc
 from flask_login import current_user, login_required
 from app.models import db, User, Product, Image, Purchase
 from app.forms import ShopForm
@@ -68,7 +69,7 @@ def user_products(id):
 # list all purchases made by user
 @login_required
 def user_purchases(id):
-  purchases = Purchase.query.filter(Purchase.user_id == id).order_by(Purchase.created_at, Purchase.order_number).all()
+  purchases = Purchase.query.filter(Purchase.user_id == id).all()
 
   purchase_details = []
 

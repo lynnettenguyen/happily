@@ -35,7 +35,6 @@ def create_purchase():
     return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
 
-
 @purchase.route("/<order_number>", methods=['DELETE'])
 @login_required
 # cancel purchase

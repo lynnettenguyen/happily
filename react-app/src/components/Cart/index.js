@@ -3,10 +3,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams, useHistory } from "react-router-dom";
 import '../CSS/Cart.css'
 import { nanoid } from 'nanoid'
+import { createPurchase, getAllPurchases } from '../../store/purchases';
 
 const Cart = () => {
   const user = useSelector(state => state.session.user)
   const dispatch = useDispatch()
+  const history = useHistory()
   const [quantity, setQuantity] = useState(0)
   const [productId, setProductId] = useState(0)
   const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')))
@@ -26,22 +28,32 @@ const Cart = () => {
     e.preventDefault()
 
     let purchaseData;
+    let count = 0
+
+    const order = nanoid(8)
 
     cart.forEach((item) => {
 
       purchaseData = {
-        order_number: nanoid(8),
+        order_number: order,
+        user_id: user.id,
+        product_id: item.id,
         quantity: item.quantity,
         product_total: (item.price * item.quantity).toFixed(2),
-        purchase_total: calculateTotal()
+        purchase_total: calculateTotal().toFixed(2)
       }
-
-      dispatch()
+      const response = dispatch(createPurchase(purchaseData))
+      if (response) {
+        count += 1;
+        console.log(purchaseData)
+      }
     })
 
-
-
-
+    if (count === cart.length) {
+      dispatch(getAllPurchases())
+      localStorage.removeItem('cart')
+      history.push('/purchases')
+    }
   }
 
   const calculateTotal = () => {
