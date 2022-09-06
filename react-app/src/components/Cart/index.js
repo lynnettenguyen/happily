@@ -103,16 +103,28 @@ const Cart = () => {
             })}
           </div>
           <div className='cart-purchase-total-outer'>
-            <div>Item(s) total</div>
-            <div>${convertTotal(calculateTotal())}</div>
-            <div>Shipping</div>
-            <div>FREE</div>
-            <div>Sales tax</div>
-            <div>${convertTotal(calculateTotal() * 0.09125)}</div>
-            <div>Subtotal</div>
-            <div>${convertTotal(calculateTotal() * 1.09125)}</div>
+            <div className='cart-fees-upper'>
+              <div className='cart-total-labels-outer'>
+                <div className='cart-total'>Item(s) total</div>
+                <div className='cart-total'>Tax</div>
+              </div>
+              <div className='cart-total-price-outer'>
+                <div className='cart-total'>${convertTotal(calculateTotal())}</div>
+                <div className='cart-total'>${convertTotal(calculateTotal() * 0.09125)}</div>
+              </div>
+            </div>
+            <div className='cart-fees-bottom'>
+              <div className='cart-fees-label-outer'>
+                <div className='cart-fee-label'>Shipping</div>
+                <div className='cart-fee-label'>Subtotal</div>
+              </div>
+              <div className='cart-total-price-outer'>
+                <div className='cart-fee-price-shipping'>FREE</div>
+                <div className='cart-fee-price'>${convertTotal(calculateTotal() * 1.09125)}</div>
+              </div>
+            </div>
             <div>
-              <button type='submit'>Checkout</button>
+              <button type='submit' className='checkout-button'>Checkout</button>
             </div>
           </div>
         </div>
