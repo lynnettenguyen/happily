@@ -68,11 +68,18 @@ const Cart = () => {
     return price.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
   }
 
-  const handleRemoveQuantity = () => {
-
+  const handleRemoveQuantity = (product) => {
+    let findItem = cart.filter((item, i) => item.id === product.id)
+    let newCart = [...cart]
+    findItem[0].quantity--;
+    setCart(newCart)
   }
-  const handleAddQuantity = () => {
 
+  const handleAddQuantity = (product) => {
+    let findItem = cart.filter((item, i) => item.id === product.id)
+    let newCart = [...cart]
+    findItem[0].quantity++;
+    setCart(newCart)
   }
 
   return (
@@ -88,14 +95,18 @@ const Cart = () => {
             {cart && Object.values(cart)?.reverse().map((product) => {
               return (
                 <div className='cart-outer'>
-                  <div className='cart-product-img-outer'>
-                    <img src={product?.images[0]} className='cart-product-img'></img>
-                  </div>
-                  <div className='cart-product-name'>{product.name}</div>
+                  <Link to={`/products/${product.id}`}>
+                    <div className='cart-product-img-outer'>
+                      <img src={product?.images[0]} className='cart-product-img'></img>
+                    </div>
+                  </Link>
+                  <div className='cart-product-name'>
+                    <div className='cart-product-shop'>{product.shop_name}</div>
+                    {product.name}</div>
                   <div className='cart-product-quantity-outer'>
-                    <div onClick={handleRemoveQuantity} className='quantity-button'>-</div>
+                    <div onClick={() => handleRemoveQuantity(product)} className='quantity-button'>-</div>
                     <div className='cart-product-quantity'>{product.quantity}</div>
-                    <div onClick={handleAddQuantity} className='quantity-button'>+</div>
+                    <div onClick={() => handleAddQuantity(product)} className='quantity-button'>+</div>
                   </div>
                   <div className='cart-product-price'>${product.price}</div>
                 </div>
