@@ -43,6 +43,7 @@ const ImageUpload = ({ productId }) => {
     setImageLoading(true);
 
     for (let i = 0; i < multiImages.length; i++) {
+      console.log(i, multiImages[i])
       imageData.append("image", multiImages[i]);
       await dispatch(uploadImages(imageData))
     }
@@ -51,10 +52,10 @@ const ImageUpload = ({ productId }) => {
       console.log(pair[0] + ': ' + pair[1]);
     }
 
-
-
-
-    // }
+    setImageLoading(false);
+    await dispatch(getAllProducts())
+    const response = await dispatch(findProductById(productId))
+    if (response) history.push(`/products/${productId}`)
 
     //   const res = await fetch('/api/images', {
     //     method: "POST",
@@ -145,6 +146,8 @@ const ImageUpload = ({ productId }) => {
           accept="image/*"
           onChange={updateImage}
           style={{ display: 'none' }}
+        // multiple
+        // name='files[]'
         />
         <input
           id='file-upload2'
@@ -152,6 +155,8 @@ const ImageUpload = ({ productId }) => {
           accept="image/*"
           onChange={updateImage2}
           style={{ display: 'none' }}
+        // multiple
+        // name='files[]'
         />
         <input
           id='file-upload3'
