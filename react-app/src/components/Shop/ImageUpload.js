@@ -30,7 +30,7 @@ const ImageUpload = ({ productId }) => {
       return
     }
 
-    if (image && !image2) {
+    // if (image && !image2) {
 
       const imageData = new FormData();
       imageData.append("image", image);
@@ -42,6 +42,7 @@ const ImageUpload = ({ productId }) => {
       // console.log(imageData, "!!!!!!!!!!")
 
       const response = await dispatch(uploadImages(imageData))
+      console.log("!!!!!!", response)
       if (response) {
         setImageLoading(false);
         await dispatch(getAllProducts())
@@ -51,36 +52,36 @@ const ImageUpload = ({ productId }) => {
         setImageLoading(false);
         setErrors(['Image is not a valid file type (.png, .jpeg, .jpg)'])
       }
-    } else if (image && image2 && !image3) {
+    // } else if (image && image2 && !image3) {
 
-      const imageData = new FormData();
-      imageData.append("image", image);
-      imageData.append("product_id", productId);
-      imageData.append("user_id", user.id)
+    //   const imageData = new FormData();
+    //   imageData.append("image", image);
+    //   imageData.append("product_id", productId);
+    //   imageData.append("user_id", user.id)
 
-      const imageData2 = new FormData();
-      imageData.append("image", image2);
-      imageData.append("product_id", productId);
-      imageData.append("user_id", user.id)
+    //   const imageData2 = new FormData();
+    //   imageData.append("image", image2);
+    //   imageData.append("product_id", productId);
+    //   imageData.append("user_id", user.id)
 
-      setImageLoading(true);
+    //   setImageLoading(true);
 
-      console.log(imageData, "!!!!!!!!!!")
-      console.log(imageData2,"22222222")
+    //   console.log(imageData, "!!!!!!!!!!")
+    //   console.log(imageData2,"22222222")
 
-      const response = await dispatch(uploadImages(imageData))
-      const response2 = await dispatch(uploadImages(imageData2))
+    //   const response = await dispatch(uploadImages(imageData))
+    //   const response2 = await dispatch(uploadImages(imageData2))
 
-      if (response && response2) {
-        setImageLoading(false);
-        await dispatch(getAllProducts())
-        await dispatch(findProductById(productId))
-        history.push(`/products/${productId}`)
-      } else {
-        setImageLoading(false);
-        setErrors(['Image is not a valid file type (.png, .jpeg, .jpg)'])
-      }
-    }
+    //   if (response && response2) {
+    //     setImageLoading(false);
+    //     await dispatch(getAllProducts())
+    //     await dispatch(findProductById(productId))
+    //     history.push(`/products/${productId}`)
+    //   } else {
+    //     setImageLoading(false);
+    //     setErrors(['Image is not a valid file type (.png, .jpeg, .jpg)'])
+    //   }
+    // }
   }
 
   //   const res = await fetch('/api/images', {

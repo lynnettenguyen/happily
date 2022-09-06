@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { loadProductsByOwner, findProductById, removeProduct } from "../../store/products";
 import '../CSS/ShopManager.css'
@@ -8,6 +8,7 @@ import EditProduct from "../Product/EditProduct";
 
 const ShopManager = () => {
   const dispatch = useDispatch()
+  const history = useHistory()
   const user = useSelector(state => state.session.user)
   const products = useSelector(state => Object.values(state.products))
   const [productId, setProductId] = useState()
@@ -17,7 +18,10 @@ const ShopManager = () => {
 
   useEffect(() => {
     dispatch(loadProductsByOwner(user.id))
-  }, [])
+
+    if (products.length === 0) history.push('/shop')
+  }, [products.length])
+
 
   const handleEdit = (id) => {
     setProductId(id)
@@ -42,7 +46,7 @@ const ShopManager = () => {
           <div className="my-products-shop">{user?.shop_name ? user.shop_name : ""}</div>
         </div>
         <div className="my-products-outer">
-          {products ? <div className="my-products-inner">
+          {products && <div className="my-products-inner">
             {products?.reverse().map((product, i) => {
               return (
                 <>
@@ -63,7 +67,7 @@ const ShopManager = () => {
                 </>
               )
             })}
-          </div> : <></>}
+          </div>}
           {showEditForm && (
             <Modal onClose={() => setShowEditForm(false)}>
               <EditProduct productId={productId} setShowEditForm={setShowEditForm} />
