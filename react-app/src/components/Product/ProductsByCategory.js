@@ -2,22 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, Link, useParams } from 'react-router-dom';
 import { findProductById, findProductsByCategory } from '../../store/products';
+import { getUsers } from '../../store/users';
 import '../CSS/ProductsByCategory.css'
 
-import star from '../CSS/Images/filled-star.svg'
-import unFilledStar from '../CSS/Images/blank-star.svg'
-import halfStar from '../CSS/Images/half-star.svg'
-
-const halfStars = [halfStar, unFilledStar, unFilledStar, unFilledStar, unFilledStar]
-const oneStar = [star, unFilledStar, unFilledStar, unFilledStar, unFilledStar]
-const oneHalfStar = [star, halfStar, unFilledStar, unFilledStar, unFilledStar]
-const twoStar = [star, star, unFilledStar, unFilledStar, unFilledStar]
-const twoHalfStar = [star, star, halfStar, unFilledStar, unFilledStar]
-const threeStar = [star, star, star, unFilledStar, unFilledStar]
-const threeHalfStar = [star, star, star, halfStar, unFilledStar]
-const fourStar = [star, star, star, star, unFilledStar]
-const fourHalfStar = [star, star, star, star, halfStar]
-const fiveStar = [star, star, star, star, star]
+import { halfStars, oneStar, oneHalfStar, twoStar, twoHalfStar, threeStar, threeHalfStar, fourStar, fourHalfStar, fiveStar } from './Rating';
 
 const starsDisplay = (starCount) => {
   return (
@@ -42,6 +30,12 @@ const ProductsByCategory = () => {
     dispatch(findProductsByCategory(category))
   }, [category])
 
+  const productDetails = (id) => {
+    dispatch(findProductById(id))
+    dispatch(getUsers())
+  }
+
+
   return (
     <>
       <div className='search-product-main'>
@@ -55,10 +49,10 @@ const ProductsByCategory = () => {
           <div className='category-products-main'>
             {products?.map((product, i) => {
               return (
-                <Link to={`/products/${product?.id}`} onClick={() => dispatch(findProductById(product?.id))}>
+                <Link to={`/products/${product?.id}`} onClick={() => productDetails(product?.id)}>
                   <div className='category-product-inner'>
                     <div className='category-product-img-outer'>
-                      <img src={product?.images} className='category-product-img'></img>
+                      {product?.images?.length > 0 && <img src={product?.images} className='category-product-img'></img>}
                     </div>
                     <div className='category-product-name'>{product.name}</div>
                     {product?.num_reviews > 0 && <>

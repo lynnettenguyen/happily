@@ -27,13 +27,14 @@
 
 .my-products-inner {
   display: grid;
-  grid-template-columns: 210px 350px 210px 350px;
+  /* grid-template-columns: 210px 350px 210px 350px; */
+  grid-template-columns: minmax(210px, 18.75%) minmax(300px, 31.25%) minmax(210px, 18.75%) minmax(300px, 31.25%);
   justify-content: center;
   margin-top: 1rem;
 }
 
 .my-products-img-main {
-  width: 210px;
+  min-width: 210px;
   height: 180px;
   margin-bottom: 1rem;
 }

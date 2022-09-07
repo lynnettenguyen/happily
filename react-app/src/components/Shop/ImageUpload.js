@@ -18,8 +18,7 @@ const ImageUpload = ({ productId }) => {
   const [imageLoading, setImageLoading] = useState(false);
   const user = useSelector(state => state.session.user)
   const [errors, setErrors] = useState([])
-  const [imageCount, setImageCount] = useState(0)
-  const fileInput = React.useRef()
+
 
   useEffect(() => {
     if (image4) setMultiImage([image, image2, image3, image4])
@@ -37,42 +36,24 @@ const ImageUpload = ({ productId }) => {
       return
     }
 
-    const imageData = new FormData();
-    imageData.append("product_id", productId);
-    imageData.append("user_id", user.id)
     setImageLoading(true);
 
     for (let i = 0; i < multiImages.length; i++) {
-      console.log(i, multiImages[i])
+      const imageData = new FormData();
+      imageData.append("product_id", productId);
+      imageData.append("user_id", user.id)
       imageData.append("image", multiImages[i]);
       await dispatch(uploadImages(imageData))
     }
 
-    for (let pair of imageData.entries()) {
-      console.log(pair[0] + ': ' + pair[1]);
-    }
+    // for (let pair of imageData.entries()) {
+    //   console.log(pair[0] + ': ' + pair[1]);
+    // }
 
     setImageLoading(false);
     await dispatch(getAllProducts())
     const response = await dispatch(findProductById(productId))
     if (response) history.push(`/products/${productId}`)
-
-    //   const res = await fetch('/api/images', {
-    //     method: "POST",
-    //     body: formData,
-    //   });
-    //   if (res.ok) {
-    //     await res.json();
-    //     setImageLoading(false);
-    //     await dispatch(getAllProducts())
-    //     const response = await dispatch(findProductById(productId))
-
-    //     if (response) history.push(`/products/${productId}`);
-    //   }
-    //   else {
-    //     setImageLoading(false);
-    //     setErrors(['Image is not a valid file type (.png, .jpeg, .jpg)'])
-    //   }
   }
 
   const updateImage = (e) => {
@@ -146,8 +127,6 @@ const ImageUpload = ({ productId }) => {
           accept="image/*"
           onChange={updateImage}
           style={{ display: 'none' }}
-        // multiple
-        // name='files[]'
         />
         <input
           id='file-upload2'
@@ -155,8 +134,6 @@ const ImageUpload = ({ productId }) => {
           accept="image/*"
           onChange={updateImage2}
           style={{ display: 'none' }}
-        // multiple
-        // name='files[]'
         />
         <input
           id='file-upload3'

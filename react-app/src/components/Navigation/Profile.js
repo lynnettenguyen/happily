@@ -33,19 +33,19 @@ const Profile = ({ user }) => {
               <div className='profile-name'>{user.first_name}</div>
             </div>
             <Link to='/purchases'>
-              <div className='dropdown-item'>
+              <div className='dropdown-item' onClick={() => { setShowDropdown(!showDropdown) }}>
                 <img src={purchases} className='profile-purchases-img' alt='purchases'></img>
                 <div className='profile-purchase'>Purchases</div>
               </div>
             </Link>
             <Link to='/reviews'>
-              <div className='dropdown-item'>
+              <div className='dropdown-item' onClick={() => { setShowDropdown(!showDropdown) }}>
                 <img src={star} className='review-star-img' alt='reviews'></img>
                 <div className='profile-reviews'>Review your purchases</div>
               </div>
             </Link>
             <Link to='/shop'>
-              <div className='dropdown-item'>
+              <div className='dropdown-item' onClick={() => { setShowDropdown(!showDropdown) }}>
                 <img src={shop} className='profile-shop-img' alt='shop'></img>
                 <div className='profile-shop'>Sell on Knotsy</div>
               </div>

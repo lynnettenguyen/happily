@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { allCategories, getAllCategories } from '../../store/categories';
-import cart from '../CSS/Images/cart.svg'
-import '../CSS/NavBar.css'
-import shop from '../CSS/Images/shop.svg'
-import Profile from './Profile'
-import magnifyingGlass from '../CSS/Images/magnifying_glass.svg'
 import { Modal } from '../Context/modal';
-import SignUpForm from '../auth/SignUpForm';
+import { allCategories, getAllCategories } from '../../store/categories';
 import LoginForm from '../auth/LoginForm';
+import Profile from './Profile'
+import SearchBar from '../Product/SearchBar';
+import '../CSS/NavBar.css'
+import cart from '../CSS/Images/cart.svg'
+import shop from '../CSS/Images/shop.svg'
 
 const NavBar = () => {
   const user = useSelector(state => state.session.user)
@@ -29,13 +28,7 @@ const NavBar = () => {
               <div className='navBar-home'>Happily</div>
             </NavLink>
           </div>
-          <div className='navBar-searchBar-outer'>
-            <input
-              placeholder='Search for anything'
-              className='searchBar-input'
-            />
-            <img src={magnifyingGlass} className='searchBar-glass' alt='search'></img>
-          </div>
+          <SearchBar />
           {user ? <>
             <div className='navBar-link-icon'>
               <NavLink to='/shop/products' exact={true} activeClassName='active'>

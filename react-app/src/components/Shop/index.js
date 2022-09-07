@@ -159,7 +159,7 @@ const Shop = () => {
                   className='product-form-input'
                   value={price}
                   onChange={(e) => setPrice(e.target.value)}
-                  min="0"
+                  min="0.99"
                 />
               </div>
               <div className='product-form-field'>

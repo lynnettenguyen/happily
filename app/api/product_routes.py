@@ -107,7 +107,7 @@ def edit_product(product_id):
 
   image = db.session.query(Image).filter(Image.product_id == product_id).first()
   product = Product.query.get(product_id)
-  
+
   product_details = []
 
   if product.seller_id == current_user.id:

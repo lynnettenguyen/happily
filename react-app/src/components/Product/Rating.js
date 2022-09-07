@@ -1,7 +1,8 @@
 import star from '../CSS/Images/filled-star.svg'
-import unFilledStar from '../CSS/Images/empty-star.svg'
+import unFilledStar from '../CSS/Images/blank-star.svg'
 import halfStar from '../CSS/Images/half-star.svg'
 
+export const halfStars = [halfStar, unFilledStar, unFilledStar, unFilledStar, unFilledStar]
 export const oneStar = [star, unFilledStar, unFilledStar, unFilledStar, unFilledStar]
 export const oneHalfStar = [star, halfStar, unFilledStar, unFilledStar, unFilledStar]
 export const twoStar = [star, star, unFilledStar, unFilledStar, unFilledStar]

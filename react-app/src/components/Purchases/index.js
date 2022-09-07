@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import '../CSS/ShopManager.css'
 import { Modal } from '../Context/modal';
-import { getAllPurchases } from "../../store/purchases";
+import { cancelPurchase, getAllPurchases } from "../../store/purchases";
 import { getAllProducts } from "../../store/products";
 import '../CSS/Purchases.css'
 import unfilledStar from '../CSS/Images/review-star-grey.svg'
-
+import filledStar from '../CSS/Images/review-star-black.svg'
 
 const Purchases = () => {
   const dispatch = useDispatch()
@@ -19,6 +19,10 @@ const Purchases = () => {
   const [ratedStar3, setRatedStar3] = useState(false)
   const [ratedStar4, setRatedStar4] = useState(false)
   const [ratedStar5, setRatedStar5] = useState(false)
+  const [cancelConfirmation, setCancelConfirmation] = useState(false)
+  const [purchaseId, setPurchaseId] = useState()
+  const [orderNumber, setOrderNumber] = useState()
+  const [productName, setProductName] = useState()
 
   useEffect(() => {
     dispatch(getAllProducts())
@@ -50,19 +54,81 @@ const Purchases = () => {
     return price.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
   }
 
+  const cancelOrder = (id, num, name) => {
+    setPurchaseId(id)
+    setOrderNumber(num)
+    setProductName(name)
+    setCancelConfirmation(true)
+  }
+
+  const confirmCancel = () => {
+    dispatch(cancelPurchase(purchaseId))
+    setCancelConfirmation(false)
+  }
+
+  const handleStarOn = (num) => {
+    if (num === 1) {
+      setRatedStar(true)
+    } else if (num === 2) {
+      setRatedStar(true)
+      setRatedStar2(true)
+    } else if (num === 3) {
+      setRatedStar(true)
+      setRatedStar2(true)
+      setRatedStar3(true)
+    } else if (num === 4) {
+      setRatedStar(true)
+      setRatedStar2(true)
+      setRatedStar3(true)
+      setRatedStar4(true)
+    } else if (num === 5) {
+      setRatedStar(true)
+      setRatedStar2(true)
+      setRatedStar3(true)
+      setRatedStar4(true)
+      setRatedStar5(true)
+    }
+  }
+
+  const handleStarOff = (num) => {
+    if (num === 1) {
+      setRatedStar(false)
+    } else if (num === 2) {
+      setRatedStar(false)
+      setRatedStar2(false)
+    } else if (num === 3) {
+      setRatedStar(false)
+      setRatedStar2(false)
+      setRatedStar3(false)
+    } else if (num === 4) {
+      setRatedStar(false)
+      setRatedStar2(false)
+      setRatedStar3(false)
+      setRatedStar4(false)
+    } else if (num === 5) {
+      setRatedStar(false)
+      setRatedStar2(false)
+      setRatedStar3(false)
+      setRatedStar4(false)
+      setRatedStar5(false)
+    }
+  }
+
   return (
     <div className="purchases-main">
       <div className="purchase-header-main">
         <div className="purchase-header">Purchases</div>
       </div>
-      {purchases ? <div className="purchases-details-outer">
+      {purchases.length > 0 ? <div className="purchases-details-outer">
         {purchases?.reverse().map((purchase, i) => {
           return (
             <div className="purchases-details-main">
               <div div className="purchases-details-left">
                 <div className="purchases-upper-outer">
                   <div className="purchase-shop-total">
-                    <div className="purchase-shop-name-outer">Purchased from <span className="purchase-shop-name">{purchase?.shop_name}</span> on {formatDate(purchase?.created_at)}</div>
+                    <div className="purchase-shop-name-outer">
+                      <div className="purchase-shop-order">Order #{purchase.order_number.toUpperCase()}</div>
+                      Purchased from <span className="purchase-shop-name">{purchase?.shop_name}</span> on {formatDate(purchase?.created_at)}</div>
                     {purchase.product_total != purchase.purchase_total &&
                       <div className="purchase-item-total">This item was part of a ${convertTotal(purchase?.purchase_total * 1.09125)} purchase.</div>}
                   </div>
@@ -70,23 +136,25 @@ const Purchases = () => {
                 </div>
                 <div className="purchases-bottom-outer">
                   <div className="purchase-product-img-outer">
-                    <img src={products[purchase.product_id]?.images[0]} className='purchase-product-img'></img>
+                    {products[purchase.product_id]?.images.length > 0 && <img src={products[purchase.product_id]?.images[0]} className='purchase-product-img'></img>}
                   </div>
                   <div className="purchase-product-info">
                     <div className="purchase-product-name">{products[purchase.product_id]?.name}</div>
                     <div className="purchase-product-review-outer">
                       <div className="purchase-review-header">Review this Item</div>
-                      <img src={unfilledStar} className={ratedStar ? 'grey-star-rating' : 'black-star-rating'}></img>
-                      <img src={unfilledStar} className={ratedStar ? 'grey-star-rating' : 'black-star-rating'}></img>
-                      <img src={unfilledStar} className={ratedStar ? 'grey-star-rating' : 'black-star-rating'}></img>
-                      <img src={unfilledStar} className={ratedStar ? 'grey-star-rating' : 'black-star-rating'}></img>
-                      <img src={unfilledStar} className={ratedStar ? 'grey-star-rating' : 'black-star-rating'}></img>
+                      <img src={ratedStar ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(1)} onMouseLeave={() => handleStarOff(1)}></img>
+                      <img src={ratedStar2 ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(2)} onMouseLeave={() => handleStarOff(2)}></img>
+                      <img src={ratedStar3 ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(3)} onMouseLeave={() => handleStarOff(3)}></img>
+                      <img src={ratedStar4 ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(4)} onMouseLeave={() => handleStarOff(4)}></img>
+                      <img src={ratedStar5 ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(5)} onMouseLeave={() => handleStarOff(5)}></img>
                     </div>
                   </div>
                 </div>
               </div>
               <div className="purchase-shipping-details">
                 <div className="purchase-dates-outer">
+                  <div className="cancel-order-button-outer"><button className="cancel-order-button" onClick={() => cancelOrder(purchase?.id, purchase?.order_number, products[purchase.product_id]?.name)}>Cancel Order</button>
+                  </div>
                   <div className="purchase-shipped-upper">
                     <span className="purchase-shipping-header">Ship by</span>
                     <span className="purchase-shipping-date">{generatedShipped(purchase?.created_at)}</span>
@@ -118,7 +186,19 @@ const Purchases = () => {
             </div>
           )
         })}
-      </div> : <div>No Purchases? No Problem! Browse Happily for awesome items.</div>}
+        {cancelConfirmation && (
+          <Modal onClose={() => setCancelConfirmation(false)}>
+            <div className="cancel-confirm-outer">
+              <button onClick={() => setCancelConfirmation(false)} className='cancel-return-button'>Return to Purchases</button>
+              <div className="cancel-message">Cancel Order <span className="cancel-order-number">#{orderNumber.toUpperCase()}</span>?</div>
+              <div className="cancel-product-name"><span className="cancel-confirm">Product description: </span>{productName}</div>
+              <div className="cancel-confirm-button-outer">
+                <button onClick={confirmCancel} className='cancel-confirm-button'>Confirm</button>
+              </div>
+            </div>
+          </Modal>
+        )}
+      </div> : <div className="no-purchases-main">No Purchases? <Link to='/' className="no-purchases-continue">Continue Browsing</Link>!</div>}
     </div>
   )
 }

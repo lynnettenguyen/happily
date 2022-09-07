@@ -35,21 +35,21 @@ def create_purchase():
     return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
 
-@purchase.route("/<order_number>", methods=['DELETE'])
+@purchase.route("/<int:purchase_id>", methods=['DELETE'])
 @login_required
 # cancel purchase
-def cancel_purchase(order_number):
-  purchases = Purchase.query.filter(Purchase.order_number == order_number).all()
+def cancel_purchase(purchase_id):
+  purchase = Purchase.query.filter(Purchase.id == purchase_id).first()
 
-  for purchase in purchases:
-    if purchase.user_id == current_user.id:
-      db.session.delete(purchase)
-      db.session.commit()
 
-    else:
-      return {'errors': ['Unauthorized']}, 403
+  if purchase.user_id == current_user.id:
+    db.session.delete(purchase)
+    db.session.commit()
 
-  return jsonify({
+    return jsonify({
     'message': 'Purchase successfully cancelled',
     'status_code': 200
   }), 200
+
+  else:
+    return {'errors': ['Unauthorized']}, 403

@@ -14,21 +14,16 @@ image_routes = Blueprint("images", __name__)
 @image_routes.route("", methods=["POST"])
 @login_required
 def upload_image():
-
-    # for image_file in request.files:
-    #     print(request.files, "!!!!!!!!!!!!!!! REQUEST FILES")
-    #     # print(request.files.getList('images'), "REQUEST FILES GET LIST")
-    #     print(request.files["image"], "REQUEST FILE IMAGE")
-
     if "image" not in request.files:
         return {"errors": "At least one image required"}, 400
 
     # print(request.files) # ImmutableMultiDict([('image', <FileStorage: 'chopper.png' ('image/png')>)])
 
     image = request.files["image"]
+    # <class 'werkzeug.datastructures.FileStorage'>
 
     if not allowed_file(image.filename):
-        return {"errors": "Image is not a permitted file type (file type must be .png, .jpeg, or .jpg)"}, 400
+        return {"errors": "Image is not a permitted file type (file type must be .webp, .png, .jpeg, or .jpg)"}, 400
 
     image.filename = get_unique_filename(image.filename)
 
@@ -51,6 +46,7 @@ def upload_image():
 
         db.session.add(new_image)
         db.session.commit()
+
         # return {"url": url}
         return jsonify(new_image.to_dict())
 
