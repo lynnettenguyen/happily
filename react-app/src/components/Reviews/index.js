@@ -5,16 +5,21 @@ import { Modal } from "../Context/modal";
 import '../CSS/Reviews.css'
 import unfilledStar from '../CSS/Images/review-star-grey.svg'
 import filledStar from '../CSS/Images/review-star-black.svg'
+import { addNewReview } from "../../store/reviews";
 
 const Reviews = ({ productId, purchaseId, reviewStars, setReviewStars, setAddReview, formatDate }) => {
+  const dispatch = useDispatch()
+  const user = useSelector(state => state.session.user)
   const products = useSelector(state => state.products)
   const purchases = useSelector(state => state.purchases)
   const [content, setContent] = useState("")
+  const [errors, setErrors] = useState([])
   const [ratedStar1, setRatedStar1] = useState(false)
   const [ratedStar2, setRatedStar2] = useState(false)
   const [ratedStar3, setRatedStar3] = useState(false)
   const [ratedStar4, setRatedStar4] = useState(false)
   const [ratedStar5, setRatedStar5] = useState(false)
+
 
   useEffect(() => {
     if (reviewStars >= 1) setRatedStar1(true)
@@ -23,6 +28,13 @@ const Reviews = ({ productId, purchaseId, reviewStars, setReviewStars, setAddRev
     if (reviewStars >= 4) setRatedStar4(true)
     if (reviewStars >= 5) setRatedStar5(true)
   }, [reviewStars])
+
+  useEffect(() => {
+    const errors = []
+    if (content.length < 10) errors.push("Content: Review must be at least 10 characters long")
+    if (content.length > 1000) errors.push("Content: Review exceeds 1000 characters")
+    setErrors(errors)
+  }, [content])
 
 
   const changeReviewStars = (num) => {
@@ -53,10 +65,21 @@ const Reviews = ({ productId, purchaseId, reviewStars, setReviewStars, setAddRev
   }
 
 
-  const handleReview = () => {
+  const handleReview = async (e) => {
+    e.preventDefault()
+
+    if (errors.length > 0) return
+
+    const reviewData = {
+      user_id: user.id,
+      product_id: productId,
+      stars: reviewStars,
+      content
+    }
+
+    dispatch(addNewReview(reviewData))
+    setAddReview(false)
   }
-
-
 
   return (
     <>
@@ -86,6 +109,12 @@ const Reviews = ({ productId, purchaseId, reviewStars, setReviewStars, setAddRev
           </div>
           <div className="create-review-content-outer">
             <label className="create-review-content-header">Review *</label>
+            {errors?.map((error, ind) => {
+              if (error.split(":")[0] === 'Content')
+                return (
+                  <div key={ind} className='create-review-errors'>-{error.split(":")[1]}</div>
+                )
+            })}
             <textarea
               type='text'
               className='create-review-text-area'

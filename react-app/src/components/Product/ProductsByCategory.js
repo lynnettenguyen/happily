@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, Link, useParams } from 'react-router-dom';
 import { findProductById, findProductsByCategory } from '../../store/products';
+import { getAllProductReviews } from '../../store/reviews';
 import { getUsers } from '../../store/users';
 import '../CSS/ProductsByCategory.css'
 
@@ -32,6 +33,7 @@ const ProductsByCategory = () => {
 
   const productDetails = (id) => {
     dispatch(findProductById(id))
+    dispatch(getAllProductReviews(id))
     dispatch(getUsers())
   }
 

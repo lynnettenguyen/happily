@@ -39,7 +39,7 @@
   overflow-wrap: break-word;
   word-wrap: break-word;
   hyphens: auto;
-  max-width: 520px;
+  width: 540px;
 }
 
 .product-price {
@@ -173,7 +173,7 @@
   overflow-wrap: break-word;
   word-wrap: break-word;
   hyphens: auto;
-  max-width: 520px;
+  max-width: 540px;
 }
 
 .product-reviews-header {

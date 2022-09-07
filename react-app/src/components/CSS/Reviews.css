@@ -107,3 +107,10 @@
   font-family: GraphikRegular, Arial, Helvetica, sans-serif;
   font-size: 0.9rem;
 }
+
+.create-review-errors {
+  font-family: GraphikMedium, Arial, Helvetica, sans-serif;
+  font-size: 0.8rem;
+  color: red;
+  margin: 0.3rem 0;
+}

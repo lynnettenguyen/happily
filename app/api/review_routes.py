@@ -19,8 +19,15 @@ def all_reviews():
   if reviews is not None:
     return jsonify([review.to_dict() for review in reviews])
 
-  else:
-    return jsonify['No reviews']
+
+@review.route("/<int:product_id>")
+# load all reviews by product_id
+def reviews_per_products(product_id):
+
+  reviews = Review.query.filter(Review.product_id == product_id).all()
+
+  if reviews is not None:
+    return jsonify([review.to_dict() for review in reviews]), 200
 
 
 @review.route("", methods=['POST'])

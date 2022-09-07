@@ -1,6 +1,5 @@
 .upload-image-main {
   margin: 1.5rem auto;
-  max-width: 49%;
 }
 
 .photo-header {
@@ -19,7 +18,8 @@
 
 .photo-upload-main {
   display: flex;
-  width: 1200px;
+  overflow: hidden;
+  width: fit-content;
 }
 
 .file-upload-label {

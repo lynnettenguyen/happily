@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { findProductById, getAllProducts } from '../../store/products'
+import { getAllProductReviews } from '../../store/reviews'
 import { getUsers } from '../../store/users'
 import '../CSS/HomePage.css'
 import star from '../CSS/Images/star.svg'
@@ -20,6 +21,7 @@ const HomePage = () => {
 
   const productDetails = (id) => {
     dispatch(findProductById(id))
+    dispatch(getAllProductReviews(id))
     dispatch(getUsers())
   }
 
