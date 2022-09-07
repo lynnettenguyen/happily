@@ -19,13 +19,6 @@
   font-size: 11px;
   font-family: GraphikThin, Arial, Helvetica, sans-serif;
   margin-bottom: 5px;
-}
-
-.edit-return-button:hover,
-.edit-save-button:hover,
-.edit-input:hover,
-.edit-text-area:hover,
-.edit-text-area-name:hover {
   cursor: pointer;
 }
 
@@ -64,6 +57,8 @@
   margin-bottom: 1rem;
   border: 0.5px solid grey;
   color: #050404a6;
+  cursor: pointer;
+  outline: none;
 }
 
 .edit-text-area {
@@ -89,5 +84,13 @@
   padding: 10px;
   font-family: GraphikRegular, Arial, Helvetica, sans-serif;
   font-size: 12px;
-  height: 36px
+  height: 36px;
+  cursor: pointer;
+}
+
+.edit-product-errors {
+  font-family: GraphikMedium, Arial, Helvetica, sans-serif;
+  font-size: 0.8rem;
+  color: red;
+  margin: 0.3rem 0 0.5rem;
 }
