@@ -35,6 +35,7 @@ const Purchases = () => {
     dispatch(getAllProducts())
     dispatch(getAllPurchases(user.id))
     dispatch(getAllUserReviews())
+    setRefreshReview(false)
   }, [addReview, refreshReview])
 
   // console.log(Object.keys(userReviews).includes((45).toString()))
@@ -101,8 +102,10 @@ const Purchases = () => {
 
   const handleDeleteReview = (id) => {
     dispatch(removeReview(id))
-    setRefreshReview(!refreshReview)
+    setRefreshReview(true)
   }
+
+  console.log(refreshReview)
 
   return (
     <div className="purchases-main">
