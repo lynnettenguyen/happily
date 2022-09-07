@@ -55,6 +55,7 @@
 
 .create-stars-display {
   height: 30px;
+  cursor: pointer;
 }
 
 .create-review-instructions {
@@ -84,6 +85,7 @@
   padding: 10px;
   box-sizing: border-box;
   margin-top: 0.5rem;
+  cursor: pointer;
 }
 
 .create-review-button-outer {
@@ -101,6 +103,7 @@
   padding: 0 10px;
   border-radius: 20px;
   margin-top: 0.5rem;
+  cursor: pointer;
 }
 
 .create-review-content-header {

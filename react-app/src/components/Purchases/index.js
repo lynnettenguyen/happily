@@ -103,6 +103,10 @@ const Purchases = () => {
     setReviewStars(num)
   }
 
+  const handleEditReview = (id) => {
+
+  }
+
   const handleDeleteReview = (id) => {
     dispatch(removeReview(id))
     setRefreshReview(true)
@@ -122,7 +126,7 @@ const Purchases = () => {
         {starCount.map((star) => {
           return (
             <>
-              <img src={star}></img>
+              <img src={star} className='user-review-star-display'></img>
             </>
           )
         })}
@@ -168,16 +172,17 @@ const Purchases = () => {
                       <img src={ratedStar3 && purchase.id === purchaseId ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(3, purchase.id)} onMouseLeave={() => handleStarOff(3, purchase.id)} onClick={() => handleReview(3, purchase.product_id, purchase.id)}></img>
                       <img src={ratedStar4 && purchase.id === purchaseId ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(4, purchase.id)} onMouseLeave={() => handleStarOff(4, purchase.id)} onClick={() => handleReview(4, purchase.product_id, purchase.id)}></img>
                       <img src={ratedStar5 && purchase.id === purchaseId ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(5, purchase.id)} onMouseLeave={() => handleStarOff(5, purchase.id)} onClick={() => handleReview(5, purchase.product_id, purchase.id)}></img>
-                    </div> : <>
-                      <div>Your Review
+                    </div> : <div className="purchase-user-review-outer">
+                        <div className="purchase-user-review-upper">
+                          <span className="purchase-user-review-header">Your Review</span>
                         <span>{stars(userReviews[purchase.product_id]?.stars)}</span>
                       </div>
-                      <div>{userReviews[purchase.product_id]?.content}</div>
-                      <div>
-                        <button>Edit</button>
-                        <button onClick={() => handleDeleteReview(userReviews[purchase.product_id].id)}>Delete</button>
+                      <div className="purchase-user-review-content">{userReviews[purchase.product_id]?.content}</div>
+                      <div className="purchase-review-buttons-outer">
+                          <button onClick={() => handleEditReview(userReviews[purchase.product_id].id)} className='purchase-review-edit-button'>Edit</button>
+                          <button onClick={() => handleDeleteReview(userReviews[purchase.product_id].id)} className='purchase-review-delete-button'>Delete</button>
                       </div>
-                    </>
+                    </div>
                     }
                   </div>
                 </div>
