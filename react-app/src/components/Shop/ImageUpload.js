@@ -77,7 +77,7 @@ const ImageUpload = ({ productId }) => {
   return (
     <div className="upload-image-main">
       <div className="photo-header">Add Photos</div>
-      <div className="photo-caption">Use up to four photos to show your item's most important qualities. *Only PNGs, JPEGs, and JPGs accepted.</div>
+      <div className="photo-caption">Upload up to four photos to show your item's most important qualities. *Only WEBPs, PNGs, JPEGs, JPGs, and GIFs accepted.</div>
       <form onSubmit={handleSubmit}>
         <div className="photo-upload-main">
           <div className={image ? 'file-upload-outer-image' : 'file-upload-outer'}>

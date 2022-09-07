@@ -35,15 +35,15 @@ const Profile = ({ user }) => {
             <Link to='/purchases'>
               <div className='dropdown-item' onClick={() => { setShowDropdown(!showDropdown) }}>
                 <img src={purchases} className='profile-purchases-img' alt='purchases'></img>
-                <div className='profile-purchase'>Purchases</div>
+                <div className='profile-purchase'>Purchases and reviews</div>
               </div>
             </Link>
-            <Link to='/reviews'>
+            {/* <Link to='/reviews'>
               <div className='dropdown-item' onClick={() => { setShowDropdown(!showDropdown) }}>
                 <img src={star} className='review-star-img' alt='reviews'></img>
                 <div className='profile-reviews'>Review your purchases</div>
               </div>
-            </Link>
+            </Link> */}
             <Link to='/shop'>
               <div className='dropdown-item' onClick={() => { setShowDropdown(!showDropdown) }}>
                 <img src={shop} className='profile-shop-img' alt='shop'></img>

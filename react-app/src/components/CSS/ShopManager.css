@@ -35,7 +35,7 @@
 
 .my-products-img-main {
   min-width: 210px;
-  height: 180px;
+  height: 190px;
   margin-bottom: 1rem;
 }
 
@@ -48,7 +48,6 @@
 .my-products-info {
   padding: 0 15px;
   position: relative;
-  box-sizing: border-box;
 }
 
 .my-product-category,
@@ -60,10 +59,15 @@
   font-family: GraphikLight, Arial, Helvetica, sans-serif;
   font-size: 0.9rem;
   margin: 0.5rem 0;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  max-width: 550px;
+  height: 100px;
 }
 
 .my-product-price {
-  margin-bottom: 1rem;
+  margin: 0.5rem 0;
 }
 
 .my-product-buttons {

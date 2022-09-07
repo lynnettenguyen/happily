@@ -36,7 +36,10 @@
 .product-name {
   font-family: GuardianEgypThin, Arial, Helvetica, sans-serif;
   font-size: 1.4rem;
+  overflow-wrap: break-word;
   word-wrap: break-word;
+  hyphens: auto;
+  max-width: 520px;
 }
 
 .product-price {
@@ -166,8 +169,11 @@
 
 .product-description {
   font-family: GraphikRegular, Arial, Helvetica, sans-serif;
-  word-wrap: break-word;
   font-size: 0.9rem;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  max-width: 520px;
 }
 
 .product-reviews-header {
