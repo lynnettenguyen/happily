@@ -26,6 +26,7 @@ const Purchases = () => {
   const [productName, setProductName] = useState()
   const [addReview, setAddReview] = useState(false)
   const [reviewStars, setReviewStars] = useState(false)
+  const [productId, setProductId] = useState()
 
   useEffect(() => {
     dispatch(getAllProducts())
@@ -85,8 +86,10 @@ const Purchases = () => {
     if (num >= 5) setRatedStar5(false)
   }
 
-  const handleReview = (num) => {
+  const handleReview = (num, itemId, orderId) => {
     setAddReview(true);
+    setProductId(itemId)
+    setPurchaseId(orderId)
     setReviewStars(num)
   }
 
@@ -118,11 +121,11 @@ const Purchases = () => {
                     <div className="purchase-product-name">{products[purchase.product_id]?.name}</div>
                     <div className="purchase-product-review-outer">
                       <div className="purchase-review-header">Review this Item</div>
-                      <img src={ratedStar1 ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(1)} onMouseLeave={() => handleStarOff(1)} onClick={() => handleReview(1)}></img>
-                      <img src={ratedStar2 ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(2)} onMouseLeave={() => handleStarOff(2)} onClick={() => handleReview(2)}></img>
-                      <img src={ratedStar3 ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(3)} onMouseLeave={() => handleStarOff(3)} onClick={() => handleReview(3)}></img>
-                      <img src={ratedStar4 ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(4)} onMouseLeave={() => handleStarOff(4)} onClick={() => handleReview(4)}></img>
-                      <img src={ratedStar5 ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(5)} onMouseLeave={() => handleStarOff(5)} onClick={() => handleReview(5)}></img>
+                      <img src={ratedStar1 ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(1)} onMouseLeave={() => handleStarOff(1)} onClick={() => handleReview(1, purchase.product_id, purchase.id)}></img>
+                      <img src={ratedStar2 ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(2)} onMouseLeave={() => handleStarOff(2)} onClick={() => handleReview(2, purchase.product_id, purchase.id)}></img>
+                      <img src={ratedStar3 ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(3)} onMouseLeave={() => handleStarOff(3)} onClick={() => handleReview(3, purchase.product_id, purchase.id)}></img>
+                      <img src={ratedStar4 ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(4)} onMouseLeave={() => handleStarOff(4)} onClick={() => handleReview(4, purchase.product_id, purchase.id)}></img>
+                      <img src={ratedStar5 ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(5)} onMouseLeave={() => handleStarOff(5)} onClick={() => handleReview(5, purchase.product_id, purchase.id)}></img>
                     </div>
                   </div>
                 </div>
@@ -174,7 +177,7 @@ const Purchases = () => {
             </div>
           </Modal>
         )}
-        {addReview && <CreateReview addReview={addReview} setAddReview={setAddReview} />}
+        {addReview && <CreateReview reviewStars={reviewStars} productId={productId} purchaseId={purchaseId} setAddReview={setAddReview} formatDate={formatDate} />}
       </div> : <div className="no-purchases-main">No Purchases? <Link to='/' className="no-purchases-continue">Continue Browsing</Link>!</div>}
     </div>
   )
