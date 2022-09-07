@@ -35,8 +35,12 @@ const Shop = () => {
 
   useEffect(() => {
     const shopErrors = []
+    let validChar = new RegExp(/^[A-Za-z]+$/)
+    if (!validChar.test(shopName)) shopErrors.push('Shop Name: Shop Name must only contain alphabetical characters')
+    if (shopName.split(" ").length > 1) shopErrors.push('Shop Name: Shop Name cannot contain spaces')
     if (shopName.length < 4) shopErrors.push('Shop Name: Shop Name requires 4 characters minimum')
     if (shopName.length > 30) shopErrors.push('Shop Name: Shop Name exceeds 30 character limit')
+
     setShopErrors(shopErrors)
   }, [shopName])
 
@@ -62,9 +66,10 @@ const Shop = () => {
   const handleProductSubmit = async (e) => {
     e.preventDefault()
 
-    if (errors.length >= 0) {
+    if (errors.length > 0) {
       return
     }
+
 
     const productData = {
       name,
