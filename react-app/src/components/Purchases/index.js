@@ -9,10 +9,12 @@ import '../CSS/Purchases.css'
 import unfilledStar from '../CSS/Images/review-star-grey.svg'
 import filledStar from '../CSS/Images/review-star-black.svg'
 import Reviews from "../Reviews";
+import { getAllUserReviews, removeReview } from "../../store/reviews";
 
 const Purchases = () => {
   const dispatch = useDispatch()
   const user = useSelector(state => state.session.user)
+  const userReviews = useSelector(state => state.reviews)
   const products = useSelector(state => state.products)
   const purchases = useSelector(state => Object.values(state.purchases))
   const [ratedStar1, setRatedStar1] = useState(false)
@@ -26,12 +28,16 @@ const Purchases = () => {
   const [productName, setProductName] = useState()
   const [addReview, setAddReview] = useState(false)
   const [reviewStars, setReviewStars] = useState(false)
-  const [productId, setProductId] = useState()
+  const [productId, setProductId] = useState([])
+  const [refreshReview, setRefreshReview] = useState(false)
 
   useEffect(() => {
     dispatch(getAllProducts())
     dispatch(getAllPurchases(user.id))
-  }, [])
+    dispatch(getAllUserReviews())
+  }, [addReview, refreshReview])
+
+  // console.log(Object.keys(userReviews).includes((45).toString()))
 
   const formatDate = (dateTime) => {
     let month = dateTime.split(" ")[2]
@@ -93,6 +99,11 @@ const Purchases = () => {
     setReviewStars(num)
   }
 
+  const handleDeleteReview = (id) => {
+    dispatch(removeReview(id))
+    setRefreshReview(!refreshReview)
+  }
+
   return (
     <div className="purchases-main">
       <div className="purchase-header-main">
@@ -115,18 +126,28 @@ const Purchases = () => {
                 </div>
                 <div className="purchases-bottom-outer">
                   <div className="purchase-product-img-outer">
+                    <Link to={`/products/${purchase.product_id}`}>
                     {products[purchase.product_id]?.images.length > 0 && <img src={products[purchase.product_id]?.images[0]} className='purchase-product-img'></img>}
+                    </Link>
                   </div>
                   <div className="purchase-product-info">
-                    <div className="purchase-product-name">{products[purchase.product_id]?.name}</div>
-                    <div className="purchase-product-review-outer">
+                    <div className="purchase-product-name">{products[purchase.product_id]?.name}{purchase.product_id}</div>
+                    {!Object.keys(userReviews).includes((purchase.product_id).toString()) ? <div className="purchase-product-review-outer">
                       <div className="purchase-review-header">Review this Item</div>
                       <img src={ratedStar1 ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(1)} onMouseLeave={() => handleStarOff(1)} onClick={() => handleReview(1, purchase.product_id, purchase.id)}></img>
                       <img src={ratedStar2 ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(2)} onMouseLeave={() => handleStarOff(2)} onClick={() => handleReview(2, purchase.product_id, purchase.id)}></img>
                       <img src={ratedStar3 ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(3)} onMouseLeave={() => handleStarOff(3)} onClick={() => handleReview(3, purchase.product_id, purchase.id)}></img>
                       <img src={ratedStar4 ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(4)} onMouseLeave={() => handleStarOff(4)} onClick={() => handleReview(4, purchase.product_id, purchase.id)}></img>
                       <img src={ratedStar5 ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(5)} onMouseLeave={() => handleStarOff(5)} onClick={() => handleReview(5, purchase.product_id, purchase.id)}></img>
-                    </div>
+                    </div> : <>
+                      <div>Your Review</div>
+                        <div>{userReviews[purchase.product_id]?.content}</div>
+                        <div>
+                          <button>Edit</button>
+                          <button onClick={() => handleDeleteReview(userReviews[purchase.product_id].id)}>Delete</button>
+                        </div>
+                    </>
+                    }
                   </div>
                 </div>
               </div>

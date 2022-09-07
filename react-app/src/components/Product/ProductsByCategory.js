@@ -33,7 +33,7 @@ const ProductsByCategory = () => {
 
   const productDetails = (id) => {
     dispatch(findProductById(id))
-    dispatch(getAllProductReviews(id))
+    // dispatch(getAllProductReviews(id))
     dispatch(getUsers())
   }
 

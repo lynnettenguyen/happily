@@ -21,7 +21,7 @@ const Profile = ({ user }) => {
   return (
     <div className='navBar-profile-outer'>
       <div onClick={() => { setShowDropdown(!showDropdown) }} className='navBar-profile'>
-        <img src={user.profile_pic} className='profile-user-img' alt='profile'></img>
+        <img src={user?.profile_pic} className='profile-user-img' alt='profile'></img>
         <img src={downArrow} className='profile-down-arrow-img' alt='profile'></img>
       </div>
       {showDropdown ?
@@ -29,7 +29,7 @@ const Profile = ({ user }) => {
           <span className="triangle-dropdown"></span>
           <div className='profile-dropdown'>
             <div className='dropdown-item-top'>
-              <img src={user.profile_pic} className='profile-user-img' alt='profile'></img>
+              <img src={user?.profile_pic} className='profile-user-img' alt='profile'></img>
               <div className='profile-name'>{user.first_name}</div>
             </div>
             <Link to='/purchases'>

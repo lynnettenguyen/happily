@@ -20,6 +20,7 @@ const Reviews = ({ productId, purchaseId, reviewStars, setReviewStars, setAddRev
   const [ratedStar4, setRatedStar4] = useState(false)
   const [ratedStar5, setRatedStar5] = useState(false)
 
+  const userReviews = useSelector(state => state.reviews)
 
   useEffect(() => {
     if (reviewStars >= 1) setRatedStar1(true)

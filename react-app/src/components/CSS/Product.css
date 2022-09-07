@@ -215,6 +215,10 @@
 .product-review-content {
   font-family: GraphikRegular, Arial, Helvetica, sans-serif;
   line-height: 25px;
+  max-width: 480px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 .product-review-user {

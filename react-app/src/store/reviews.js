@@ -29,7 +29,7 @@ const deleteReview = (reviewId) => ({
   reviewId
 })
 
-export const getAllReviews = () => async (dispatch) => {
+export const getAllUserReviews = () => async (dispatch) => {
   const response = await fetch(`/api/reviews`);
 
   if (response.ok) {
@@ -106,7 +106,7 @@ const reviewsReducer = (state = {}, action) => {
   let newState = {}
   switch (action.type) {
     case GET_REVIEWS: {
-      for (let review of action.reviews) newState[review.id] = review
+      for (let review of action.reviews) newState[review.product_id] = review
       return newState
     }
     case GET_REVIEWS_PRODUCTS: {

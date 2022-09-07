@@ -168,7 +168,7 @@ const Product = () => {
                       </div>
                       <div className='product-review-content'>{review.content}</div>
                       <div className='product-review-user'>
-                        <div className='product-review-user-img-outer'><img className='product-review-user-img' src={users[review.user_id].profile_pic}></img></div>
+                        <div className='product-review-user-img-outer'><img className='product-review-user-img' src={users[review.user_id]?.profile_pic}></img></div>
                         <div className='product-review-user-name'>{users[review.user_id].first_name}</div>
                         <div className='product-review-date'>{formatDate(review?.created_at)}</div>
                       </div>
