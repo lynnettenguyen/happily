@@ -12,14 +12,27 @@ const Shop = () => {
   const [productId, setProductId] = useState()
   const [page, setPage] = useState(0)
   const [shopName, setShopName] = useState(user.shop_name ? user.shop_name : "")
-  const [name, setName] = useState()
-  const [price, setPrice] = useState()
-  const [description, setDescription] = useState()
-  const [category, setCategory] = useState('Arches')
+  const [name, setName] = useState("")
+  const [price, setPrice] = useState(0)
+  const [description, setDescription] = useState("")
+  const [category, setCategory] = useState("")
+  const [errors, setErrors] = useState([])
 
   useEffect(() => {
     dispatch(getAllProducts())
-  }, [])
+
+    const errors = []
+    if (name.length < 10) errors.push('Name : Title requires 10 characters minimum')
+    if (name.length > 255) errors.push('Name : Title exceeds 255 character limit')
+    if (category.length === 0) errors.push('Category : Category selection is required')
+    if (price <= 0.99 || price >= 1000000) errors.push('Price : Price required between $1.00 and $1,000,000 required')
+    if (description.length < 10) errors.push('Description : Description requires 10 characters minimum')
+    if (description.length > 1000) errors.push('Description : Description exceeds 1000 character limit')
+    setErrors(errors)
+  }, [name, category, price, description])
+
+  console.log(errors)
+
 
   const checkShopName = () => {
     if (shopName) setPage(2)
@@ -28,6 +41,10 @@ const Shop = () => {
 
   const handleUserSubmit = async (e) => {
     e.preventDefault()
+
+    if (errors.length >= 0) {
+      return
+    }
 
     const userData = {
       id: user.id,
@@ -140,9 +157,12 @@ const Shop = () => {
                     className='product-form-select'
                     onChange={(e) => setCategory(e.target.value)}
                   >
+                    <option disabled selected value={category}>-- Select a Category --</option>
                     {categories?.map((category) => {
                       return (
-                        <option value={category.name} className='product-form-options'>{category.display_name}</option>
+                        <option
+                          value={category.name}
+                          className='product-form-options'>{category.display_name}</option>
                       )
                     })}
                   </select>
@@ -159,7 +179,6 @@ const Shop = () => {
                   className='product-form-input'
                   value={price}
                   onChange={(e) => setPrice(e.target.value)}
-                  min="0.99"
                 />
               </div>
               <div className='product-form-field'>
