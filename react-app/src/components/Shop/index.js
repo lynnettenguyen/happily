@@ -22,17 +22,15 @@ const Shop = () => {
     dispatch(getAllProducts())
 
     const errors = []
-    if (name.length < 10) errors.push('Name : Title requires 10 characters minimum')
-    if (name.length > 255) errors.push('Name : Title exceeds 255 character limit')
-    if (category.length === 0) errors.push('Category : Category selection is required')
-    if (price <= 0.99 || price >= 1000000) errors.push('Price : Price required between $1.00 and $1,000,000 required')
-    if (description.length < 10) errors.push('Description : Description requires 10 characters minimum')
-    if (description.length > 1000) errors.push('Description : Description exceeds 1000 character limit')
+    if (name.length < 10) errors.push('Name: Title requires 10 characters minimum')
+    if (name.length > 225) errors.push('Name: Title exceeds 225 character limit')
+    if (category.length === 0) errors.push('Category: Category selection is required')
+    if (price < 1) errors.push('Price: Minimum price of $1.00 required')
+    if (price > 1000000) errors.push('Price: Price exceeds $1,000,000 limit')
+    if (description.length < 10) errors.push('Description: Description requires 10 characters minimum')
+    if (description.length > 1000) errors.push('Description: Description exceeds 1000 character limit')
     setErrors(errors)
   }, [name, category, price, description])
-
-  console.log(errors)
-
 
   const checkShopName = () => {
     if (shopName) setPage(2)
@@ -136,12 +134,19 @@ const Shop = () => {
                   <label className='sell-product-label'>Title *</label>
                   <span className='sell-product-instructions'>Include keywords that buyers would use to search for your item.</span>
                 </div>
+                {errors?.map((error, ind) => {
+                  if (error.split(":")[0] === 'Name')
+                    return (
+                      <div key={ind} className='product-errors'>-{error.split(":")[1]}</div>
+                    )
+                })}
                 <div>
                   <input
                     type='text'
                     className='product-form-input'
                     value={name}
                     onChange={(e) => setName(e.target.value)}
+                    maxLength="226"
                   />
                 </div>
               </div>
@@ -150,6 +155,12 @@ const Shop = () => {
                   <label className='sell-product-label'>Category *</label>
                   <span className='sell-product-instructions'>Select a category to help shoppers find your product.</span>
                 </div>
+                {errors?.map((error, ind) => {
+                  if (error.split(":")[0] === 'Category')
+                    return (
+                      <div key={ind} className='product-errors'>-{error.split(":")[1]}</div>
+                    )
+                })}
                 <div className='select-outer'>
                   <select
                     htmlFor='category'
@@ -173,6 +184,12 @@ const Shop = () => {
                   <label className='sell-product-label'>Price *</label>
                   <span className='sell-product-instructions'>Remember to factor in the cost of materials, labor, and other business expenses.</span>
                 </div>
+                {errors?.map((error, ind) => {
+                  if (error.split(":")[0] === 'Price')
+                    return (
+                      <div key={ind} className='product-errors'>-{error.split(":")[1]}</div>
+                    )
+                })}
                 <input
                   type='number'
                   step="any"
@@ -186,11 +203,18 @@ const Shop = () => {
                   <label className='sell-product-label'>Description *</label>
                   <span className='sell-product-instructions'>Start with a brief overview that describes your item's finest features.</span>
                 </div>
+                {errors?.map((error, ind) => {
+                  if (error.split(":")[0] === 'Description')
+                    return (
+                      <div key={ind} className='product-errors'>-{error.split(":")[1]}</div>
+                    )
+                })}
                 <textarea
                   type='text'
                   className='product-form-text-area'
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
+                  maxLength="1001"
                 />
               </div>
               <div className='save-button-outer'>

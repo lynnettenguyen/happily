@@ -8,7 +8,7 @@ class Product(db.Model):
     seller_id = db.Column(
         db.Integer, db.ForeignKey('users.id'), nullable=False)
     category = db.Column(db.String(50), nullable=False)
-    name = db.Column(db.String(255), nullable=False)
+    name = db.Column(db.String(225), nullable=False)
     price = db.Column(db.Float(precision=2, asdecimal=False), nullable=False)
     description = db.Column(db.String(1000), nullable=False)
     created_at = db.Column(db.DateTime(timezone=True),
