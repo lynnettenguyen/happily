@@ -8,13 +8,14 @@ import { getAllProducts } from "../../store/products";
 import '../CSS/Purchases.css'
 import unfilledStar from '../CSS/Images/review-star-grey.svg'
 import filledStar from '../CSS/Images/review-star-black.svg'
+import CreateReview from "../Reviews/CreateReview";
 
 const Purchases = () => {
   const dispatch = useDispatch()
   const user = useSelector(state => state.session.user)
   const products = useSelector(state => state.products)
   const purchases = useSelector(state => Object.values(state.purchases))
-  const [ratedStar, setRatedStar] = useState(false)
+  const [ratedStar1, setRatedStar1] = useState(false)
   const [ratedStar2, setRatedStar2] = useState(false)
   const [ratedStar3, setRatedStar3] = useState(false)
   const [ratedStar4, setRatedStar4] = useState(false)
@@ -23,6 +24,8 @@ const Purchases = () => {
   const [purchaseId, setPurchaseId] = useState()
   const [orderNumber, setOrderNumber] = useState()
   const [productName, setProductName] = useState()
+  const [addReview, setAddReview] = useState(false)
+  const [reviewStars, setReviewStars] = useState(false)
 
   useEffect(() => {
     dispatch(getAllProducts())
@@ -67,51 +70,24 @@ const Purchases = () => {
   }
 
   const handleStarOn = (num) => {
-    if (num === 1) {
-      setRatedStar(true)
-    } else if (num === 2) {
-      setRatedStar(true)
-      setRatedStar2(true)
-    } else if (num === 3) {
-      setRatedStar(true)
-      setRatedStar2(true)
-      setRatedStar3(true)
-    } else if (num === 4) {
-      setRatedStar(true)
-      setRatedStar2(true)
-      setRatedStar3(true)
-      setRatedStar4(true)
-    } else if (num === 5) {
-      setRatedStar(true)
-      setRatedStar2(true)
-      setRatedStar3(true)
-      setRatedStar4(true)
-      setRatedStar5(true)
-    }
+    if (num >= 1) setRatedStar1(true)
+    if (num >= 2) setRatedStar2(true)
+    if (num >= 3) setRatedStar3(true)
+    if (num >= 4) setRatedStar4(true)
+    if (num >= 5) setRatedStar5(true)
   }
 
   const handleStarOff = (num) => {
-    if (num === 1) {
-      setRatedStar(false)
-    } else if (num === 2) {
-      setRatedStar(false)
-      setRatedStar2(false)
-    } else if (num === 3) {
-      setRatedStar(false)
-      setRatedStar2(false)
-      setRatedStar3(false)
-    } else if (num === 4) {
-      setRatedStar(false)
-      setRatedStar2(false)
-      setRatedStar3(false)
-      setRatedStar4(false)
-    } else if (num === 5) {
-      setRatedStar(false)
-      setRatedStar2(false)
-      setRatedStar3(false)
-      setRatedStar4(false)
-      setRatedStar5(false)
-    }
+    if (num >= 1) setRatedStar1(false)
+    if (num >= 2) setRatedStar2(false)
+    if (num >= 3) setRatedStar3(false)
+    if (num >= 4) setRatedStar4(false)
+    if (num >= 5) setRatedStar5(false)
+  }
+
+  const handleReview = (num) => {
+    setAddReview(true);
+    setReviewStars(num)
   }
 
   return (
@@ -142,11 +118,11 @@ const Purchases = () => {
                     <div className="purchase-product-name">{products[purchase.product_id]?.name}</div>
                     <div className="purchase-product-review-outer">
                       <div className="purchase-review-header">Review this Item</div>
-                      <img src={ratedStar ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(1)} onMouseLeave={() => handleStarOff(1)}></img>
-                      <img src={ratedStar2 ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(2)} onMouseLeave={() => handleStarOff(2)}></img>
-                      <img src={ratedStar3 ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(3)} onMouseLeave={() => handleStarOff(3)}></img>
-                      <img src={ratedStar4 ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(4)} onMouseLeave={() => handleStarOff(4)}></img>
-                      <img src={ratedStar5 ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(5)} onMouseLeave={() => handleStarOff(5)}></img>
+                      <img src={ratedStar1 ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(1)} onMouseLeave={() => handleStarOff(1)} onClick={() => handleReview(1)}></img>
+                      <img src={ratedStar2 ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(2)} onMouseLeave={() => handleStarOff(2)} onClick={() => handleReview(2)}></img>
+                      <img src={ratedStar3 ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(3)} onMouseLeave={() => handleStarOff(3)} onClick={() => handleReview(3)}></img>
+                      <img src={ratedStar4 ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(4)} onMouseLeave={() => handleStarOff(4)} onClick={() => handleReview(4)}></img>
+                      <img src={ratedStar5 ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(5)} onMouseLeave={() => handleStarOff(5)} onClick={() => handleReview(5)}></img>
                     </div>
                   </div>
                 </div>
@@ -198,6 +174,7 @@ const Purchases = () => {
             </div>
           </Modal>
         )}
+        {addReview && <CreateReview addReview={addReview} setAddReview={setAddReview} />}
       </div> : <div className="no-purchases-main">No Purchases? <Link to='/' className="no-purchases-continue">Continue Browsing</Link>!</div>}
     </div>
   )
