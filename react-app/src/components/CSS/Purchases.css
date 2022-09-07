@@ -23,6 +23,10 @@
   font-family: GuardianEgypLight, Arial, Helvetica, sans-serif;
 }
 
+.no-purchases-continue {
+  text-decoration: underline;
+}
+
 .no-purchases-continue:hover {
   cursor: pointer;
   color:rgba(82, 82, 82, 0.651)
