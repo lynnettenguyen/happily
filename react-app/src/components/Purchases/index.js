@@ -70,7 +70,7 @@ const Purchases = () => {
       <div className="purchase-header-main">
         <div className="purchase-header">Purchases</div>
       </div>
-      {purchases ? <div className="purchases-details-outer">
+      {purchases.length > 0 ? <div className="purchases-details-outer">
         {purchases?.reverse().map((purchase, i) => {
           return (
             <div className="purchases-details-main">
@@ -149,7 +149,7 @@ const Purchases = () => {
             </div>
           </Modal>
         )}
-      </div> : <div>No Purchases? No Problem! Browse Happily for awesome items.</div>}
+      </div> : <div className="no-purchases-main">No Purchases? <Link to='/' className="no-purchases-continue">Continue Browsing!</Link></div>}
     </div>
   )
 }

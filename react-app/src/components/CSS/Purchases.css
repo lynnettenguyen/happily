@@ -14,9 +14,18 @@
   font-size: 1.5rem;
 }
 
-.purchases-details-outer {
+.no-purchases-main, .purchases-details-outer {
   padding-top: 7.5rem;
   margin: 0 14rem;
+}
+
+.no-purchases-main {
+  font-family: GuardianEgypLight, Arial, Helvetica, sans-serif;
+}
+
+.no-purchases-continue:hover {
+  cursor: pointer;
+  color:rgba(82, 82, 82, 0.651)
 }
 
 .purchases-details-main {
@@ -213,7 +222,7 @@
 .cancel-message {
   font-family: GuardianEgypRegular, Arial, Helvetica, sans-serif;
   font-size: 1.2rem;
-  margin-bottom: 0.5rem;
+  margin: 0.2rem 0 0.3rem;
 }
 
 .cancel-confirm {
@@ -240,9 +249,5 @@
   font-size: 12px;
   height: 30px;
   cursor: pointer;
-  margin-top: 0.8rem;
-}
-
-.cancel-order-number {
-  color: #393939;
+  margin-top: 0.4rem;
 }
