@@ -103,7 +103,14 @@ const Product = () => {
     )
   }
 
+  const formatDate = (dateTime) => {
+    let month = dateTime.split(" ")[2]
+    let day = dateTime.split(" ")[1]
+    if (day[0] === '0') day = day.slice(1)
+    let year = dateTime.split(" ")[3]
 
+    return `${month} ${day}, ${year}`
+  }
 
   return (
     <>
@@ -142,10 +149,10 @@ const Product = () => {
                   })}
                 </div>
               </div>
-              <div className='product-review-content'>
+              <div className='product-review-main'>
                 {product[productId]?.reviews?.map((review) => {
                   return (
-                    <>
+                    <div className='product-review-outer'>
                       <div className='product-review-user-rating'>
                         {review?.stars <= 0.5 && <span>{starsDisplay(halfStars)}</span>}
                         {review?.stars > 0.5 && review?.stars <= 1 && <span>{starsDisplay(oneStar)}</span>}
@@ -160,11 +167,11 @@ const Product = () => {
                       </div>
                       <div className='product-review-content'>{review.content}</div>
                       <div className='product-review-user'>
-                        <div className='product-review-user-outer'></div>
-                        <div className='product-review-user-name'></div>
-                        <div className='product-review-date'></div>
+                        <div className='product-review-user-img-outer'><img className='product-review-user-img' src={users[review.user_id].profile_pic}></img></div>
+                        <div className='product-review-user-name'>{users[review.user_id].first_name}</div>
+                        <div className='product-review-date'>{formatDate(review?.created_at)}</div>
                       </div>
-                    </>
+                    </div>
                   )
                 })}
               </div>

@@ -16,17 +16,17 @@ def seed_reviews():
     Review(
         user_id=5, product_id=2, content='Fast shipping and item just as described. Happy with the purchase!', stars=5),
     Review(
-        user_id=4, product_id=3, content='The poster looks great from a distance but up close you can see it’s a little blurry but the sellers did mention that it is up to you to make what you want look great and that they don’t do any editing to it.', stars=3),
+        user_id=4, product_id=3, content='These signs were beautiful!! Oh my gosh - They came packaged so well. I was worried because I got the largest size 34x44. It\'s really big and I was afraid it would be damaged in transit. But it was perfect. And they arrived in one week! Really amazing.', stars=5),
     Review(
         user_id=5, product_id=3, content='These signs look fantastic, exactly what we were looking for for our farm style wedding. The seller was extremely quick to respond and helped us through some carrier problems we experienced.', stars=5),
     Review(
-        user_id=6, product_id=3, content='My decal wouldn’t unstick from the backing so when trying to apply the sticker to my window the letters were all wrinkled and crooked. I wouldn’t recommend nor will I order anything else. Shipping was slow also.', stars=1),
+        user_id=6, product_id=3, content='I wouldn’t recommend nor will I order anything else. Shipping was slow also.', stars=1),
     Review(
         user_id=2, product_id=4, content='If looks exactly like the sample photos online and it is good quality for a great price!', stars=5),
     Review(
         user_id=3, product_id=4, content='This came out beautiful and am excited to use it at our wedding! Thank you!', stars=5),
     Review(
-        user_id=4, product_id=4, content='The design and quality of the paper is great! The date is very close to the bottom of the paper, with the numbers sitting on the edge of the paper.', stars=4),
+        user_id=4, product_id=4, content='The design and quality is great!', stars=4),
     Review(
         user_id=5, product_id=5, content='The sign turned out even better than the picture. Absolutely love it!!!', stars=5),
     Review(

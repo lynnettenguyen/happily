@@ -192,3 +192,47 @@
 .empty-star {
   height: 20px;
 }
+
+.star-display-rating {
+  height: 15px;
+  margin-right: 2px;
+}
+
+.product-review-user-rating {
+  margin-bottom: 0.4rem;
+}
+
+.product-review-outer {
+  margin-bottom: 1.5rem;
+}
+
+.product-review-content {
+  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
+  line-height: 25px;
+}
+
+.product-review-user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: GraphikLight, Arial, Helvetica, sans-serif;
+  font-size: 0.9rem;
+  color: rgb(65, 65, 65);
+}
+
+.product-review-user-img-outer {
+  height: 35px;
+  width: 35px;
+  margin-right: 10px;
+}
+
+.product-review-user-img {
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  object-fit: cover;
+}
+
+.product-review-user-name {
+  margin-right: 10px;
+}
