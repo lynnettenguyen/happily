@@ -8,7 +8,7 @@ import { getAllProducts } from "../../store/products";
 import '../CSS/Purchases.css'
 import unfilledStar from '../CSS/Images/review-star-grey.svg'
 import filledStar from '../CSS/Images/review-star-black.svg'
-import CreateReview from "../Reviews/CreateReview";
+import Reviews from "../Reviews";
 
 const Purchases = () => {
   const dispatch = useDispatch()
@@ -177,7 +177,7 @@ const Purchases = () => {
             </div>
           </Modal>
         )}
-        {addReview && <CreateReview reviewStars={reviewStars} productId={productId} purchaseId={purchaseId} setAddReview={setAddReview} formatDate={formatDate} />}
+        {addReview && <Reviews reviewStars={reviewStars} setReviewStars={setReviewStars} productId={productId} purchaseId={purchaseId} setAddReview={setAddReview} formatDate={formatDate} />}
       </div> : <div className="no-purchases-main">No Purchases? <Link to='/' className="no-purchases-continue">Continue Browsing</Link>!</div>}
     </div>
   )
