@@ -47,7 +47,7 @@ const Profile = ({ user }) => {
             <Link to='/shop'>
               <div className='dropdown-item' onClick={() => { setShowDropdown(!showDropdown) }}>
                 <img src={shop} className='profile-shop-img' alt='shop'></img>
-                <div className='profile-shop'>Sell on Knotsy</div>
+                <div className='profile-shop'>Sell on Happily</div>
               </div>
             </Link>
             <div className='dropdown-item'>
