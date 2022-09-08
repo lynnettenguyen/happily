@@ -74,7 +74,6 @@ NavLink {
   width: 61.5%;
   height: 43px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   margin: 0 10px 0 2px;
 }
@@ -82,25 +81,6 @@ NavLink {
 .navBar-searchBar-outer:hover,
 .searchBar-input:hover {
   cursor: pointer;
-}
-
-.searchBar-input {
-  border: none;
-  background: none;
-  outline: none;
-  font-size: 16px;
-  font-family: GraphikLight, -apple-system,
-    "Helvetica Neue",
-    "Droid Sans",
-    Arial,
-    sans-serif;
-  padding-left: 20px;
-  width: 100%;
-}
-
-.searchBar-glass {
-  height: 28px;
-  padding: 0 20px;
 }
 
 .navBar-featured-outer {
