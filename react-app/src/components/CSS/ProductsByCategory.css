@@ -1,7 +1,9 @@
 .category-upper {
   background-color: #F8EBE5;
+  border-top: 1px solid rgb(243, 220, 211);
   position: absolute;
   left: 0;
+  top: 120px;
   width: 100%;
   min-height: 100px;
   min-width: 100%;
