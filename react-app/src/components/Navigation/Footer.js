@@ -17,20 +17,20 @@ const Footer = () => {
       <div className='footer-middle'></div>
       <div className='footer-lower'>
         <div className='socials-outer'>
-          <div className='socials-inner'>
-            <div><img src={linkedIn} className='social-logo-linked' alt=''></img></div>
-            <div className='social-text'><a href='https://www.linkedin.com/in/lynnettenguyen/'>Lynnette Nguyen</a></div>
+          <div className='footer-middle-left'>
+            <div className='footer-happily-header'>© 2022 Happily</div>
+            <div className='footer-happily-description'>An e-commerce site for all things wedding</div>
           </div>
-          <div className='socials-inner'>
-            <div><img src={github} className='social-logo-github' alt=''></img></div>
-            <div className='social-text'><a href='https://github.com/lynnettenguyen/happily'>Github Repository</a></div>
+          <div className='footer-middle-right'>
+            <div className='socials-inner'>
+              <div><img src={linkedIn} className='social-logo-linked' alt=''></img></div>
+              <div className='social-text'><a href='https://www.linkedin.com/in/lynnettenguyen/'>LinkedIn</a></div>
+            </div>
+            <div className='socials-inner'>
+              <div><img src={github} className='social-logo-github' alt=''></img></div>
+              <div className='social-text'><a href='https://github.com/lynnettenguyen/happily'>Github</a></div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div className='footer-bottom'>
-        <div className='footer-bottom-text'>
-          <span>App Academy Capstone Project</span>
-          <span>© 2022 Happily</span>
         </div>
       </div>
     </div >
