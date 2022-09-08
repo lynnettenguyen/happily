@@ -26,7 +26,7 @@ Live Site: [happily](https://happily-app-etsy-clone.herokuapp.com/)
 * [Wireframes](https://github.com/lynnettenguyen/happily/wiki/Wireframes)
 
 ## Landing Page
-![LandingPage](https://user-images.githubusercontent.com/98368183/189034830-6cd90d26-bad4-4bb7-b354-4fae1a0b286c.png)
+![LandingPage](https://user-images.githubusercontent.com/98368183/189165832-a80c9893-8f63-4eb0-bbae-508d91c5b831.png)
 
 ## Profile Navigation
 ![Profile](https://user-images.githubusercontent.com/98368183/189041311-706083b4-d86d-4bac-927d-4d46c8db151b.png)
