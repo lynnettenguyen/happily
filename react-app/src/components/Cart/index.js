@@ -21,7 +21,7 @@ const Cart = () => {
       setCart(JSON.parse(data))
     }
     loadCart()
-  }, [cart.length, updateCart])
+  }, [updateCart])
 
   const handleCheckOut = async (e) => {
     e.preventDefault()
@@ -102,11 +102,12 @@ const Cart = () => {
 
   return (
     <form onSubmit={handleCheckOut} className='cart-main-outer'>
-      {cart ? <>
+      {cart.length > 0 ? <>
         <div className='cart-header'>
           {totalCartItems() !== 1 ?
             <> {totalCartItems()} items in your cart </> :
-            <>{totalCartItems()} item in your cart</>}
+            <>{totalCartItems()} item in your cart</>
+          }
         </div>
         <div className='cart-main'>
           <div className='cart-items-outer'>
@@ -131,7 +132,7 @@ const Cart = () => {
               )
             })}
           </div>
-          <div className='cart-purchase-total-outer'>
+          {cart.length > 0 && <div className='cart-purchase-total-outer'>
             <div className='cart-fees-upper'>
               <div className='cart-total-labels-outer'>
                 <div className='cart-total'>Item(s) total</div>
@@ -155,7 +156,7 @@ const Cart = () => {
             <div>
               <button type='submit' className='checkout-button'>Checkout</button>
             </div>
-          </div>
+          </div>}
         </div>
       </> : <div className='cart-header-empty'>Your cart is empty.</div>}
       {showSignIn && (

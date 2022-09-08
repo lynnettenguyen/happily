@@ -9,19 +9,22 @@ import filledStar from '../CSS/Images/filled-star.svg'
 import halfStar from '../CSS/Images/half-star.svg'
 import emptyStar from '../CSS/Images/empty-star.svg'
 import check from '../CSS/Images/check.svg'
+import { Modal } from '../Context/modal';
+import LoginForm from '../auth/LoginForm';
 
 const Product = () => {
   const cartInStorage = JSON.parse(localStorage.getItem('cart'))
   // console.log(cartInStorage, 'cartInStorage') // returns null if empty
   let { productId } = useParams()
   productId = Number(productId)
-
+  const user = useSelector(state => state.session.user)
   const dispatch = useDispatch()
   const product = useSelector(state => state.products)
   const [selectedImage, setSelectedImage] = useState(product[productId]?.images[0])
   const [rating, setRating] = useState([])
   const users = useSelector(state => state.users)
-  console.log(users)
+  // console.log(users)
+  const [showSignIn, setShowSignIn] = useState(false)
 
   const [cart, setCart] = useState(cartInStorage)
 
@@ -48,6 +51,12 @@ const Product = () => {
 
 
   const addToCart = (selectedProduct) => {
+
+    if (!user) {
+      setShowSignIn(true)
+      return
+    }
+
     if (cart && cart.length > 0) {
       let findItem = cart.filter((item, i) => item.id === selectedProduct.id)
       let newCart = [...cart]
@@ -201,7 +210,9 @@ const Product = () => {
               <div className='product-price'>${product[productId]?.price.toFixed(2)}</div>
               <div className='product-cart-outer'>
                 {/* {user && user.id === product[productId].seller_id ? <button className='product-cart-button'>Unable</button> : <button className='product-cart-button' onClick={() => addToCart(product[productId])}>Add to cart</button>} */}
-                <button className='product-cart-button' onClick={() => addToCart(product[productId])}>Add to cart</button>
+                {!user && <button className='product-cart-button' onClick={() => addToCart(product[productId])}>Add to cart</button>}
+                {user && user?.id !== product[productId]?.seller_id && <button className='product-cart-button' onClick={() => addToCart(product[productId])}>Add to cart</button>}
+                {user && user?.id == product[productId]?.seller_id && <button className='disabled-product-cart-button'>Unable to purchase</button>}
               </div>
             </div>
             <div className='product-right-lower'>
@@ -211,6 +222,11 @@ const Product = () => {
           </div>
         </div>
       }
+      {showSignIn && (
+        <Modal onClose={() => setShowSignIn(false)}>
+          <LoginForm setShowSignIn={setShowSignIn} />
+        </Modal>
+      )}
     </>
   )
 }
