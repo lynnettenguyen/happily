@@ -34,8 +34,9 @@ Live Site: [happily](https://happily-app-etsy-clone.herokuapp.com/)
 ## Shop by Category
 ![Category](https://user-images.githubusercontent.com/98368183/189034876-b7592329-7c69-499e-96ce-106cebea4c45.png)
 
-## Search by Keywords
-![Search](https://user-images.githubusercontent.com/98368183/189196125-8f82b0b7-9bc1-41c3-9aff-938d0b755e65.png)
+## Search Products by Keywords
+![Keyword](https://user-images.githubusercontent.com/98368183/189196791-a7d8ef82-496f-4397-acd6-24cfb1b4c179.png)
+![Search](https://user-images.githubusercontent.com/98368183/189197014-c0a83da7-9124-4261-b98c-5b92034bc700.png)
 
 ## View Product Details
 ![Product](https://user-images.githubusercontent.com/98368183/189035269-5fc21528-128c-4f03-915d-495e0fc9a6d1.png)
