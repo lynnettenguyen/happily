@@ -22,6 +22,7 @@
   border-radius: 20px;
   font-size: 13px;
   color: rgba(0, 0, 0, 0.822);
+  cursor: pointer;
 }
 
 .login-field-outer {
@@ -54,6 +55,7 @@
   font-family: GraphikMedium, Arial, Helvetica, sans-serif;
   height: 40px;
   border-radius: 20px;
+  cursor: pointer;
 }
 
 .login-form-button {
@@ -62,13 +64,6 @@
 
 .login-form-demo-button {
   margin: 1rem 0;
-}
-
-.login-form-button:hover,
-.login-form-demo-button:hover,
-.login-register-button:hover,
-.login-input:hover {
-  cursor: pointer;
 }
 
 .login-error-outer {

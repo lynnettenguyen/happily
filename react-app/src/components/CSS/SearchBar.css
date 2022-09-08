@@ -13,6 +13,7 @@
   font-family: GraphikLight, Arial, Helvetica, sans-serif;
   padding-left: 20px;
   width: 100%;
+  cursor: default;
 }
 
 .searchBar-glass {

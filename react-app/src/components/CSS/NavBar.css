@@ -78,11 +78,6 @@ NavLink {
   margin: 0 10px 0 2px;
 }
 
-.navBar-searchBar-outer:hover,
-.searchBar-input:hover {
-  cursor: pointer;
-}
-
 .navBar-featured-outer {
   display: flex;
   justify-content: center;

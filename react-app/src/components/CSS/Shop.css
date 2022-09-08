@@ -180,6 +180,10 @@
   margin: 0.3rem 0;
 }
 
+.product-form-select {
+  cursor: pointer;
+}
+
 .product-form-input,
 .product-form-select,
 .product-form-text-area {
@@ -193,7 +197,6 @@
   margin-top: 0.2rem;
   font-family: GraphikRegular, Arial, Helvetica, sans-serif;
   font-size: 12px;
-  cursor: pointer;
 }
 
 .product-form-text-area {
