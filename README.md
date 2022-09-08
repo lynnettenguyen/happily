@@ -28,6 +28,9 @@ Live Site: [happily](https://happily-app-etsy-clone.herokuapp.com/)
 ## Landing Page
 ![LandingPage](https://user-images.githubusercontent.com/98368183/189034830-6cd90d26-bad4-4bb7-b354-4fae1a0b286c.png)
 
+## Profile Navigation
+![Profile](https://user-images.githubusercontent.com/98368183/189041311-706083b4-d86d-4bac-927d-4d46c8db151b.png)
+
 ## Shop by Category
 ![Category](https://user-images.githubusercontent.com/98368183/189034876-b7592329-7c69-499e-96ce-106cebea4c45.png)
 
