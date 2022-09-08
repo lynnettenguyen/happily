@@ -5,22 +5,21 @@ import { Modal } from "../Context/modal";
 import '../CSS/Reviews.css'
 import unfilledStar from '../CSS/Images/review-star-grey.svg'
 import filledStar from '../CSS/Images/review-star-black.svg'
-import { addNewReview, getAllUserReviews } from "../../store/reviews";
+import { addNewReview, getAllUserReviews, updateReview } from "../../store/reviews";
 
-const Reviews = ({ productId, purchaseId, reviewStars, setReviewStars, setAddReview, formatDate }) => {
+const Reviews = ({ productId, purchaseId, reviewStars, setReviewStars, setAddReview, formatDate, editReview, setEditReview, reviewId }) => {
   const dispatch = useDispatch()
   const user = useSelector(state => state.session.user)
   const products = useSelector(state => state.products)
   const purchases = useSelector(state => state.purchases)
-  const [content, setContent] = useState("")
+  const userReviews = useSelector(state => state.reviews)
+  const [content, setContent] = useState(userReviews[productId] ? userReviews[productId].content : "")
   const [errors, setErrors] = useState([])
   const [ratedStar1, setRatedStar1] = useState(false)
   const [ratedStar2, setRatedStar2] = useState(false)
   const [ratedStar3, setRatedStar3] = useState(false)
   const [ratedStar4, setRatedStar4] = useState(false)
   const [ratedStar5, setRatedStar5] = useState(false)
-
-  const userReviews = useSelector(state => state.reviews)
 
   useEffect(() => {
     if (reviewStars >= 1) setRatedStar1(true)
@@ -71,28 +70,50 @@ const Reviews = ({ productId, purchaseId, reviewStars, setReviewStars, setAddRev
 
     if (errors.length > 0) return
 
-    const reviewData = {
-      user_id: user.id,
-      product_id: productId,
-      stars: reviewStars,
-      content
-    }
+    if (editReview) {
+      const reviewData = {
+        review_id: reviewId,
+        product_id: productId,
+        stars: reviewStars,
+        content
+      }
 
-    dispatch(addNewReview(reviewData))
-    dispatch(getAllUserReviews())
-    setAddReview(false)
+      dispatch(updateReview(reviewData))
+      dispatch(getAllUserReviews())
+      setEditReview(false)
+      setAddReview(false)
+
+
+    } else {
+      const reviewData = {
+        user_id: user.id,
+        product_id: productId,
+        stars: reviewStars,
+        content
+      }
+
+      dispatch(addNewReview(reviewData))
+      dispatch(getAllUserReviews())
+      setAddReview(false)
+    }
   }
 
   return (
     <>
       <Modal onClose={() => setAddReview(false)}>
         <form onSubmit={handleReview} className='create-review-form'>
-          <div className="create-review-header">Leave a Review</div>
+          <div className="review-return-outer">
+            <button className="review-return-button" onClick={() => { setAddReview(false) }}>Return to Purchases</button>
+          </div>
+          <div className="create-review-header">{editReview ? "Update Review" : "Leave a Review"}</div>
           <div className="review-product-upper">
             <div className="review-product-img-outer"><img src={products[productId].images[0]} className="review-product-img"></img></div>
             <div className="review-product-right">
               <div className="review-product-right-name">{products[productId].name}</div>
-              <div className="review-product-right-shop-name">Purchased from {purchases[purchaseId].shop_name} on {formatDate(purchases[purchaseId].created_at)}</div>
+              <div className="review-product-right-shop-name">Purchased from
+                <span className="review-inner-text">&nbsp;{purchases[purchaseId].shop_name}</span> on
+                <span className="review-inner-text">&nbsp;{formatDate(purchases[purchaseId].created_at)}</span>
+              </div>
             </div>
           </div>
           <div className="create-review-stars-outer">
@@ -126,7 +147,7 @@ const Reviews = ({ productId, purchaseId, reviewStars, setReviewStars, setAddRev
             />
           </div>
           <div className="create-review-button-outer">
-            <button className="create-review-button">Submit review</button>
+            <button className="create-review-button">{editReview ? "Update review" : "Submit review"}</button>
           </div>
         </form>
       </Modal>

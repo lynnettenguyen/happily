@@ -38,6 +38,10 @@
   padding-left: 15px;
 }
 
+.review-inner-text {
+  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
+}
+
 .create-review-stars-outer {
   display: flex;
   flex-direction: row;
@@ -99,8 +103,8 @@
   background-color: black;
   color: white;
   font-family: GraphikRegular, Arial, Helvetica, sans-serif;
-  height: 36px;
-  padding: 0 10px;
+  height: 34px;
+  padding: 3px 10px 0;
   border-radius: 20px;
   margin-top: 0.5rem;
   cursor: pointer;
@@ -116,4 +120,23 @@
   font-size: 0.8rem;
   color: red;
   margin: 0.3rem 0;
+}
+
+.review-return-outer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.review-return-button {
+  width: 134px;
+  padding: 5px 0;
+  border: none;
+  background-color: #F5F5F1;
+  color: #050404a6;
+  border-radius: 10px;
+  font-size: 11px;
+  font-family: GraphikThin, Arial, Helvetica, sans-serif;
+  margin-bottom: 5px;
+  cursor: pointer;
 }

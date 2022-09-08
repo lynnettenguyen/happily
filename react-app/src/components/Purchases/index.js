@@ -31,6 +31,8 @@ const Purchases = () => {
   const [reviewStars, setReviewStars] = useState(false)
   const [productId, setProductId] = useState([])
   const [refreshReview, setRefreshReview] = useState(false)
+  const [editReview, setEditReview] = useState(false)
+  const [reviewId, setReviewId] = useState()
 
   useEffect(() => {
     dispatch(getAllProducts())
@@ -103,8 +105,13 @@ const Purchases = () => {
     setReviewStars(num)
   }
 
-  const handleEditReview = (id) => {
-
+  const handleEditReview = (review, id) => {
+    setProductId(review.product_id)
+    setPurchaseId(id)
+    setReviewStars(review.stars)
+    setReviewId(review.id)
+    setEditReview(true);
+    setAddReview(true);
   }
 
   const handleDeleteReview = (id) => {
@@ -173,14 +180,14 @@ const Purchases = () => {
                       <img src={ratedStar4 && purchase.id === purchaseId ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(4, purchase.id)} onMouseLeave={() => handleStarOff(4, purchase.id)} onClick={() => handleReview(4, purchase.product_id, purchase.id)}></img>
                       <img src={ratedStar5 && purchase.id === purchaseId ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(5, purchase.id)} onMouseLeave={() => handleStarOff(5, purchase.id)} onClick={() => handleReview(5, purchase.product_id, purchase.id)}></img>
                     </div> : <div className="purchase-user-review-outer">
-                        <div className="purchase-user-review-upper">
-                          <span className="purchase-user-review-header">Your Review</span>
+                      <div className="purchase-user-review-upper">
+                        <span className="purchase-user-review-header">Your Review</span>
                         <span>{stars(userReviews[purchase.product_id]?.stars)}</span>
                       </div>
                       <div className="purchase-user-review-content">{userReviews[purchase.product_id]?.content}</div>
                       <div className="purchase-review-buttons-outer">
-                          <button onClick={() => handleEditReview(userReviews[purchase.product_id].id)} className='purchase-review-edit-button'>Edit</button>
-                          <button onClick={() => handleDeleteReview(userReviews[purchase.product_id].id)} className='purchase-review-delete-button'>Delete</button>
+                        <button onClick={() => handleEditReview(userReviews[purchase.product_id], purchase.id)} className='purchase-review-edit-button'>Edit</button>
+                        <button onClick={() => handleDeleteReview(userReviews[purchase.product_id].id)} className='purchase-review-delete-button'>Delete</button>
                       </div>
                     </div>
                     }
@@ -234,7 +241,7 @@ const Purchases = () => {
             </div>
           </Modal>
         )}
-        {addReview && <Reviews reviewStars={reviewStars} setReviewStars={setReviewStars} productId={productId} purchaseId={purchaseId} setAddReview={setAddReview} formatDate={formatDate} />}
+        {addReview && <Reviews reviewStars={reviewStars} setReviewStars={setReviewStars} productId={productId} purchaseId={purchaseId} setAddReview={setAddReview} formatDate={formatDate} editReview={editReview} setEditReview={setEditReview} reviewId={reviewId} />}
       </div> : <div className="no-purchases-main">No Purchases? <Link to='/' className="no-purchases-continue">Continue Browsing</Link>!</div>}
     </div>
   )
