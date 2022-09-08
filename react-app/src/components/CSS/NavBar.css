@@ -3,7 +3,6 @@ NavLink {
 }
 
 .navBar-main {
-  border-bottom: 1px solid rgba(128, 128, 128, 0.242);
   box-sizing: border-box;
   min-height: 101px;
   margin: 0 auto;
@@ -65,6 +64,7 @@ NavLink {
 
 .searchBar-main {
   width: 55%;
+  height: 48.5px;
 }
 
 .navBar-searchBar-outer {

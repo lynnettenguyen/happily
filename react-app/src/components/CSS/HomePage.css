@@ -13,13 +13,13 @@
 }
 
 .homepage-back-drop {
+  border-top: 1px solid #e7dbcbb0;
   height: 180px;
   position: absolute;
   width: 100%;
   z-index: -3;
   background-color: #FDEBD2;
   top: 120px;
-
 }
 
 .feature-circle-main {
