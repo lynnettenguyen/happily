@@ -38,7 +38,9 @@ const ProductsBySearch = () => {
       <div className='search-product-main'>
         <div className='search-upper'>
           <div className='search-header'>
-            {products?.length} search results for "{category}"
+            {products?.length > 0 ?
+              <> {products?.length} search results for "{category}"</> :
+              <> We couldn't find any results for "{category}". &nbsp; <div className='search-again-message'>Try searching for something else instead?</div></>}
           </div>
         </div>
         <div className='search-main'>
