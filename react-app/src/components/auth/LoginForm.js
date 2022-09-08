@@ -18,6 +18,7 @@ const LoginForm = ({ setShowSignIn }) => {
     if (data) {
       setErrors(data);
     }
+    setShowSignIn(false)
   };
 
   const updateEmail = (e) => {

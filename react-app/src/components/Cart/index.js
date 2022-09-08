@@ -21,7 +21,7 @@ const Cart = () => {
       setCart(JSON.parse(data))
     }
     loadCart()
-  }, [cart.length, updateCart])
+  }, [updateCart])
 
   const handleCheckOut = async (e) => {
     e.preventDefault()

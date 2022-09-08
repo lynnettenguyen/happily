@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import { findProductById, getAllProducts } from '../../store/products'
 import { getUsers } from '../../store/users'
 import '../CSS/HomePage.css'
+import Footer from '../Navigation/Footer'
+
 
 const HomePage = () => {
   const dispatch = useDispatch()
@@ -82,6 +84,7 @@ const HomePage = () => {
           )
         })}
       </div >
+      <Footer />
     </>
   )
 }

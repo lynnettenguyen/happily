@@ -1,0 +1,85 @@
+.footer-outer-main {
+  position: absolute;
+  bottom: -1;
+  left: 0;
+  width: 100%;
+}
+
+.main-footer-img {
+  transform: rotate(180deg);
+  /* position: absolute;
+  bottom: 0;
+  left: 0; */
+  width: 100%;
+}
+
+.footer-upper {
+  /* position: relative; */
+  height: 35px;
+}
+
+.footer-middle {
+  width: 100%;
+  height: 20px;
+  background-color: #4D6BC6;
+}
+
+.footer-lower {
+  min-width: 100%;
+  height: 100px;
+  background-color: #2F466C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.socials-outer,
+.socials-inner {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.socials-inner {
+  align-items: flex-end;
+  margin: 0 10px;
+}
+
+.social-logo-github {
+  background-color: white;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+}
+
+.social-logo-linked {
+  background-color: white;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
+}
+
+.social-text {
+  padding-bottom: 10px;
+  color: white;
+  font-family: GraphikLight, Arial, Helvetica, sans-serif;
+  margin: 0 10px;
+}
+
+.footer-bottom {
+  min-width: 100%;
+  height: 50px;
+  background-color: #232347;
+  box-sizing: border-box;
+}
+
+.footer-bottom-text {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 12rem;
+  color: white;
+  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
+  padding-top: 16px;
+  font-size: 0.85rem;
+}

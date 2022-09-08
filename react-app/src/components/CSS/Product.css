@@ -1,7 +1,7 @@
 .product-main {
   display: flex;
   margin: 1.5rem auto;
-  max-width: 70%;
+  max-width: 72%;
 }
 
 .product-left-main,
@@ -39,7 +39,7 @@
   overflow-wrap: break-word;
   word-wrap: break-word;
   hyphens: auto;
-  width: 540px;
+  width: 480px;
 }
 
 .product-price {

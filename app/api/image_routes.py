@@ -23,7 +23,7 @@ def upload_image():
     # <class 'werkzeug.datastructures.FileStorage'>
 
     if not allowed_file(image.filename):
-        return {"errors": "Image is not a permitted file type (file type must be .webp, .png, .jpeg, or .jpg)"}, 400
+        return {"errors": "Image is not a permitted file type (file type must be .gif, .jpeg, .jpg, .png, .svg, .tiff, .webp"}, 400
 
     image.filename = get_unique_filename(image.filename)
 

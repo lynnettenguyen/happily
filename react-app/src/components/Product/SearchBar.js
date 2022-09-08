@@ -30,6 +30,7 @@ const SearchBar = () => {
           className='searchBar-input'
           value={keyword}
           onChange={(e) => setKeyword(e.target.value)}
+          maxLength="50"
         />
         <button type='submit' className='searchBar-button'><img src={magnifyingGlass} className='searchBar-glass' alt='search'></img></button>
       </form>
