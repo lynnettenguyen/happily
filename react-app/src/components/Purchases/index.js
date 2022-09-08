@@ -136,10 +136,10 @@ const Purchases = () => {
 
     return (
       <>
-        {starCount.map((star) => {
+        {starCount.map((star, i) => {
           return (
             <>
-              <img src={star} className='user-review-star-display'></img>
+              <img src={star} key={i} className='user-review-star-display' alt='star'></img>
             </>
           )
         })}
@@ -156,7 +156,7 @@ const Purchases = () => {
       {purchases.length > 0 ? <div className="purchases-details-outer">
         {purchases?.reverse().map((purchase, i) => {
           return (
-            <div className="purchases-details-main">
+            <div className="purchases-details-main" key={i}>
               <div div className="purchases-details-left">
                 <div className="purchases-upper-outer">
                   <div className="purchase-shop-total">
@@ -171,18 +171,18 @@ const Purchases = () => {
                 <div className="purchases-bottom-outer">
                   <div className="purchase-product-img-outer">
                     <Link to={`/products/${purchase.product_id}`}>
-                      {products[purchase.product_id]?.images.length > 0 && <img src={products[purchase.product_id]?.images[0]} className='purchase-product-img'></img>}
+                      {products[purchase.product_id]?.images.length > 0 && <img src={products[purchase.product_id]?.images[0]} className='purchase-product-img' alt='product'></img>}
                     </Link>
                   </div>
                   <div className="purchase-product-info">
                     <div className="purchase-product-name">{products[purchase.product_id]?.name}{purchase.product_id}</div>
                     {!Object.keys(userReviews).includes((purchase.product_id).toString()) ? <div className="purchase-product-review-outer">
                       <div className="purchase-review-header">Review this Item</div>
-                      <img src={ratedStar1 && purchase.id === purchaseId ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(1, purchase.id)} onMouseLeave={() => handleStarOff(1, purchase.id)} onClick={() => handleReview(1, purchase.product_id, purchase.id)}></img>
-                      <img src={ratedStar2 && purchase.id === purchaseId ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(2, purchase.id)} onMouseLeave={() => handleStarOff(2, purchase.id)} onClick={() => handleReview(2, purchase.product_id, purchase.id)}></img>
-                      <img src={ratedStar3 && purchase.id === purchaseId ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(3, purchase.id)} onMouseLeave={() => handleStarOff(3, purchase.id)} onClick={() => handleReview(3, purchase.product_id, purchase.id)}></img>
-                      <img src={ratedStar4 && purchase.id === purchaseId ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(4, purchase.id)} onMouseLeave={() => handleStarOff(4, purchase.id)} onClick={() => handleReview(4, purchase.product_id, purchase.id)}></img>
-                      <img src={ratedStar5 && purchase.id === purchaseId ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(5, purchase.id)} onMouseLeave={() => handleStarOff(5, purchase.id)} onClick={() => handleReview(5, purchase.product_id, purchase.id)}></img>
+                      <img src={ratedStar1 && purchase.id === purchaseId ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(1, purchase.id)} onMouseLeave={() => handleStarOff(1, purchase.id)} onClick={() => handleReview(1, purchase.product_id, purchase.id)} alt='star'></img>
+                      <img src={ratedStar2 && purchase.id === purchaseId ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(2, purchase.id)} onMouseLeave={() => handleStarOff(2, purchase.id)} onClick={() => handleReview(2, purchase.product_id, purchase.id)} alt='star'></img>
+                      <img src={ratedStar3 && purchase.id === purchaseId ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(3, purchase.id)} onMouseLeave={() => handleStarOff(3, purchase.id)} onClick={() => handleReview(3, purchase.product_id, purchase.id)} alt='star'></img>
+                      <img src={ratedStar4 && purchase.id === purchaseId ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(4, purchase.id)} onMouseLeave={() => handleStarOff(4, purchase.id)} onClick={() => handleReview(4, purchase.product_id, purchase.id)} alt='star'></img>
+                      <img src={ratedStar5 && purchase.id === purchaseId ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(5, purchase.id)} onMouseLeave={() => handleStarOff(5, purchase.id)} onClick={() => handleReview(5, purchase.product_id, purchase.id)} alt='star'></img>
                     </div> : <div className="purchase-user-review-outer">
                       <div className="purchase-user-review-upper">
                         <span className="purchase-user-review-header">Your Review</span>

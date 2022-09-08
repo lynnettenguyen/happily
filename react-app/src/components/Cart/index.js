@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, useParams, useHistory } from "react-router-dom";
-import '../CSS/Cart.css'
-import { nanoid } from 'nanoid'
+import { Link, useHistory } from "react-router-dom";
+import { Modal } from '../Context/modal';
+import LoginForm from '../auth/LoginForm';
 import { createPurchase, getAllPurchases } from '../../store/purchases';
+import { nanoid } from 'nanoid'
+import '../CSS/Cart.css'
 
 const Cart = () => {
   const user = useSelector(state => state.session.user)
@@ -11,6 +13,7 @@ const Cart = () => {
   const history = useHistory()
   const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')))
   const [updateCart, setUpdateCart] = useState(false)
+  const [showSignIn, setShowSignIn] = useState(false)
 
   useEffect(() => {
     const loadCart = async () => {
@@ -22,6 +25,11 @@ const Cart = () => {
 
   const handleCheckOut = async (e) => {
     e.preventDefault()
+
+    if (!user) {
+      setShowSignIn(true)
+      return
+    }
 
     let purchaseData;
     let count = 0
@@ -41,7 +49,6 @@ const Cart = () => {
       const response = dispatch(createPurchase(purchaseData))
       if (response) {
         count += 1;
-        console.log(purchaseData)
       }
     })
 
@@ -102,12 +109,12 @@ const Cart = () => {
         </div>
         <div className='cart-main'>
           <div className='cart-items-outer'>
-            {cart && Object.values(cart)?.reverse().map((product) => {
+            {cart && Object.values(cart)?.reverse().map((product, i) => {
               return (
-                <div className='cart-outer'>
+                <div className='cart-outer' key={i}>
                   <Link to={`/products/${product.id}`}>
                     <div className='cart-product-img-outer'>
-                      {product?.images?.length > 0 && <img src={product?.images[0]} className='cart-product-img'></img>}
+                      {product?.images?.length > 0 && <img src={product?.images[0]} className='cart-product-img' alt='product'></img>}
                     </div>
                   </Link>
                   <div className='cart-product-name'>
@@ -118,7 +125,7 @@ const Cart = () => {
                     <div className='cart-product-quantity'>{product.quantity}</div>
                     <div onClick={() => handleAddQuantity(product)} className='quantity-button'>+</div>
                   </div>
-                  <div className='cart-product-price'>${product.price}</div>
+                  <div className='cart-product-price'>${convertTotal(product.price)}</div>
                 </div>
               )
             })}
@@ -150,7 +157,13 @@ const Cart = () => {
           </div>
         </div>
       </> : <div className='cart-header-empty'>Your cart is empty.</div>}
+      {showSignIn && (
+        <Modal onClose={() => setShowSignIn(false)}>
+          <LoginForm setShowSignIn={setShowSignIn} />
+        </Modal>
+      )}
     </form>
+
   )
 }
 

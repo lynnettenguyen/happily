@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { loadProductsByOwner, updateProduct } from "../../store/products";
+import { updateProduct } from "../../store/products";
 import '../CSS/EditProduct.css'
 
 const EditProduct = ({ productId, setShowEditForm }) => {
   const dispatch = useDispatch()
-  const user = useSelector(state => state.session.user)
   const products = useSelector(state => state.products)
   const categories = useSelector(state => Object.values(state.categories))
   const product = products[productId]

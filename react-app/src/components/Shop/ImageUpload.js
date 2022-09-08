@@ -82,40 +82,40 @@ const ImageUpload = ({ productId }) => {
         <div className="photo-upload-main">
           <div className={image ? 'file-upload-outer-image' : 'file-upload-outer'}>
             <label for='file-upload' className='file-upload-label'>
-              <img src={image ? URL.createObjectURL(image) : photo} className={image ? 'photo-preview' : 'file-upload-image'}></img>
+              <img src={image ? URL.createObjectURL(image) : photo} className={image ? 'photo-preview' : 'file-upload-image'} alt='photo'></img>
               {image ?
                 <div className="delete-image-outer">
-                  <img src={whiteX} className='delete-image-x'></img>
+                  <img src={whiteX} className='delete-image-x' alt='delete'></img>
                 </div>
                 : 'Add Photo'}
             </label>
           </div>
           {image && <div className={image2 ? 'file-upload-outer-image' : 'file-upload-outer'}>
             <label for='file-upload2' className='file-upload-label'>
-              <img src={image2 ? URL.createObjectURL(image2) : photo} className={image2 ? 'photo-preview' : 'file-upload-image'}></img>
+              <img src={image2 ? URL.createObjectURL(image2) : photo} className={image2 ? 'photo-preview' : 'file-upload-image'} alt='photo'></img>
               {image2 ?
                 <div className="delete-image-outer">
-                  <img src={whiteX} className='delete-image-x'></img>
+                  <img src={whiteX} className='delete-image-x' alt='delete'></img>
                 </div>
                 : 'Add Photo'}
             </label>
           </div>}
           {image && image2 && <div className={image3 ? 'file-upload-outer-image' : 'file-upload-outer'}>
             <label for='file-upload3' className='file-upload-label'>
-              <img src={image3 ? URL.createObjectURL(image3) : photo} className={image3 ? 'photo-preview' : 'file-upload-image'}></img>
+              <img src={image3 ? URL.createObjectURL(image3) : photo} className={image3 ? 'photo-preview' : 'file-upload-image'} alt='photo'></img>
               {image3 ?
                 <div className="delete-image-outer">
-                  <img src={whiteX} className='delete-image-x'></img>
+                  <img src={whiteX} className='delete-image-x' alt='delete'></img>
                 </div>
                 : 'Add Photo'}
             </label>
           </div>}
           {image && image2 && image3 && <div className={image4 ? 'file-upload-outer-image' : 'file-upload-outer'}>
             <label for='file-upload4' className='file-upload-label'>
-              <img src={image4 ? URL.createObjectURL(image4) : photo} className={image4 ? 'photo-preview' : 'file-upload-image'}></img>
+              <img src={image4 ? URL.createObjectURL(image4) : photo} className={image4 ? 'photo-preview' : 'file-upload-image'} alt='photo'></img>
               {image4 ?
                 <div className="delete-image-outer">
-                  <img src={whiteX} className='delete-image-x'></img>
+                  <img src={whiteX} className='delete-image-x' alt='delete'></img>
                 </div>
                 : 'Add Photo'}
             </label>
@@ -153,9 +153,9 @@ const ImageUpload = ({ productId }) => {
           <p className="loading-message">Loading...</p>
         </div>}
         {errors && <div className="image-errors-outer">
-          {errors?.map((error) => {
+          {errors?.map((error, i) => {
             return (
-              <div className="image-error">*{error}</div>
+              <div key={i} className="image-error">*{error}</div>
             )
           })}
         </div>

@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
-import '../CSS/LoginForm.css'
 import SignUpForm from './SignUpForm';
+import '../CSS/LoginForm.css'
 
 const LoginForm = ({ setShowSignIn }) => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
   const [showRegister, setShowRegister] = useState(false)
@@ -32,10 +30,6 @@ const LoginForm = ({ setShowSignIn }) => {
 
   const handleRegister = () => {
     setShowRegister(true)
-  }
-
-  if (user) {
-    return <Redirect to='/' />;
   }
 
   return (

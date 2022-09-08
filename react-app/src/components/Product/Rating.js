@@ -1,7 +1,6 @@
 import star from '../CSS/Images/filled-star.svg'
 import unFilledStar from '../CSS/Images/blank-star.svg'
 import halfStar from '../CSS/Images/half-star.svg'
-
 import unFilledStarRating from '../CSS/Images/review-star-grey.svg'
 import filledStarRating from '../CSS/Images/review-star-black.svg'
 
@@ -21,17 +20,3 @@ export const ratingTwoStar = [filledStarRating, filledStarRating, unFilledStarRa
 export const ratingThreeStar = [filledStarRating, filledStarRating, filledStarRating, unFilledStarRating, unFilledStarRating]
 export const ratingFourStar = [filledStarRating, filledStarRating, filledStarRating, filledStarRating, unFilledStarRating]
 export const ratingFiveStar = [filledStarRating, filledStarRating, filledStarRating, filledStarRating, filledStarRating]
-
-export const stars = (starCount) => {
-  return (
-    <>
-      {starCount.map((star) => {
-        return (
-          <>
-            <img src={star}></img>
-          </>
-        )
-      })}
-    </>
-  )
-}
