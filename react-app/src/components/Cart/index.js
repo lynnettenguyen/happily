@@ -21,7 +21,7 @@ const Cart = () => {
       setCart(JSON.parse(data))
     }
     loadCart()
-  }, [updateCart])
+  }, [cart.length, updateCart])
 
   const handleCheckOut = async (e) => {
     e.preventDefault()
@@ -73,15 +73,16 @@ const Cart = () => {
     return price.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
   }
 
-  const handleRemoveQuantity = (product) => {
+  const handleRemoveQuantity = async (product) => {
     let findItem = cart.filter((item, i) => item.id === product.id)
     let newCart = [...cart]
 
-    if (findItem[0].quantity >= 2) {
+    if (findItem[0].quantity > 1) {
       findItem[0].quantity--;
     } else {
       let remainingItems = cart.filter((item, i) => item.id !== product.id)
-      let data = localStorage.setItem('cart', JSON.stringify(remainingItems))
+      console.log(remainingItems, 'remaining')
+      let data = await localStorage.setItem('cart', JSON.stringify(remainingItems))
       if (data) {
         setCart(JSON.parse(data))
       } else {
