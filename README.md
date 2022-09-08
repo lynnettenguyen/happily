@@ -31,7 +31,7 @@ Live Site: [happily](https://happily-app-etsy-clone.herokuapp.com/)
 ## Shop by Category
 ![Category](https://user-images.githubusercontent.com/98368183/189034876-b7592329-7c69-499e-96ce-106cebea4c45.png)
 
-## Product Page
+## View Product Details
 ![Product](https://user-images.githubusercontent.com/98368183/189035269-5fc21528-128c-4f03-915d-495e0fc9a6d1.png)
 
 ## Shop Manager
@@ -41,10 +41,10 @@ Live Site: [happily](https://happily-app-etsy-clone.herokuapp.com/)
 ![Cart](https://user-images.githubusercontent.com/98368183/189035094-43a6f6fc-9226-4cfe-b0e1-b968bfa5f7e0.png)
 
 ## Purchases
-![Purchases](https://user-images.githubusercontent.com/98368183/189034975-8d191c8f-07c2-4b1e-b809-346bafc7bfd5.png)
+![Purchases](https://user-images.githubusercontent.com/98368183/189035869-5703e2ca-434c-4aff-a76a-bff31172da4d.png)
 
-## Reviews
-![Reviews](https://user-images.githubusercontent.com/98368183/189035553-e1ff1eb2-a1cb-4db1-a0ad-fcf21123db44.png)
+## Add Reviews
+![Reviews](https://user-images.githubusercontent.com/98368183/189035780-7664e7e8-b2e2-40f7-af8a-b27f9d3f57b3.png)
 
 
 ## Steps to clone locally:
