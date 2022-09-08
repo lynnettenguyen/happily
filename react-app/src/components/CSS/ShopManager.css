@@ -91,7 +91,7 @@
 .delete-confirm-outer {
   display: flex;
   flex-direction: column;
-  padding: 1.5rem;
+  padding: 1rem;
   align-items: center;
 }
 

@@ -13,4 +13,4 @@ def shop_name_exists(form, field):
 
 class ShopForm(FlaskForm):
     shop_name = StringField(
-        'shop_name', validators=[DataRequired(), shop_name_exists, Length(min=4, max=20, message='Your shop\'s name must be between 4 and 20 characters'), Regexp('^[a-zA-Z]+$', message='Your shop\'s name must only include alphabetical characters')])
+        'shop_name', validators=[DataRequired(), shop_name_exists, Length(min=4, max=30, message='Your shop\'s name must be between 4 and 30 characters'), Regexp('^[a-zA-Z]+$', message='Your shop\'s name must only include alphabetical characters')])

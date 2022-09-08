@@ -1,0 +1,142 @@
+.create-review-form {
+  padding: 1.5rem;
+  width: 500px;
+}
+
+.create-review-header {
+  font-family: GuardianEgypLight, Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.review-product-upper {
+  display: flex;
+  flex-direction: row;
+}
+
+.review-product-img-outer {
+  width: 100px;
+  height: 100px;
+}
+
+.review-product-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+}
+
+.review-product-right-name {
+  font-family: GraphikMedium, Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  padding: 0 0 15px 15px;
+}
+
+.review-product-right-shop-name {
+  font-family: GraphikLight, Arial, Helvetica, sans-serif;
+  font-size: 0.9rem;
+  padding-left: 15px;
+}
+
+.review-inner-text {
+  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
+}
+
+.create-review-stars-outer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #F5F5F1;
+  margin-top: 1rem;
+  padding: 10px;
+}
+
+.create-stars-review-header {
+  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
+  font-size: 0.9rem;
+  padding-right: 20px;
+}
+
+.create-stars-display {
+  height: 30px;
+  cursor: pointer;
+}
+
+.create-review-instructions {
+  font-size: 0.95rem;
+  margin: 1rem 0;
+}
+
+.create-review-instructions-header {
+  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
+  margin-bottom: 0.3rem;
+}
+
+.create-review-instructions-section {
+  font-family: GraphikLight, Arial, Helvetica, sans-serif;
+  margin-bottom: 0.2rem;
+}
+
+.create-review-content-outer {
+  width: 500px;
+}
+
+.create-review-text-area {
+  width: 100%;
+  min-height: 200px;
+  outline: none;
+  font-family: GraphikLight, Arial, Helvetica, sans-serif;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+
+.create-review-button-outer {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.create-review-button {
+  border: none;
+  background-color: black;
+  color: white;
+  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
+  height: 34px;
+  padding: 3px 10px 0;
+  border-radius: 20px;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+
+.create-review-content-header {
+  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
+  font-size: 0.9rem;
+}
+
+.create-review-errors {
+  font-family: GraphikMedium, Arial, Helvetica, sans-serif;
+  font-size: 0.8rem;
+  color: red;
+  margin: 0.3rem 0;
+}
+
+.review-return-outer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.review-return-button {
+  width: 134px;
+  padding: 5px 0;
+  border: none;
+  background-color: #F5F5F1;
+  color: #050404a6;
+  border-radius: 10px;
+  font-size: 11px;
+  font-family: GraphikThin, Arial, Helvetica, sans-serif;
+  margin-bottom: 5px;
+  cursor: pointer;
+}

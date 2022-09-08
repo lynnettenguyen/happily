@@ -97,7 +97,7 @@
 
 .product-form-header {
   text-align: center;
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 .product-form-field {
@@ -118,7 +118,7 @@
   color: white;
   font-family: GraphikLight, Arial, Helvetica, sans-serif;
   font-size: 14px;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   width: 400px;
   text-align: center;
 }
@@ -130,13 +130,13 @@
   border: none;
   padding: 5px 15px;
   box-sizing: border-box;
-  margin-bottom: 1rem;
+  margin: 0.5rem 0 1rem;
+  outline: none;
 }
 
 .save-button-outer {
   display: flex;
   justify-content: flex-end;
-  margin-top: 1rem;
 }
 
 .save-button {
@@ -163,11 +163,21 @@
   padding-left: 15px;
 }
 
+.product-shop-errors {
+  font-family: GraphikMedium, Arial, Helvetica, sans-serif;
+  font-size: 0.8rem;
+  color: red;
+  margin: 0 0 0.5rem;
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+}
+
 .product-errors {
   font-family: GraphikMedium, Arial, Helvetica, sans-serif;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: red;
-  margin: 0.5rem 0;
+  margin: 0.3rem 0;
 }
 
 .product-form-input,

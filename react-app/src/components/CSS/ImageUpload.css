@@ -1,25 +1,25 @@
 .upload-image-main {
   margin: 1.5rem auto;
-  max-width: 49%;
 }
 
 .photo-header {
   font-family: GuardianEgypLight, Arial, Helvetica, sans-serif;
   font-size: 26px;
   color: white;
-  margin-bottom: 1rem;
+  margin: 0 1rem 0.5rem;
 }
 
 .photo-caption {
   font-family: GraphikRegular, Arial, Helvetica, sans-serif;
   font-size: 14px;
   color: white;
+  margin-left: 1rem;
 }
 
 .photo-upload-main {
   display: flex;
-  justify-content: center;
-  box-sizing: border-box;
+  overflow: hidden;
+  width: fit-content;
 }
 
 .file-upload-label {
@@ -90,6 +90,7 @@
 .image-upload-button-outer {
   display: flex;
   justify-content: flex-end;
+  width: 940px;
 }
 
 .image-upload-button {

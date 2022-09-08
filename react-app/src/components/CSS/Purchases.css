@@ -14,7 +14,8 @@
   font-size: 1.5rem;
 }
 
-.no-purchases-main, .purchases-details-outer {
+.no-purchases-main,
+.purchases-details-outer {
   padding-top: 7.5rem;
   margin: 0 14rem;
 }
@@ -29,7 +30,7 @@
 
 .no-purchases-continue:hover {
   cursor: pointer;
-  color:rgba(82, 82, 82, 0.651)
+  color: rgba(82, 82, 82, 0.651)
 }
 
 .purchases-details-main {
@@ -105,8 +106,51 @@
   margin-bottom: 1rem;
 }
 
-.purchase-review-header {
+.purchase-user-review-outer {
+  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
+  background-color: #F5F5F1;
+  font-size: 0.85rem;
+  padding: 10px;
+  margin-bottom: 1rem;
+}
+
+.purchase-user-review-upper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+.purchase-review-header,
+.purchase-user-review-header {
   padding-right: 10px;
+}
+
+.purchase-user-review-content {
+  margin-bottom: 0.8rem;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  max-width: 600px;
+  overflow-x: auto;
+}
+
+.purchase-review-edit-button,
+.purchase-review-delete-button {
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  height: 20px;
+  padding: 0 10px;
+}
+
+.purchase-review-edit-button {
+  margin-right: 10px;
+}
+
+.purchase-review-buttons-outer {
+  margin-bottom: 0.5rem;
 }
 
 .purchase-shipping-details {
@@ -202,11 +246,15 @@
   height: 20px;
 }
 
-.cancel-confirm-outer {
+.cancel-confirm-outer,
+.remove-confirm-outer {
   display: flex;
   flex-direction: column;
   padding: 1rem;
   align-items: center;
+}
+
+.cancel-confirm-outer {
   width: 500px;
 }
 

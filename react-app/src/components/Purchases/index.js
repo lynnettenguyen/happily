@@ -8,11 +8,14 @@ import { getAllProducts } from "../../store/products";
 import '../CSS/Purchases.css'
 import unfilledStar from '../CSS/Images/review-star-grey.svg'
 import filledStar from '../CSS/Images/review-star-black.svg'
-import CreateReview from "../Reviews/CreateReview";
+import Reviews from "../Reviews";
+import { getAllUserReviews, removeReview } from "../../store/reviews";
+import { ratingFiveStar, ratingFourStar, ratingThreeStar, ratingTwoStar, ratingOneStar } from "../Product/Rating";
 
 const Purchases = () => {
   const dispatch = useDispatch()
   const user = useSelector(state => state.session.user)
+  const userReviews = useSelector(state => state.reviews)
   const products = useSelector(state => state.products)
   const purchases = useSelector(state => Object.values(state.purchases))
   const [ratedStar1, setRatedStar1] = useState(false)
@@ -21,17 +24,24 @@ const Purchases = () => {
   const [ratedStar4, setRatedStar4] = useState(false)
   const [ratedStar5, setRatedStar5] = useState(false)
   const [cancelConfirmation, setCancelConfirmation] = useState(false)
+  const [removeConfirmation, setRemoveConfirmation] = useState(false)
   const [purchaseId, setPurchaseId] = useState()
   const [orderNumber, setOrderNumber] = useState()
   const [productName, setProductName] = useState()
   const [addReview, setAddReview] = useState(false)
   const [reviewStars, setReviewStars] = useState(false)
-  const [productId, setProductId] = useState()
+  const [productId, setProductId] = useState([])
+  const [refreshReview, setRefreshReview] = useState(false)
+  const [editReview, setEditReview] = useState(false)
+  const [reviewId, setReviewId] = useState()
 
   useEffect(() => {
     dispatch(getAllProducts())
     dispatch(getAllPurchases(user.id))
-  }, [])
+    dispatch(getAllUserReviews())
+    setRefreshReview(false)
+  }, [addReview, refreshReview])
+
 
   const formatDate = (dateTime) => {
     let month = dateTime.split(" ")[2]
@@ -70,7 +80,8 @@ const Purchases = () => {
     setCancelConfirmation(false)
   }
 
-  const handleStarOn = (num) => {
+  const handleStarOn = (num, id) => {
+    setPurchaseId(id)
     if (num >= 1) setRatedStar1(true)
     if (num >= 2) setRatedStar2(true)
     if (num >= 3) setRatedStar3(true)
@@ -78,7 +89,8 @@ const Purchases = () => {
     if (num >= 5) setRatedStar5(true)
   }
 
-  const handleStarOff = (num) => {
+  const handleStarOff = (num, id) => {
+    setPurchaseId(id)
     if (num >= 1) setRatedStar1(false)
     if (num >= 2) setRatedStar2(false)
     if (num >= 3) setRatedStar3(false)
@@ -92,6 +104,49 @@ const Purchases = () => {
     setPurchaseId(orderId)
     setReviewStars(num)
   }
+
+  const handleEditReview = (review, id) => {
+    setProductId(review.product_id)
+    setPurchaseId(id)
+    setReviewStars(review.stars)
+    setReviewId(review.id)
+    setEditReview(true);
+    setAddReview(true);
+  }
+
+  const handleRemoveConfirmation = (id) => {
+    setRemoveConfirmation(true)
+    setReviewId(id)
+  }
+
+  const handleDeleteReview = () => {
+    dispatch(removeReview(reviewId))
+    setRemoveConfirmation(false)
+    setRefreshReview(true)
+  }
+
+  const stars = (num) => {
+
+    let starCount
+    if (num === 5) starCount = ratingFiveStar;
+    if (num === 4) starCount = ratingFourStar;
+    if (num === 3) starCount = ratingThreeStar;
+    if (num === 2) starCount = ratingTwoStar;
+    if (num === 1) starCount = ratingOneStar;
+
+    return (
+      <>
+        {starCount.map((star) => {
+          return (
+            <>
+              <img src={star} className='user-review-star-display'></img>
+            </>
+          )
+        })}
+      </>
+    )
+  }
+
 
   return (
     <div className="purchases-main">
@@ -115,18 +170,32 @@ const Purchases = () => {
                 </div>
                 <div className="purchases-bottom-outer">
                   <div className="purchase-product-img-outer">
-                    {products[purchase.product_id]?.images.length > 0 && <img src={products[purchase.product_id]?.images[0]} className='purchase-product-img'></img>}
+                    <Link to={`/products/${purchase.product_id}`}>
+                      {products[purchase.product_id]?.images.length > 0 && <img src={products[purchase.product_id]?.images[0]} className='purchase-product-img'></img>}
+                    </Link>
                   </div>
                   <div className="purchase-product-info">
-                    <div className="purchase-product-name">{products[purchase.product_id]?.name}</div>
-                    <div className="purchase-product-review-outer">
+                    <div className="purchase-product-name">{products[purchase.product_id]?.name}{purchase.product_id}</div>
+                    {!Object.keys(userReviews).includes((purchase.product_id).toString()) ? <div className="purchase-product-review-outer">
                       <div className="purchase-review-header">Review this Item</div>
-                      <img src={ratedStar1 ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(1)} onMouseLeave={() => handleStarOff(1)} onClick={() => handleReview(1, purchase.product_id, purchase.id)}></img>
-                      <img src={ratedStar2 ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(2)} onMouseLeave={() => handleStarOff(2)} onClick={() => handleReview(2, purchase.product_id, purchase.id)}></img>
-                      <img src={ratedStar3 ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(3)} onMouseLeave={() => handleStarOff(3)} onClick={() => handleReview(3, purchase.product_id, purchase.id)}></img>
-                      <img src={ratedStar4 ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(4)} onMouseLeave={() => handleStarOff(4)} onClick={() => handleReview(4, purchase.product_id, purchase.id)}></img>
-                      <img src={ratedStar5 ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(5)} onMouseLeave={() => handleStarOff(5)} onClick={() => handleReview(5, purchase.product_id, purchase.id)}></img>
+                      <img src={ratedStar1 && purchase.id === purchaseId ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(1, purchase.id)} onMouseLeave={() => handleStarOff(1, purchase.id)} onClick={() => handleReview(1, purchase.product_id, purchase.id)}></img>
+                      <img src={ratedStar2 && purchase.id === purchaseId ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(2, purchase.id)} onMouseLeave={() => handleStarOff(2, purchase.id)} onClick={() => handleReview(2, purchase.product_id, purchase.id)}></img>
+                      <img src={ratedStar3 && purchase.id === purchaseId ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(3, purchase.id)} onMouseLeave={() => handleStarOff(3, purchase.id)} onClick={() => handleReview(3, purchase.product_id, purchase.id)}></img>
+                      <img src={ratedStar4 && purchase.id === purchaseId ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(4, purchase.id)} onMouseLeave={() => handleStarOff(4, purchase.id)} onClick={() => handleReview(4, purchase.product_id, purchase.id)}></img>
+                      <img src={ratedStar5 && purchase.id === purchaseId ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(5, purchase.id)} onMouseLeave={() => handleStarOff(5, purchase.id)} onClick={() => handleReview(5, purchase.product_id, purchase.id)}></img>
+                    </div> : <div className="purchase-user-review-outer">
+                      <div className="purchase-user-review-upper">
+                        <span className="purchase-user-review-header">Your Review</span>
+                        <span>{stars(userReviews[purchase.product_id]?.stars)}</span>
+                      </div>
+                      <div className="purchase-user-review-content">{userReviews[purchase.product_id]?.content}</div>
+                      <div className="purchase-review-buttons-outer">
+                        <button onClick={() => handleEditReview(userReviews[purchase.product_id], purchase.id)} className='purchase-review-edit-button'>Edit</button>
+                        {/* <button onClick={() => handleDeleteReview(userReviews[purchase.product_id].id)} className='purchase-review-delete-button'>Delete</button> */}
+                          <button onClick={() => handleRemoveConfirmation(userReviews[purchase.product_id].id)} className='purchase-review-delete-button'>Delete</button>
+                      </div>
                     </div>
+                    }
                   </div>
                 </div>
               </div>
@@ -177,7 +246,18 @@ const Purchases = () => {
             </div>
           </Modal>
         )}
-        {addReview && <CreateReview reviewStars={reviewStars} productId={productId} purchaseId={purchaseId} setAddReview={setAddReview} formatDate={formatDate} />}
+        {removeConfirmation && (
+          <Modal onClose={() => setRemoveConfirmation(false)}>
+            <div className="remove-confirm-outer">
+              <button onClick={() => setRemoveConfirmation(false)} className='cancel-return-button'>Return to Purchases</button>
+              <div className="cancel-message">Permanently remove selected review?</div>
+              <div className="cancel-confirm-button-outer">
+                <button onClick={handleDeleteReview} className='cancel-confirm-button'>Confirm</button>
+              </div>
+            </div>
+          </Modal>
+        )}
+        {addReview && <Reviews reviewStars={reviewStars} setReviewStars={setReviewStars} productId={productId} purchaseId={purchaseId} setAddReview={setAddReview} formatDate={formatDate} editReview={editReview} setEditReview={setEditReview} reviewId={reviewId} />}
       </div> : <div className="no-purchases-main">No Purchases? <Link to='/' className="no-purchases-continue">Continue Browsing</Link>!</div>}
     </div>
   )

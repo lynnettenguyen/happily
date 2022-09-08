@@ -16,6 +16,7 @@ const Shop = () => {
   const [price, setPrice] = useState(0)
   const [description, setDescription] = useState("")
   const [category, setCategory] = useState("")
+  const [shopErrors, setShopErrors] = useState([])
   const [errors, setErrors] = useState([])
 
   useEffect(() => {
@@ -23,7 +24,7 @@ const Shop = () => {
 
     const errors = []
     if (name.length < 10) errors.push('Name: Title requires 10 characters minimum')
-    if (name.length > 225) errors.push('Name: Title exceeds 225 character limit')
+    if (name.length > 140) errors.push('Name: Title exceeds 140 character limit')
     if (category.length === 0) errors.push('Category: Category selection is required')
     if (price < 1) errors.push('Price: Minimum price of $1.00 required')
     if (price > 1000000) errors.push('Price: Price exceeds $1,000,000 limit')
@@ -32,6 +33,17 @@ const Shop = () => {
     setErrors(errors)
   }, [name, category, price, description])
 
+  useEffect(() => {
+    const shopErrors = []
+    let validChar = new RegExp(/^[A-Za-z]+$/)
+    if (!validChar.test(shopName)) shopErrors.push('Shop Name: Shop Name must only contain alphabetical characters')
+    if (shopName.split(" ").length > 1) shopErrors.push('Shop Name: Shop Name cannot contain spaces')
+    if (shopName.length < 4) shopErrors.push('Shop Name: Shop Name requires 4 characters minimum')
+    if (shopName.length > 30) shopErrors.push('Shop Name: Shop Name exceeds 30 character limit')
+
+    setShopErrors(shopErrors)
+  }, [shopName])
+
   const checkShopName = () => {
     if (shopName) setPage(2)
     else setPage(1)
@@ -39,10 +51,6 @@ const Shop = () => {
 
   const handleUserSubmit = async (e) => {
     e.preventDefault()
-
-    if (errors.length >= 0) {
-      return
-    }
 
     const userData = {
       id: user.id,
@@ -57,6 +65,11 @@ const Shop = () => {
 
   const handleProductSubmit = async (e) => {
     e.preventDefault()
+
+    if (errors.length > 0) {
+      return
+    }
+
 
     const productData = {
       name,
@@ -102,18 +115,25 @@ const Shop = () => {
         </div>
       </>
       }
-      <form onSubmit={handleUserSubmit}>
-        {page === 1 && <>
+      {page === 1 && <>
+        <form onSubmit={handleUserSubmit}>
           <div className='main-shop-outer'>
             <div className='first-page-main'>
               <div className='first-page-main-upper'>
                 <label className='sell-product-name-shop-label'>Name your shop</label>
                 <div className='sell-product-caption'>We find sellers often draw inspiration from what they sell or their style, pretty much anything goes.</div>
+                {shopErrors?.map((error, ind) => {
+                  if (error.split(":")[0] === 'Shop Name')
+                    return (
+                      <div key={ind} className='product-shop-errors'><div>-{error.split(":")[1]}</div></div>
+                    )
+                })}
                 <input
                   type='text'
                   className='user-form-input'
                   value={shopName}
                   onChange={(e) => setShopName(e.target.value)}
+                  maxLength="31"
                 />
               </div>
               <div className='save-button-outer'>
@@ -121,9 +141,9 @@ const Shop = () => {
               </div>
             </div>
           </div>
-        </>
-        }
-      </form>
+        </form>
+      </>
+      }
       {page === 2 &&
         <form onSubmit={handleProductSubmit}>
           <div className='main-shop-outer'>
@@ -146,7 +166,7 @@ const Shop = () => {
                     className='product-form-input'
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    maxLength="226"
+                    maxLength="141"
                   />
                 </div>
               </div>

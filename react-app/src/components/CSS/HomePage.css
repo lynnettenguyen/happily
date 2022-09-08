@@ -3,13 +3,23 @@
   justify-content: center;
   font-family: GuardianEgypThin, Arial, Helvetica, sans-serif;
   font-size: 28px;
-  margin: 20px 0 15px;
+  padding: 20px 0 15px;
 }
 
 .home-featured-circles-outer {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.homepage-back-drop {
+  height: 180px;
+  position: absolute;
+  width: 100%;
+  z-index: -3;
+  background-color: #FDEBD2;
+  top: 120px;
+
 }
 
 .feature-circle-main {
@@ -20,15 +30,23 @@
   margin: 10px 20px;
 }
 
-.featured-img {
-  height: 100px;
-  width: 100px;
-  background-color: rgba(128, 128, 128, 0.219);
+.featured-img-outer {
+  height: 130px;
+  width: 130px;
   border-radius: 50%;
 }
 
+.featured-img {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 .featured-name {
+  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
   text-align: center;
+  font-size: 0.85rem;
   margin: 10px;
 }
 
@@ -38,7 +56,6 @@
   grid-template-columns: repeat(4, 300px);
   grid-template-rows: repeat(5, 100px);
   box-sizing: border-box;
-  margin-top: 15px;
   justify-content: center;
 }
 

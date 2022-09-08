@@ -1,3 +1,4 @@
+import json
 from flask import Blueprint, jsonify, request
 from flask_login import current_user, login_required
 from .auth_routes import validation_errors_to_error_messages
@@ -6,6 +7,27 @@ from app.forms import ReviewForm
 from datetime import date
 
 review = Blueprint('reviews', __name__)
+
+
+@review.route("")
+@login_required
+# load all reviews by user
+def all_reviews():
+
+  reviews = Review.query.filter(Review.user_id == current_user.id).all()
+
+  if reviews is not None:
+    return jsonify([review.to_dict() for review in reviews])
+
+
+@review.route("/<int:product_id>")
+# load all reviews by product_id
+def reviews_per_products(product_id):
+
+  reviews = Review.query.filter(Review.product_id == product_id).all()
+
+  if reviews is not None:
+    return jsonify([review.to_dict() for review in reviews]), 200
 
 
 @review.route("", methods=['POST'])

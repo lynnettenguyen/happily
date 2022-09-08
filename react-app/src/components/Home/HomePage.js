@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { findProductById, getAllProducts } from '../../store/products'
+import { getAllProductReviews } from '../../store/reviews'
 import { getUsers } from '../../store/users'
 import '../CSS/HomePage.css'
 import star from '../CSS/Images/star.svg'
@@ -9,6 +10,7 @@ import star from '../CSS/Images/star.svg'
 const HomePage = () => {
   const dispatch = useDispatch()
   const user = useSelector(state => state.session.user)
+  const product = useSelector(state => state.products)
   const products = useSelector(state => Object.values(state.products))
 
   const unSortProducts = products.sort(() => 0.5 - Math.random())
@@ -20,6 +22,7 @@ const HomePage = () => {
 
   const productDetails = (id) => {
     dispatch(findProductById(id))
+    // dispatch(getAllProductReviews(id))
     dispatch(getUsers())
   }
 
@@ -27,33 +30,45 @@ const HomePage = () => {
     <>
       {user ?
         <div className='home-header'> Welcome back, {user.first_name} </div> :
-        <div className='home-header'> Find everything you need to tie the knot.</div>
-      }
+        <div className='home-header'> Find everything you need to tie the knot.</div>}
 
       <div className='home-featured-circles-outer'>
+        <div className='homepage-back-drop'></div>
         <div className='feature-circle-main'>
-          <div className='featured-img'></div>
-          <div className='featured-name'>Welcome Signs</div>
+          <Link to='/products/9'>
+            <div className='featured-img-outer'><img src={product[9]?.images[0]} className='featured-img'></img></div>
+          </Link>
+          <div className='featured-name'>Welcome Sign</div>
         </div>
         <div className='feature-circle-main'>
-          <div className='featured-img'></div>
-          <div className='featured-name'>Toasting Flutes</div>
+          <Link to='/products/106'>
+            <div className='featured-img-outer'><img src={product[106]?.images[0]} className='featured-img'></img></div>
+          </Link>
+          <div className='featured-name'>Toasting Flute</div>
         </div>
         <div className='feature-circle-main'>
-          <div className='featured-img'></div>
-          <div className='featured-name'>Wedding Rings</div>
+          <Link to='/products/99'>
+            <div className='featured-img-outer'><img src={product[99]?.images[0]} className='featured-img'></img></div>
+          </Link>
+          <div className='featured-name'>Wedding Ring</div>
         </div>
         <div className='feature-circle-main'>
-          <div className='featured-img'></div>
-          <div className='featured-name'>Cake Toppers</div>
+          <Link to='/products/103'>
+            <div className='featured-img-outer'><img src={product[103]?.images[0]} className='featured-img'></img></div>
+          </Link>
+          <div className='featured-name'>Cake Topper</div>
         </div>
         <div className='feature-circle-main'>
-          <div className='featured-img'></div>
-          <div className='featured-name'>Guestbooks</div>
+          <Link to='/products/65'>
+            <div className='featured-img-outer'><img src={product[65]?.images[0]} className='featured-img'></img></div>
+          </Link>
+          <div className='featured-name'>Guestbook</div>
         </div>
         <div className='feature-circle-main'>
-          <div className='featured-img'></div>
-          <div className='featured-name'>Seating Charts</div>
+          <Link to='/products/22'>
+            <div className='featured-img-outer'><img src={product[22]?.images[0]} className='featured-img'></img></div>
+          </Link>
+          <div className='featured-name'>Seating Chart</div>
         </div>
       </div>
 
