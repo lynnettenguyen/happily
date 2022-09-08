@@ -27,7 +27,7 @@ const HomePage = () => {
     <>
       {user ?
         <div className='home-header'> Welcome back, {user.first_name} </div> :
-        <div className='home-header'> Find everything you need to tie the knot.</div>}
+        <div className='home-header'> Find all things weddings on Happily!</div>}
       <div className='home-featured-circles-outer'>
         <div className='homepage-back-drop'></div>
         <div className='feature-circle-main'>
