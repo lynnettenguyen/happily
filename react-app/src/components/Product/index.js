@@ -21,6 +21,7 @@ const Product = () => {
   const [selectedImage, setSelectedImage] = useState(product[productId]?.images[0])
   const [rating, setRating] = useState([])
   const users = useSelector(state => state.users)
+  console.log(users)
 
   const [cart, setCart] = useState(cartInStorage)
 
@@ -130,7 +131,7 @@ const Product = () => {
             <div className='product-reviews-main'>
               <div className='product-reviews-header'>
                 <div className='product-reviews-num-ratings'>
-                  {product[productId]?.reviews?.length} shop review(s)
+                  {product[productId]?.reviews?.length > 1 ? <>{product[productId]?.reviews?.length} shop reviews</> : <>{product[productId]?.reviews?.length} shop review</>}
                   {product[productId]?.reviews?.length === 0 && <div className='empty-stars-outer'>
                     <img src={emptyStar} className='empty-star first-star' alt='star'></img>
                     <img src={emptyStar} className='empty-star' alt='star'></img>

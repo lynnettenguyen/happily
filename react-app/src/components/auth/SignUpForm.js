@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom';
+import { useDispatch } from 'react-redux'
 import { signUp } from '../../store/session';
 import '../CSS/SignUpForm.css'
 
-const SignUpForm = ({ setShowSignIn }) => {
+const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
   const [first_name, setFirstName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
-  const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
   const onSignUp = async (e) => {
@@ -40,10 +38,6 @@ const SignUpForm = ({ setShowSignIn }) => {
   const updateRepeatPassword = (e) => {
     setRepeatPassword(e.target.value);
   };
-
-  if (user) {
-    return <Redirect to='/' />;
-  }
 
   return (
     <form onSubmit={onSignUp} className='signup-form-main'>
