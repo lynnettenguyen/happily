@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { login } from '../../store/session';
 import SignUpForm from './SignUpForm';
 import '../CSS/LoginForm.css'
@@ -35,7 +35,7 @@ const LoginForm = ({ setShowSignIn }) => {
 
   return (
     <>
-      {showRegister ? <SignUpForm setShowSignIn={setShowSignIn} /> : <form onSubmit={onLogin} className='login-form-main'>
+      {showRegister ? <SignUpForm setShowRegister={setShowRegister} /> : <form onSubmit={onLogin} className='login-form-main'>
         <div className='login-upper'>
           <div className='login-header'>Sign in</div>
           <div className='login-register-button' onClick={() => handleRegister()}>Register</div>

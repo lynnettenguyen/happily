@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { signUp } from '../../store/session';
 import '../CSS/SignUpForm.css'
 
-const SignUpForm = () => {
+const SignUpForm = ({ setShowRegister }) => {
   const [errors, setErrors] = useState([]);
   const [first_name, setFirstName] = useState('');
   const [email, setEmail] = useState('');
@@ -113,6 +113,7 @@ const SignUpForm = () => {
               )
           })}
         </div>
+        <div className='signIn-account-message'>Already have an account? <span onClick={() => setShowRegister(false)} className='signIn-from-register'>Sign in</span></div>
       </div>
       <div className='signup-buttons-outer'>
         <button type='submit' className='signup-form-button'>Register</button>
