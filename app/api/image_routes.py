@@ -1,9 +1,8 @@
 from flask import Blueprint, request, jsonify
-from werkzeug.utils import secure_filename
+from flask_login import current_user, login_required
+from .auth_routes import validation_errors_to_error_messages
 from app.models import db, Image
 from app.forms import ImageForm
-from .auth_routes import validation_errors_to_error_messages
-from flask_login import current_user, login_required
 from app.awsS3 import (
     upload_file_to_s3, allowed_file, get_unique_filename)
 

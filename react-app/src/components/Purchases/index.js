@@ -163,7 +163,7 @@ const Purchases = () => {
                     <div className="purchase-shop-name-outer">
                       <div className="purchase-shop-order">Order #{purchase.order_number.toUpperCase()}</div>
                       Purchased from <span className="purchase-shop-name">{purchase?.shop_name}</span> on {formatDate(purchase?.created_at)}</div>
-                    {purchase.product_total != purchase.purchase_total &&
+                    {purchase.product_total !== purchase.purchase_total &&
                       <div className="purchase-item-total">This item was part of a ${convertTotal(purchase?.purchase_total * 1.09125)} purchase.</div>}
                   </div>
                   <div className="purchase-product-total">${convertTotal(purchase?.product_total * 1.09125)}</div>

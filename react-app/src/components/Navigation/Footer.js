@@ -1,7 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { NavLink } from 'react-router-dom';
-import { Modal } from '../Context/modal';
+import React from 'react';
 import '../CSS/Footer.css'
 import footerDisplay from '../CSS/Images/footer.svg'
 import github from '../CSS/Images/github.png'
@@ -12,7 +9,7 @@ const Footer = () => {
   return (
     <div className='footer-outer-main'>
       <div className='footer-upper'>
-        <img src={footerDisplay} className='main-footer-img'></img>
+        <img src={footerDisplay} className='main-footer-img' alt=''></img>
       </div>
       <div className='footer-middle'></div>
       <div className='footer-lower'>

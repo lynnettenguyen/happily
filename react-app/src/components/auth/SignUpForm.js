@@ -71,6 +71,7 @@ const SignUpForm = ({ setShowRegister }) => {
           name='firstName'
           onChange={updateFirstName}
           value={first_name}
+          maxLength="31"
         ></input>
       </div>
       {errors && <div className='login-error-outer'>
