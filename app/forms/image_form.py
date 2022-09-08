@@ -1,7 +1,6 @@
-from sqlite3 import IntegrityError
 from flask_wtf import FlaskForm
-from wtforms import StringField, DecimalField, IntegerField, SelectField
-from wtforms.validators import DataRequired, Length, NumberRange, ValidationError
+from wtforms import IntegerField
+from wtforms.validators import DataRequired
 
 
 class ImageForm(FlaskForm):

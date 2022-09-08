@@ -5,6 +5,7 @@ const LOAD_PRODUCTS_BY_CATEGORY = 'products/LOAD_PRODUCTS_BY_CATEGORY'
 const ADD_PRODUCT = 'products/ADD_PRODUCT'
 const EDIT_PRODUCT = 'products/EDIT_PRODUCT'
 const DELETE_PRODUCT = 'products/DELETE_PRODUCT'
+const SEARCH_PRODUCT = 'products/SEARCH_PRODUCT'
 
 const getProducts = (products) => ({
   type: GET_PRODUCTS,
@@ -41,6 +42,11 @@ const deleteProduct = (productId) => ({
   productId
 })
 
+// const searchProduct = (products) => ({
+//   type: SEARCH_PRODUCT,
+//   products
+// })
+
 export const getAllProducts = () => async (dispatch) => {
   const response = await fetch(`/api/products`);
 
@@ -70,6 +76,17 @@ export const findProductsByCategory = (category) => async (dispatch) => {
     return product;
   }
 }
+
+export const findProductsBySearch = (keyword) => async (dispatch) => {
+  const response = await fetch(`/api/search/${keyword}`)
+
+  if (response.ok) {
+    const products = await response.json()
+    dispatch(loadProductsByCategory(products))
+    return products;
+  }
+}
+
 
 export const loadProductsByOwner = (sellerId) => async (dispatch) => {
   const response = await fetch(`/api/users/${sellerId}/products`)
@@ -150,6 +167,10 @@ const productsReducer = (state = {}, action) => {
       for (let product of action.products) newState[product.id] = product
       return newState
     }
+    // case SEARCH_PRODUCT: {
+    //   for (let product of action.products) newState[product.id] = product
+    //   return newState
+    // }
     case LOAD_PRODUCTS_BY_OWNER: {
       for (let product of action.products) newState[product.id] = product
       return newState

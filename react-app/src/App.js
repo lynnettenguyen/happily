@@ -14,6 +14,7 @@ import Shop from './components/Shop';
 import Cart from './components/Cart';
 import { ModalProvider } from './components/Context/modal'
 import ProductsByCategory from './components/Product/ProductsByCategory';
+import ProductsBySearch from './components/Product/ProductsBySearch';
 import ShopManager from './components/Shop/ShopManager';
 import Purchases from './components/Purchases';
 import SearchBar from './components/Product/SearchBar';
@@ -49,6 +50,9 @@ function App() {
           </Route>
           <Route path='/featured/:category'>
             <ProductsByCategory />
+          </Route>
+          <Route path='/search/:category'>
+            <ProductsBySearch />
           </Route>
           <ProtectedRoute path='/shop' exact={true} >
             <Shop />
