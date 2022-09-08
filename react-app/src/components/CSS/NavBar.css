@@ -63,6 +63,10 @@ NavLink {
   padding-right: 5px;
 }
 
+.searchBar-main {
+  width: 55%;
+}
+
 .navBar-searchBar-outer {
   border: black 2.5px solid;
   border-radius: 30px;
