@@ -131,7 +131,7 @@ const Product = () => {
             <div className='product-reviews-main'>
               <div className='product-reviews-header'>
                 <div className='product-reviews-num-ratings'>
-                  {product[productId]?.reviews?.length > 1 ? <>{product[productId]?.reviews?.length} shop reviews</> : <>{product[productId]?.reviews?.length} shop review</>}
+                  {product[productId]?.reviews?.length !== 1 ? <>{product[productId]?.reviews?.length} shop reviews</> : <>{product[productId]?.reviews?.length} shop review</>}
                   {product[productId]?.reviews?.length === 0 && <div className='empty-stars-outer'>
                     <img src={emptyStar} className='empty-star first-star' alt='star'></img>
                     <img src={emptyStar} className='empty-star' alt='star'></img>

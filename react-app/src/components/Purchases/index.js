@@ -258,7 +258,7 @@ const Purchases = () => {
           </Modal>
         )}
         {addReview && <Reviews reviewStars={reviewStars} setReviewStars={setReviewStars} productId={productId} purchaseId={purchaseId} setAddReview={setAddReview} formatDate={formatDate} editReview={editReview} setEditReview={setEditReview} reviewId={reviewId} />}
-      </div> : <div className="no-purchases-main">No Purchases? <Link to='/' className="no-purchases-continue">Continue Browsing</Link>!</div>}
+      </div> : <div className="no-purchases-main">No Purchases? &nbsp;<Link to='/' className="no-purchases-continue">Continue Browsing</Link>!</div>}
     </div>
   )
 }

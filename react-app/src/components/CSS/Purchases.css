@@ -19,11 +19,12 @@
 .no-purchases-main,
 .purchases-details-outer {
   padding-top: 7.5rem;
-  margin: 0 14rem;
+  margin: 0 14.7rem;
 }
 
 .no-purchases-main {
   font-family: GuardianEgypLight, Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
 }
 
 .no-purchases-continue {
