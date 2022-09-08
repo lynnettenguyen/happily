@@ -132,6 +132,10 @@
   padding-right: 10px;
 }
 
+.purchase-review-star {
+  cursor: pointer;
+}
+
 .purchase-user-review-content {
   margin-bottom: 0.8rem;
   overflow-wrap: break-word;

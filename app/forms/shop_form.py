@@ -4,6 +4,7 @@ from wtforms import StringField
 from wtforms.validators import DataRequired, ValidationError, Regexp, Length
 from app.models import User
 
+
 def shop_name_exists(form, field):
     # checking if shop_name is already in use
     shop_name = field.data

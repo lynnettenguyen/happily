@@ -102,7 +102,7 @@ const Cart = () => {
 
   return (
     <form onSubmit={handleCheckOut} className='cart-main-outer'>
-      {cart.length > 0 ? <>
+      {cart && cart.length > 0 ? <>
         <div className='cart-header'>
           {totalCartItems() !== 1 ?
             <> {totalCartItems()} items in your cart </> :
@@ -165,7 +165,6 @@ const Cart = () => {
         </Modal>
       )}
     </form>
-
   )
 }
 

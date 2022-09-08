@@ -1,9 +1,9 @@
 from flask import Blueprint, jsonify, request
-from sqlalchemy import desc
-from flask_login import current_user, login_required
+from flask_login import login_required
 from app.models import db, User, Product, Image, Purchase
 from app.forms import ShopForm
 from .auth_routes import validation_errors_to_error_messages
+
 
 user_routes = Blueprint('users', __name__)
 

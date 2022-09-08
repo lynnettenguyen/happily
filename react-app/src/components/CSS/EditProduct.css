@@ -57,7 +57,7 @@
   margin-bottom: 1rem;
   border: 0.5px solid grey;
   color: #050404a6;
-  cursor: pointer;
+  cursor: default;
   outline: none;
 }
 

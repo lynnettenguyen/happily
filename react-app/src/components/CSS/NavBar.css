@@ -62,11 +62,6 @@ NavLink {
   padding-right: 5px;
 }
 
-.searchBar-main {
-  width: 55%;
-  height: 48.5px;
-}
-
 .navBar-searchBar-outer {
   border: black 2.5px solid;
   border-radius: 30px;
@@ -76,11 +71,6 @@ NavLink {
   display: flex;
   align-items: center;
   margin: 0 10px 0 2px;
-}
-
-.navBar-searchBar-outer:hover,
-.searchBar-input:hover {
-  cursor: pointer;
 }
 
 .navBar-featured-outer {

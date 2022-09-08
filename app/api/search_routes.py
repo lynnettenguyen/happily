@@ -1,6 +1,5 @@
 from flask import Blueprint, jsonify
-from .auth_routes import validation_errors_to_error_messages
-from app.models import db, Product, Review, Image, Category, User
+from app.models import db, Product, Review, Image, User
 
 
 search = Blueprint('search', __name__)

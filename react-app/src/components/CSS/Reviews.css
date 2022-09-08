@@ -89,7 +89,6 @@
   padding: 10px;
   box-sizing: border-box;
   margin-top: 0.5rem;
-  cursor: pointer;
   border: 1px solid rgba(128, 128, 128, 0.504);
   border-radius: 10px;
 }

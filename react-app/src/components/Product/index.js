@@ -210,9 +210,9 @@ const Product = () => {
               <div className='product-price'>${product[productId]?.price.toFixed(2)}</div>
               <div className='product-cart-outer'>
                 {/* {user && user.id === product[productId].seller_id ? <button className='product-cart-button'>Unable</button> : <button className='product-cart-button' onClick={() => addToCart(product[productId])}>Add to cart</button>} */}
-                {!user && <button className='product-cart-button' onClick={() => addToCart(product[productId])}>Add to cart</button>}
+                {!user && <button className='product-cart-button' onClick={() => addToCart(product[productId])}>Sign in to purchase</button>}
                 {user && user?.id !== product[productId]?.seller_id && <button className='product-cart-button' onClick={() => addToCart(product[productId])}>Add to cart</button>}
-                {user && user?.id == product[productId]?.seller_id && <button className='disabled-product-cart-button'>Unable to purchase</button>}
+                {user && user?.id === product[productId]?.seller_id && <button className='disabled-product-cart-button'>Unable to purchase</button>}
               </div>
             </div>
             <div className='product-right-lower'>
