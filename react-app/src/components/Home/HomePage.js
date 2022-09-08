@@ -26,15 +26,15 @@ const HomePage = () => {
   return (
     <>
       {user ?
-        <div className='home-header'> Welcome back, {user.first_name} </div> :
-        <div className='home-header'> Find all things weddings on Happily!</div>}
+        <div className='home-header'> Welcome back,&nbsp; {user.first_name} </div> :
+        <div className='home-header'> Find everything you need for an unforgettable occasion</div>}
       <div className='home-featured-circles-outer'>
         <div className='homepage-back-drop'></div>
         <div className='feature-circle-main'>
           <Link to='/products/9'>
             <div className='featured-img-outer'><img src={product[9]?.images[0]} className='featured-img' alt='featured'></img></div>
           </Link>
-          <div className='featured-name'>Welcome Sign</div>
+          <div className='featured-name'>Acrylic Sign</div>
         </div>
         <div className='feature-circle-main'>
           <Link to='/products/106'>
@@ -46,7 +46,7 @@ const HomePage = () => {
           <Link to='/products/99'>
             <div className='featured-img-outer'><img src={product[99]?.images[0]} className='featured-img' alt='featured'></img></div>
           </Link>
-          <div className='featured-name'>Wedding Ring</div>
+          <div className='featured-name'>Diamond Ring</div>
         </div>
         <div className='feature-circle-main'>
           <Link to='/products/103'>
