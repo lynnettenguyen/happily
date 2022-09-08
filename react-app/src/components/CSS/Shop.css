@@ -197,6 +197,7 @@
 }
 
 .product-form-text-area {
+  padding-top: 10px;
   height: 120px;
   max-height: 120px;
   max-width: 500px;
