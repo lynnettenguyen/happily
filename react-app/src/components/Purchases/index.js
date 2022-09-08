@@ -24,6 +24,7 @@ const Purchases = () => {
   const [ratedStar4, setRatedStar4] = useState(false)
   const [ratedStar5, setRatedStar5] = useState(false)
   const [cancelConfirmation, setCancelConfirmation] = useState(false)
+  const [removeConfirmation, setRemoveConfirmation] = useState(false)
   const [purchaseId, setPurchaseId] = useState()
   const [orderNumber, setOrderNumber] = useState()
   const [productName, setProductName] = useState()
@@ -41,7 +42,6 @@ const Purchases = () => {
     setRefreshReview(false)
   }, [addReview, refreshReview])
 
-  // console.log(Object.keys(userReviews).includes((45).toString()))
 
   const formatDate = (dateTime) => {
     let month = dateTime.split(" ")[2]
@@ -114,8 +114,14 @@ const Purchases = () => {
     setAddReview(true);
   }
 
-  const handleDeleteReview = (id) => {
-    dispatch(removeReview(id))
+  const handleRemoveConfirmation = (id) => {
+    setRemoveConfirmation(true)
+    setReviewId(id)
+  }
+
+  const handleDeleteReview = () => {
+    dispatch(removeReview(reviewId))
+    setRemoveConfirmation(false)
     setRefreshReview(true)
   }
 
@@ -141,8 +147,6 @@ const Purchases = () => {
     )
   }
 
-
-  console.log(refreshReview)
 
   return (
     <div className="purchases-main">
@@ -187,7 +191,8 @@ const Purchases = () => {
                       <div className="purchase-user-review-content">{userReviews[purchase.product_id]?.content}</div>
                       <div className="purchase-review-buttons-outer">
                         <button onClick={() => handleEditReview(userReviews[purchase.product_id], purchase.id)} className='purchase-review-edit-button'>Edit</button>
-                        <button onClick={() => handleDeleteReview(userReviews[purchase.product_id].id)} className='purchase-review-delete-button'>Delete</button>
+                        {/* <button onClick={() => handleDeleteReview(userReviews[purchase.product_id].id)} className='purchase-review-delete-button'>Delete</button> */}
+                          <button onClick={() => handleRemoveConfirmation(userReviews[purchase.product_id].id)} className='purchase-review-delete-button'>Delete</button>
                       </div>
                     </div>
                     }
@@ -237,6 +242,17 @@ const Purchases = () => {
               <div className="cancel-product-name"><span className="cancel-confirm">Product description: </span>{productName}</div>
               <div className="cancel-confirm-button-outer">
                 <button onClick={confirmCancel} className='cancel-confirm-button'>Confirm</button>
+              </div>
+            </div>
+          </Modal>
+        )}
+        {removeConfirmation && (
+          <Modal onClose={() => setRemoveConfirmation(false)}>
+            <div className="remove-confirm-outer">
+              <button onClick={() => setRemoveConfirmation(false)} className='cancel-return-button'>Return to Purchases</button>
+              <div className="cancel-message">Permanently remove selected review?</div>
+              <div className="cancel-confirm-button-outer">
+                <button onClick={handleDeleteReview} className='cancel-confirm-button'>Confirm</button>
               </div>
             </div>
           </Modal>

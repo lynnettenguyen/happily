@@ -246,11 +246,15 @@
   height: 20px;
 }
 
-.cancel-confirm-outer {
+.cancel-confirm-outer,
+.remove-confirm-outer {
   display: flex;
   flex-direction: column;
   padding: 1rem;
   align-items: center;
+}
+
+.cancel-confirm-outer {
   width: 500px;
 }
 
