@@ -1,6 +1,6 @@
-## happily
+# Happily
 
-happily is a full-stack e-commerce clone of Etsy, focused on handmade and craft supplies for all things related to weddings! Users can browse through wedding items by category as well as list their own wedding related products to sell. Seller can edit or delete their products through the shop manager and users can purchase items using the cart feature. Users can also cancel purchases and leave reviews on products they've purchaed.
+Happily is a full-stack e-commerce clone of [Etsy](https://www.etsy.com/), focused on handmade and craft supplies for all things related to weddings! Users can browse through wedding items by category as well as list their own wedding related products to sell. Seller can edit or delete their products through the shop manager and users can purchase items using the cart feature. Users can also cancel purchases and leave reviews on products they've purchased.
 
 Live Site: [happily](https://happily-app-etsy-clone.herokuapp.com/)
 
@@ -19,7 +19,7 @@ Live Site: [happily](https://happily-app-etsy-clone.herokuapp.com/)
 ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white) ![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white) ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 
 ## Wiki Links:
-* [happily Wiki](https://github.com/lynnettenguyen/happily/wiki)
+* [Happily Wiki](https://github.com/lynnettenguyen/happily/wiki)
 * [Database Schema](https://github.com/lynnettenguyen/happily/wiki/Database-Schema)
 * [Features List](https://github.com/lynnettenguyen/happily/wiki/Features)
 * [User Stories](https://github.com/lynnettenguyen/happily/wiki/User-Stories)
