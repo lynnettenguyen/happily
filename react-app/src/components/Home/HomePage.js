@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { findProductById, getAllProducts } from '../../store/products'
-import { getAllProductReviews } from '../../store/reviews'
 import { getUsers } from '../../store/users'
 import '../CSS/HomePage.css'
-import star from '../CSS/Images/star.svg'
 
 const HomePage = () => {
   const dispatch = useDispatch()
@@ -22,7 +20,6 @@ const HomePage = () => {
 
   const productDetails = (id) => {
     dispatch(findProductById(id))
-    // dispatch(getAllProductReviews(id))
     dispatch(getUsers())
   }
 
@@ -31,42 +28,41 @@ const HomePage = () => {
       {user ?
         <div className='home-header'> Welcome back, {user.first_name} </div> :
         <div className='home-header'> Find everything you need to tie the knot.</div>}
-
       <div className='home-featured-circles-outer'>
         <div className='homepage-back-drop'></div>
         <div className='feature-circle-main'>
           <Link to='/products/9'>
-            <div className='featured-img-outer'><img src={product[9]?.images[0]} className='featured-img'></img></div>
+            <div className='featured-img-outer'><img src={product[9]?.images[0]} className='featured-img' alt='featured'></img></div>
           </Link>
           <div className='featured-name'>Welcome Sign</div>
         </div>
         <div className='feature-circle-main'>
           <Link to='/products/106'>
-            <div className='featured-img-outer'><img src={product[106]?.images[0]} className='featured-img'></img></div>
+            <div className='featured-img-outer'><img src={product[106]?.images[0]} className='featured-img' alt='featured'></img></div>
           </Link>
           <div className='featured-name'>Toasting Flute</div>
         </div>
         <div className='feature-circle-main'>
           <Link to='/products/99'>
-            <div className='featured-img-outer'><img src={product[99]?.images[0]} className='featured-img'></img></div>
+            <div className='featured-img-outer'><img src={product[99]?.images[0]} className='featured-img' alt='featured'></img></div>
           </Link>
           <div className='featured-name'>Wedding Ring</div>
         </div>
         <div className='feature-circle-main'>
           <Link to='/products/103'>
-            <div className='featured-img-outer'><img src={product[103]?.images[0]} className='featured-img'></img></div>
+            <div className='featured-img-outer'><img src={product[103]?.images[0]} className='featured-img' alt='featured'></img></div>
           </Link>
           <div className='featured-name'>Cake Topper</div>
         </div>
         <div className='feature-circle-main'>
           <Link to='/products/65'>
-            <div className='featured-img-outer'><img src={product[65]?.images[0]} className='featured-img'></img></div>
+            <div className='featured-img-outer'><img src={product[65]?.images[0]} className='featured-img' alt='featured'></img></div>
           </Link>
           <div className='featured-name'>Guestbook</div>
         </div>
         <div className='feature-circle-main'>
           <Link to='/products/22'>
-            <div className='featured-img-outer'><img src={product[22]?.images[0]} className='featured-img'></img></div>
+            <div className='featured-img-outer'><img src={product[22]?.images[0]} className='featured-img' alt='featured'></img></div>
           </Link>
           <div className='featured-name'>Seating Chart</div>
         </div>
@@ -75,7 +71,7 @@ const HomePage = () => {
       <div className='display-product-main'>
         {displayedProducts?.map((product, i) => {
           return (
-            <div className={`display-product-outer img${i}`}>
+            <div className={`display-product-outer img${i}`} key={i}>
               <Link to={`/products/${product.id}`} onClick={() => productDetails(product.id)}>
                 <div className='display-img-outer' >
                   {product?.images?.length > 0 && <img src={product?.images[0]} className={`display-product-img img${i}`} alt='product'></img>}

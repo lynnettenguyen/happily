@@ -5,8 +5,6 @@ import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/Navigation/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
-import User from './components/Navigation/User';
 import { authenticate } from './store/session';
 import HomePage from './components/Home/HomePage';
 import ImageUpload from './components/Shop/ImageUpload';
@@ -70,12 +68,6 @@ function App() {
           <Route path='/search'>
             <SearchBar />
           </Route>
-          {/* <ProtectedRoute path='/users' exact={true} >
-            <UsersList />
-          </ProtectedRoute>
-          <ProtectedRoute path='/users/:userId' exact={true} >
-            <User />
-          </ProtectedRoute> */}
           <Route path='/'>
             <HomePage />
           </Route>

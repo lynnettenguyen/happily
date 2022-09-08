@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, Link, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { findProductById, findProductsByCategory } from '../../store/products';
-import { getAllProductReviews } from '../../store/reviews';
 import { getUsers } from '../../store/users';
 import '../CSS/ProductsByCategory.css'
 
@@ -11,9 +10,9 @@ import { halfStars, oneStar, oneHalfStar, twoStar, twoHalfStar, threeStar, three
 const starsDisplay = (starCount) => {
   return (
     <>
-      {starCount.map((star) => {
+      {starCount.map((star, i) => {
         return (
-          <img className='star-display' src={star}></img>
+          <img className='star-display' src={star} key={i} alt='star'></img>
         )
       })}
     </>
@@ -33,10 +32,8 @@ const ProductsByCategory = () => {
 
   const productDetails = (id) => {
     dispatch(findProductById(id))
-    // dispatch(getAllProductReviews(id))
     dispatch(getUsers())
   }
-
 
   return (
     <>
@@ -51,10 +48,10 @@ const ProductsByCategory = () => {
           <div className='category-products-main'>
             {products?.map((product, i) => {
               return (
-                <Link to={`/products/${product?.id}`} onClick={() => productDetails(product?.id)}>
+                <Link to={`/products/${product?.id}`} key={i} onClick={() => productDetails(product?.id)}>
                   <div className='category-product-inner'>
                     <div className='category-product-img-outer'>
-                      {product?.images?.length > 0 && <img src={product?.images} className='category-product-img'></img>}
+                      {product?.images?.length > 0 && <img src={product?.images} className='category-product-img' alt='product'></img>}
                     </div>
                     <div className='category-product-name'>{product.name}</div>
                     {product?.num_reviews > 0 && <>

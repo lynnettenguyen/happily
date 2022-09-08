@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Modal } from "../Context/modal";
 import '../CSS/Reviews.css'
@@ -107,7 +106,7 @@ const Reviews = ({ productId, purchaseId, reviewStars, setReviewStars, setAddRev
           </div>
           <div className="create-review-header">{editReview ? "Update Review" : "Leave a Review"}</div>
           <div className="review-product-upper">
-            <div className="review-product-img-outer"><img src={products[productId].images[0]} className="review-product-img"></img></div>
+            <div className="review-product-img-outer"><img src={products[productId].images[0]} className="review-product-img" alt='product'></img></div>
             <div className="review-product-right">
               <div className="review-product-right-name">{products[productId].name}</div>
               <div className="review-product-right-shop-name">Purchased from
@@ -118,11 +117,11 @@ const Reviews = ({ productId, purchaseId, reviewStars, setReviewStars, setAddRev
           </div>
           <div className="create-review-stars-outer">
             <div className="create-stars-review-header">My Review Rating *</div>
-            <img src={ratedStar1 ? filledStar : unfilledStar} className='create-stars-display' onClick={() => changeReviewStars(1)}></img>
-            <img src={ratedStar2 ? filledStar : unfilledStar} className='create-stars-display' onClick={() => changeReviewStars(2)}></img>
-            <img src={ratedStar3 ? filledStar : unfilledStar} className='create-stars-display' onClick={() => changeReviewStars(3)}></img>
-            <img src={ratedStar4 ? filledStar : unfilledStar} className='create-stars-display' onClick={() => changeReviewStars(4)}></img>
-            <img src={ratedStar5 ? filledStar : unfilledStar} className='create-stars-display' onClick={() => changeReviewStars(5)}></img>
+            <img src={ratedStar1 ? filledStar : unfilledStar} className='create-stars-display' onClick={() => changeReviewStars(1)} alt='star'></img>
+            <img src={ratedStar2 ? filledStar : unfilledStar} className='create-stars-display' onClick={() => changeReviewStars(2)} alt='star'></img>
+            <img src={ratedStar3 ? filledStar : unfilledStar} className='create-stars-display' onClick={() => changeReviewStars(3)} alt='star'></img>
+            <img src={ratedStar4 ? filledStar : unfilledStar} className='create-stars-display' onClick={() => changeReviewStars(4)} alt='star'></img>
+            <img src={ratedStar5 ? filledStar : unfilledStar} className='create-stars-display' onClick={() => changeReviewStars(5)} alt='star'></img>
           </div>
           <div className="create-review-instructions">
             <div className="create-review-instructions-header">Helpful reviews on Etsy mention:</div>

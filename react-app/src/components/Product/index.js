@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, useParams, useHistory } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { findProductById } from '../../store/products';
+import { getUsers } from '../../store/users';
+import { halfStars, oneStar, oneHalfStar, twoStar, twoHalfStar, threeStar, threeHalfStar, fourStar, fourHalfStar, fiveStar } from './Rating';
 import '../CSS/Product.css'
 import filledStar from '../CSS/Images/filled-star.svg'
 import halfStar from '../CSS/Images/half-star.svg'
 import emptyStar from '../CSS/Images/empty-star.svg'
 import check from '../CSS/Images/check.svg'
-import { halfStars, oneStar, oneHalfStar, twoStar, twoHalfStar, threeStar, threeHalfStar, fourStar, fourHalfStar, fiveStar } from './Rating';
-import { getUsers } from '../../store/users';
 
 const Product = () => {
   const cartInStorage = JSON.parse(localStorage.getItem('cart'))
@@ -17,10 +17,7 @@ const Product = () => {
   productId = Number(productId)
 
   const dispatch = useDispatch()
-  const history = useHistory()
-  const user = useSelector(state => state.session.user)
   const product = useSelector(state => state.products)
-  const reviews = useSelector(state => state.reviews)
   const [selectedImage, setSelectedImage] = useState(product[productId]?.images[0])
   const [rating, setRating] = useState([])
   const users = useSelector(state => state.users)
@@ -95,9 +92,9 @@ const Product = () => {
   const starsDisplay = (starCount) => {
     return (
       <>
-        {starCount.map((star) => {
+        {starCount.map((star, i) => {
           return (
-            <img className='star-display-rating' src={star}></img>
+            <img className='star-display-rating' src={star} key={i} alt='star'></img>
           )
         })}
       </>
@@ -120,14 +117,14 @@ const Product = () => {
           <div className='product-left-main'>
             <div className='product-image-main'>
               <div className='product-preview-image-outer'>
-                {product[productId]?.images?.length > 0 && product[productId]?.images?.map((image) => {
+                {product[productId]?.images?.length > 0 && product[productId]?.images?.map((image, i) => {
                   return (
-                    <img src={image} className='product-preview-image' onClick={() => { setSelectedImage(image) }}></img>
+                    <img src={image} className='product-preview-image' key={i} onClick={() => { setSelectedImage(image) }} alt='product'></img>
                   )
                 })}
               </div>
               <div className='product-main-image-outer'>
-                <img src={selectedImage ? selectedImage : product[productId]?.images[0]} className='product-main-image'></img>
+                <img src={selectedImage ? selectedImage : product[productId]?.images[0]} className='product-main-image' alt='product'></img>
               </div>
             </div>
             <div className='product-reviews-main'>
@@ -143,17 +140,17 @@ const Product = () => {
                   </div>}
                 </div>
                 <div className='product-review-stars'>
-                  {rating?.map((star) => {
+                  {rating?.map((star, i) => {
                     return (
-                      <img src={star} className='product-review-stars'></img>
+                      <img src={star} className='product-review-stars' key={i} alt='star'></img>
                     )
                   })}
                 </div>
               </div>
               <div className='product-review-main'>
-                {product[productId]?.reviews?.map((review) => {
+                {product[productId]?.reviews?.map((review, i) => {
                   return (
-                    <div className='product-review-outer'>
+                    <div className='product-review-outer' key={i}>
                       <div className='product-review-user-rating'>
                         {review?.stars <= 0.5 && <span>{starsDisplay(halfStars)}</span>}
                         {review?.stars > 0.5 && review?.stars <= 1 && <span>{starsDisplay(oneStar)}</span>}
@@ -168,8 +165,8 @@ const Product = () => {
                       </div>
                       <div className='product-review-content'>{review.content}</div>
                       <div className='product-review-user'>
-                        <div className='product-review-user-img-outer'><img className='product-review-user-img' src={users[review.user_id]?.profile_pic}></img></div>
-                        <div className='product-review-user-name'>{users[review.user_id].first_name}</div>
+                        <div className='product-review-user-img-outer'><img className='product-review-user-img' src={users[review.user_id]?.profile_pic} alt='user'></img></div>
+                        <div className='product-review-user-name'>{users[review.user_id]?.first_name}</div>
                         <div className='product-review-date'>{formatDate(review?.created_at)}</div>
                       </div>
                     </div>
@@ -182,7 +179,7 @@ const Product = () => {
             <div className='product-right-upper'>
               {notification &&
                 <div className='notification-outer'>
-                  <img src={check}></img>
+                  <img src={check} alt='check'></img>
                   <span className='notification-message'>You added {count} item(s) to your <Link to='/cart' className='view-cart-link'>cart</Link>!</span>
                 </div>
               }
@@ -191,9 +188,9 @@ const Product = () => {
                 {product[productId]?.reviews?.length > 0 ? <>
                   {/* <div className='product-sales'>{`${(Math.floor(Math.random() * (2000 - 200 + 1) + 200)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} sales`} <span className='divider'>&nbsp; | &nbsp;</span></div> */}
                   <div className='product-rating-outer'>
-                    {rating?.map((star) => {
+                    {rating?.map((star, i) => {
                       return (
-                        <img src={star} className='product-rating-stars'></img>
+                        <img src={star} className='product-rating-stars' key={i} alt='star'></img>
                       )
                     })}
                   </div>
