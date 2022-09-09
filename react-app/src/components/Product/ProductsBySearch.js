@@ -40,8 +40,13 @@ const ProductsBySearch = () => {
         <div className='search-upper'>
           <div className='search-header'>
             {products?.length > 0 ?
-              <> {products?.length} search results for "{category}"</> :
-              <> We couldn't find any results for "{category}". &nbsp; <div className='search-again-message'>Try searching for something else instead?</div></>}
+              <>
+                <div className='search-results'> {products?.length} search results for "{category}</div><span className='search-results'>"</span>
+              </> :
+              <>
+                <div className='search-results'> We couldn't find any results for "{category}</div><span className='search-results'>" &nbsp;</span><div className='search-again-message'>Try searching for something else instead?</div>
+              </>
+            }
           </div>
         </div>
         <div className='search-main'>
@@ -80,7 +85,6 @@ const ProductsBySearch = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   )
 }
