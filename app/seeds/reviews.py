@@ -32,7 +32,7 @@ def seed_reviews():
     Review(
         user_id=6, product_id=5, content='The sign was well made and came out beautiful! Shipping was fast too!', stars=5),
     Review(
-        user_id=6, product_id=6, content='The item shipped so fast and was packaged SO good to the point it took me longer than I wanted to open it! I am so in love with everything about it. It’s going to be perfect as my welcome sign to the wedding! Thank you so much!', stars=5),
+        user_id=6, product_id=10, content='The item shipped so fast and was packaged SO good to the point it took me longer than I wanted to open it! I am so in love with everything about it. It’s going to be perfect as my welcome sign to the wedding! Thank you so much!', stars=5),
     Review(
         user_id=6, product_id=7, content='Fast and quick delivery! They showed us the product before they sent it to us to make sure it was correct. Simple and perfect without breaking your pockets. Thank you!!', stars=5),
     Review(
