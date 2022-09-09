@@ -4,7 +4,6 @@ import footerDisplay from '../CSS/Images/footer.svg'
 import github from '../CSS/Images/github.png'
 import linkedIn from '../CSS/Images/linkedIn.png'
 
-
 const Footer = () => {
   return (
     <div className='footer-outer-main'>
