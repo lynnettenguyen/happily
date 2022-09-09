@@ -2,7 +2,7 @@
 
 Happily is a full-stack e-commerce clone of [Etsy](https://www.etsy.com/), focused on handmade and craft supplies for all things related to weddings! Users can browse through wedding items by category as well as list their own wedding related products to sell. Seller can edit or delete their products through the shop manager and users can purchase items using the cart feature. Users can also cancel purchases and leave reviews on products they've purchased.
 
-Live Site: [happily](https://happily-app-etsy-clone.herokuapp.com/)
+Live Site: [Happily](https://happily-app-etsy-clone.herokuapp.com/)
 
 ## Languages, Frameworks, Platforms and Libraries
 
