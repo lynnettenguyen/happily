@@ -19,16 +19,6 @@
 }
 
 @font-face {
-  font-family: GraphikWideLight;
-  src: url('./fonts/Graphik/GraphikWide-Light-Trial.otf');
-}
-
-@font-face {
-  font-family: GraphikCompactLight;
-  src: url('./fonts/Graphik/GraphikCompact-Light-Trial.otf');
-}
-
-@font-face {
   font-family: GuardianEgypRegular;
   src: url('./fonts/Guardian/GuardianEgyp-Regular-Trial.otf');
 }
@@ -41,11 +31,6 @@
 @font-face {
   font-family: GuardianEgypThin;
   src: url('./fonts/Guardian/GuardianEgyp-Thin-Trial.otf');
-}
-
-@font-face {
-  font-family: GuardianSansNarrow;
-  src: url('./fonts/Guardian/GuardianSansNarrow-Light-Trial.otf');
 }
 
 @font-face {

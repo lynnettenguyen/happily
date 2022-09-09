@@ -14,7 +14,6 @@ const NavBar = () => {
   const user = useSelector(state => state.session.user)
   const categories = useSelector(allCategories)
   const dispatch = useDispatch()
-
   const [showSignIn, setShowSignIn] = useState(false)
 
   useEffect(() => { dispatch(getAllCategories()) }, [])

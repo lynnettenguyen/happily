@@ -7,7 +7,6 @@ import NavBar from './components/Navigation/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import { authenticate } from './store/session';
 import HomePage from './components/Home/HomePage';
-import ImageUpload from './components/Shop/ImageUpload';
 import Product from './components/Product';
 import '../src/components/CSS/Fonts.css'
 import Shop from './components/Shop';
@@ -63,9 +62,6 @@ function App() {
           <ProtectedRoute path='/purchases' exact={true} >
             <Purchases />
           </ProtectedRoute>
-          <Route path='/images'>
-            <ImageUpload />
-          </Route>
           <Route path='/cart'>
             <Cart />
           </Route>
