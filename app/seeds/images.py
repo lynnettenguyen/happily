@@ -565,6 +565,10 @@ def seed_images():
         user_id=8, product_id=110, url='https://knotsy.s3.us-west-1.amazonaws.com/p110.1.webp'),
     Image(
         user_id=8, product_id=110, url='https://knotsy.s3.us-west-1.amazonaws.com/p110.2.webp'),
+    Image(
+        user_id=5, product_id=111, url='https://knotsy.s3.us-west-1.amazonaws.com/p111.1.webp'),
+    Image(
+        user_id=5, product_id=111, url='https://knotsy.s3.us-west-1.amazonaws.com/p111.2.webp')
     ]
 
     for image in images:
