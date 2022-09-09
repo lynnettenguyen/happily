@@ -35,7 +35,7 @@ const LoginForm = ({ setShowSignIn }) => {
 
   return (
     <>
-      {showRegister ? <SignUpForm setShowRegister={setShowRegister} /> : <form onSubmit={onLogin} className='login-form-main'>
+      {showRegister ? <SignUpForm setShowRegister={setShowRegister} setShowSignIn={setShowSignIn} /> : <form onSubmit={onLogin} className='login-form-main'>
         <div className='login-upper'>
           <div className='login-header'>Sign in</div>
           <div className='login-register-button' onClick={() => handleRegister()}>Register</div>

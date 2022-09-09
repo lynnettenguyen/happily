@@ -16,7 +16,7 @@ const Footer = () => {
         <div className='socials-outer'>
           <div className='footer-middle-left'>
             <div className='footer-happily-header'>© 2022 Happily</div>
-            <div className='footer-happily-description'>An e-commerce site for all things wedding</div>
+            <div className='footer-happily-description'>An e-commerce site for all things wedding; for demonstration purposes only.</div>
           </div>
           <div className='footer-middle-right'>
             <div className='socials-inner'>

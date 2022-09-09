@@ -162,11 +162,11 @@ const Purchases = () => {
                   <div className="purchase-shop-total">
                     <div className="purchase-shop-name-outer">
                       <div className="purchase-shop-order">Order #{purchase.order_number.toUpperCase()}</div>
-                      Purchased from <span className="purchase-shop-name">{purchase?.shop_name}</span> on {formatDate(purchase?.created_at)}</div>
+                      Purchased from <span className="purchase-content">{purchase?.shop_name}</span> on <span className="purchase-content">{formatDate(purchase?.created_at)}</span></div>
                     {purchase.product_total !== purchase.purchase_total &&
-                      <div className="purchase-item-total">This item was part of a ${convertTotal(purchase?.purchase_total * 1.09125)} purchase.</div>}
+                      <div className="purchase-item-total">This item was part of a <span className="purchase-content">${convertTotal(purchase?.purchase_total * 1.09125)}</span> purchase.</div>}
                   </div>
-                  <div className="purchase-product-total">${convertTotal(purchase?.product_total * 1.09125)}</div>
+                  <div className="purchase-product-total"><span className="purchase-content">${convertTotal(purchase?.product_total * 1.09125)}</span></div>
                 </div>
                 <div className="purchases-bottom-outer">
                   <div className="purchase-product-img-outer">
@@ -175,7 +175,7 @@ const Purchases = () => {
                     </Link>
                   </div>
                   <div className="purchase-product-info">
-                    <div className="purchase-product-name">{products[purchase.product_id]?.name}{purchase.product_id}</div>
+                    <div className="purchase-product-name">{products[purchase.product_id]?.name}</div>
                     {!Object.keys(userReviews).includes((purchase.product_id).toString()) ? <div className="purchase-product-review-outer">
                       <div className="purchase-review-header">Review this Item</div>
                       <img src={ratedStar1 && purchase.id === purchaseId ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(1, purchase.id)} onMouseLeave={() => handleStarOff(1, purchase.id)} onClick={() => handleReview(1, purchase.product_id, purchase.id)} className='purchase-review-star' alt='star'></img>
@@ -192,7 +192,7 @@ const Purchases = () => {
                       <div className="purchase-review-buttons-outer">
                         <button onClick={() => handleEditReview(userReviews[purchase.product_id], purchase.id)} className='purchase-review-edit-button'>Edit</button>
                         {/* <button onClick={() => handleDeleteReview(userReviews[purchase.product_id].id)} className='purchase-review-delete-button'>Delete</button> */}
-                          <button onClick={() => handleRemoveConfirmation(userReviews[purchase.product_id].id)} className='purchase-review-delete-button'>Delete</button>
+                        <button onClick={() => handleRemoveConfirmation(userReviews[purchase.product_id].id)} className='purchase-review-delete-button'>Delete</button>
                       </div>
                     </div>
                     }
