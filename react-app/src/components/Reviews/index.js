@@ -131,10 +131,10 @@ const Reviews = ({ productId, purchaseId, reviewStars, setReviewStars, setAddRev
           </div>
           <div className="create-review-content-outer">
             <label className="create-review-content-header">Review *</label>
-            {errors?.map((error, ind) => {
+            {errors?.map((error, i) => {
               if (error.split(":")[0] === 'Content')
                 return (
-                  <div key={ind} className='create-review-errors'>-{error.split(":")[1]}</div>
+                  <div key={i} className='create-review-errors'>-{error.split(":")[1]}</div>
                 )
             })}
             <textarea

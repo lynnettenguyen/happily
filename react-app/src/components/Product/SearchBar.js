@@ -35,17 +35,14 @@ const SearchBar = () => {
   }
 
 
-
   return (
     <div className='searchBar-main'>
       <div>
-        {
-          errors?.map((error, ind) => {
+        {errors?.map((error, i) => {
             return (
-              <div key={ind} className='search-errors'>{error}</div>
+              <div key={i} className='search-errors'>{error}</div>
             )
-          })
-        }
+          })}
       </div>
       <div className='navBar-searchBar-outer'>
         <form onSubmit={handleSearch} className="searchBar-form">

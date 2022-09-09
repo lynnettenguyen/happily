@@ -57,10 +57,10 @@ const EditProduct = ({ productId, setShowEditForm }) => {
               <label className='edit-label'>Title *</label>
               <span className='edit-instructions'>Update the keywords used to search for your item.</span>
             </div>
-            {errors?.map((error, ind) => {
+            {errors?.map((error, i) => {
               if (error.split(":")[0] === 'Name')
                 return (
-                  <div key={ind} className='edit-product-errors'>-{error.split(":")[1]}</div>
+                  <div key={i} className='edit-product-errors'>-{error.split(":")[1]}</div>
                 )
             })}
             <div>
@@ -77,10 +77,10 @@ const EditProduct = ({ productId, setShowEditForm }) => {
               <label className='edit-label'>Category *</label>
               <span className='edit-instructions'>Change the category your product is listed under.</span>
             </div>
-            {errors?.map((error, ind) => {
+            {errors?.map((error, i) => {
               if (error.split(":")[0] === 'Category')
                 return (
-                  <div key={ind} className='edit-product-errors'>-{error.split(":")[1]}</div>
+                  <div key={i} className='edit-product-errors'>-{error.split(":")[1]}</div>
                 )
             })}
             <div className='select-outer'>
@@ -104,10 +104,10 @@ const EditProduct = ({ productId, setShowEditForm }) => {
               <label className='edit-label'>Price *</label>
               <span className='edit-instructions'>Update the price to factor in the cost of labor, materials, and any business expenses.</span>
             </div>
-            {errors?.map((error, ind) => {
+            {errors?.map((error, i) => {
               if (error.split(":")[0] === 'Price')
                 return (
-                  <div key={ind} className='edit-product-errors'>-{error.split(":")[1]}</div>
+                  <div key={i} className='edit-product-errors'>-{error.split(":")[1]}</div>
                 )
             })}
             <input
@@ -124,10 +124,10 @@ const EditProduct = ({ productId, setShowEditForm }) => {
               <label className='edit-label'>Description *</label>
               <span className='edit-instructions'>Modify the description to provide an overview of your item's features.</span>
             </div>
-            {errors?.map((error, ind) => {
+            {errors?.map((error, i) => {
               if (error.split(":")[0] === 'Description')
                 return (
-                  <div key={ind} className='edit-product-errors'>-{error.split(":")[1]}</div>
+                  <div key={i} className='edit-product-errors'>-{error.split(":")[1]}</div>
                 )
             })}
             <textarea
