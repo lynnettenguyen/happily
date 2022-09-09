@@ -4,19 +4,19 @@ from app.models import db, Product
 def seed_products():
     products = [
     Product(
-        seller_id=1, category='Signage', name='Wedding Welcome Sign, Wedding Sign, Welcome To Our Wedding Sign, Wedding Sign Board, Wedding Signs, Wedding Outdoor Sign, Our Wedding Board', price=57.07, description='This WEDDING WELCOME SIGN is expertly handcrafted just for you. Free shipping included.'),
+        seller_id=1, category='Signage', name='Wedding Welcome Sign, Wedding Sign Board, Wedding Outdoor Sign, Our Wedding Board', price=57.07, description='This WEDDING WELCOME SIGN is expertly handcrafted just for you. Free shipping included.'),
     Product(
         seller_id=1, category='Signage', name='Copper stand welcome sign, wedding bar stand, seating chart stand', price=126.00, description='Frame is made from Copper pipes. Each piece is cut to order therefore, there may be slight variations.I do try to pick the best of the stock that is available to me. Please note that the copper will have minor flaws due to its nature and copper will age gradually overtime, darkening in color to a variety of rustic tones making them unique and truly one-of-a-kind backdrop. These are hand cut to order by me! No two may be exactly alike.'),
     Product(
-        seller_id=2, category='Signage', name='Frosted Acrylic Wedding Welcome Sign, Acrylic Welcome Sign, Wedding Signage, Acrylic Wedding Sign, 3D Welcome Sign, Custom Wedding Sign', price=87.99, description='We have always believed that “Weddings do not have to be expensive, it has to be memorable”, so in order to make it memorable we are determined to add all the love, creativity and customized touch to the Welcome Signs. Customized Welcome signs are a beautiful Wedding décor to welcome your guest.'),
+        seller_id=2, category='Signage', name='Frosted Acrylic Wedding Welcome Sign Wedding Signage, 3D Welcome Sign', price=87.99, description='We have always believed that “Weddings do not have to be expensive, it has to be memorable”, so in order to make it memorable we are determined to add all the love, creativity and customized touch to the Welcome Signs. Customized Welcome signs are a beautiful Wedding décor to welcome your guest.'),
     Product(
-        seller_id=1, category='Signage', name='Mirror Engraved Wedding Welcome Sign, Personalised Wedding Signs, Welcome To Our Wedding, Luxury Wedding Décor In Rose Gold, Gold, Silver', price=37.57, description='Add a glam finishing touch to your wedding day with our engraved welcome sign.'),
+        seller_id=1, category='Signage', name='Mirror Engraved Wedding Welcome Sign, Personalized Wedding Signs, Luxury Wedding Décor', price=37.57, description='Add a glam finishing touch to your wedding day with our engraved welcome sign.'),
     Product(
-        seller_id=2, category='Signage', name='Frosted Acrylic Wedding Welcome Sign - Wedding Signage - Modern Wedding Sign - Acrylic Welcome Wedding Sign - Wedding Ceremony Signs', price=152.91, description='Our frosted acrylic wedding welcome sign is a great way to welcome in your guests at your wedding or any of your special events.'),
+        seller_id=2, category='Signage', name='Frosted Acrylic Wedding Welcome Sign - Modern Wedding Sign - Wedding Ceremony Signs', price=152.91, description='Our frosted acrylic wedding welcome sign is a great way to welcome in your guests at your wedding or any of your special events.'),
     Product(
         seller_id=2, category='Arches', name='Wood Triangle Wedding Arch | Boho Wedding Triangle Arch | Modern Wedding Arbor | A-frame Wedding Arch', price=210.00, description='Handmade bohemiam wedding ceremony a-frame backdrop.'),
     Product(
-        seller_id=1, category='Signage', name='Wedding Welcome Sign, Wedding Sign, Welcome To Our Wedding Sign, Wedding Sign Board, Wedding Signs, Wedding Vertical Modern Outdoor Sign', price=57.07, description='This wedding sign is expertly handcrafted just for you.'),
+        seller_id=1, category='Signage', name='Wedding Welcome Sign, Welcome To Our Wedding Sign, Wedding Sign Board, Vertical Modern Outdoor Sign', price=57.07, description='This wedding sign is expertly handcrafted just for you.'),
     Product(
         seller_id=3, category='Signage', name='Wedding Welcome Sign Watercolor, Unique Wedding Decor from Couple Portrait, Photo Wedding Sign, Unique Wedding Decoration, Wedding Entrance', price=35.40, description='" WOW! " your loved ones with this unique wedding entrance sign, a timeless and meaningful painting. We turn your photo into stunning work of art and treasure your favorite memories for years to come! It is the perfect wedding welcome sign with a watercolor touch, that you can keep it forever to remember your wedding day. Your guests can even sign on it and that makes a unique wedding guest book alternative :)'),
     Product(
@@ -88,11 +88,11 @@ def seed_products():
     Product(
         seller_id=5, category='Guestbook', name='Guestbook Sign | Acrylic Wedding Sign | Acrylic Guestbook Sign | Wedding Decor Sign | Custom Wedding Sign | Hand Lettered Wedding Sign', price=25.00, description='This is the perfect acrylic sign to add to your wedding day, or any special event. This acrylic sign is completely customizable and is hand lettered. I would love to work with you to create the perfect piece for your special day!p4'),
     Product(
-        seller_id=5, category='Bar&Menu', name='Bar Menu Signature Cocktails Custom Clear Glass Look Acrylic Wedding Sign With Stand, His Her Drinks Lucite Perspex Bar Table Sign', price=31.99, description='Bar Menu Signature Cocktails Custom Clear Glass Look Acrylic Wedding Sign With Stand, His Her Drinks Lucite Perspex Bar Table Sign'),
+        seller_id=5, category='Bar&Menu', name='Bar Menu Signature Cocktails Custom Acrylic Wedding Sign, His Her Drinks Lucite Perspex Bar Table Sign', price=31.99, description='Bar Menu Signature Cocktails Custom Clear Glass Look Acrylic Wedding Sign With Stand, His Her Drinks Lucite Perspex Bar Table Sign'),
     Product(
         seller_id=4, category='Bar & Menu', name='Open Bar Sign - Acrylic Wedding Sign - Wedding Open Bar Sign - Tomorrow\'s Stories are Priceless', price=15.99, description='Let your guests know the party is ready to begin with our "Open Bar" Sign!'),
     Product(
-        seller_id=5, category='Guestbook', name='Personalized Wedding Guest Book Sign, Acrylic Sign, Acrylic Guestbook, Alternative Wedding Guest Book, Custom Wedding Sign', price=40.00, description='Our guest books are made of acrylic and if you want personalization (your names and surnames), it is done with paint.'),
+        seller_id=5, category='Guestbook', name='Personalized Wedding Guestbook Sign, Acrylic Sign, Alternative Wedding Guest Book, Custom Wedding Sign', price=40.00, description='Our guest books are made of acrylic and if you want personalization (your names and surnames), it is done with paint.'),
     Product(
         seller_id=5, category='Guestbook', name='Transparent hexagon wedding guest book alternative hearts, Clear guestbook wedding alternative sign', price=42.00, description='This transparent hexagon wedding guest book alternative will be perfect for your wedding!p'),
     Product(
@@ -222,7 +222,7 @@ def seed_products():
     Product(
         seller_id=5, category='Table Decor&Centerpieces', name='Personalized Wedding Glasses - Toasting Flutes - Engraved Wedding Glasses - Champagne Flutes - Wedding Favours', price=19.30, description='Personalized Wedding Champagne Glasses for the biggest day of your life! Each of our Personalized Wine Glass are handmade with love just for you!'),
     Product(
-        seller_id=8, category='Bar&Menu', name='Bar Menu Signature Cocktails Custom Clear Glass Look Acrylic Wedding Sign With Stand, His Her Drinks Lucite Perspex Bar Table Sign HL-SC1', price=32.49, description='We love the sleek, clean lines of these wedding acrylic signs! This acrylic is a display material that is strong, moisture resistant & visually clearer than glass, not to mention shatterproof!'),
+        seller_id=8, category='Bar&Menu', name='Bar Menu Signature Cocktails Custom Clear Glass Look Acrylic Wedding Sign, His Her Drinks Lucite Perspex Bar Table Sign', price=32.49, description='We love the sleek, clean lines of these wedding acrylic signs! This acrylic is a display material that is strong, moisture resistant & visually clearer than glass, not to mention shatterproof!'),
     Product(
         seller_id=5, category='Attire&Accessories', name='Tennis Bracelet and Earring | Bridal Jewelry Set | Wedding Simple Bridesmaid Jewelry | 18K Rose Gold | Hundred Hearts', price=25.00, description='Make a statement on your special day with these delicate and elegant pieces. Comes in pearl earring designs too.'),
     ]
