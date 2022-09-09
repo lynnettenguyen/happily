@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import { findProductById, findProductsBySearch } from '../../store/products';
 import { getUsers } from '../../store/users';
 import '../CSS/ProductsByCategory.css'
+import Footer from '../Navigation/Footer';
 import { halfStars, oneStar, oneHalfStar, twoStar, twoHalfStar, threeStar, threeHalfStar, fourStar, fourHalfStar, fiveStar } from './Rating';
 
 const starsDisplay = (starCount) => {
@@ -79,6 +80,7 @@ const ProductsBySearch = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   )
 }

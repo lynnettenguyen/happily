@@ -49,6 +49,7 @@ const LoginForm = ({ setShowSignIn }) => {
             placeholder='Email'
             value={email}
             onChange={updateEmail}
+            maxLength={255}
           />
         </div>
         <div className='login-error-outer'>

@@ -23,12 +23,12 @@ const Shop = () => {
     dispatch(getAllProducts())
 
     const errors = []
-    if (name.length < 10) errors.push('Name: Title requires 10 characters minimum')
+    if (name.length < 10 || name.trim().length < 10) errors.push('Name: Title requires 10 characters minimum')
     if (name.length > 140) errors.push('Name: Title exceeds 140 character limit')
     if (category.length === 0) errors.push('Category: Category selection is required')
     if (price < 1) errors.push('Price: Minimum price of $1.00 required')
     if (price > 1000000) errors.push('Price: Price exceeds $1,000,000 limit')
-    if (description.length < 10) errors.push('Description: Description requires 10 characters minimum')
+    if (description.length < 10 || description.trim().length < 10) errors.push('Description: Description requires 10 characters minimum')
     if (description.length > 1000) errors.push('Description: Description exceeds 1000 character limit')
     setErrors(errors)
   }, [name, category, price, description])
@@ -38,9 +38,8 @@ const Shop = () => {
     let validChar = new RegExp(/^[A-Za-z]+$/)
     if (!validChar.test(shopName)) shopErrors.push('Shop Name: Shop Name must only contain alphabetical characters')
     if (shopName.split(" ").length > 1) shopErrors.push('Shop Name: Shop Name cannot contain spaces')
-    if (shopName.length < 4) shopErrors.push('Shop Name: Shop Name requires 4 characters minimum')
+    if (shopName.length < 4 || shopName.trim().length < 4) shopErrors.push('Shop Name: Shop Name requires 4 characters minimum')
     if (shopName.length > 30) shopErrors.push('Shop Name: Shop Name exceeds 30 character limit')
-
     setShopErrors(shopErrors)
   }, [shopName])
 
