@@ -12,7 +12,7 @@ def seed_images():
     Image(
         user_id=1, product_id=2, url='https://knotsy.s3.us-west-1.amazonaws.com/p2.1.webp')
     Image(
-        user_id=1, product_id=2, url='https://knotsy.s3.us-west-1.amazonaws.com/p2.2.webp')
+        user_id=1, product_id=2, url='https://knotsy.s3.us-west-1.amazonaws.com/p2.2.webp'),
     Image(
         user_id=2, product_id=3, url='https://knotsy.s3.us-west-1.amazonaws.com/p3.1.webp'),
     Image(
