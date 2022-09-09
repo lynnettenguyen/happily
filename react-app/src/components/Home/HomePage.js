@@ -34,37 +34,37 @@ const HomePage = () => {
         <div className='homepage-back-drop'></div>
         <div className='feature-circle-main'>
           <Link to='/products/9'>
-            <div className='featured-img-outer'><img src={product[9]?.images[0]} className='featured-img' alt='featured'></img></div>
+            <div className='featured-img-outer'><img src={product[9] ? product[9]?.images[0] : "https://knotsy.s3.us-west-1.amazonaws.com/p9.1.webp"} className='featured-img' alt='featured'></img></div>
           </Link>
           <div className='featured-name'>Acrylic Sign</div>
         </div>
         <div className='feature-circle-main'>
           <Link to='/products/106'>
-            <div className='featured-img-outer'><img src={product[106]?.images[0]} className='featured-img' alt='featured'></img></div>
+            <div className='featured-img-outer'><img src={product[106] ? product[106]?.images[0] : "https://knotsy.s3.us-west-1.amazonaws.com/p106.1.webp"} className='featured-img' alt='featured'></img></div>
           </Link>
           <div className='featured-name'>Toasting Flute</div>
         </div>
         <div className='feature-circle-main'>
           <Link to='/products/99'>
-            <div className='featured-img-outer'><img src={product[99]?.images[0]} className='featured-img' alt='featured'></img></div>
+            <div className='featured-img-outer'><img src={product[99] ? product[99]?.images[0] : "https://knotsy.s3.us-west-1.amazonaws.com/p99.1.webp"} className='featured-img' alt='featured'></img></div>
           </Link>
           <div className='featured-name'>Diamond Ring</div>
         </div>
         <div className='feature-circle-main'>
           <Link to='/products/103'>
-            <div className='featured-img-outer'><img src={product[103]?.images[0]} className='featured-img' alt='featured'></img></div>
+            <div className='featured-img-outer'><img src={product[103] ? product[103]?.images[0] : "https://knotsy.s3.us-west-1.amazonaws.com/p103.1.webp"} className='featured-img' alt='featured'></img></div>
           </Link>
           <div className='featured-name'>Cake Topper</div>
         </div>
         <div className='feature-circle-main'>
           <Link to='/products/65'>
-            <div className='featured-img-outer'><img src={product[65]?.images[0]} className='featured-img' alt='featured'></img></div>
+            <div className='featured-img-outer'><img src={product[65] ? product[65]?.images[0] : "https://knotsy.s3.us-west-1.amazonaws.com/p65.1.webp"} className='featured-img' alt='featured'></img></div>
           </Link>
           <div className='featured-name'>Guestbook</div>
         </div>
         <div className='feature-circle-main'>
           <Link to='/products/22'>
-            <div className='featured-img-outer'><img src={product[22]?.images[0]} className='featured-img' alt='featured'></img></div>
+            <div className='featured-img-outer'><img src={product[22] ? product[22]?.images[0] : "https://knotsy.s3.us-west-1.amazonaws.com/p22.4.webp"} className='featured-img' alt='featured'></img></div>
           </Link>
           <div className='featured-name'>Seating Chart</div>
         </div>
