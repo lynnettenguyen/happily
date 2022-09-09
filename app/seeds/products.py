@@ -10,7 +10,7 @@ def seed_products():
     Product(
         seller_id=2, category='Signage', name='Frosted Acrylic Wedding Welcome Sign, Acrylic Welcome Sign, Wedding Signage, Acrylic Wedding Sign, 3D Welcome Sign, Custom Wedding Sign', price=87.99, description='We have always believed that “Weddings do not have to be expensive, it has to be memorable”, so in order to make it memorable we are determined to add all the love, creativity and customized touch to the Welcome Signs. Customized Welcome signs are a beautiful Wedding décor to welcome your guest.'),
     Product(
-        seller_id=1, category='Signage', name='3D Wooden Welcome to our Wedding Sign, Wedding Signage, Wedding Welcome Sign, Rustic Wedding Decor, Welcome Wedding Rosefield', price=110.00, description='Our unique 3D wooden wedding welcome signs come personalized with your names and wedding date. This sign is a beautiful statement piece for your wedding ceremony and will add a perfect touch to your special day. Raised lettering creates a rather unique 3D effect that adds depth and character to the piece.'),
+        seller_id=1, category='Signage', name='Mirror Engraved Wedding Welcome Sign, Personalised Wedding Signs, Welcome To Our Wedding, Luxury Wedding Décor In Rose Gold, Gold, Silver', price=37.57, description='Add a glam finishing touch to your wedding day with our engraved welcome sign.'),
     Product(
         seller_id=2, category='Signage', name='Frosted Acrylic Wedding Welcome Sign - Wedding Signage - Modern Wedding Sign - Acrylic Welcome Wedding Sign - Wedding Ceremony Signs', price=152.91, description='Our frosted acrylic wedding welcome sign is a great way to welcome in your guests at your wedding or any of your special events.'),
     Product(
@@ -40,7 +40,7 @@ def seed_products():
     Product(
         seller_id=2, category='Seating', name='Acrylic Seating Chart // Wedding Seating Chart // Acrylic Wedding Sign // Seating Chart Sign // Custom Wedding Decor // Frosted Acrylic', price=141.75, description='Add a touch of elegant detail to your wedding or special event with our beautiful, laser cut and ENGRAVED acrylic custom seating chart!p18'),
     Product(
-        seller_id=1, category='Seating', name='Wedding Reserved Sign - Wood Reserved Sign - Reserved Sign - Wedding Signs - Wedding decor - Wedding Aisle - Social distancing - Minimalist', price=8.50, description='These custom made reserved signs are the perfect addition to your wedding tables or pews to help save room for your closest friends and family.'),
+        seller_id=1, category='Seating', name='Acrylic Seating Chart // Wedding Seating Chart // Seating Chart // Custom Wedding Decor //Laser Engraved', price=127.20, description='Add a touch of elegant detail to your wedding or special event with our beautiful, laser cut and ENGRAVED acrylic custom seating chart!'),
     Product(
         seller_id=3, category='Seating', name='Reserved Seating Chair Tag Template, Modern Wedding Reserved Seat Tag, Minimalist Wedding Reserved Seating Tag, Printable, Templett, #016', price=3.99, description='Purchase, personalize, and print within minutes! Edit using the Templett app in your computer browser,p no additional software needed! Please try demo and seek clarification before purchasing the template.'),
     Product(
@@ -140,7 +140,7 @@ def seed_products():
     Product(
         seller_id=7, category='Favors&Gifts', name='Newlywed Christmas Ornament, Mr and Mrs Ornament, Newlywed Gift, Couples Gift, First Married Christmas Ornament, Wedding Gift, Gift for Bride', price=16.99, description='This adorable personalized Christmas ornament is the perfect personalized gift for newly married couples. Be it a Christmas gift, or a gift to give them for their wedding day, this cute ornament will be cherished by the couple.'),
     Product(
-        seller_id=7, category='Favors&Gifts', name='Charcuterie Board, Personalized Serving Board With Handle, Monogrammed, Personalized Cheese Board, Engagement Gift, Bridal Shower Gift', price=31.50, description='Handcrafted special cutting boards of our TmolosCo store, which offers the best gift options for special occasions'),
+        seller_id=7, category='Guestbook', name='Custom Portrait Wedding Guest Book Alternative Personalized Wedding Guest Book Portrait Sign Illustration Wedding Decor Wedding Decorations', price=19.80, description='We draw a digital illustration of your photo with a modern, contemporary oil painting style.'),
     Product(
         seller_id=7, category='Favors&Gifts', name='Engraved Home Coordinates Custom Cutting Board | Bread Board | Personalized Charcuterie | Housewarming Gift | Closing Gift | Wedding Gift', price=50.03, description='Say hello to this USA made, premium solid walnut engraved cutting board- The perfect way to celebrate a housewarming, closing, wedding, or birthday! This timeless keepsake is not only functional, but serves as a unique gift that will be cherished forever.'),
     Product(
@@ -206,7 +206,7 @@ def seed_products():
     Product(
         seller_id=3, category='Table Decor&Centerpieces', name='Gold Cake topper for Wedding, Personalized cake topper, Rustic wedding cake topper, Custom Mr Mrs cake topper, Anniversary Cake toppers', price=18.43, description='Designed and Made in USA- Wedding Decor and Wedding Decorations. Anniversary Decorations and perfect for any occasion! Make the Bride and Groom stand out on their wedding day with our beautiful and personalized cake toppers to add to their special day!'),
     Product(
-        seller_id=3, category='Table Decor&Centerpieces', name='Miss to Mrs Laser Cut Bridal Shower Cake Topper - 5.5" Acrylic Cake Topper, Custom Bridal Shower Sign, Engagement Decor, Trendy Design', price=20.22, description='We\'ve got you covered for creative bridal shower decor! Our Miss to Mrs Mrs laser cut acrylic cake topper is beautifully designed to match any theme or dessert display.'),
+        seller_id=3, category='Table Decor&Centerpieces', name='Personalized Acrylic Wedding Cake Topper | Clear | Arch |with Cake Picks | Classic | Minimal | Simple | Mr and Mrs cake topper', price=25.20, description='Our acrylic cake toppers are the perfect way to decorate that beautiful wedding cake of yours! Our toppers are made from strong and sturdy 1/8" acrylic and laser engraved to ensure no fading or peeling whatsoever to have a lifelong momento of your special day. Choose to keep it simple and minimal, or make it stand out amidst some beautiful florals! This cake topper will make the perfect addition to your cake cutting moment!'),
     Product(
         seller_id=3, category='Table Decor&Centerpieces', name='Wedding cake topper wedding bride and groom cake topper rustic wedding cake topper figurine', price=70.32, description='Looking for a unique wedding cake topper which can be a keepsake last a lifetime. Our personalized wedding cake toppers are the great wedding topper and amazing wedding keepsake. It is also special wedding gift for bride and groom. These are 100% hand made so each wedding cake topper is absolute one-and-only in this world. Let us help create the unique wedding cake topper for your wedding day.'),
     Product(
@@ -221,6 +221,10 @@ def seed_products():
         seller_id=5, category='Table Decor&Centerpieces', name='Personalized Relationship Champagne Flutes - Toasting Glasses for Couples, Romantic Gift Idea, Anniversary Glasses, Design: N6', price=15.46, description='Personalized etched champagne glasses for newlyweds, newly engaged, anniversary, or any celebrating couples! Each champagne glass is laser etched for an elegant and permanent look. Perfect for toasting glasses and wedding gifts, or even wedding favors for your guests! Husband and wife both will adore these glasses long after the big day. Prosecco or Champagne, who cares?! Bubbles make everything better.'),
     Product(
         seller_id=5, category='Table Decor&Centerpieces', name='Personalized Wedding Glasses-Wedding Toasting Flutes-Engraved Wedding Glasses-Wedding Flutes-Champagne Flutes-Wedding Favours-Wedding Gifts', price=19.30, description='Personalized Wedding Champagne Glasses for the biggest day of your life! Each of our Personalized Wine Glass are handmade with love just for you!'),
+    Product(
+        seller_id=8, category='Bar&Menu', name='Bar Menu Signature Cocktails Custom Clear Glass Look Acrylic Wedding Sign With Stand, His Her Drinks Lucite Perspex Bar Table Sign HL-SC1', price=32.49, description='We love the sleek, clean lines of these wedding acrylic signs! This acrylic is a display material that is strong, moisture resistant & visually clearer than glass, not to mention shatterproof!'),
+    Product(
+        seller_id=5, category='Attire&Accessories', name='Tennis Bracelet and Earring | Bridal Jewelry Set | Wedding Simple Bridesmaid Jewelry | 18K Rose Gold | Hundred Hearts', price=25.00, description='Make a statement on your special day with these delicate and elegant pieces. Comes in pearl earring designs too.'),
     ]
 
     for product in products:

@@ -21,8 +21,7 @@ jobs:
       run: npm install && CI=false npm run build
 
     # https://github.com/actions/setup-python
-    # If a student sees this, they could speed up their builds
-    # by moving install from docker to cached GH action runner
+    # Students can speed up their builds by moving install from docker to cached GH action runner
     - uses: actions/setup-python@v3
       with:
         python-version: '3.9'

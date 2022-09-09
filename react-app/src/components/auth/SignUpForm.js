@@ -61,10 +61,10 @@ const SignUpForm = ({ setShowRegister, setShowSignIn }) => {
         ></input>
       </div>
       {errors && <div className='signup-error-outer'>
-        {errors?.map((error, ind) => {
+        {errors?.map((error, i) => {
           if (error.split(":")[0].toLowerCase() === 'email ')
             return (
-              <div key={ind} className='signup-errors'>*{error.split(":")[1]}</div>
+              <div key={i} className='signup-errors'>*{error.split(":")[1]}</div>
             )
         })}
       </div>}
@@ -80,10 +80,10 @@ const SignUpForm = ({ setShowRegister, setShowSignIn }) => {
         ></input>
       </div>
       {errors && <div className='login-error-outer'>
-        {errors?.map((error, ind) => {
+        {errors?.map((error, i) => {
           if (error?.split(":")[0].toLowerCase() === 'first name ')
             return (
-              <div key={ind} className='login-errors'>*{error.split(":")[1]}</div>
+              <div key={i} className='login-errors'>*{error.split(":")[1]}</div>
             )
         })}
       </div>}
@@ -112,10 +112,10 @@ const SignUpForm = ({ setShowRegister, setShowSignIn }) => {
           ></input>
         </div>
         <div className='login-error-outer'>
-          {errors.map((error, ind) => {
+          {errors.map((error, i) => {
             if (error.split(":")[0].toLowerCase() === 'password ')
               return (
-                <div key={ind} className='login-errors'>*{error.split(":")[1]}</div>
+                <div key={i} className='login-errors'>*{error.split(":")[1]}</div>
               )
           })}
         </div>

@@ -3,6 +3,7 @@
   flex-direction: column;
   min-width: 56%;
   position: relative;
+  margin-right: 5px;
 }
 
 .searchBar-form {

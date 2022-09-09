@@ -24,8 +24,6 @@ def seed_images():
     Image(
         user_id=1, product_id=4, url='https://knotsy.s3.us-west-1.amazonaws.com/p4.2.webp'),
     Image(
-        user_id=1, product_id=4, url='https://knotsy.s3.us-west-1.amazonaws.com/p4.3.webp'),
-    Image(
         user_id=2, product_id=5, url='https://knotsy.s3.us-west-1.amazonaws.com/p5.1.webp'),
     Image(
         user_id=2, product_id=6, url='https://knotsy.s3.us-west-1.amazonaws.com/p6.1.webp'),
@@ -88,9 +86,9 @@ def seed_images():
     Image(
         user_id=3, product_id=20, url='https://knotsy.s3.us-west-1.amazonaws.com/p20.3.jpg'),
     Image(
-        user_id=1, product_id=21, url='https://knotsy.s3.us-west-1.amazonaws.com/p21.1.jpg'),
+        user_id=1, product_id=21, url='https://knotsy.s3.us-west-1.amazonaws.com/p21.1.webp'),
     Image(
-        user_id=1, product_id=21, url='https://knotsy.s3.us-west-1.amazonaws.com/p21.2.jpg'),
+        user_id=1, product_id=21, url='https://knotsy.s3.us-west-1.amazonaws.com/p21.2.webp'),
     Image(
         user_id=4, product_id=22, url='https://knotsy.s3.us-west-1.amazonaws.com/p22.4.webp'),
     Image(
@@ -229,8 +227,6 @@ def seed_images():
         user_id=3, product_id=47, url='https://knotsy.s3.us-west-1.amazonaws.com/p47.1.webp'),
     Image(
         user_id=3, product_id=47, url='https://knotsy.s3.us-west-1.amazonaws.com/p47.2.webp'),
-    Image(
-        user_id=3, product_id=47, url='https://knotsy.s3.us-west-1.amazonaws.com/p47.3.webp'),
     Image(
         user_id=3, product_id=48, url='https://knotsy.s3.us-west-1.amazonaws.com/p48.1.webp'),
     Image(
@@ -565,6 +561,10 @@ def seed_images():
         user_id=5, product_id=109, url='https://knotsy.s3.us-west-1.amazonaws.com/p109.2.webp'),
     Image(
         user_id=5, product_id=109, url='https://knotsy.s3.us-west-1.amazonaws.com/p109.3.webp'),
+    Image(
+        user_id=8, product_id=110, url='https://knotsy.s3.us-west-1.amazonaws.com/p110.1.webp'),
+    Image(
+        user_id=8, product_id=110, url='https://knotsy.s3.us-west-1.amazonaws.com/p110.2.webp'),
     ]
 
     for image in images:

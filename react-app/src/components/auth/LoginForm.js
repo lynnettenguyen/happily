@@ -53,10 +53,10 @@ const LoginForm = ({ setShowSignIn }) => {
           />
         </div>
         <div className='login-error-outer'>
-          {errors?.map((error, ind) => {
+          {errors?.map((error, i) => {
             if (error.split(":")[0].toLowerCase() === 'email ')
               return (
-                <div key={ind} className='login-errors'>*{error.split(":")[1]}</div>
+                <div key={i} className='login-errors'>*{error.split(":")[1]}</div>
               )
           })}
         </div>
@@ -72,10 +72,10 @@ const LoginForm = ({ setShowSignIn }) => {
           />
         </div>
         <div className='login-error-outer'>
-          {errors?.map((error, ind) => {
+          {errors?.map((error, i) => {
             if (error.split(":")[0].toLowerCase() === 'password ')
               return (
-                <div key={ind} className='login-errors'>*{error.split(":")[1]}</div>
+                <div key={i} className='login-errors'>*{error.split(":")[1]}</div>
               )
           })}
         </div>

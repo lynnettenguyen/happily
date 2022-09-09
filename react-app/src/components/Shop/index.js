@@ -120,11 +120,11 @@ const Shop = () => {
             <div className='first-page-main'>
               <div className='first-page-main-upper'>
                 <label className='sell-product-name-shop-label'>Name your shop</label>
-                <div className='sell-product-caption'>We find sellers often draw inspiration from what they sell or their style, pretty much anything goes.</div>
-                {shopErrors?.map((error, ind) => {
+                <div className='sell-product-caption'>We fi sellers often draw inspiration from what they sell or their style, pretty much anything goes.</div>
+                {shopErrors?.map((error, i) => {
                   if (error.split(":")[0] === 'Shop Name')
                     return (
-                      <div key={ind} className='product-shop-errors'><div>-{error.split(":")[1]}</div></div>
+                      <div key={i} className='product-shop-errors'><div>-{error.split(":")[1]}</div></div>
                     )
                 })}
                 <input
@@ -153,10 +153,10 @@ const Shop = () => {
                   <label className='sell-product-label'>Title *</label>
                   <span className='sell-product-instructions'>Include keywords that buyers would use to search for your item.</span>
                 </div>
-                {errors?.map((error, ind) => {
+                {errors?.map((error, i) => {
                   if (error.split(":")[0] === 'Name')
                     return (
-                      <div key={ind} className='product-errors'>-{error.split(":")[1]}</div>
+                      <div key={i} className='product-errors'>-{error.split(":")[1]}</div>
                     )
                 })}
                 <div>
@@ -172,12 +172,12 @@ const Shop = () => {
               <div className='product-form-field'>
                 <div>
                   <label className='sell-product-label'>Category *</label>
-                  <span className='sell-product-instructions'>Select a category to help shoppers find your product.</span>
+                  <span className='sell-product-instructions'>Select a category to help shoppers fi your product.</span>
                 </div>
-                {errors?.map((error, ind) => {
+                {errors?.map((error, i) => {
                   if (error.split(":")[0] === 'Category')
                     return (
-                      <div key={ind} className='product-errors'>-{error.split(":")[1]}</div>
+                      <div key={i} className='product-errors'>-{error.split(":")[1]}</div>
                     )
                 })}
                 <div className='select-outer'>
@@ -203,10 +203,10 @@ const Shop = () => {
                   <label className='sell-product-label'>Price *</label>
                   <span className='sell-product-instructions'>Remember to factor in the cost of materials, labor, and other business expenses.</span>
                 </div>
-                {errors?.map((error, ind) => {
+                {errors?.map((error, i) => {
                   if (error.split(":")[0] === 'Price')
                     return (
-                      <div key={ind} className='product-errors'>-{error.split(":")[1]}</div>
+                      <div key={i} className='product-errors'>-{error.split(":")[1]}</div>
                     )
                 })}
                 <input
@@ -222,10 +222,10 @@ const Shop = () => {
                   <label className='sell-product-label'>Description *</label>
                   <span className='sell-product-instructions'>Start with a brief overview that describes your item's finest features.</span>
                 </div>
-                {errors?.map((error, ind) => {
+                {errors?.map((error, i) => {
                   if (error.split(":")[0] === 'Description')
                     return (
-                      <div key={ind} className='product-errors'>-{error.split(":")[1]}</div>
+                      <div key={i} className='product-errors'>-{error.split(":")[1]}</div>
                     )
                 })}
                 <textarea
