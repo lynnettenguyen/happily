@@ -1,7 +1,8 @@
 .searchBar-main {
   display: flex;
   flex-direction: column;
-  min-width: 55%;
+  width: 62.5%;
+  max-width: 66%;
   position: relative;
   margin-right: 5px;
 }
@@ -48,9 +49,10 @@
 }
 
 .search-header {
-  margin: 2rem 15.2rem 0;
+  margin: 2rem auto 0;
   font-family: GuardianEgypLight, Arial, Helvetica, sans-serif;
   font-size: 1.4rem;
+  width: 79%;
 }
 
 .search-main {

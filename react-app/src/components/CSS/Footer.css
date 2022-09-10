@@ -53,8 +53,9 @@
 
 .socials-outer {
   width: 100%;
-  margin: 0 13rem 0 14rem;
+  /* margin: 0 13rem 0 14rem; */
   justify-content: space-between;
+  width: 85%
 }
 
 .socials-inner {

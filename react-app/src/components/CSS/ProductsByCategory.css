@@ -11,9 +11,10 @@
 }
 
 .category-header {
-  margin: 2rem 15.2rem;
+  margin: 2rem auto;
   font-family: GuardianEgypLight, Arial, Helvetica, sans-serif;
   font-size: 1.5rem;
+  width: 78.5%;
 }
 
 .category-main {
@@ -21,18 +22,20 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0 14rem 1.5rem;
+  margin: 0 auto 1.5rem;
+  width: 80%;
 }
 
 .category-caption {
-  margin: 1rem 0.5rem;
+  margin: 1rem 0;
   font-family: GuardianEgypLight, Arial, Helvetica, sans-serif;
   font-size: 1.5rem;
+  width: 100%;
 }
 
 .category-products-main {
   display: grid;
-  grid-template-columns: repeat(4, 300px);
+  grid-template-columns: repeat(4, 288px);
   justify-content: center;
 }
 
