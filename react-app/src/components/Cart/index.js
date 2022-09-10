@@ -79,18 +79,13 @@ const Cart = () => {
 
     if (findItem[0].quantity > 1) {
       findItem[0].quantity--;
+      setCart(newCart)
     } else {
       let remainingItems = cart.filter((item, i) => item.id !== product.id)
-      console.log(remainingItems, 'remaining')
-      let data = await localStorage.setItem('cart', JSON.stringify(remainingItems))
-      if (data) {
-        setCart(JSON.parse(data))
-      } else {
-        setCart([])
-      }
+      await localStorage.setItem('cart', JSON.stringify(remainingItems))
+      setCart(JSON.parse(localStorage.getItem('cart')))
       setUpdateCart(true)
     }
-    setCart(newCart)
   }
 
   const handleAddQuantity = (product) => {

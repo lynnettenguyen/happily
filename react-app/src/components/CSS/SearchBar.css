@@ -1,7 +1,7 @@
 .searchBar-main {
   display: flex;
   flex-direction: column;
-  min-width: 56%;
+  min-width: 55%;
   position: relative;
   margin-right: 5px;
 }
@@ -78,7 +78,7 @@
 }
 
 .search-results {
-  max-width: 1100px;
+  max-width: 1000px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

@@ -120,7 +120,7 @@ const Shop = () => {
             <div className='first-page-main'>
               <div className='first-page-main-upper'>
                 <label className='sell-product-name-shop-label'>Name your shop</label>
-                <div className='sell-product-caption'>We fi sellers often draw inspiration from what they sell or their style, pretty much anything goes.</div>
+                <div className='sell-product-caption'>We find sellers often draw inspiration from what they sell or their style, pretty much anything goes.</div>
                 {shopErrors?.map((error, i) => {
                   if (error.split(":")[0] === 'Shop Name')
                     return (
