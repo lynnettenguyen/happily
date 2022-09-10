@@ -66,11 +66,11 @@ NavLink {
   border: black 2.5px solid;
   border-radius: 30px;
   background-color: #F3F3F3;
-  width: 99%;
+  width: 98%;
   height: 43px;
   display: flex;
   align-items: center;
-  margin: 0 10px 0 2px;
+  margin: 0 10px 0 5px;
 }
 
 .navBar-featured-outer {

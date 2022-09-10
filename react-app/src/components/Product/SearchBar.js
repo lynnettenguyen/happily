@@ -12,7 +12,7 @@ const SearchBar = () => {
   const [errors, setErrors] = useState([])
 
   useEffect(() => {
-    if (keyword && keyword.trim().length > 1) {
+    if (keyword && keyword.trim().length >= 1) {
       setErrors([])
     }
   }, [keyword])
