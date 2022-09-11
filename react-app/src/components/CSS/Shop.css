@@ -218,3 +218,15 @@
   height: 36px;
   cursor: pointer;
 }
+
+@media screen and (max-width: 1440px) {
+  .main-shop-outer {
+    min-height: 62%;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .product-save-button {
+    margin-bottom: 1.5rem;
+  }
+}

@@ -1,9 +1,17 @@
-.searchBar-main {
+.searchBar-main,
+.searchBar-main-noUser {
   display: flex;
   flex-direction: column;
-  min-width: 55%;
   position: relative;
   margin-right: 5px;
+}
+
+.searchBar-main {
+  width: 62%;
+}
+
+.searchBar-main-noUser {
+  width: 65.7%;
 }
 
 .searchBar-form {
@@ -48,9 +56,11 @@
 }
 
 .search-header {
-  margin: 2rem 15.2rem 0;
+  margin: 2rem auto 0;
   font-family: GuardianEgypLight, Arial, Helvetica, sans-serif;
   font-size: 1.4rem;
+  width: 1220px;
+  box-sizing: border-box;
 }
 
 .search-main {
@@ -72,16 +82,28 @@
   color: red;
   position: absolute;
   top: 30px;
-  left: 25px;
+  left: 28px;
   font-family: GraphikRegular, Arial, Helvetica, sans-serif;
   font-size: 0.6rem;
 }
 
 .search-results {
-  max-width: 1000px;
+  max-width: 97%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   position: relative;
   display: inline-block;
+}
+
+@media screen and (max-width: 1440px) {
+  .search-header {
+    width: 1200px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .search-header {
+    width: 1075px;
+  }
 }

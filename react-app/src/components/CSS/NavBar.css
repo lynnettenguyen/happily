@@ -6,8 +6,7 @@ NavLink {
   box-sizing: border-box;
   min-height: 101px;
   margin: 0 auto;
-  max-width: 100%;
-  min-width: 1000px;
+  width: 1450px;
 }
 
 .navBar-outer {
@@ -16,7 +15,7 @@ NavLink {
   margin: 20px auto 10px;
   justify-content: center;
   position: relative;
-  padding: 0 4rem;
+  box-sizing: border-box;
 }
 
 .navBar-link {
@@ -78,16 +77,15 @@ NavLink {
   justify-content: center;
   font-family: GraphikLight, Arial, Helvetica, sans-serif;
   font-size: 0.85rem;
-  padding: 0 10rem;
   box-sizing: border-box;
-  max-width: 100%;
   align-items: center;
+  width: 1450px;
 }
 
 .navBar-feature {
   border-bottom: 1px solid white;
   padding: 0.5rem 0 1rem;
-  margin: 0 1.3rem;
+  margin: 0 1.65rem;
   white-space: nowrap;
 }
 
@@ -95,4 +93,34 @@ NavLink {
   cursor: pointer;
   border-bottom: 1.5px solid black;
   box-sizing: border-box;
+}
+
+@media screen and (max-width: 1440px) {
+  .navBar-main {
+    width: 1416px;
+  }
+
+  .navBar-featured-outer {
+    width: 1400px;
+    margin: 0 auto;
+  }
+
+  .navBar-feature {
+    margin: 0 1.6rem;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .navBar-main {
+    width: 1216px;
+  }
+
+  .navBar-featured-outer {
+    width: 1200px;
+    margin: 0 auto;
+  }
+
+  .navBar-feature {
+    margin: 0 1.1rem;
+  }
 }

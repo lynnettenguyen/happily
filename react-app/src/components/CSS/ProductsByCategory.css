@@ -11,9 +11,10 @@
 }
 
 .category-header {
-  margin: 2rem 15.2rem;
+  margin: 2rem auto;
   font-family: GuardianEgypLight, Arial, Helvetica, sans-serif;
   font-size: 1.5rem;
+  width: 1220px;
 }
 
 .category-main {
@@ -21,18 +22,20 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0 14rem 1.5rem;
+  margin: 0 auto 1.5rem;
+  width: 1220px;
 }
 
 .category-caption {
-  margin: 1rem 0.5rem;
+  margin: 1rem 0;
   font-family: GuardianEgypLight, Arial, Helvetica, sans-serif;
   font-size: 1.5rem;
+  width: 100%;
 }
 
 .category-products-main {
   display: grid;
-  grid-template-columns: repeat(4, 300px);
+  grid-template-columns: repeat(4, 308px);
   justify-content: center;
 }
 
@@ -96,4 +99,32 @@
   font-size: 14px;
   color: #616161;
   margin-bottom: 0.8rem;
+}
+
+@media screen and (max-width: 1440px) {
+  .category-header {
+    width: 1199px;
+  }
+
+  .category-main {
+    width: 1200px;
+  }
+
+  .category-products-main {
+    grid-template-columns: repeat(4, 303px);
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .category-header {
+    width: 1080px;
+  }
+
+  .category-main {
+    width: 1081px;
+  }
+
+  .category-products-main {
+    grid-template-columns: repeat(4, 273px);
+  }
 }

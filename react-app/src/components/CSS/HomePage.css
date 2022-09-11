@@ -61,8 +61,9 @@
 
 .display-product-outer {
   box-sizing: border-box;
-  width: 366px;
-  position: relative
+  position: relative;
+  display: flex;
+  justify-content: center;
 }
 
 .display-product-price {
@@ -162,4 +163,15 @@
   grid-column-end: 5;
   grid-row-start: 4;
   grid-row-end: 6;
+}
+
+@media screen and (max-width: 1280px) {
+  .display-product-main {
+    grid-template-columns: repeat(4, 270px);
+    grid-template-rows: repeat(5, 100px);
+  }
+
+  .display-img-outer {
+    width: 258px;
+  }
 }

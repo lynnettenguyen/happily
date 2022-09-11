@@ -227,7 +227,6 @@ const Product = () => {
           <LoginForm setShowSignIn={setShowSignIn} />
         </Modal>
       )}
-      <Footer />
     </>
   )
 }

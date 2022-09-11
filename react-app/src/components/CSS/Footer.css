@@ -12,16 +12,19 @@
 }
 
 .footer-upper {
+  overflow-y: hidden;
   height: 35px;
 }
 
 .footer-middle {
+  overflow-y: hidden;
   width: 100%;
   height: 20px;
   background-color: #4D6BC6;
 }
 
 .footer-lower {
+  overflow-y: hidden;
   min-width: 100%;
   height: 100px;
   background-color: #2F466C;
@@ -53,13 +56,13 @@
 
 .socials-outer {
   width: 100%;
-  margin: 0 13rem 0 14rem;
   justify-content: space-between;
+  width: 1250px;
 }
 
 .socials-inner {
   align-items: flex-end;
-  margin: 0 1rem;
+  margin-left: 3rem;
 }
 
 .social-logo-github {
@@ -86,4 +89,39 @@
 
 .social-text:hover {
   color: rgba(232, 232, 232, 0.62);
+}
+
+
+@media screen and (min-width: 1920px) {
+  .footer-middle {
+    height: 25px;
+  }
+
+  .footer-upper {
+    height: 30px;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .footer-upper {
+    height: 28px;
+  }
+
+  .footer-middle {
+    height: 30px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .socials-outer {
+    width: 1180px;
+  }
+
+  .footer-upper {
+    height: 28px;
+  }
+
+  .footer-middle {
+    height: 30px;
+  }
 }
