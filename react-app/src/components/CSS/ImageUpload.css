@@ -116,18 +116,20 @@
 
 .loading-message,
 .image-error {
-  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
-  color: white;
   margin: 0 1rem 0.5rem 0;
-  background-color: black;
   padding: 5px;
   border-radius: 5px;
 }
 
 .loading-message {
+  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
+  color: white;
+  background-color: black;
   font-size: 16px;
 }
 
 .image-error {
+  font-family: GraphikMedium, Arial, Helvetica, sans-serif;
+  color: red;
   font-size: 12px;
 }

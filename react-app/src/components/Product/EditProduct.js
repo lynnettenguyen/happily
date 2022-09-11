@@ -69,6 +69,7 @@ const EditProduct = ({ productId, setShowEditForm }) => {
                 className='edit-text-area-name'
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                maxLength={141}
               />
             </div>
           </div>
@@ -135,6 +136,7 @@ const EditProduct = ({ productId, setShowEditForm }) => {
               className='edit-text-area'
               value={description}
               onChange={(e) => setDescription(e.target.value)}
+              maxLength={1001}
             />
           </div>
           <div className='edit-save-button-outer'>

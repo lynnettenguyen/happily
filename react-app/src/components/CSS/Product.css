@@ -45,7 +45,7 @@
   overflow-wrap: break-word;
   word-wrap: break-word;
   hyphens: auto;
-  width: 590px;
+  width: 570px;
 }
 
 .product-price {
@@ -92,7 +92,7 @@
 }
 
 .product-preview-image-outer {
-  width: 70px;
+  width: 60px;
   height: 55px;
 }
 
@@ -233,7 +233,7 @@
 .product-review-content {
   font-family: GraphikRegular, Arial, Helvetica, sans-serif;
   line-height: 25px;
-  max-width: 640px;
+  max-width: 626px;
   overflow-wrap: break-word;
   word-wrap: break-word;
   hyphens: auto;
