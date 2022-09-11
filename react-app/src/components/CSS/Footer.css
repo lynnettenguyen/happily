@@ -12,19 +12,19 @@
 }
 
 .footer-upper {
-  overflow-x: hidden;
+  overflow-y: hidden;
   height: 35px;
 }
 
 .footer-middle {
-  overflow-x: hidden;
+  overflow-y: hidden;
   width: 100%;
   height: 20px;
   background-color: #4D6BC6;
 }
 
 .footer-lower {
-  overflow-x: hidden;
+  overflow-y: hidden;
   min-width: 100%;
   height: 100px;
   background-color: #2F466C;
@@ -62,7 +62,7 @@
 
 .socials-inner {
   align-items: flex-end;
-  margin: 0 1rem;
+  margin-left: 3rem;
 }
 
 .social-logo-github {
@@ -94,22 +94,34 @@
 
 @media screen and (min-width: 1920px) {
   .footer-middle {
-    height: 28px;
+    height: 25px;
   }
 
-  .footer-lower {
-    height: 102px;
+  .footer-upper {
+    height: 30px;
   }
 }
 
 @media screen and (max-width: 1440px) {
   .footer-upper {
-    overflow-y: hidden;
+    height: 28px;
+  }
+
+  .footer-middle {
+    height: 30px;
   }
 }
 
 @media screen and (max-width: 1280px) {
   .socials-outer {
-    width: 1200px;
+    width: 1180px;
+  }
+
+  .footer-upper {
+    height: 28px;
+  }
+
+  .footer-middle {
+    height: 30px;
   }
 }

@@ -1,10 +1,17 @@
-.searchBar-main {
+.searchBar-main,
+.searchBar-main-noUser {
   display: flex;
   flex-direction: column;
-  width: 62.5%;
-  max-width: 66%;
   position: relative;
   margin-right: 5px;
+}
+
+.searchBar-main {
+  width: 62%;
+}
+
+.searchBar-main-noUser {
+  width: 65.7%;
 }
 
 .searchBar-form {
@@ -75,7 +82,7 @@
   color: red;
   position: absolute;
   top: 30px;
-  left: 25px;
+  left: 28px;
   font-family: GraphikRegular, Arial, Helvetica, sans-serif;
   font-size: 0.6rem;
 }

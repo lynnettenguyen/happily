@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { findProductsBySearch } from '../../store/products';
 import magnifyingGlass from '../CSS/Images/magnifying_glass.svg'
@@ -8,6 +8,7 @@ import '../CSS/SearchBar.css'
 const SearchBar = () => {
   const dispatch = useDispatch()
   const history = useHistory()
+  const user = useSelector(state => state.session.user)
   const [keyword, setKeyword] = useState("")
   const [errors, setErrors] = useState([])
 
@@ -36,7 +37,7 @@ const SearchBar = () => {
 
 
   return (
-    <div className='searchBar-main'>
+    <div className={user ? 'searchBar-main' : 'searchBar-main-noUser'}>
       <div>
         {errors?.map((error, i) => {
             return (

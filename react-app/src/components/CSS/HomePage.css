@@ -61,7 +61,9 @@
 
 .display-product-outer {
   box-sizing: border-box;
-  position: relative
+  position: relative;
+  display: flex;
+  justify-content: center;
 }
 
 .display-product-price {
