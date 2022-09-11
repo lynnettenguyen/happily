@@ -55,7 +55,7 @@
   width: 100%;
   /* margin: 0 13rem 0 14rem; */
   justify-content: space-between;
-  width: 85%
+  width: 1250px;
 }
 
 .socials-inner {
@@ -87,4 +87,15 @@
 
 .social-text:hover {
   color: rgba(232, 232, 232, 0.62);
+}
+
+
+@media screen and (min-width: 1920px) {
+  .footer-middle {
+    height: 28px;
+  }
+
+  .footer-lower {
+    height: 102px;
+  }
 }

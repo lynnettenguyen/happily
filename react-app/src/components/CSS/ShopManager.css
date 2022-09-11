@@ -1,5 +1,8 @@
 .my-products-main {
   margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .my-products-upper {
@@ -18,19 +21,22 @@
   margin: 2rem auto 0.5rem;
   font-family: GuardianEgypLight, Arial, Helvetica, sans-serif;
   font-size: 1.5rem;
-  width: 79%;
+  width: 1220px;
+
 }
 
 .my-products-shop {
   font-family: GuardianEgypLight, Arial, Helvetica, sans-serif;
   font-size: 1rem;
   margin: 0 auto 2rem;
-    width: 79%;
+  width: 1220px;
 }
 
 .my-products-outer {
+  width: 1226px;
   padding-top: 7.5rem;
-  margin: 0 14rem;
+  /* margin: 0 14rem; */
+
 }
 
 .my-products-inner {
