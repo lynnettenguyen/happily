@@ -88,3 +88,15 @@
   position: relative;
   display: inline-block;
 }
+
+@media screen and (max-width: 1440px) {
+  .search-header {
+    width: 1200px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .search-header {
+    width: 1075px;
+  }
+}

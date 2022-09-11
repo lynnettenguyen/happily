@@ -100,3 +100,31 @@
   color: #616161;
   margin-bottom: 0.8rem;
 }
+
+@media screen and (max-width: 1440px) {
+  .category-header {
+    width: 1199px;
+  }
+
+  .category-main {
+    width: 1200px;
+  }
+
+  .category-products-main {
+    grid-template-columns: repeat(4, 303px);
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .category-header {
+    width: 1080px;
+  }
+
+  .category-main {
+    width: 1081px;
+  }
+
+  .category-products-main {
+    grid-template-columns: repeat(4, 273px);
+  }
+}

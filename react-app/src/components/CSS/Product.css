@@ -190,6 +190,10 @@
   max-width: 580px;
 }
 
+.product-reviews-main {
+  margin: 0 1rem;
+}
+
 .product-reviews-header {
   margin: 1rem 0;
   font-family: GuardianEgypThin, Arial, Helvetica, sans-serif;
@@ -266,19 +270,33 @@
     width: 640px;
   }
 
-  .product-right-main {
-    width: 550px;
-  }
-
   .product-review-content {
     max-width: 620px;
   }
 
-  .product-name, .product-description {
+  .product-right-main,
+  .product-name,
+  .product-description {
+    max-width: 550px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .product-left-main {
+    width: 550px;
+  }
+
+  .product-review-content {
+    max-width: 550px;
+  }
+
+  .product-right-main,
+  .product-name,
+  .product-description {
     max-width: 530px;
   }
 
   .product-preview-image-outer {
-    width: 50px;
+    width: 60px;
   }
 }

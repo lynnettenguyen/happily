@@ -56,7 +56,6 @@
 
 .socials-outer {
   width: 100%;
-  /* margin: 0 13rem 0 14rem; */
   justify-content: space-between;
   width: 1250px;
 }
@@ -106,5 +105,11 @@
 @media screen and (max-width: 1440px) {
   .footer-upper {
     overflow-y: hidden;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .socials-outer {
+    width: 1200px;
   }
 }

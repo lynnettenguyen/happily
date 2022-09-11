@@ -96,7 +96,6 @@ NavLink {
 }
 
 @media screen and (max-width: 1440px) {
-
   .navBar-main {
     width: 1416px;
   }
@@ -108,5 +107,20 @@ NavLink {
 
   .navBar-feature {
     margin: 0 1.6rem;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .navBar-main {
+    width: 1216px;
+  }
+
+  .navBar-featured-outer {
+    width: 1200px;
+    margin: 0 auto;
+  }
+
+  .navBar-feature {
+    margin: 0 1.1rem;
   }
 }

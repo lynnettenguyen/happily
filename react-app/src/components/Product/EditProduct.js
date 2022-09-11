@@ -112,11 +112,11 @@ const EditProduct = ({ productId, setShowEditForm }) => {
             })}
             <input
               type='number'
-              step='0.01'
+              step={0.01}
               className='edit-input'
               value={price}
               onChange={(e) => setPrice(e.target.value)}
-              min="0"
+              min={0}
             />
           </div>
           <div className='edit-field'>

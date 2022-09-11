@@ -211,7 +211,8 @@ const Shop = () => {
                 })}
                 <input
                   type='number'
-                  step="0.01"
+                  step={0.01}
+                  min={0}
                   className='product-form-input'
                   value={price}
                   onChange={(e) => setPrice(e.target.value)}

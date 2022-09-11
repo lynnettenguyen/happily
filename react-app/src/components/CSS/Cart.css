@@ -144,3 +144,17 @@
   margin-top: 0.5rem;
   cursor: pointer;
 }
+
+@media screen and (max-width: 1280px) {
+  .cart-header {
+    width: 1080px;
+  }
+
+  .cart-main {
+    grid-template-columns: 780px 300px;
+  }
+
+  .cart-product-name {
+    width: 52%;
+  }
+}

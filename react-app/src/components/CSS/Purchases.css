@@ -27,7 +27,6 @@
 .purchases-details-outer {
   width: 1220px;
   padding-top: 7.5rem;
-  /* margin: 0 9.5rem; */
 }
 
 .no-purchases-main {
@@ -316,4 +315,28 @@
   height: 30px;
   cursor: pointer;
   margin-top: 0.4rem;
+}
+
+@media screen and (max-width: 1440px) {
+
+  .purchase-header,
+  .no-purchases-main {
+    width: 1200px;
+  }
+
+  .purchases-details-outer {
+    width: 1210px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+
+  .purchase-header,
+  .no-purchases-main {
+    width: 1070px;
+  }
+
+  .purchases-details-outer {
+    width: 1080px;
+  }
 }
