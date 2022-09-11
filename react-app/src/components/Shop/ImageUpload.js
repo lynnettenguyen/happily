@@ -19,25 +19,27 @@ const ImageUpload = ({ productId }) => {
   const user = useSelector(state => state.session.user)
   const [errors, setErrors] = useState([])
 
-
   useEffect(() => {
     if (image4) setMultiImage([image, image2, image3, image4])
     else if (image3) setMultiImage([image, image2, image3])
     else if (image2) setMultiImage([image, image2])
     else if (image) setMultiImage([image])
-  }, [image, image2, image3, image4])
+    else setMultiImage([])
 
+    if (image || image2 || image3 || image4) setErrors([])
+
+  }, [image, image2, image3, image4])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (image === null) {
+
+    if (multiImages.length === 0) {
       setErrors(['Minimum of one image upload required'])
       return
     }
 
     setImageLoading(true);
-
     for (let i = 0; i < multiImages.length; i++) {
       const imageData = new FormData();
       imageData.append("product_id", productId);
@@ -58,7 +60,7 @@ const ImageUpload = ({ productId }) => {
 
   const updateImage = (e) => {
     const file = e.target.files[0];
-    setImage(file);
+    setImage(file)
   }
 
   const updateImage2 = (e) => {
@@ -90,7 +92,7 @@ const ImageUpload = ({ productId }) => {
                 : 'Add Photo'}
             </label>
           </div>
-          {image && <div className={image2 ? 'file-upload-outer-image' : 'file-upload-outer'}>
+          {<div className={image2 ? 'file-upload-outer-image' : 'file-upload-outer'}>
             <label for='file-upload2' className='file-upload-label'>
               <img src={image2 ? URL.createObjectURL(image2) : photo} className={image2 ? 'photo-preview' : 'file-upload-image'} alt='photo'></img>
               {image2 ?
@@ -100,7 +102,7 @@ const ImageUpload = ({ productId }) => {
                 : 'Add Photo'}
             </label>
           </div>}
-          {image && image2 && <div className={image3 ? 'file-upload-outer-image' : 'file-upload-outer'}>
+          {<div className={image3 ? 'file-upload-outer-image' : 'file-upload-outer'}>
             <label for='file-upload3' className='file-upload-label'>
               <img src={image3 ? URL.createObjectURL(image3) : photo} className={image3 ? 'photo-preview' : 'file-upload-image'} alt='photo'></img>
               {image3 ?
@@ -110,7 +112,7 @@ const ImageUpload = ({ productId }) => {
                 : 'Add Photo'}
             </label>
           </div>}
-          {image && image2 && image3 && <div className={image4 ? 'file-upload-outer-image' : 'file-upload-outer'}>
+          {<div className={image4 ? 'file-upload-outer-image' : 'file-upload-outer'}>
             <label for='file-upload4' className='file-upload-label'>
               <img src={image4 ? URL.createObjectURL(image4) : photo} className={image4 ? 'photo-preview' : 'file-upload-image'} alt='photo'></img>
               {image4 ?
