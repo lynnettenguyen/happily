@@ -53,6 +53,7 @@
   font-family: GuardianEgypLight, Arial, Helvetica, sans-serif;
   font-size: 1.4rem;
   width: 1220px;
+  box-sizing: border-box;
 }
 
 .search-main {

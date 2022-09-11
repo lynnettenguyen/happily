@@ -12,16 +12,19 @@
 }
 
 .footer-upper {
+  overflow-x: hidden;
   height: 35px;
 }
 
 .footer-middle {
+  overflow-x: hidden;
   width: 100%;
   height: 20px;
   background-color: #4D6BC6;
 }
 
 .footer-lower {
+  overflow-x: hidden;
   min-width: 100%;
   height: 100px;
   background-color: #2F466C;
@@ -97,5 +100,11 @@
 
   .footer-lower {
     height: 102px;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .footer-upper {
+    overflow-y: hidden;
   }
 }

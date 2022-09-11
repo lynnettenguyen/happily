@@ -260,3 +260,25 @@
 .product-review-user-name {
   margin-right: 10px;
 }
+
+@media screen and (max-width: 1440px) {
+  .product-left-main {
+    width: 640px;
+  }
+
+  .product-right-main {
+    width: 550px;
+  }
+
+  .product-review-content {
+    max-width: 620px;
+  }
+
+  .product-name, .product-description {
+    max-width: 530px;
+  }
+
+  .product-preview-image-outer {
+    width: 50px;
+  }
+}

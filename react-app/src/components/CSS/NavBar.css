@@ -15,6 +15,7 @@ NavLink {
   margin: 20px auto 10px;
   justify-content: center;
   position: relative;
+  box-sizing: border-box;
 }
 
 .navBar-link {
@@ -92,4 +93,20 @@ NavLink {
   cursor: pointer;
   border-bottom: 1.5px solid black;
   box-sizing: border-box;
+}
+
+@media screen and (max-width: 1440px) {
+
+  .navBar-main {
+    width: 1416px;
+  }
+
+  .navBar-featured-outer {
+    width: 1400px;
+    margin: 0 auto;
+  }
+
+  .navBar-feature {
+    margin: 0 1.6rem;
+  }
 }
