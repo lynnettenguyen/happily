@@ -26,19 +26,17 @@ Live Site: [Happily](https://happily-app-etsy-clone.herokuapp.com/)
 * [Wireframes](https://github.com/lynnettenguyen/happily/wiki/Wireframes)
 
 ## Landing Page
-![LandingPage](https://user-images.githubusercontent.com/98368183/189198218-ce7f22a8-d21b-46bb-8729-3d28472ae172.png)
-
+![LandingPage](https://user-images.githubusercontent.com/98368183/189550448-10137151-3df0-47c6-91c0-237eb8a89c05.png)
 
 ## Profile Menu
 ![Profile](https://user-images.githubusercontent.com/98368183/189198767-d2446ccd-fc7c-4da2-865c-287f4b55a7ca.png)
 
-
 ## Shop by Category
-![Category](https://user-images.githubusercontent.com/98368183/189197713-0d0b10b0-de47-4abd-b3fa-1a7894fed34b.png)
+![Category](https://user-images.githubusercontent.com/98368183/189550512-e4117b64-8af4-4acc-8dff-acc11bf0ab23.png)
 
 ## Search Products by Keywords
 ![Keyword](https://user-images.githubusercontent.com/98368183/189196791-a7d8ef82-496f-4397-acd6-24cfb1b4c179.png)
-![Search](https://user-images.githubusercontent.com/98368183/189197014-c0a83da7-9124-4261-b98c-5b92034bc700.png)
+![Search](https://user-images.githubusercontent.com/98368183/189550552-d7db556b-6e4e-4ab9-aa15-c49b3220ea77.png)
 
 ## View Product Details
 ![Product](https://user-images.githubusercontent.com/98368183/189035269-5fc21528-128c-4f03-915d-495e0fc9a6d1.png)
@@ -50,17 +48,14 @@ Live Site: [Happily](https://happily-app-etsy-clone.herokuapp.com/)
 ## Shop Manager
 ![Shop Manager](https://user-images.githubusercontent.com/98368183/189198578-61fdbe5c-1eb2-494f-ada6-c05524a50b2a.png)
 
-
 ## Cart
 ![Cart](https://user-images.githubusercontent.com/98368183/189198556-3c060b3f-59cb-428d-97d7-6baa319e4252.png)
-
 
 ## Purchases
 ![Purchases](https://user-images.githubusercontent.com/98368183/189035869-5703e2ca-434c-4aff-a76a-bff31172da4d.png)
 
 ## Add Reviews
 ![Reviews](https://user-images.githubusercontent.com/98368183/189035780-7664e7e8-b2e2-40f7-af8a-b27f9d3f57b3.png)
-
 
 ## Steps to clone locally:
 1. Clone this repository:
