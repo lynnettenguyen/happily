@@ -50,7 +50,7 @@ const Shop = () => {
       shopErrors.push('Shop Name: Shop Name is already in use')
     }
 
-    console.log(checkDuplicate)
+    // console.log(checkDuplicate)
   }, [shopName, checkDuplicate])
 
   const checkShopName = () => {
