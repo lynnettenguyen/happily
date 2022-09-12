@@ -121,6 +121,19 @@ const Product = () => {
     return `${month} ${day}, ${year}`
   }
 
+  console.log(product[productId])
+
+  if (!product[productId]) {
+    return (
+      <div className='product-not-found-outer'>
+        <div className='product-not-found-header'>Sorry, the product listing you are looking for does not exist</div>
+        <div className='return-to-home-link'>
+          <Link to="/" className='return-to-happily'><i class="fa-solid fa-arrow-left"></i></Link> &nbsp;Go back to Happily
+        </div>
+      </div>
+    )
+  }
+
   return (
     <>
       {product &&
