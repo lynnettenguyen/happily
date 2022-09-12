@@ -18,6 +18,7 @@ const Shop = () => {
   const [category, setCategory] = useState("")
   const [shopErrors, setShopErrors] = useState([])
   const [errors, setErrors] = useState([])
+  const [checkDuplicate, setCheckDuplicate] = useState(false)
 
   useEffect(() => {
     dispatch(getAllProducts())
@@ -37,11 +38,20 @@ const Shop = () => {
     const shopErrors = []
     let validChar = new RegExp(/^[A-Za-z]+$/)
     if (!validChar.test(shopName)) shopErrors.push('Shop Name: Shop Name must only contain alphabetical characters')
-    if (shopName.split(" ").length > 1) shopErrors.push('Shop Name: Shop Name cannot contain spaces')
-    if (shopName.length < 4 || shopName.trim().length < 4) shopErrors.push('Shop Name: Shop Name requires 4 characters minimum')
+    if (shopName.split(" ").length > 1) shopErrors.push('Shop Name: Shop Name must not contain spaces')
+    if (shopName.length < 4 || shopName.trim().length < 4) {
+      shopErrors.push('Shop Name: Shop Name requires 4 characters minimum')
+      setCheckDuplicate(false)
+    }
     if (shopName.length > 30) shopErrors.push('Shop Name: Shop Name exceeds 30 character limit')
     setShopErrors(shopErrors)
-  }, [shopName])
+
+    if (checkDuplicate === true) {
+      shopErrors.push('Shop Name: Shop Name is already in use')
+    }
+
+    console.log(checkDuplicate)
+  }, [shopName, checkDuplicate])
 
   const checkShopName = () => {
     if (shopName) setPage(2)
@@ -57,8 +67,11 @@ const Shop = () => {
     }
 
     const response = await dispatch(editUser(userData))
+
     if (response) {
       setPage(2)
+    } else {
+      setCheckDuplicate(true)
     }
   }
 
@@ -132,7 +145,7 @@ const Shop = () => {
                   className='user-form-input'
                   value={shopName}
                   onChange={(e) => setShopName(e.target.value)}
-                  maxLength="31"
+                  maxLength={31}
                 />
               </div>
               <div className='save-button-outer'>
