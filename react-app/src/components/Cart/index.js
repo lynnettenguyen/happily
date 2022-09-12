@@ -46,6 +46,7 @@ const Cart = () => {
         product_total: (item.price * item.quantity).toFixed(2),
         purchase_total: calculateTotal().toFixed(2)
       }
+
       const response = dispatch(createPurchase(purchaseData))
       if (response) {
         count += 1;

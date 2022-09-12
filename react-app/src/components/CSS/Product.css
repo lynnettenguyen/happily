@@ -188,6 +188,7 @@
   word-wrap: break-word;
   hyphens: auto;
   max-width: 580px;
+  line-height: 25px;
 }
 
 .product-reviews-main {
@@ -237,6 +238,7 @@
   overflow-wrap: break-word;
   word-wrap: break-word;
   hyphens: auto;
+  font-size: 0.9rem;
 }
 
 .product-review-user {
