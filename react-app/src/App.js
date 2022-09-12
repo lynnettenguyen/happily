@@ -36,22 +36,22 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Switch>
-          <Route path='/products/:productId' exact={true}>
+          <Route path='/products/:productId'>
             <Product />
           </Route>
-          <Route path='/featured/:category' exact={true}>
+          <Route path='/featured/:category'>
             <ProductsByCategory />
           </Route>
-          <Route path='/search/:category' exact={true}>
+          <Route path='/search/:category'>
             <ProductsBySearch />
           </Route>
-          <ProtectedRoute path='/shop' exact={true} >
+          <ProtectedRoute path='/shop'>
             <Shop />
           </ProtectedRoute>
-          <ProtectedRoute path='/shop/products' exact={true} >
+          <ProtectedRoute path='/shop/products'>
             <ShopManager />
           </ProtectedRoute>
-          <ProtectedRoute path='/purchases' exact={true} >
+          <ProtectedRoute path='/purchases'>
             <Purchases />
           </ProtectedRoute>
           <Route path='/cart'>
