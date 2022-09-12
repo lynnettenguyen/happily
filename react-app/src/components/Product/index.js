@@ -11,7 +11,7 @@ import emptyStar from '../CSS/Images/empty-star.svg'
 import check from '../CSS/Images/check.svg'
 import { Modal } from '../Context/modal';
 import LoginForm from '../auth/LoginForm';
-import Footer from '../Navigation/Footer';
+import NotFound from '../Navigation/NotFound';
 
 const Product = () => {
   const cartInStorage = JSON.parse(localStorage.getItem('cart'))
@@ -24,7 +24,6 @@ const Product = () => {
   const [selectedImage, setSelectedImage] = useState(product[productId]?.images[0])
   const [rating, setRating] = useState([])
   const users = useSelector(state => state.users)
-  // console.log(users)
   const [showSignIn, setShowSignIn] = useState(false)
 
   const [cart, setCart] = useState(cartInStorage)
@@ -125,12 +124,7 @@ const Product = () => {
 
   if (!product[productId]) {
     return (
-      <div className='product-not-found-outer'>
-        <div className='product-not-found-header'>Sorry, the product listing you are looking for does not exist</div>
-        <div className='return-to-home-link'>
-          <Link to="/" className='return-to-happily'><i class="fa-solid fa-arrow-left"></i></Link> &nbsp;Go back to Happily
-        </div>
-      </div>
+      <NotFound />
     )
   }
 
