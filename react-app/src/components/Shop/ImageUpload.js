@@ -37,8 +37,6 @@ const ImageUpload = ({ productId }) => {
 
   }, [image, image2, image3, image4, brokenImage, brokenImage2, brokenImage3, brokenImage4])
 
-  console.log(errors)
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
