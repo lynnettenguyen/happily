@@ -61,33 +61,60 @@ def seed_reviews():
         user_id=7, product_id=19, content='The quality, the beauty, the value and overall look of this gorgeous seating chart sign is beyond my hopes or expectations.', stars=5),
     Review(
         user_id=5, product_id=20, content='This is perfect!! More than five stars!! So special and so beautiful! It’s amazing! Customer Service was great. It shipped quick! Everything was A+!! Thank you!', stars=5),
-    Review(user_id=1, product_id=30, content='Looks beautiful! Hoping it\'s going to be able to bear the weight on the wedding day but just as expected!', stars=4),
-    Review(user_id=7, product_id=30, content='This hoop and the flowers that were ordered with it made the most beautiful alter for my wedding. If you are considering this item I highly recommend it!', stars=5),
-    Review(user_id=2, product_id=28, content='I really wanted to love this arbor but it didn’t hold up. I was only able to use it once before it bent badly. Putting it together was extremely difficult. The shop owner was friendly and helpful, but the pieces never really went together correctly even after watching the video the owner sent. Would not recommend for a floral install for a wedding.', stars=1),
-    Review(user_id=3, product_id=28, content='Great response time and quality of customer service! Was very helpful. Shipped everything on time and got my order on short notice.', stars=5),
-    Review(user_id=1, product_id=78, content='I was looking for an alternative to my qun kwa to wear for anniversaries and other red cheongsam for Chinese celebrations, and this dress is exactly the kind of red I wanted, that is, not as shiny and bright as a silk brocade. The dress is beautiful and just as pictured, with smooth embroidery and a medium-heavy weight to the fabric. I\'m quite petite but it fits my body perfectly, even in the shoulders and bust, which is difficult sometimes. ', stars=5),
-    Review(user_id=5, product_id=95, content='This ring is absolutely gorgeous. I was so worried about choosing a ring that I wasn’t able to try on in person but this is stunning and I’m so glad I went with it! It’s so dainty and fits my tiny fingers so well!', stars=5),
-    Review(user_id=5, product_id=76, content='Beautiful dress and quality, comfortable, well made, with with excellent communication from the vendor regarding size and shipping.', stars=5),
-    Review(user_id=1, product_id=97, content='The ring is absolutely beautiful and wonderfully made. The seller is so nice and cooperative. I got my ring weeks before the expected time and it came in a ring box. ', stars=5),
-    Review(user_id=5, product_id=75, content='Absolutely LOVE this dress - when I tried it on for the first time it fit perfectly and was everything I was wanting for my wedding dress! ', stars=5),
-    Review(user_id=8, product_id=33, content='Let me start by saying I was nervous I wasn’t going to get this in time however the service was EXCELLENT and the item was beyond my expectations! The quality is great! ', stars=4),
-    Review(user_id=6, product_id=35, content='I loved this sign! It was perfect and exactly how I designed, I would say make sure to check the sizes because I was not aware my sign would be as big as it was but its fine, I still love it!', stars=4),
-    Review(user_id=3, product_id=37, content='STUNNING, I’M OBSESSED. Literally my favorite decor piece for my wedding. Shipping was extremely fast and the seller was very responsive.', stars=5),
-    Review(user_id=7, product_id=37, content='Bar menu is absolutely perfect! It is classy, well made, and the seller was extremely fast to send a proof and then turn around the changes I requested.', stars=5),
-    Review(user_id=2, product_id=36, content='High quality frosted acrylic. This is a professional looking product. What I love about it is that if you add backlighting, it really stands out. A must have for any event! Extremely fast delivery too!!', stars=5),
-    Review(user_id=3, product_id=36, content='The best sign and best customer service! It was a focal point of our party - everyone loved it. I needed it on a very quick turnaround and it was no problem! Thank you!', stars=4),
-    Review(user_id=8, product_id=58, content='So happy with out the glasses came out! They all look so great, such good quality and loved how quickly they were delivered. 100% would recommend!', stars=4),
-    Review(user_id=7, product_id=61, content='I just received my custom order. I am so impressed and happy with the result! Beautifully detailed and absolutely stunning box. Exactly what I wanted.', stars=5),
-    Review(user_id=2, product_id=61, content='The cuff links are really nice, color is great and the engraving is perfect! ', stars=5),
-    Review(user_id=1, product_id=45, content='We were so happy with how our wedding guest signed turned out. Quick shipping and great quality! We can’t wait to hang our sign up in our home! ', stars=5),
-    Review(user_id=2, product_id=49, content='Super cute! The order got to us fast, it is much lighter than I expected but that is perfectly fine!', stars=4),
-    Review(user_id=6, product_id=42, content='Even prettier in person! And the customer service is top notch! ', stars=5),
-    Review(user_id=4, product_id=27, content='Exactly what I was expecting if not better! It’s beautiful and timeless and I’m so excited for everyone to see it/sign it on our big day! Will definitely be ordering again', stars=4),
-    Review(user_id=5, product_id=27, content='WOW OK IM IN LOVE WITH MY GUESTBOOK! It looks so elegant and simply gorgeous.', stars=5),
-    Review(user_id=8, product_id=55, content='I was very surprised by the quality of the glass. It came in a nice box and had everything I needed in there. Will purchase from this seller again.', stars=5),
-    Review(user_id=5, product_id=94, content='The table numbers were the perfect added touch to each of the reception tables at my wedding. It went really well with the boho modern look.', stars=5),
-    Review(user_id=2, product_id=109, content='My champagne glasses were absolutely perfect! They look exactly like the picture and the engraved names are so well done.', stars=5),
-    Review(user_id=6, product_id=86, content='The quality and the engrave you can barely see. Looks nothing like the picture. Letters are too small and in faded white.', stars=2),
+    Review(
+        user_id=1, product_id=30, content='Looks beautiful! Hoping it\'s going to be able to bear the weight on the wedding day but just as expected!', stars=4),
+    Review(
+        user_id=7, product_id=30, content='This hoop and the flowers that were ordered with it made the most beautiful alter for my wedding. If you are considering this item I highly recommend it!', stars=5),
+    Review(
+        user_id=2, product_id=28, content='I really wanted to love this arbor but it didn’t hold up. I was only able to use it once before it bent badly. Putting it together was extremely difficult. The shop owner was friendly and helpful, but the pieces never really went together correctly even after watching the video the owner sent. Would not recommend for a floral install for a wedding.', stars=1),
+    Review(
+        user_id=3, product_id=28, content='Great response time and quality of customer service! Was very helpful. Shipped everything on time and got my order on short notice.', stars=5),
+    Review(
+        user_id=1, product_id=78, content='I was looking for an alternative to my qun kwa to wear for anniversaries and other red cheongsam for Chinese celebrations, and this dress is exactly the kind of red I wanted, that is, not as shiny and bright as a silk brocade. The dress is beautiful and just as pictured, with smooth embroidery and a medium-heavy weight to the fabric. I\'m quite petite but it fits my body perfectly, even in the shoulders and bust, which is difficult sometimes. ', stars=5),
+    Review(
+        user_id=5, product_id=95, content='This ring is absolutely gorgeous. I was so worried about choosing a ring that I wasn’t able to try on in person but this is stunning and I’m so glad I went with it! It’s so dainty and fits my tiny fingers so well!', stars=5),
+    Review(
+        user_id=5, product_id=76, content='Beautiful dress and quality, comfortable, well made, with with excellent communication from the vendor regarding size and shipping.', stars=5),
+    Review(
+        user_id=1, product_id=97, content='The ring is absolutely beautiful and wonderfully made. The seller is so nice and cooperative. I got my ring weeks before the expected time and it came in a ring box. ', stars=5),
+    Review(
+        user_id=5, product_id=75, content='Absolutely LOVE this dress - when I tried it on for the first time it fit perfectly and was everything I was wanting for my wedding dress! ', stars=5),
+    Review(
+        user_id=8, product_id=33, content='Let me start by saying I was nervous I wasn’t going to get this in time however the service was EXCELLENT and the item was beyond my expectations! The quality is great! ', stars=4),
+    Review(
+        user_id=6, product_id=35, content='I loved this sign! It was perfect and exactly how I designed, I would say make sure to check the sizes because I was not aware my sign would be as big as it was but its fine, I still love it!', stars=4),
+    Review(
+        user_id=3, product_id=37, content='STUNNING, I’M OBSESSED. Literally my favorite decor piece for my wedding. Shipping was extremely fast and the seller was very responsive.', stars=5),
+    Review(
+        user_id=7, product_id=37, content='Bar menu is absolutely perfect! It is classy, well made, and the seller was extremely fast to send a proof and then turn around the changes I requested.', stars=5),
+    Review(
+        user_id=2, product_id=36, content='High quality frosted acrylic. This is a professional looking product. What I love about it is that if you add backlighting, it really stands out. A must have for any event! Extremely fast delivery too!!', stars=5),
+    Review(
+        user_id=3, product_id=36, content='The best sign and best customer service! It was a focal point of our party - everyone loved it. I needed it on a very quick turnaround and it was no problem! Thank you!', stars=4),
+    Review(
+        user_id=8, product_id=58, content='So happy with out the glasses came out! They all look so great, such good quality and loved how quickly they were delivered. 100% would recommend!', stars=4),
+    Review(
+        user_id=7, product_id=61, content='I just received my custom order. I am so impressed and happy with the result! Beautifully detailed and absolutely stunning box. Exactly what I wanted.', stars=5),
+    Review(
+        user_id=2, product_id=61, content='The cuff links are really nice, color is great and the engraving is perfect! ', stars=5),
+    Review(
+        user_id=1, product_id=45, content='We were so happy with how our wedding guest signed turned out. Quick shipping and great quality! We can’t wait to hang our sign up in our home! ', stars=5),
+    Review(
+        user_id=2, product_id=49, content='Super cute! The order got to us fast, it is much lighter than I expected but that is perfectly fine!', stars=4),
+    Review(
+        user_id=6, product_id=42, content='Even prettier in person! And the customer service is top notch! ', stars=5),
+    Review(
+        user_id=4, product_id=27, content='Exactly what I was expecting if not better! It’s beautiful and timeless and I’m so excited for everyone to see it/sign it on our big day! Will definitely be ordering again', stars=4),
+    Review(
+        user_id=5, product_id=27, content='WOW OK IM IN LOVE WITH MY GUESTBOOK! It looks so elegant and simply gorgeous.', stars=5),
+    Review(
+        user_id=8, product_id=55, content='I was very surprised by the quality of the glass. It came in a nice box and had everything I needed in there. Will purchase from this seller again.', stars=5),
+    Review(
+        user_id=5, product_id=94, content='The table numbers were the perfect added touch to each of the reception tables at my wedding. It went really well with the boho modern look.', stars=5),
+    Review(
+        user_id=2, product_id=109, content='My champagne glasses were absolutely perfect! They look exactly like the picture and the engraved names are so well done.', stars=5),
+    Review(
+        user_id=6, product_id=86, content='The quality and the engrave you can barely see. Looks nothing like the picture. Letters are too small and in faded white.', stars=2),
     ]
 
     for review in reviews:

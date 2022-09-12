@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { findProductById, getAllProducts } from '../../store/products'
 import { getUsers } from '../../store/users'
 import '../CSS/HomePage.css'
@@ -9,6 +9,7 @@ import Footer from '../Navigation/Footer'
 
 const HomePage = () => {
   const dispatch = useDispatch()
+  const history = useHistory()
   const user = useSelector(state => state.session.user)
   const product = useSelector(state => state.products)
   const products = useSelector(state => Object.values(state.products))

@@ -43,7 +43,8 @@
   cursor: pointer;
 }
 
-.search-upper {
+.search-upper,
+.product-not-found-outer {
   border-top: 1px solid rgb(211, 211, 211);
   background-color: #FDEBD2;
   position: absolute;
@@ -55,12 +56,20 @@
   z-index: -3;
 }
 
-.search-header {
+.search-header,
+.product-not-found-header {
   margin: 2rem auto 0;
   font-family: GuardianEgypLight, Arial, Helvetica, sans-serif;
   font-size: 1.4rem;
   width: 1220px;
   box-sizing: border-box;
+}
+
+.return-to-home-link {
+  box-sizing: border-box;
+  margin: 1rem auto 0;
+  width: 1220px;
+  font-family: GraphikLight, Arial, Helvetica, sans-serif;
 }
 
 .search-main {

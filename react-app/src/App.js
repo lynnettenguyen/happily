@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
@@ -44,13 +44,13 @@ function App() {
           <Route path='/sign-up' exact={true}>
             <SignUpForm />
           </Route>
-          <Route path='/products/:productId'>
+          <Route path='/products/:productId' exact={true}>
             <Product />
           </Route>
-          <Route path='/featured/:category'>
+          <Route path='/featured/:category' exact={true}>
             <ProductsByCategory />
           </Route>
-          <Route path='/search/:category'>
+          <Route path='/search/:category' exact={true}>
             <ProductsBySearch />
           </Route>
           <ProtectedRoute path='/shop' exact={true} >
@@ -64,9 +64,6 @@ function App() {
           </ProtectedRoute>
           <Route path='/cart'>
             <Cart />
-          </Route>
-          <Route path='/search'>
-            <SearchBar />
           </Route>
           <Route path='/'>
             <HomePage />
