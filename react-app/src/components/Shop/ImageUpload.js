@@ -18,6 +18,10 @@ const ImageUpload = ({ productId }) => {
   const [imageLoading, setImageLoading] = useState(false);
   const user = useSelector(state => state.session.user)
   const [errors, setErrors] = useState([])
+  const [brokenImage, setBrokenImage] = useState(false)
+  const [brokenImage2, setBrokenImage2] = useState(false)
+  const [brokenImage3, setBrokenImage3] = useState(false)
+  const [brokenImage4, setBrokenImage4] = useState(false)
 
   useEffect(() => {
     if (image4) setMultiImage([image, image2, image3, image4])
@@ -28,11 +32,19 @@ const ImageUpload = ({ productId }) => {
 
     if (image || image2 || image3 || image4) setErrors([])
 
-  }, [image, image2, image3, image4])
+    if (brokenImage === true || brokenImage2 === true || brokenImage3 === true || brokenImage4 === true) setErrors(['Invalid image was uploaded. Please upload a different image'])
+    else setErrors([])
+
+  }, [image, image2, image3, image4, brokenImage, brokenImage2, brokenImage3, brokenImage4])
+
+  console.log(errors)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (errors.length > 0) {
+      return
+    }
 
     if (multiImages.length === 0) {
       setErrors(['Minimum of one image upload required'])
@@ -61,19 +73,23 @@ const ImageUpload = ({ productId }) => {
   const updateImage = (e) => {
     const file = e.target.files[0];
     setImage(file)
+    setBrokenImage(false)
   }
 
   const updateImage2 = (e) => {
     const file = e.target.files[0];
     setImage2(file);
+    setBrokenImage2(false);
   }
   const updateImage3 = (e) => {
     const file = e.target.files[0];
     setImage3(file);
+    setBrokenImage3(false);
   }
   const updateImage4 = (e) => {
     const file = e.target.files[0];
     setImage4(file);
+    setBrokenImage4(false);
   }
 
   return (
@@ -84,7 +100,7 @@ const ImageUpload = ({ productId }) => {
         <div className="photo-upload-main">
           <div className={image ? 'file-upload-outer-image' : 'file-upload-outer'}>
             <label for='file-upload' className='file-upload-label'>
-              <img src={image ? URL.createObjectURL(image) : photo} className={image ? 'photo-preview' : 'file-upload-image'} alt='photo'></img>
+              <img src={image ? URL.createObjectURL(image) : photo} className={image ? 'photo-preview' : 'file-upload-image'} alt='photo' onError={() => setBrokenImage(true)}></img>
               {image ?
                 <div className="delete-image-outer">
                   <img src={whiteX} className='delete-image-x' alt='delete'></img>
@@ -94,7 +110,7 @@ const ImageUpload = ({ productId }) => {
           </div>
           {<div className={image2 ? 'file-upload-outer-image' : 'file-upload-outer'}>
             <label for='file-upload2' className='file-upload-label'>
-              <img src={image2 ? URL.createObjectURL(image2) : photo} className={image2 ? 'photo-preview' : 'file-upload-image'} alt='photo'></img>
+              <img src={image2 ? URL.createObjectURL(image2) : photo} className={image2 ? 'photo-preview' : 'file-upload-image'} alt='photo' onError={() => setBrokenImage2(true)}></img>
               {image2 ?
                 <div className="delete-image-outer">
                   <img src={whiteX} className='delete-image-x' alt='delete'></img>
@@ -104,7 +120,7 @@ const ImageUpload = ({ productId }) => {
           </div>}
           {<div className={image3 ? 'file-upload-outer-image' : 'file-upload-outer'}>
             <label for='file-upload3' className='file-upload-label'>
-              <img src={image3 ? URL.createObjectURL(image3) : photo} className={image3 ? 'photo-preview' : 'file-upload-image'} alt='photo'></img>
+              <img src={image3 ? URL.createObjectURL(image3) : photo} className={image3 ? 'photo-preview' : 'file-upload-image'} alt='photo' onError={() => setBrokenImage3(true)}></img>
               {image3 ?
                 <div className="delete-image-outer">
                   <img src={whiteX} className='delete-image-x' alt='delete'></img>
@@ -114,7 +130,7 @@ const ImageUpload = ({ productId }) => {
           </div>}
           {<div className={image4 ? 'file-upload-outer-image' : 'file-upload-outer'}>
             <label for='file-upload4' className='file-upload-label'>
-              <img src={image4 ? URL.createObjectURL(image4) : photo} className={image4 ? 'photo-preview' : 'file-upload-image'} alt='photo'></img>
+              <img src={image4 ? URL.createObjectURL(image4) : photo} className={image4 ? 'photo-preview' : 'file-upload-image'} alt='photo' onError={() => setBrokenImage4(true)}></img>
               {image4 ?
                 <div className="delete-image-outer">
                   <img src={whiteX} className='delete-image-x' alt='delete'></img>
