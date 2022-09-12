@@ -81,6 +81,8 @@ const Cart = () => {
     if (findItem[0].quantity > 1) {
       findItem[0].quantity--;
       setCart(newCart)
+      await localStorage.setItem('cart', JSON.stringify(cart))
+      setCart(JSON.parse(localStorage.getItem('cart')))
     } else {
       let remainingItems = cart.filter((item, i) => item.id !== product.id)
       await localStorage.setItem('cart', JSON.stringify(remainingItems))
@@ -89,11 +91,14 @@ const Cart = () => {
     }
   }
 
-  const handleAddQuantity = (product) => {
+  const handleAddQuantity = async (product) => {
     let findItem = cart.filter((item, i) => item.id === product.id)
     let newCart = [...cart]
     findItem[0].quantity++;
     setCart(newCart)
+    await localStorage.setItem('cart', JSON.stringify(cart))
+    setCart(JSON.parse(localStorage.getItem('cart')))
+    setUpdateCart(true)
   }
 
   return (
