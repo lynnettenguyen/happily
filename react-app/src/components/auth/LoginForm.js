@@ -17,8 +17,9 @@ const LoginForm = ({ setShowSignIn }) => {
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
+    } else {
+      setShowSignIn(false)
     }
-    setShowSignIn(false)
   };
 
   const updateEmail = (e) => {
