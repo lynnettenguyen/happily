@@ -5,6 +5,7 @@ import { findProductById, findProductsByCategory } from '../../store/products';
 import { getUsers } from '../../store/users';
 import '../CSS/ProductsByCategory.css'
 import Footer from '../Navigation/Footer';
+import NotFound from '../Navigation/NotFound';
 
 import { halfStars, oneStar, oneHalfStar, twoStar, twoHalfStar, threeStar, threeHalfStar, fourStar, fourHalfStar, fiveStar } from './Rating';
 
@@ -38,12 +39,7 @@ const ProductsByCategory = () => {
 
   if (!categories[category]) {
     return (
-      <div className='product-not-found-outer'>
-        <div className='product-not-found-header'>404 Page Not Found</div>
-        <div className='return-to-home-link'>
-          <Link to="/" className='return-to-happily'><i class="fa-solid fa-arrow-left"></i></Link> &nbsp;Go back to Happily
-        </div>
-      </div>
+      <NotFound />
     )
   }
 

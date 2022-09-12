@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import LoginForm from './components/auth/LoginForm';
-import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/Navigation/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import { authenticate } from './store/session';
@@ -16,7 +14,7 @@ import ProductsByCategory from './components/Product/ProductsByCategory';
 import ProductsBySearch from './components/Product/ProductsBySearch';
 import ShopManager from './components/Shop/ShopManager';
 import Purchases from './components/Purchases';
-import SearchBar from './components/Product/SearchBar';
+import NotFound from './components/Navigation/NotFound';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -38,12 +36,6 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Switch>
-          <Route path='/sign-in' exact={true}>
-            <LoginForm />
-          </Route>
-          <Route path='/sign-up' exact={true}>
-            <SignUpForm />
-          </Route>
           <Route path='/products/:productId' exact={true}>
             <Product />
           </Route>
@@ -65,8 +57,11 @@ function App() {
           <Route path='/cart'>
             <Cart />
           </Route>
-          <Route path='/'>
+          <Route path='/' exact={true}>
             <HomePage />
+          </Route>
+          <Route path="*">
+            <NotFound />
           </Route>
         </Switch>
       </BrowserRouter>
