@@ -62,21 +62,21 @@
 
 .socials-inner {
   align-items: flex-end;
-  margin-left: 3rem;
+  margin-left: 1rem;
 }
 
 .social-logo-github {
   background-color: white;
   border-radius: 50%;
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
 }
 
 .social-logo-linked {
   background-color: white;
   border-radius: 50%;
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
   object-fit: cover;
 }
 
