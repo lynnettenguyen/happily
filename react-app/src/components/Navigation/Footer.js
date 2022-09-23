@@ -1,8 +1,9 @@
 import React from 'react';
 import '../CSS/Footer.css'
 import footerDisplay from '../CSS/Images/footer.svg'
-import github from '../CSS/Images/github.png'
+import github from '../CSS/Images/git.png'
 import linkedIn from '../CSS/Images/linkedIn.png'
+import angelList from '../CSS/Images/angelList.png'
 
 const Footer = () => {
   return (
@@ -21,6 +22,10 @@ const Footer = () => {
             <div className='socials-inner'>
               <div><img src={linkedIn} className='social-logo-linked' alt=''></img></div>
               <div className='social-text'><a href='https://www.linkedin.com/in/lynnettenguyen/'>LinkedIn</a></div>
+            </div>
+            <div className='socials-inner'>
+              <div><img src={angelList} className='social-logo-github' alt=''></img></div>
+              <div className='social-text'><a href='https://angel.co/u/lynnette-nguyen-1'>AngelList</a></div>
             </div>
             <div className='socials-inner'>
               <div><img src={github} className='social-logo-github' alt=''></img></div>
