@@ -37,7 +37,7 @@
 }
 
 .searchBar-button {
-  background-color: none;
+  background: none;
   margin-right: 10px;
   border: none;
   cursor: pointer;
