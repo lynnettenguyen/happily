@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import '../CSS/Profile.css'
@@ -16,9 +16,26 @@ const Profile = ({ user }) => {
     dispatch(logout());
   }
 
+  const openMenu = () => {
+    if (showDropdown) return;
+    setShowDropdown(true);
+  };
+
+  useEffect(() => {
+    if (!showDropdown) return;
+
+    const closeMenu = () => {
+      setShowDropdown(false);
+    };
+
+    document.addEventListener('click', closeMenu);
+
+    return () => document.removeEventListener("click", closeMenu);
+  }, [showDropdown]);
+
   return (
     <div className='navBar-profile-outer'>
-      <div onClick={() => { setShowDropdown(!showDropdown) }} className='navBar-profile'>
+      <div onClick={openMenu} className='navBar-profile'>
         <img src={user?.profile_pic} className='profile-user-img' alt='profile'></img>
         <img src={downArrow} className='profile-down-arrow-img' alt='profile'></img>
       </div>

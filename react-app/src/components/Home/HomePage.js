@@ -16,6 +16,7 @@ const HomePage = () => {
 
   const unSortProducts = products.sort(() => 0.5 - Math.random())
   const displayedProducts = unSortProducts.slice(0, 8)
+  const sponsoredProducts = unSortProducts.slice(8, 13)
 
   useEffect(() => {
     dispatch(getAllProducts())
@@ -85,6 +86,24 @@ const HomePage = () => {
           )
         })}
       </div >
+      <div className='sponsored-products-main'>
+        <div className='sponsored-product-header'>
+          <div className='sponsored-product-top-outer'>Sponsored by <span className='sponsored-product-top'>Happily sellers</span></div>
+          <div className='sponsored-product-caption'>Fun fact: behind every sponsored item there is an Happily seller hoping you'll check out their shop</div>
+        </div>
+        {sponsoredProducts?.map((product, i) => {
+          return (
+            <div className={`sponsored-product-outer s-img${i}`} key={i}>
+              <Link to={`/products/${product.id}`} onClick={() => productDetails(product.id)}>
+                <div className='sponsored-img-outer'>
+                  {product?.images?.length > 0 && <img src={product?.images[0]} className={`sponsored-product-img s-img${i}`} alt='product'></img>}
+                </div>
+                <div className='sponsored-product-price'>${product?.price.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
+              </Link>
+            </div>
+          )
+        })}
+      </div>
       <Footer />
     </>
   )
