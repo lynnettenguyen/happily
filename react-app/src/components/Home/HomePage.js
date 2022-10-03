@@ -5,6 +5,7 @@ import { findProductById, getAllProducts } from '../../store/products'
 import { getUsers } from '../../store/users'
 import '../CSS/HomePage.css'
 import Footer from '../Navigation/Footer'
+import rightArrow from '../CSS/Images/right-arrow.svg'
 
 
 const HomePage = () => {
@@ -17,6 +18,7 @@ const HomePage = () => {
   const unSortProducts = products.sort(() => 0.5 - Math.random())
   const displayedProducts = unSortProducts.slice(0, 8)
   const sponsoredProducts = unSortProducts.slice(8, 13)
+  const uniqueProducts = unSortProducts.slice(13, 19)
 
   useEffect(() => {
     dispatch(getAllProducts())
@@ -99,6 +101,21 @@ const HomePage = () => {
                   {product?.images?.length > 0 && <img src={product?.images[0]} className={`sponsored-product-img s-img${i}`} alt='product'></img>}
                 </div>
                 <div className='sponsored-product-price'>${product?.price.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
+              </Link>
+            </div>
+          )
+        })}
+      </div>
+      <div className='unique-products-main'>
+        <div className='unique-products-header'>Discover unique hand-picked items<img className='unique-right-arrow' src={rightArrow} onClick={()=> history.push(`/products/${uniqueProducts[0].id}`)}></img></div>
+        {uniqueProducts?.map((product, i) => {
+          return (
+            <div className={`unique-product-outer u-img${i}`} key={i}>
+              <Link to={`/products/${product.id}`} onClick={() => productDetails(product.id)}>
+                <div className='unique-img-outer'>
+                  {product?.images?.length > 0 && <img src={product?.images[0]} className={`unique-product-img u-img${i}`} alt='product'></img>}
+                </div>
+                <div className='unique-product-price'>${product?.price.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
               </Link>
             </div>
           )
