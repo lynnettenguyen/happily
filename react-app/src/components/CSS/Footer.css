@@ -57,7 +57,7 @@
 .socials-outer {
   width: 100%;
   justify-content: space-between;
-  width: 1250px;
+  width: 1230px;
 }
 
 .socials-inner {
@@ -90,6 +90,8 @@
 .social-text:hover {
   color: rgba(232, 232, 232, 0.62);
 }
+
+
 
 
 @media screen and (min-width: 1920px) {

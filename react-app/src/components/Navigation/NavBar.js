@@ -15,6 +15,7 @@ const NavBar = () => {
   const categories = useSelector(allCategories)
   const dispatch = useDispatch()
   const [showSignIn, setShowSignIn] = useState(false)
+  const [selectedCategory, setSelectedCategory] = useState()
 
   useEffect(() => { dispatch(getAllCategories()) }, [])
 
@@ -24,7 +25,7 @@ const NavBar = () => {
         <div className='navBar-outer'>
           <div className='navBar-link'>
             <NavLink to='/' exact={true} activeClassName='active'>
-              <div className='navBar-home'>Happily</div>
+              <div className='navBar-home' onClick={() => setSelectedCategory()}>Happily</div>
             </NavLink>
           </div>
           <SearchBar />
@@ -59,7 +60,7 @@ const NavBar = () => {
           {categories.map((category, i) => {
             return (
               <NavLink to={`/featured/${category?.name.toLowerCase()}`} key={i}>
-                <div className='navBar-feature'>
+                <div onClick={() => setSelectedCategory(category?.name)} className={category?.name === selectedCategory ? 'navBar-feature-active' : 'navBar-feature'}>
                   {category?.display_name}
                 </div>
               </NavLink>

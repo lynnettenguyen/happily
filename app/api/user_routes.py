@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
 from app.models import db, User, Product, Image, Purchase
-from app.forms import ShopForm
+from app.forms import ShopNameForm
 from .auth_routes import validation_errors_to_error_messages
 
 
@@ -26,7 +26,7 @@ def user(id):
 def edit_shop_name(id):
     user = db.session.query(User).get(id)
 
-    form = ShopForm()
+    form = ShopNameForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():

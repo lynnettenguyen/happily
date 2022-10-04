@@ -14,6 +14,7 @@ from .api.category_routes import category
 from .api.purchase_routes import purchase
 from .api.search_routes import search
 from .api.review_routes import review
+from .api.shop_routes import shop
 
 from .seeds import seed_commands
 
@@ -42,6 +43,7 @@ app.register_blueprint(category, url_prefix='/api/categories')
 app.register_blueprint(purchase, url_prefix='/api/purchases')
 app.register_blueprint(search, url_prefix='/api/search')
 app.register_blueprint(review, url_prefix='/api/reviews')
+app.register_blueprint(shop, url_prefix='/api/shop')
 db.init_app(app)
 Migrate(app, db)
 
