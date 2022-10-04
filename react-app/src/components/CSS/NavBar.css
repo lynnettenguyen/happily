@@ -89,6 +89,13 @@ NavLink {
   white-space: nowrap;
 }
 
+.navBar-feature-active {
+  border-bottom: 1px solid black;
+  padding: 0.5rem 0 1rem;
+  margin: 0 1.65rem;
+  white-space: nowrap;
+}
+
 .navBar-feature:hover {
   cursor: pointer;
   border-bottom: 1.5px solid black;

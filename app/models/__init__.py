@@ -5,3 +5,4 @@ from .image import Image
 from .review import Review
 from .purchase import Purchase
 from .categories import Category
+from .shop import Shop

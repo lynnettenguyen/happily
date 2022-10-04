@@ -15,6 +15,7 @@ import ProductsBySearch from './components/Product/ProductsBySearch';
 import ShopManager from './components/Shop/ShopManager';
 import Purchases from './components/Purchases';
 import NotFound from './components/Navigation/NotFound';
+import ProductsByShop from './components/Product/ProductsByShop';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -44,6 +45,9 @@ function App() {
           </Route>
           <Route path='/search/:category'>
             <ProductsBySearch />
+          </Route>
+          <Route path='shop/:shopName' exact={true}>
+            <ProductsByShop />
           </Route>
           <ProtectedRoute path='/shop' exact={true}>
             <Shop />
