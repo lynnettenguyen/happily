@@ -2,15 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { findShop, updateShop } from '../../store/shop';
+import { getAllProducts } from '../../store/products';
+import { editUser } from '../../store/session';
+import { getUsers } from '../../store/users';
+import { Modal } from '../Context/modal';
+import '../CSS/ProductsByShop.css'
 import smoothShipping from '../CSS/Images/shop_smooth_shipping.svg'
 import speedyReplies from '../CSS/Images/shop_speedy_replies.svg'
 import starSeller from '../CSS/Images/shop_star_seller.svg'
-import '../CSS/ProductsByShop.css'
-import { getAllProducts } from '../../store/products';
 import editPencil from '../CSS/Images/edit_pencil.svg'
-import { Modal } from '../Context/modal';
-import { editUser } from '../../store/session';
-import { getUsers } from '../../store/users';
+import addIcon from '../CSS/Images/add_icon.svg'
 
 const ProductsByShop = () => {
   const dispatch = useDispatch()
@@ -53,6 +54,10 @@ const ProductsByShop = () => {
     setName(shopName)
     setTitle(shop[0]?.title)
     setLocation(shop[0]?.location)
+  }
+
+  const handleAddItems = () => {
+    history.push('/shop')
   }
 
   const handleEditShopForm = async (e) => {
@@ -126,7 +131,7 @@ const ProductsByShop = () => {
           </div>
         </div>
         <div className='user-shop-main'>
-          <div className='user-shop-caption'>Items</div>
+          <div className='user-shop-caption'>Items<img src={addIcon} alt='add' className='user-shop-add-icon' onClick={handleAddItems}></img></div>
           <div className='user-shop-products-main'>
             {shopProducts?.map((product, i) => {
               return (
