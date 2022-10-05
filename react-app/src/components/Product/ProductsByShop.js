@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { findShop, updateShop } from '../../store/shop';
 import smoothShipping from '../CSS/Images/shop_smooth_shipping.svg'
@@ -14,6 +14,7 @@ import { getUsers } from '../../store/users';
 
 const ProductsByShop = () => {
   const dispatch = useDispatch()
+  const history = useHistory()
   const { shopName } = useParams()
   const user = useSelector(state => state.session.user)
   const shop = useSelector(state => Object.values(state.shop))
@@ -24,17 +25,11 @@ const ProductsByShop = () => {
   const [title, setTitle] = useState("")
   const [location, setLocation] = useState("")
   const [shopErrors, setShopErrors] = useState([])
-  const [checkDuplicate, setCheckDuplicate] = useState(false)
 
   useEffect(() => {
     dispatch(getAllProducts())
     dispatch(findShop(shopName))
-
-    if (shop) {
-      setTitle(shop[0]?.title)
-      setLocation(shop[0]?.location)
-    }
-  }, [shopName])
+  }, [shopName ])
 
 
   useEffect(() => {
@@ -44,16 +39,10 @@ const ProductsByShop = () => {
     if (name.split(" ").length > 1) shopErrors.push('Shop Name: Shop Name must not contain spaces')
     if (name.length < 4 || name.trim().length < 4) {
       shopErrors.push('Shop Name: Shop Name requires 4 characters minimum')
-      setCheckDuplicate(false)
     }
     if (name.length > 30) shopErrors.push('Shop Name: Shop Name exceeds 30 character limit')
-
-    if (checkDuplicate === true) {
-      shopErrors.push('Shop Name: Shop Name is already in use')
-    }
-
-    if (title?.length > 100) shopErrors.push('Title: Title exceeds 100 character limit')
-    if (location?.length > 60) shopErrors.push('Location: Location exceeds 60 character limit')
+    if (title?.length > 60) shopErrors.push('Title: Title exceeds 60 character limit')
+    if (location?.length > 50) shopErrors.push('Location: Location exceeds 50 character limit')
 
     setShopErrors(shopErrors)
   }, [name, title, location])
@@ -61,6 +50,9 @@ const ProductsByShop = () => {
 
   const handleEditShop = () => {
     setEditShop(true)
+    setName(shopName)
+    setTitle(shop[0]?.title)
+    setLocation(shop[0]?.location)
   }
 
   const handleEditShopForm = async (e) => {
@@ -84,7 +76,8 @@ const ProductsByShop = () => {
 
       if (userResponse) {
         await dispatch(getUsers())
-      } else setCheckDuplicate(true)
+        history.push(`/shop/${name}`)
+      } else setShopErrors(['Shop Name: Shop Name is already in use'])
     }
 
     const shopResponse = await dispatch(updateShop(shopData))
@@ -164,6 +157,12 @@ const ProductsByShop = () => {
               <div>
                 <label className='edit-label'>Shop Name *</label>
               </div>
+              {shopErrors?.map((error, i) => {
+                if (error.split(":")[0] === 'Shop Name')
+                  return (
+                    <div key={i} className='user-shop-product-errors'>-{error.split(":")[1]}</div>
+                  )
+              })}
               <div>
                 <input
                   type='text'
@@ -177,30 +176,42 @@ const ProductsByShop = () => {
                 <label className='edit-label'>Title</label>
                 <span className='edit-instructions'>-Keep it short and simple</span>
               </div>
+              {shopErrors?.map((error, i) => {
+                if (error.split(":")[0] === 'Title')
+                  return (
+                    <div key={i} className='user-shop-product-errors'>-{error.split(":")[1]}</div>
+                  )
+              })}
               <div>
                 <textarea
                   type='text'
                   className='edit-input-shop edit-textarea-shop'
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
-                  maxLength={101}
+                  maxLength={61}
                 />
               </div>
               <div>
                 <label className='edit-label'>Location</label>
                 <span className='edit-instructions'>-Tell others where you're located</span>
               </div>
+              {shopErrors?.map((error, i) => {
+                if (error.split(":")[0] === 'Location')
+                  return (
+                    <div key={i} className='user-shop-product-errors'>-{error.split(":")[1]}</div>
+                  )
+              })}
               <div>
                 <input
                   type='text'
                   className='edit-input-shop'
                   value={location}
                   onChange={(e) => setLocation(e.target.value)}
-                  maxLength={61}
+                  maxLength={51}
                 />
               </div>
               <div className='edit-save-button-outer'>
-                <button type="submit" className='edit-save-button'>Save and Update</button>
+                <button type="submit" className='edit-save-button' disabled={shopErrors.length > 0}>Save and Update</button>
               </div>
             </div>
           </form>
