@@ -46,13 +46,13 @@ function App() {
           <Route path='/search/:category'>
             <ProductsBySearch />
           </Route>
-          <Route path='shop/:shopName' exact={true}>
+          <Route path='/shop/:shopName' exact={true}>
             <ProductsByShop />
           </Route>
           <ProtectedRoute path='/shop' exact={true}>
             <Shop />
           </ProtectedRoute>
-          <ProtectedRoute path='/shop/products' exact={true}>
+          <ProtectedRoute path='/shopManager'>
             <ShopManager />
           </ProtectedRoute>
           <ProtectedRoute path='/purchases'>

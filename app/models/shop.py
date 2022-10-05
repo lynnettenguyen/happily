@@ -22,6 +22,6 @@ class Shop(db.Model):
             'id': self.id,
             'user_id': self.user_id,
             'title': self.title,
-            'location': self.state,
+            'location': self.location,
             'icon': self.icon,
         }

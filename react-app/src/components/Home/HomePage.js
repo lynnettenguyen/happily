@@ -26,8 +26,6 @@ const HomePage = () => {
   const shopProducts2 = unSortProducts.filter((product) => product.seller_id === unSortUserIds[1])
   const shopProducts3 = unSortProducts.filter((product) => product.seller_id === unSortUserIds[2])
 
-
-
   useEffect(() => {
     dispatch(getAllProducts())
     dispatch(getUsers())
@@ -148,7 +146,7 @@ const HomePage = () => {
           <div className='shop-product-user'>
             <img src={users[unSortUserIds[0]]?.profile_pic} alt='' className='shop-product-user-img'></img>
             <div className='shop-product-details'>
-              <div className='shop-product-shop-name'>{users[unSortUserIds[0]]?.shop_name}</div>
+              <Link to={`/shop/${users[unSortUserIds[0]]?.shop_name}`}><div className='shop-product-shop-name'>{users[unSortUserIds[0]]?.shop_name}</div></Link>
               <div className='shop-product-items'>{shopProducts1.length} items</div>
             </div>
           </div>
@@ -168,7 +166,7 @@ const HomePage = () => {
           <div className='shop-product-user'>
             <img src={users[unSortUserIds[1]]?.profile_pic} alt='' className='shop-product-user-img'></img>
             <div className='shop-product-details'>
-              <div className='shop-product-shop-name'>{users[unSortUserIds[1]]?.shop_name}</div>
+              <Link to={`/shop/${users[unSortUserIds[1]]?.shop_name}`}><div className='shop-product-shop-name'>{users[unSortUserIds[1]]?.shop_name}</div></Link>
               <div className='shop-product-items'>{shopProducts2.length} items</div>
             </div>
           </div>
@@ -188,7 +186,7 @@ const HomePage = () => {
           <div className='shop-product-user'>
             <img src={users[unSortUserIds[2]]?.profile_pic} alt='' className='shop-product-user-img'></img>
             <div className='shop-product-details'>
-              <div className='shop-product-shop-name'>{users[unSortUserIds[2]]?.shop_name}</div>
+              <Link to={`/shop/${users[unSortUserIds[2]]?.shop_name}`}><div className='shop-product-shop-name'>{users[unSortUserIds[2]]?.shop_name}</div></Link>
               <div className='shop-product-items'>{shopProducts3.length} items</div>
             </div>
           </div>

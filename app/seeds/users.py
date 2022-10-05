@@ -6,17 +6,17 @@ def seed_users():
     User(
         shop_name='HappilyNamiDecors', first_name='Nami', email='nami@aa.io', password='password', profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/nami.png'),
     User(
-        shop_name='HappilyChopperDesigns', first_name='Chopper', email='chopper@aa.io', password='password', profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/chopper.png'),
+        shop_name='HappilyChopperDesigns', first_name='Tony Tony Chopper', email='chopper@aa.io', password='password', profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/chopper.png'),
     User(
-        shop_name='HappilyZoroShop', first_name='Zoro', email='zoro@aa.io', password='password', profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/zoro.png'),
+        shop_name='HappilyZoroShop', first_name='Roronoa Zoro', email='zoro@aa.io', password='password', profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/zoro.png'),
     User(
-        shop_name='HappilyDemo', first_name='Demo', email='demo@aa.io', password='password', profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/demo.png'),
+        shop_name='HappilyDemo', first_name='Demo Boa Hancock', email='demo@aa.io', password='password', profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/demo.jpeg'),
     User(
-        shop_name='HappilyRobinBridal', first_name='Robin', email='robin@aa.io', password='password', profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/robin.png'),
+        shop_name='HappilyRobinBridal', first_name='Nico Robin', email='robin@aa.io', password='password', profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/robin.png'),
     User(
-        shop_name='HappilySanjiPersonalized', first_name='Sanji', email='sanji@aa.io', password='password', profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/sanji.png'),
+        shop_name='HappilySanjiPersonalized', first_name='Vinsmoke Sanji', email='sanji@aa.io', password='password', profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/sanji.png'),
     User(
-        shop_name='HappilyLuffyStudios', first_name='Luffy', email='luffy@aa.io', password='password', profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/luffy.png'),
+        shop_name='HappilyLuffyStudios', first_name='Monkey D. Luffy', email='luffy@aa.io', password='password', profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/luffy.png'),
     User(
         shop_name='HappilyUsoppHandmade', first_name='Usopp', email='usopp@aa.io', password='password', profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/usopp.png')
     ]

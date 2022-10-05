@@ -1,8 +1,8 @@
 """create models
 
-Revision ID: 07668e0dabc9
+Revision ID: 7b635342eba7
 Revises: 
-Create Date: 2022-09-09 15:58:26.529311
+Create Date: 2022-10-04 19:03:47.997236
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '07668e0dabc9'
+revision = '7b635342eba7'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -44,6 +44,17 @@ def upgrade():
     sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
     sa.Column('updated_at', sa.DateTime(timezone=True), nullable=True),
     sa.ForeignKeyConstraint(['seller_id'], ['users.id'], ),
+    sa.PrimaryKeyConstraint('id')
+    )
+    op.create_table('shops',
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('user_id', sa.Integer(), nullable=False),
+    sa.Column('title', sa.String(length=200), nullable=True),
+    sa.Column('location', sa.String(length=100), nullable=True),
+    sa.Column('icon', sa.String(length=255), nullable=True),
+    sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
+    sa.Column('updated_at', sa.DateTime(timezone=True), nullable=True),
+    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('images',
@@ -88,6 +99,7 @@ def downgrade():
     op.drop_table('reviews')
     op.drop_table('purchases')
     op.drop_table('images')
+    op.drop_table('shops')
     op.drop_table('products')
     op.drop_table('users')
     op.drop_table('categories')
