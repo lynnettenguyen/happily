@@ -48,8 +48,8 @@ Live Site: [Happily](https://happily-app-etsy-clone.herokuapp.com/)
 ## Shop Manager
 ![Shop Manager](https://user-images.githubusercontent.com/98368183/189198578-61fdbe5c-1eb2-494f-ada6-c05524a50b2a.png)
 
-## View Products by Shop
-![](https://user-images.githubusercontent.com/98368183/193992301-c92eea4c-9ada-4419-8701-7459774dc65e.png)
+## View Products by Shop and Edit Shop Details
+![](https://user-images.githubusercontent.com/98368183/194156585-f0db8ee9-503e-48e7-9df4-145fb9d6832a.png)
 
 ## Cart
 ![Cart](https://user-images.githubusercontent.com/98368183/189198556-3c060b3f-59cb-428d-97d7-6baa319e4252.png)
