@@ -76,6 +76,10 @@
   color: black;
 }
 
+.purchase-content:hover {
+  text-decoration: underline;
+}
+
 .purchase-shop-order {
   margin-bottom: 0.5rem;
 }

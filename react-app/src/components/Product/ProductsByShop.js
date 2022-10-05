@@ -30,6 +30,7 @@ const ProductsByShop = () => {
   useEffect(() => {
     dispatch(getAllProducts())
     dispatch(findShop(shopName))
+    document.documentElement.scrollTop = 0;
   }, [shopName])
 
 
