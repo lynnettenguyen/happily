@@ -26,8 +26,6 @@ const HomePage = () => {
   const shopProducts2 = unSortProducts.filter((product) => product.seller_id === unSortUserIds[1])
   const shopProducts3 = unSortProducts.filter((product) => product.seller_id === unSortUserIds[2])
 
-
-
   useEffect(() => {
     dispatch(getAllProducts())
     dispatch(getUsers())
