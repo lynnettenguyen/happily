@@ -21,10 +21,10 @@ const SearchBar = () => {
   const handleSearch = async (e) => {
     e.preventDefault()
 
-    if (keyword.length === 0 || keyword.trim().length === 0) {
-      setErrors(['Search keywords must include at least one character'])
-      return
-    }
+    // if (keyword.length === 0 || keyword.trim().length === 0) {
+    //   setErrors(['Search keywords must include at least one character'])
+    //   return
+    // }
 
     const response = await dispatch(findProductsBySearch(keyword))
     if (response) {

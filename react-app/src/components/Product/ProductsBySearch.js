@@ -84,6 +84,7 @@ const ProductsBySearch = () => {
             })}
           </div>
         </div>
+        {products.length > 0 && <Footer />}
       </div>
     </>
   )

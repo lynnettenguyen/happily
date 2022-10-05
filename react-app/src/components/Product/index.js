@@ -12,6 +12,7 @@ import check from '../CSS/Images/check.svg'
 import { Modal } from '../Context/modal';
 import LoginForm from '../auth/LoginForm';
 import NotFound from '../Navigation/NotFound';
+import Footer from '../Navigation/Footer';
 
 const Product = () => {
   const cartInStorage = JSON.parse(localStorage.getItem('cart'))
@@ -234,6 +235,7 @@ const Product = () => {
           <LoginForm setShowSignIn={setShowSignIn} />
         </Modal>
       )}
+      <Footer />
     </>
   )
 }

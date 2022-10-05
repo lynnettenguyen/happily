@@ -7,7 +7,6 @@ import '../CSS/HomePage.css'
 import Footer from '../Navigation/Footer'
 import rightArrow from '../CSS/Images/right-arrow.svg'
 
-
 const HomePage = () => {
   const dispatch = useDispatch()
   const history = useHistory()

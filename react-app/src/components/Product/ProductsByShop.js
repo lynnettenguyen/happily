@@ -12,6 +12,7 @@ import speedyReplies from '../CSS/Images/shop_speedy_replies.svg'
 import starSeller from '../CSS/Images/shop_star_seller.svg'
 import editPencil from '../CSS/Images/edit_pencil.svg'
 import addIcon from '../CSS/Images/add_icon.svg'
+import Footer from '../Navigation/Footer';
 
 const ProductsByShop = () => {
   const dispatch = useDispatch()
@@ -224,6 +225,7 @@ const ProductsByShop = () => {
           </form>
         </Modal>
       )}
+      <Footer />
     </>
   )
 }
