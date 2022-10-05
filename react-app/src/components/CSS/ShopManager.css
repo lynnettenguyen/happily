@@ -33,11 +33,11 @@
 }
 
 .my-products-shop:hover {
-  text-decoration: underline;
   opacity: 0.75;
 }
 
 .shop-manager-shop-name:hover {
+  text-decoration: underline;
   padding-right: 8px;
 }
 
