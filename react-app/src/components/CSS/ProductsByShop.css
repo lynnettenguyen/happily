@@ -30,6 +30,19 @@
   border-radius: 10px;
 }
 
+.shop-icon-no-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(228, 219, 238, 0.749);
+  width: 120px;
+  height: 120px;
+  border-radius: 10px;
+  color: rgba(0, 0, 0, 0.847);
+  font-family: GraphikRegular;
+  font-size: 0.7rem;
+}
+
 .user-shop-info-outer {
   padding: 10px 15px;
 }

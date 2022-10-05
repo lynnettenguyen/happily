@@ -30,7 +30,7 @@ const ProductsByShop = () => {
   useEffect(() => {
     dispatch(getAllProducts())
     dispatch(findShop(shopName))
-  }, [shopName ])
+  }, [shopName])
 
 
   useEffect(() => {
@@ -99,7 +99,8 @@ const ProductsByShop = () => {
         <div className='user-shop-upper'>
           <div className='user-shop-header'>
             <div className='user-shop-header-left'>
-              <img src={shop[0]?.icon} className='shop-icon-img' alt='shop-icon'></img>
+              {shop[0]?.icon.length > 0 ? <img src={shop[0]?.icon} className='shop-icon-img' alt='shop-icon'></img> :
+                <div className='shop-icon-no-img' alt='shop-icon'><span>Image coming soon</span></div>}
               <div className='user-shop-info-outer'>
                 <div className='user-shop-name' onClick={() => handleEditShop()}>{shopName}
                   {user?.id === shop[0]?.user_id && <span className='user-shop-edit-outer'>
