@@ -53,7 +53,7 @@ const shopReducer = (state = {}, action) => {
     }
     case EDIT_SHOP: {
       newState = { ...state }
-      newState[action.shop_name] = action.shop
+      newState[action.shop_name] = action.shop[0]
       return newState
     }
     default:

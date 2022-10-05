@@ -143,13 +143,15 @@ const HomePage = () => {
               </div>
             )
           })}
-          <div className='shop-product-user'>
-            <img src={users[unSortUserIds[0]]?.profile_pic} alt='' className='shop-product-user-img'></img>
-            <div className='shop-product-details'>
-              <Link to={`/shop/${users[unSortUserIds[0]]?.shop_name}`}><div className='shop-product-shop-name'>{users[unSortUserIds[0]]?.shop_name}</div></Link>
-              <div className='shop-product-items'>{shopProducts1.length} items</div>
+          <Link to={`/shop/${users[unSortUserIds[0]]?.shop_name}`}>
+            <div className='shop-product-user'>
+              <img src={users[unSortUserIds[0]]?.profile_pic} alt='' className='shop-product-user-img'></img>
+              <div className='shop-product-details'>
+                <div className='shop-product-shop-name'>{users[unSortUserIds[0]]?.shop_name}</div>
+                <div className='shop-product-items'>{shopProducts1.length} items</div>
+              </div>
             </div>
-          </div>
+          </Link>
         </div>
         <div className='shop-products-main'>
           {shopProducts2?.slice(0, 4).map((product, i) => {
@@ -163,13 +165,15 @@ const HomePage = () => {
               </div>
             )
           })}
-          <div className='shop-product-user'>
-            <img src={users[unSortUserIds[1]]?.profile_pic} alt='' className='shop-product-user-img'></img>
-            <div className='shop-product-details'>
-              <Link to={`/shop/${users[unSortUserIds[1]]?.shop_name}`}><div className='shop-product-shop-name'>{users[unSortUserIds[1]]?.shop_name}</div></Link>
-              <div className='shop-product-items'>{shopProducts2.length} items</div>
+          <Link to={`/shop/${users[unSortUserIds[1]]?.shop_name}`}>
+            <div className='shop-product-user'>
+              <img src={users[unSortUserIds[1]]?.profile_pic} alt='' className='shop-product-user-img'></img>
+              <div className='shop-product-details'>
+                <div className='shop-product-shop-name'>{users[unSortUserIds[1]]?.shop_name}</div>
+                <div className='shop-product-items'>{shopProducts2.length} items</div>
+              </div>
             </div>
-          </div>
+          </Link>
         </div>
         <div className='shop-products-main'>
           {shopProducts3?.slice(0, 4).map((product, i) => {
@@ -183,13 +187,15 @@ const HomePage = () => {
               </div>
             )
           })}
-          <div className='shop-product-user'>
-            <img src={users[unSortUserIds[2]]?.profile_pic} alt='' className='shop-product-user-img'></img>
-            <div className='shop-product-details'>
-              <Link to={`/shop/${users[unSortUserIds[2]]?.shop_name}`}><div className='shop-product-shop-name'>{users[unSortUserIds[2]]?.shop_name}</div></Link>
-              <div className='shop-product-items'>{shopProducts3.length} items</div>
+          <Link to={`/shop/${users[unSortUserIds[2]]?.shop_name}`}>
+            <div className='shop-product-user'>
+              <img src={users[unSortUserIds[2]]?.profile_pic} alt='' className='shop-product-user-img'></img>
+              <div className='shop-product-details'>
+                <div className='shop-product-shop-name'>{users[unSortUserIds[2]]?.shop_name}</div>
+                <div className='shop-product-items'>{shopProducts3.length} items</div>
+              </div>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
       <Footer />

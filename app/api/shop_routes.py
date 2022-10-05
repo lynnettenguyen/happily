@@ -48,7 +48,7 @@ def edit_shop(shopName):
   shop = db.session.query(Shop).get(userId)
   # products = db.session.query(Product).filter(Product.seller_id == userId)
 
-  # shop_details = []
+  shop_details = []
 
   if shop.user_id == current_user.id:
 
@@ -63,12 +63,13 @@ def edit_shop(shopName):
 
       db.session.commit()
 
-      # shop = shop.to_dict()
+      shop = shop.to_dict()
       # shop['products'] = [product.to_dict() for product in products]
 
-      # shop_details.append(shop)
+      shop['user'] = [user.to_dict()]
+      shop_details.append(shop)
 
-      return jsonify(shop.to_dict())
+      return jsonify(shop_details)
 
     else:
       return {'errors': validation_errors_to_error_messages(form.errors)}, 400
