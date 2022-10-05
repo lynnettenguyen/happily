@@ -1,0 +1,104 @@
+.user-shop-upper {
+  background-color: #FAFAFA;
+  border-top: 1px solid #d6d6d6a6;
+  position: absolute;
+  left: 0;
+  top: 120px;
+  width: 100%;
+  min-height: 100px;
+  min-width: 100%;
+  z-index: -3;
+}
+
+.user-shop-header {
+  display: flex;
+  justify-content: center;
+}
+
+.user-shop-header-left {
+  display: flex;
+  margin: 20px;
+  padding-right: 100px;
+}
+
+.shop-icon-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.user-shop-info-outer {
+  padding: 10px 15px;
+}
+
+.user-shop-name {
+  font-family: GuardianEgypLight, Arial, Helvetica, sans-serif;
+  font-size: 1.8rem;
+}
+
+.user-shop-title {
+  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
+  font-size: 0.8rem;
+  padding: 1px 0 12px 0;
+}
+
+.user-shop-location {
+  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
+  font-size: 0.9rem;
+  color: rgb(80, 80, 80);
+}
+
+.user-shop-star-seller {
+  font-family: GraphikMedium, Arial, Helvetica, sans-serif;
+  color: #9560b8da;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  margin-top: 7px;
+}
+
+.star-seller-icon {
+  padding-right: 4px;
+}
+
+.user-shop-header-middle {
+  display: flex;
+}
+
+.user-shop-feature {
+  width: 200px;
+  margin: 50px 10px 0;
+}
+
+.user-shop-feature-title {
+  font-family: GraphikMedium, Arial, Helvetica, sans-serif;
+  font-size: 0.8rem;
+  line-height: 24px;
+}
+
+.user-shop-feature-caption {
+  font-family: GraphikLight, Arial, Helvetica, sans-serif;
+  font-size: 0.8rem;
+  overflow-wrap: break-word;
+  line-height: 12px;
+}
+
+.user-shop-header-right {
+  margin: 50px 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-shop-profile-img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  padding-bottom: 10px;
+}
+
+.user-shop-profile-name {
+  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
+  font-size: 0.8rem;
+}

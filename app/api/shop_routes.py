@@ -14,9 +14,9 @@ def products_by_shop(shopName):
   userId = user.to_dict()['id']
 
   shop = db.session.query(Shop).get(userId)
-  # shop_details = []
+  shop_details = []
 
-  # shop = shop.to_dict()
+  shop = shop.to_dict()
   # products = db.session.query(Product).filter(Product.seller_id == userId)
 
   # product_details = []
@@ -32,11 +32,10 @@ def products_by_shop(shopName):
   #     product_details.append(product)
 
   # shop['products'] = product_details
+  shop['user'] = [user.to_dict()]
+  shop_details.append(shop)
 
-  # shop_details.append(shop)
-
-  # return jsonify(shop_details)
-  return jsonify(shop.to_dict())
+  return jsonify(shop_details)
 
 @shop.route("/<shopName>", methods=['PUT'])
 @login_required

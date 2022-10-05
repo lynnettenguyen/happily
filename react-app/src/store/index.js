@@ -7,6 +7,7 @@ import images from './images'
 import purchases from './purchases'
 import users from './users'
 import reviews from './reviews'
+import shop from './shop'
 
 const rootReducer = combineReducers({
   session,
@@ -15,7 +16,8 @@ const rootReducer = combineReducers({
   images,
   users,
   purchases,
-  reviews
+  reviews,
+  shop
 });
 
 
