@@ -28,10 +28,17 @@
   font-size: 1rem;
   margin: 0 auto 2rem;
   width: 1220px;
+  display: flex;
+  align-items: center;
 }
 
 .my-products-shop:hover {
   text-decoration: underline;
+  opacity: 0.75;
+}
+
+.shop-manager-shop-name:hover {
+  padding-right: 8px;
 }
 
 .my-products-outer {

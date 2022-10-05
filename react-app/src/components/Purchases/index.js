@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import '../CSS/ShopManager.css'
 import { Modal } from '../Context/modal';
 import { cancelPurchase, getAllPurchases } from "../../store/purchases";
+import { getAllUserReviews, removeReview } from "../../store/reviews";
 import { getAllProducts } from "../../store/products";
+import '../CSS/ShopManager.css'
 import '../CSS/Purchases.css'
 import unfilledStar from '../CSS/Images/review-star-grey.svg'
 import filledStar from '../CSS/Images/review-star-black.svg'
 import Reviews from "../Reviews";
-import { getAllUserReviews, removeReview } from "../../store/reviews";
 import { ratingFiveStar, ratingFourStar, ratingThreeStar, ratingTwoStar, ratingOneStar } from "../Product/Rating";
 
 const Purchases = () => {
@@ -162,7 +162,7 @@ const Purchases = () => {
                   <div className="purchase-shop-total">
                     <div className="purchase-shop-name-outer">
                       <div className="purchase-shop-order">Order #{purchase.order_number.toUpperCase()}</div>
-                      Purchased from <span className="purchase-content">{purchase?.shop_name}</span> on <span className="purchase-content">{formatDate(purchase?.created_at)}</span></div>
+                      Purchased from <Link to={`/shop/${purchase?.shop_name}`}><span className="purchase-content">{purchase?.shop_name}</span></Link> on <span className="purchase-content">{formatDate(purchase?.created_at)}</span></div>
                     {purchase.product_total !== purchase.purchase_total &&
                       <div className="purchase-item-total">This item was part of a <span className="purchase-content">${convertTotal(purchase?.purchase_total * 1.09125)}</span> purchase.</div>}
                   </div>

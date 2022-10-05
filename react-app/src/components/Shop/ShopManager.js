@@ -5,6 +5,7 @@ import { loadProductsByOwner, findProductById, removeProduct } from "../../store
 import '../CSS/ShopManager.css'
 import { Modal } from '../Context/modal';
 import EditProduct from "../Product/EditProduct";
+import rightAngle from '../CSS/Images/right_angle.svg'
 
 const ShopManager = () => {
   const dispatch = useDispatch()
@@ -43,7 +44,13 @@ const ShopManager = () => {
     <div className="my-products-main">
       <div className="my-products-upper">
         <div className="my-products-header">Shop Manager</div>
-        {user?.shop_name && <Link to={`/shop/${user?.shop_name}`}><div className="my-products-shop">{user?.shop_name}</div></Link>}
+        {user?.shop_name &&
+          <Link to={`/shop/${user?.shop_name}`}>
+            <div className="my-products-shop">
+              <span className="shop-manager-shop-name">{user?.shop_name}</span>
+              <img src={rightAngle} className='shop-manager-right-icon' alt=''></img>
+            </div>
+          </Link>}
       </div>
       <div className="my-products-outer">
         {products && <div className="my-products-inner">
