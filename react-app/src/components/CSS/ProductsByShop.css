@@ -12,13 +12,16 @@
 
 .user-shop-header {
   display: flex;
-  justify-content: center;
+  width: 1220px;
+  margin: 0 auto 0;
 }
 
 .user-shop-header-left {
   display: flex;
-  margin: 20px;
-  padding-right: 100px;
+  margin: 20px 0;
+  width: 560px;
+  justify-content: flex-start;
+  box-sizing: border-box;
 }
 
 .shop-icon-img {
@@ -64,6 +67,7 @@
 
 .user-shop-header-middle {
   display: flex;
+  width: 500px;
 }
 
 .user-shop-feature {
@@ -96,9 +100,77 @@
   width: 50px;
   border-radius: 50%;
   padding-bottom: 10px;
+  object-fit: cover;
 }
 
 .user-shop-profile-name {
   font-family: GraphikRegular, Arial, Helvetica, sans-serif;
   font-size: 0.8rem;
+}
+
+.user-shop-main {
+  padding-top: 85px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  width: 1220px;
+}
+
+.user-shop-caption {
+  margin: 1rem 0;
+  font-family: GraphikMedium, Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+}
+
+.user-shop-products-main {
+  display: grid;
+  grid-template-columns: repeat(4, 308px);
+  justify-content: center;
+}
+
+.user-shop-product-inner {
+  margin: 0 0.5rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-shop-product-img-outer {
+  width: 100%;
+  height: 200px;
+}
+
+.user-shop-product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.user-shop-product-name {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: relative;
+  display: inline-block;
+  font-family: GraphikLight, Arial, Helvetica, sans-serif;
+  font-size: 0.85rem;
+  margin: 0.3rem 0 0.2rem;
+}
+
+.user-shop-product-price {
+  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+}
+
+.user-shop-free-shipping {
+  font-family: GraphikMedium, Arial, Helvetica, sans-serif;
+  background-color: #D4E9D7;
+  font-size: 0.7rem;
+  letter-spacing: 0.5px;
+  border-radius: 10px;
+  padding: 2px 6px;
+  width: fit-content;
+  margin: 0.1rem 0 1rem;
 }
