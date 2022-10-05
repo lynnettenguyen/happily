@@ -14,7 +14,6 @@
   width: 100%;
   min-height: 100px;
   min-width: 100%;
-  z-index: -3;
 }
 
 .my-products-header {
@@ -29,6 +28,10 @@
   font-size: 1rem;
   margin: 0 auto 2rem;
   width: 1220px;
+}
+
+.my-products-shop:hover {
+  text-decoration: underline;
 }
 
 .my-products-outer {

@@ -43,7 +43,7 @@ const ShopManager = () => {
     <div className="my-products-main">
       <div className="my-products-upper">
         <div className="my-products-header">Shop Manager</div>
-        <div className="my-products-shop">{user?.shop_name ? user.shop_name : ""}</div>
+        {user?.shop_name && <Link to={`/shop/${user?.shop_name}`}><div className="my-products-shop">{user?.shop_name}</div></Link>}
       </div>
       <div className="my-products-outer">
         {products && <div className="my-products-inner">

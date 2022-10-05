@@ -52,7 +52,7 @@ function App() {
           <ProtectedRoute path='/shop' exact={true}>
             <Shop />
           </ProtectedRoute>
-          <ProtectedRoute path='/shop/products' exact={true}>
+          <ProtectedRoute path='/shopManager'>
             <ShopManager />
           </ProtectedRoute>
           <ProtectedRoute path='/purchases'>

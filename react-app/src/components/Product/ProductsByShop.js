@@ -64,8 +64,9 @@ const ProductsByShop = () => {
                       {product?.images?.length > 0 && <img src={product?.images} className='user-shop-product-img' alt='product'></img>}
                     </div>
                     <div className='user-shop-product-name'>{product.name}</div>
-                    <div className='user-shop-product-price'>${product?.price.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
-                    <div className='user-shop-free-shipping'>FREE shipping</div>
+                    <div className='user-shop-product-price'>${product?.price.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                      <span className='user-shop-free-shipping'>FREE shipping</span>
+                    </div>
                   </div>
                 </Link>
               )

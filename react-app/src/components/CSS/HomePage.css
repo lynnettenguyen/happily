@@ -407,6 +407,10 @@
   font-size: 0.9rem;
 }
 
+.shop-product-shop-name:hover {
+  text-decoration: underline;
+}
+
 .shop-product-items {
   font-family: GraphikLight, Arial, Helvetica, sans-serif;
   font-size: 0.8rem;

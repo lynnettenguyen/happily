@@ -201,10 +201,10 @@ const Product = () => {
                   <span className='notification-message'>You added {count} item(s) to your <Link to='/cart' className='view-cart-link'>cart</Link>!</span>
                 </div>
               }
-              <div className='product-shop-name'>{product[productId]?.shop_name}</div>
+              <Link to={`/shop/${product[productId]?.shop_name}`}><div className='product-shop-name'>{product[productId]?.shop_name}</div></Link>
               <div className='product-rating'>
                 {product[productId]?.reviews?.length > 0 ? <>
-                  {/* <div className='product-sales'>{`${(Math.floor(Math.random() * (2000 - 200 + 1) + 200)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} sales`} <span className='divider'>&nbsp; | &nbsp;</span></div> */}
+                  <div className='product-sales'>{`${(Math.floor(Math.random() * (2000 - 200 + 1) + 200)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} sales`} <span className='divider'>&nbsp; | &nbsp;</span></div>
                   <div className='product-rating-outer'>
                     {rating?.map((star, i) => {
                       return (

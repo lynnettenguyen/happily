@@ -10,7 +10,7 @@ def seed_users():
     User(
         shop_name='HappilyZoroShop', first_name='Roronoa Zoro', email='zoro@aa.io', password='password', profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/zoro.png'),
     User(
-        shop_name='HappilyDemo', first_name='Demo', email='demo@aa.io', password='password', profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/demo.png'),
+        shop_name='HappilyDemo', first_name='Demo Boa Hancock', email='demo@aa.io', password='password', profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/demo.jpeg'),
     User(
         shop_name='HappilyRobinBridal', first_name='Nico Robin', email='robin@aa.io', password='password', profile_pic='https://knotsy.s3.us-west-1.amazonaws.com/robin.png'),
     User(

@@ -31,7 +31,7 @@ const NavBar = () => {
           <SearchBar />
           {user ? <>
             <div className='navBar-link-icon'>
-              <NavLink to='/shop/products' exact={true} activeClassName='active'>
+              <NavLink to='/shopManager' exact={true} activeClassName='active'>
                 <img src={shop} alt='shop'></img>
               </NavLink>
             </div>

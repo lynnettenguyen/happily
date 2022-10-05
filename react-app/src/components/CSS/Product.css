@@ -33,6 +33,10 @@
   margin-bottom: 0.9rem;
 }
 
+.product-shop-name:hover {
+  text-decoration: underline;
+}
+
 .product-sales {
   font-family: GraphikLight, Arial, Helvetica, sans-serif;
   font-size: 0.9rem;
