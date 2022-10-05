@@ -37,6 +37,7 @@ const Product = () => {
 
   useEffect(() => {
     dispatch(getUsers())
+    document.documentElement.scrollTop = 0;
   }, [])
 
   useEffect(() => {
