@@ -75,15 +75,15 @@ NavLink {
 .navBar-featured-outer {
   display: flex;
   justify-content: center;
-  font-family: GraphikLight, Arial, Helvetica, sans-serif;
-  font-size: 0.85rem;
+  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
+  font-size: 0.82rem;
   box-sizing: border-box;
   align-items: center;
   width: 1450px;
 }
 
 .navBar-feature {
-  border-bottom: 1px solid rgba(255, 255, 255, 0);
+  border-bottom: 1px solid rgba(0, 0, 0, 0);
   padding: 0.5rem 0 1rem;
   margin: 0 1.65rem;
   white-space: nowrap;
@@ -98,7 +98,7 @@ NavLink {
 
 .navBar-feature:hover {
   cursor: pointer;
-  border-bottom: 1.5px solid black;
+  border-bottom: 1px solid black;
   box-sizing: border-box;
 }
 
@@ -112,7 +112,7 @@ NavLink {
     margin: 0 auto;
   }
 
-  .navBar-feature {
+  .navBar-feature, .navBar-feature-active {
     margin: 0 1.6rem;
   }
 }
@@ -127,7 +127,7 @@ NavLink {
     margin: 0 auto;
   }
 
-  .navBar-feature {
+  .navBar-feature, .navBar-feature-active {
     margin: 0 1.1rem;
   }
 }
