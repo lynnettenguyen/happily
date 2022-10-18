@@ -2,12 +2,12 @@
 
 Happily is a full-stack e-commerce clone of [Etsy](https://www.etsy.com/), focused on handmade and craft supplies for all things related to weddings! Users can browse through wedding items by category as well as list their own wedding related products to sell. Seller can edit or delete their products through the shop manager and users can purchase items using the cart feature. Users can also cancel purchases and leave reviews on products they've purchased.
 
-Live Site: [Happily](https://happily-app-etsy-clone.herokuapp.com/)
+Live Site: [Happily](https://happily-crafts.herokuapp.com/)
 
 ## Languages, Frameworks, Platforms and Libraries
 
 ### Languages
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) 
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
 ### Backend
 ![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white) ![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-100000?style=for-the-badge&logo=sql&logoColor=BA1212&labelColor=AD0000&color=A90000) ![SQLite](https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white)
@@ -87,7 +87,7 @@ flask seed all
 flask run
 ```
 
-5. Install frontend dependencies: 
+5. Install frontend dependencies:
 
 ```bash
 cd react-app/
@@ -96,4 +96,3 @@ npm start
 ```
 
 6. Navigate to [localhost:3000](http://localhost:3000)
-

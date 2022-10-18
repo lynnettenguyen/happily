@@ -70,13 +70,14 @@
   color: rgb(82, 82, 82);
 }
 
+.purchase-content-shop,
 .purchase-content,
 .purchase-shop-order {
   font-family: GraphikRegular, Arial, Helvetica, sans-serif;
   color: black;
 }
 
-.purchase-content:hover {
+.purchase-content-shop:hover {
   text-decoration: underline;
 }
 
@@ -176,7 +177,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-width: 100px;
+  min-width: 220px;
 }
 
 .purchase-shipping-header {

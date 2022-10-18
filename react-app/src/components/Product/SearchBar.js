@@ -5,7 +5,7 @@ import { findProductsBySearch } from '../../store/products';
 import magnifyingGlass from '../CSS/Images/magnifying_glass.svg'
 import '../CSS/SearchBar.css'
 
-const SearchBar = () => {
+const SearchBar = ({setSelectedCategory}) => {
   const dispatch = useDispatch()
   const history = useHistory()
   const user = useSelector(state => state.session.user)
@@ -31,6 +31,7 @@ const SearchBar = () => {
       history.push(`/search/${keyword}`)
     }
 
+    setSelectedCategory()
     setKeyword("")
     setErrors([])
   }
