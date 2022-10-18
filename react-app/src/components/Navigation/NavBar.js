@@ -28,15 +28,15 @@ const NavBar = () => {
               <div className='navBar-home' onClick={() => setSelectedCategory()}>Happily</div>
             </NavLink>
           </div>
-          <SearchBar />
+          <SearchBar setSelectedCategory={setSelectedCategory} />
           {user ? <>
             <div className='navBar-link-icon'>
-              <NavLink to='/shopManager' exact={true} activeClassName='active'>
+              <NavLink to='/shopManager' exact={true} activeClassName='active' onClick={() => setSelectedCategory()}>
                 <img src={shop} alt='shop'></img>
               </NavLink>
             </div>
             <div className='navBar-link-profile'>
-              <Profile user={user} />
+              <Profile user={user} setSelectedCategory={setSelectedCategory} />
             </div>
           </> : <>
             <div className='navBar-link sign-in'>
@@ -51,7 +51,7 @@ const NavBar = () => {
             </div>
           </>}
           <div className='navBar-link-icon'>
-            <NavLink to='/cart' exact={true} activeClassName='active'>
+            <NavLink to='/cart' exact={true} activeClassName='active' onClick={() => setSelectedCategory()}>
               <img src={cart} alt='cart'></img>
             </NavLink>
           </div>

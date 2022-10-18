@@ -8,7 +8,7 @@ import { logout } from '../../store/session';
 import signOut from '../CSS/Images/sign-out.svg'
 import shop from '../CSS/Images/shop.svg'
 
-const Profile = ({ user }) => {
+const Profile = ({ user, setSelectedCategory }) => {
   const dispatch = useDispatch();
   const [showDropdown, setShowDropdown] = useState(false);
 
@@ -48,7 +48,7 @@ const Profile = ({ user }) => {
               <div className='profile-name'>{user.first_name}</div>
             </div>
             <Link to='/purchases'>
-              <div className='dropdown-item' onClick={() => { setShowDropdown(!showDropdown) }}>
+              <div className='dropdown-item' onClick={() => { setShowDropdown(!showDropdown); setSelectedCategory() }}>
                 <img src={purchases} className='profile-purchases-img' alt='purchases'></img>
                 <div className='profile-purchase'>Purchases and reviews</div>
               </div>
@@ -60,7 +60,7 @@ const Profile = ({ user }) => {
               </div>
             </Link> */}
             <Link to='/shop'>
-              <div className='dropdown-item' onClick={() => { setShowDropdown(!showDropdown) }}>
+              <div className='dropdown-item' onClick={() => { setShowDropdown(!showDropdown); setSelectedCategory() }}>
                 <img src={shop} className='profile-shop-img' alt='shop'></img>
                 <div className='profile-shop'>Sell on Happily</div>
               </div>

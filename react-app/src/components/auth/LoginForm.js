@@ -82,7 +82,7 @@ const LoginForm = ({ setShowSignIn }) => {
         </div>
         <div className='login-buttons-outer'>
           <button type='submit' className='login-form-button'>Sign in</button>
-          <button type='submit' className='login-form-demo-button' onClick={() => { setEmail('demo@aa.io'); setPassword('password') }}> Demo User</button>
+          <button type='submit' className='login-form-demo-button' onClick={() => { setEmail('demo@aa.io'); setPassword('SecurePassword0411.') }}> Demo User</button>
         </div>
       </form >}
     </>

@@ -65,33 +65,24 @@
   margin-left: 1rem;
 }
 
-.social-logo-github {
+.social-logo {
   background-color: white;
   border-radius: 50%;
-  height: 30px;
-  width: 30px;
-}
-
-.social-logo-linked {
-  background-color: white;
-  border-radius: 50%;
-  height: 30px;
-  width: 30px;
-  object-fit: cover;
+  height: 26px;
+  width: 26px;
 }
 
 .social-text {
-  padding-bottom: 10px;
+  padding-bottom: 8px;
   color: white;
   font-family: GraphikLight, Arial, Helvetica, sans-serif;
   margin: 0 10px;
+  font-size: 0.85rem;
 }
 
 .social-text:hover {
   color: rgba(232, 232, 232, 0.62);
 }
-
-
 
 
 @media screen and (min-width: 1920px) {
