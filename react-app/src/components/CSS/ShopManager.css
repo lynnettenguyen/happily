@@ -32,13 +32,10 @@
   align-items: center;
 }
 
-.my-products-shop:hover {
-  opacity: 0.75;
-}
-
 .shop-manager-shop-name:hover {
   text-decoration: underline;
   padding-right: 8px;
+  cursor: pointer;
 }
 
 .my-products-outer {
