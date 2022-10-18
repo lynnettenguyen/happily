@@ -64,6 +64,16 @@ const Purchases = () => {
     return (new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: 'numeric' }).format(date));
   }
 
+  const checkDelivered = (dateTime) => {
+    const date = new Date(dateTime)
+    date.setDate(date.getDate() + 7);
+    if (date < new Date()) {
+      console.log(date)
+      console.log(new Date())
+      return "delivered"
+    }
+  }
+
   const convertTotal = (price) => {
     return price.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
   }
@@ -176,41 +186,60 @@ const Purchases = () => {
                   </div>
                   <div className="purchase-product-info">
                     <div className="purchase-product-name">{products[purchase.product_id]?.name}</div>
-                    {!Object.keys(userReviews).includes((purchase.product_id).toString()) ? <div className="purchase-product-review-outer">
-                      <div className="purchase-review-header">Review this Item</div>
-                      <img src={ratedStar1 && purchase.id === purchaseId ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(1, purchase.id)} onMouseLeave={() => handleStarOff(1, purchase.id)} onClick={() => handleReview(1, purchase.product_id, purchase.id)} className='purchase-review-star' alt='star'></img>
-                      <img src={ratedStar2 && purchase.id === purchaseId ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(2, purchase.id)} onMouseLeave={() => handleStarOff(2, purchase.id)} onClick={() => handleReview(2, purchase.product_id, purchase.id)} className='purchase-review-star' alt='star'></img>
-                      <img src={ratedStar3 && purchase.id === purchaseId ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(3, purchase.id)} onMouseLeave={() => handleStarOff(3, purchase.id)} onClick={() => handleReview(3, purchase.product_id, purchase.id)} className='purchase-review-star' alt='star'></img>
-                      <img src={ratedStar4 && purchase.id === purchaseId ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(4, purchase.id)} onMouseLeave={() => handleStarOff(4, purchase.id)} onClick={() => handleReview(4, purchase.product_id, purchase.id)} className='purchase-review-star' alt='star'></img>
-                      <img src={ratedStar5 && purchase.id === purchaseId ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(5, purchase.id)} onMouseLeave={() => handleStarOff(5, purchase.id)} onClick={() => handleReview(5, purchase.product_id, purchase.id)} className='purchase-review-star' alt='star'></img>
-                    </div> : <div className="purchase-user-review-outer">
-                      <div className="purchase-user-review-upper">
-                        <span className="purchase-user-review-header">Your Review</span>
-                        <span>{stars(userReviews[purchase.product_id]?.stars)}</span>
-                      </div>
-                      <div className="purchase-user-review-content">{userReviews[purchase.product_id]?.content}</div>
-                      <div className="purchase-review-buttons-outer">
-                        <button onClick={() => handleEditReview(userReviews[purchase.product_id], purchase.id)} className='purchase-review-edit-button'>Edit</button>
-                        {/* <button onClick={() => handleDeleteReview(userReviews[purchase.product_id].id)} className='purchase-review-delete-button'>Delete</button> */}
-                        <button onClick={() => handleRemoveConfirmation(userReviews[purchase.product_id].id)} className='purchase-review-delete-button'>Delete</button>
-                      </div>
-                    </div>
+                    {checkDelivered(purchase?.created_at) === "delivered" ?
+                      <>
+                        {!Object.keys(userReviews).includes((purchase.product_id).toString()) ?
+                          <div className="purchase-product-review-outer">
+                            <div className="purchase-review-header">Review this Item</div>
+                            <img src={ratedStar1 && purchase.id === purchaseId ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(1, purchase.id)} onMouseLeave={() => handleStarOff(1, purchase.id)} onClick={() => handleReview(1, purchase.product_id, purchase.id)} className='purchase-review-star' alt='star'></img>
+                            <img src={ratedStar2 && purchase.id === purchaseId ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(2, purchase.id)} onMouseLeave={() => handleStarOff(2, purchase.id)} onClick={() => handleReview(2, purchase.product_id, purchase.id)} className='purchase-review-star' alt='star'></img>
+                            <img src={ratedStar3 && purchase.id === purchaseId ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(3, purchase.id)} onMouseLeave={() => handleStarOff(3, purchase.id)} onClick={() => handleReview(3, purchase.product_id, purchase.id)} className='purchase-review-star' alt='star'></img>
+                            <img src={ratedStar4 && purchase.id === purchaseId ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(4, purchase.id)} onMouseLeave={() => handleStarOff(4, purchase.id)} onClick={() => handleReview(4, purchase.product_id, purchase.id)} className='purchase-review-star' alt='star'></img>
+                            <img src={ratedStar5 && purchase.id === purchaseId ? filledStar : unfilledStar} onMouseOver={() => handleStarOn(5, purchase.id)} onMouseLeave={() => handleStarOff(5, purchase.id)} onClick={() => handleReview(5, purchase.product_id, purchase.id)} className='purchase-review-star' alt='star'></img>
+                          </div> :
+                          <div className="purchase-user-review-outer">
+                            <div className="purchase-user-review-upper">
+                              <span className="purchase-user-review-header">Your Review</span>
+                              <span>{stars(userReviews[purchase.product_id]?.stars)}</span>
+                            </div>
+                            <div className="purchase-user-review-content">{userReviews[purchase.product_id]?.content}</div>
+                            <div className="purchase-review-buttons-outer">
+                              <button onClick={() => handleEditReview(userReviews[purchase.product_id], purchase.id)} className='purchase-review-edit-button'>Edit</button>
+                              <button onClick={() => handleRemoveConfirmation(userReviews[purchase.product_id].id)} className='purchase-review-delete-button'>Delete</button>
+                            </div>
+                          </div>
+                        }
+                      </> : <>
+                        <div className="purchase-product-review-outer">
+                          <div className="purchase-review-header">Review item after delivery on {generateDelivery(purchase?.created_at)}  </div>
+                        </div>
+                      </>
                     }
                   </div>
                 </div>
               </div>
               <div className="purchase-shipping-details">
                 <div className="purchase-dates-outer">
-                  <div className="cancel-order-button-outer"><button className="cancel-order-button" onClick={() => cancelOrder(purchase?.id, purchase?.order_number, products[purchase.product_id]?.name)}>Cancel Order</button>
-                  </div>
-                  <div className="purchase-shipped-upper">
-                    <span className="purchase-shipping-header">Ship by</span>
-                    <span className="purchase-shipping-date">{generatedShipped(purchase?.created_at)}</span>
-                  </div>
-                  <div className='purchase-delivery-outer'>
-                    <span className="purchase-estimated-delivery">Estimated delivery:</span>
-                    <span className="purchase-delivery-date">{generateDelivery(purchase?.created_at)}</span>
-                  </div>
+                  {checkDelivered(purchase?.created_at) === "delivered" ?
+                    <>
+                      <div className="purchase-shipped-upper">
+                        <span className="purchase-shipping-header">Delivered</span>
+                        <div className="purchase-shipping-date"> on {generateDelivery(purchase?.created_at)}</div>
+                      </div>
+                    </>
+                    : <>
+                      <div className="cancel-order-button-outer"><button className="cancel-order-button" onClick={() => cancelOrder(purchase?.id, purchase?.order_number, products[purchase.product_id]?.name)}>Cancel Order</button>
+                      </div>
+                      <div className="purchase-shipped-upper">
+                        <span className="purchase-shipping-header">Ship by</span>
+                        <span className="purchase-shipping-date">{generatedShipped(purchase?.created_at)}</span>
+                      </div>
+                      <div className='purchase-delivery-outer'>
+                        <span className="purchase-estimated-delivery">Estimated delivery:</span>
+                        <span className="purchase-delivery-date">{generateDelivery(purchase?.created_at)}</span>
+                      </div>
+                    </>
+                  }
                 </div>
                 <div className="order-receipt-outer">
                   <div className="order-receipt-upper">
