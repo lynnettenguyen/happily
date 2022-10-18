@@ -200,7 +200,7 @@ const Product = () => {
               {notification &&
                 <div className='notification-outer'>
                   <img src={check} alt='check'></img>
-                  <span className='notification-message'>You added {count} item(s) to your <Link to='/cart' className='view-cart-link'>cart</Link>!</span>
+                  <span className='notification-message'>You added {count} {count === 1 ? "item" : "items"} to your <Link to='/cart' className='view-cart-link'>cart</Link>!</span>
                 </div>
               }
               <Link to={`/shop/${product[productId]?.shop_name}`}><div className='product-shop-name'>{product[productId]?.shop_name}</div></Link>
