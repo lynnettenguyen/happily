@@ -75,7 +75,7 @@ NavLink {
 .navBar-featured-outer {
   display: flex;
   justify-content: center;
-  font-family: GraphikRegular, Arial, Helvetica, sans-serif;
+  font-family: GraphikLight, Arial, Helvetica, sans-serif;
   font-size: 0.83rem;
   box-sizing: border-box;
   align-items: center;
@@ -86,7 +86,7 @@ NavLink {
 .navBar-feature, .navBar-feature-active {
   border-bottom: 1px solid rgba(0, 0, 0, 0);
   padding: 0.5rem 0 1.09rem;
-  margin: 0 1.4rem;
+  margin: 0 1.5rem;
   white-space: nowrap;
 }
 
