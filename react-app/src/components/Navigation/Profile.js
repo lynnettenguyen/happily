@@ -53,12 +53,6 @@ const Profile = ({ user, setSelectedCategory }) => {
                 <div className='profile-purchase'>Purchases and reviews</div>
               </div>
             </Link>
-            {/* <Link to='/reviews'>
-              <div className='dropdown-item' onClick={() => { setShowDropdown(!showDropdown) }}>
-                <img src={star} className='review-star-img' alt='reviews'></img>
-                <div className='profile-reviews'>Review your purchases</div>
-              </div>
-            </Link> */}
             <Link to='/shop'>
               <div className='dropdown-item' onClick={() => { setShowDropdown(!showDropdown); setSelectedCategory() }}>
                 <img src={shop} className='profile-shop-img' alt='shop'></img>
@@ -72,8 +66,7 @@ const Profile = ({ user, setSelectedCategory }) => {
               </div>
             </div>
           </div>
-        </>
-        : <></>
+        </> : <></>
       }
     </div >
   )
