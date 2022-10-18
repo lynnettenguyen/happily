@@ -124,9 +124,9 @@ const Cart = () => {
                     <div className='cart-product-shop'>{product.shop_name}</div>
                     {product.name}</div>
                   <div className='cart-product-quantity-outer'>
-                    <div onClick={() => handleRemoveQuantity(product)} className='quantity-button'>-</div>
+                    <button type='button' onClick={() => handleRemoveQuantity(product)} className='quantity-button'>-</button>
                     <div className='cart-product-quantity'>{product.quantity}</div>
-                    <div onClick={() => handleAddQuantity(product)} className='quantity-button'>+</div>
+                    <button type='button' onClick={() => handleAddQuantity(product)} className='quantity-button' disabled={product.quantity === 200}>+</button>
                   </div>
                   <div className='cart-product-price'>${convertTotal(product.price)}</div>
                 </div>
