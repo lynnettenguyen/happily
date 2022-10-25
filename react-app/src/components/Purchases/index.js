@@ -68,9 +68,15 @@ const Purchases = () => {
     const date = new Date(dateTime)
     date.setDate(date.getDate() + 7);
     if (date < new Date()) {
-      console.log(date)
-      console.log(new Date())
       return "delivered"
+    }
+  }
+
+  const checkShipped = (dateTime) => {
+    const date = new Date(dateTime)
+    date.setDate(date.getDate() + 3);
+    if (date < new Date()) {
+      return "shipped"
     }
   }
 
@@ -211,7 +217,7 @@ const Purchases = () => {
                         }
                       </> : <>
                         <div className="purchase-product-review-outer">
-                          <div className="purchase-review-header">Review item after delivery on {generateDelivery(purchase?.created_at)}  </div>
+                          <div className="purchase-review-header">Item review available after delivery on {generateDelivery(purchase?.created_at)}  </div>
                         </div>
                       </>
                     }
@@ -228,7 +234,7 @@ const Purchases = () => {
                       </div>
                     </>
                     : <>
-                      <div className="cancel-order-button-outer"><button className="cancel-order-button" onClick={() => cancelOrder(purchase?.id, purchase?.order_number, products[purchase.product_id]?.name)}>Cancel Order</button>
+                      <div className="cancel-order-button-outer"><button className="cancel-order-button" onClick={() => cancelOrder(purchase?.id, purchase?.order_number, products[purchase.product_id]?.name)} disabled={checkShipped(purchase?.created_at) === 'shipped'}>Cancel Order</button>
                       </div>
                       <div className="purchase-shipped-upper">
                         <span className="purchase-shipping-header">Ship by</span>
