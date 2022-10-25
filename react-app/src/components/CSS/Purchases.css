@@ -264,6 +264,10 @@
   height: 20px;
 }
 
+.cancel-order-button:disabled {
+  opacity: 0.1;
+}
+
 .cancel-confirm-outer,
 .remove-confirm-outer {
   display: flex;
