@@ -134,7 +134,9 @@ const ProductsByShop = () => {
           </div>
         </div>
         <div className='user-shop-main'>
-          <div className='user-shop-caption'>Items<img src={addIcon} alt='add' className='user-shop-add-icon' onClick={handleAddItems}></img></div>
+          <div className='user-shop-caption'>Items
+            {user?.id === shop[0]?.user_id && <img src={addIcon} alt='add' className='user-shop-add-icon' onClick={handleAddItems}></img>}
+          </div>
           <div className='user-shop-products-main'>
             {shopProducts?.map((product, i) => {
               return (
