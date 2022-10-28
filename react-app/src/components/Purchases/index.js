@@ -191,7 +191,9 @@ const Purchases = () => {
                     </Link>
                   </div>
                   <div className="purchase-product-info">
-                    <div className="purchase-product-name">{products[purchase.product_id]?.name}</div>
+                    <Link to={`/products/${purchase.product_id}`}>
+                      <div className="purchase-product-name">{products[purchase.product_id]?.name}</div>
+                    </Link>
                     {checkDelivered(purchase?.created_at) === "delivered" ?
                       <>
                         {!Object.keys(userReviews).includes((purchase.product_id).toString()) ?
